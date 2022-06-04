@@ -15,14 +15,20 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../main.css" />
     <title>Skin Clinica</title>
   </head>
   <body class="preload">
     <header id="header"></header>
     <main>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           Dropdown button
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -31,6 +37,27 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
+
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+      </div>
     </main>
     <footer id="footer"></footer>
     <link
@@ -38,9 +65,10 @@
       href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     />
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="../bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/swiper.js"></script>
+   <!--  <script src="../bootstrap/dist/js/bootstrap.bundle.js"></script> -->
+   <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   <script type="module" src="../../scripts/vendors/swiper.js"></script>
+    <script src="../../scripts/main.js"></script>
+    
   </body>
 </html>

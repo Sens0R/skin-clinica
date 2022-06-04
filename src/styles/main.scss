@@ -1,0 +1,25 @@
+/* 
+sass --watch src/styles/main.scss src/styles/main.css 
+*/
+
+/*--------------------------------------------------------------
+# Import
+--------------------------------------------------------------*/
+
+// 0 - HELPERS
+@import "0-helpers/functions";
+@import "0-helpers/mixins";
+@import "0-helpers/variables";
+
+// 1 - TOOLS
+@import "1-tools/swiper"; 
+@import "1-tools/bootstrap"; 
+
+// 2 - BASE
+@import "2-base/typography";
+
+// 3 - LAYOUT
+
+// 4 - COMPONENTS
+
+// 5 - PAGES
