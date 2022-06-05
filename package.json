@@ -48,6 +48,9 @@
   "bootstrap": "^5.2.0-beta1",
   
     
+  "glob-parent": "^6.0.2",
+  
+    
   "swiper": "^8.2.2"
   
   },
