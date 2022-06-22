@@ -42,7 +42,7 @@ export { svgSprites };
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 const mainTasks = gulp.series(
   fonts,
-  gulp.parallel(copy, html, scss, js, images)
+  gulp.parallel(copy, html, scss, js, images, svgSprites)
 );
 
 // Построение сценариев выполнения задач
