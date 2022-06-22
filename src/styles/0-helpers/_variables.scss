@@ -1,46 +1,123 @@
-/*
- * Fonts
- * ========================================================================== */
+/* ===============================================================================================
+COLORS
+=============================================================================================== */
+// First tier variables. Only use them for second tier variables.
+$color-pink: hsl(336, 95%, 84%); 
+$color-pink-light: lighten($color-pink, 6%);
+$color-black: hsl(0, 0%, 0%);
+$color-black-100: hsl(0, 5%, 12%);
+$color-gray: hsl(0, 0%, 45%);
+$color-white: hsl(0, 0%, 100%);
+$color-white-100: darken($color-white, 5%);
+$color-white-200: darken($color-white, 10%);
+$color-white-300: darken($color-white, 15%);
+$color-white-muted: fade-out($color-white, 0.25);           // 0.75 alpha
+$color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
 
- // FONT IMPORT
+// Second tier variables
+$color-primary: $color-pink;
+$color-primary-light: $color-pink-light;
+$color-secondary: $color-black-100;
+$color-secondary-light: $color-white-100;
 
-$font-family: Arial, Helvetica, sans-serif;
-$font-family-title: Arial, Helvetica, sans-serif;
+$color-background: $color-white-300;
+$color-border: $color-white-200;
 
-$body-font: $font-family;
-$body-font-weight: 400;
+$color-font: $color-gray;
+$color-font-light: $color-white;
+$color-font-dark: $color-black;
+$color-font-accent: $color-pink;
+$color-font-muted: $color-white-muted;
 
-$header-font: $font-family-title;
+$color-overlay: $color-white-transparent;
 
-$basic-font-size: 100%;
-$paragraph: 16px;
+$color-headings: $color-secondary;
 
-// Golden ration for 16px font-size
-$line-height: 24px;
+/* ===============================================================================================
+TYPOGRAPHY 
+=============================================================================================== */
+// Fonts
+$font-primary: DMSans, sans-serif;
+$font-secondary: null;
 
-// For REM / EM
-//$basic-font-size: 62.5%;
-//$paragraph: 1.6rem;
-//$line-height: 2.4rem;
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * 0.875; // 14px HTML text-sm
+$font-size-lg: $font-size-base * 1.125; // 18px HTML text-lg
+
+$line-height-base: 1.6;                 // HTML lh-base    // HTML lh-1
+$line-height-sm: 1.25;                  // HTML lh-sm
+$line-height-lg: 2;                     // HTML lh-lg
+
+// Headings
+$headings-font-family: null;
+$headings-font-style: null;
+$headings-font-weight: bold;
+$headings-line-height: 1.2;
+
+$headings-font-size: $font-size-base * 1;
+$font-size-h1: $headings-font-size * 3;       // 48px
+$font-size-h2: $headings-font-size * 2.5;     // 40px
+$font-size-h3: $headings-font-size * 2;       // 32px
+$font-size-h4: $headings-font-size * 1.625;   // 26px
+$font-size-h5: $headings-font-size * 1.25;    // 20px
+$font-size-h6: $headings-font-size * 0.875;   // 14px
+
+/* ===============================================================================================
+STRUCTURE
+=============================================================================================== */
+
+// Spacers
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer * .75,
+  4: $spacer,
+  5: $spacer * 1.25,
+  6: $spacer * 1.5,
+  7: $spacer * 2,
+  8: $spacer * 3,
+  9: $spacer * 4,
+  10: $spacer * 5
+);
+
+$spacer-base: 1rem;
+$spacer-sm: $spacer-base * 1.25;
+$spacer-md: $spacer-base * 2;
+$spacer-lg: $spacer-base * 3;
+$spacer-headings: $spacer-base * 1.25;
+
+// Z-index values || z<Context><Element>
+$base: 0;
+$above: 1; // use this for all values above the base
+$below: -1; // and this for all values below the base
+
+// Page Layout
+$zLayoutNavigation: $above + $base;
+$zLayoutFooter: $above + $base;
+$zLayoutModal: $above + $zLayoutNavigation;
+$zLayoutPopUpAd: $above + $zLayoutModal;
+
+// NavMenu
+$zNavMenuBackdrop: $below + $base;
+$zNavMenuPopover: $above + $base;
+$zNavMenuToggle: $above + $zNavMenuPopover;
 
 
 
-/*
- * Palette
- * ========================================================================== */
+/* $site-header-height: 4rem;
 
-/*
- * Basic Colors
- * ========================================================================== */
+$container: 1170px;
 
-$blue: #00f;
-$red: #f00;
-$white: #fff;
-$black: #000;
-$gray: #ccc;
+$container-p-sm: 1rem;
+$container-p-md: 2rem;
+$container-p-lg: 3rem;
 
-/*
- * Mixing Colors
- * ========================================================================== */
-$text-color: $black;
-$inverted-text-color: $white;
+$border-radius-small: 0.25rem;
+$shadow: 0 0.25em 1em 0.7em rgba($color-primary-dark, 0.05);
+
+$input-x-padding: 1.25em;
+$input-y-padding: 0.75em;
+
+$transition: 0.2s ease-in-out; */

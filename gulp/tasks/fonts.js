@@ -58,7 +58,7 @@ export const ttfToWoff = () => {
 
 export const fontsStyle = () => {
   // Файлы стилей подключения шрифтов
-  let fontsFile = `${app.path.srcFolder}/styles/fonts.scss`;
+  let fontsFile = `${app.path.srcFolder}/styles/2-base/_fonts.scss`;
   // Проверяем существуют ли файлы шрифтов
   fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
     if (fontsFiles) {
@@ -110,7 +110,7 @@ export const fontsStyle = () => {
           }
         }
       } else {
-        console.log('файл scss/fonts.scss уже существует. для обновления файла нужно его удалить');
+        console.log('файл styles/2-base/_fonts.scss уже существует. для обновления файла нужно его удалить');
       }
     }
   });

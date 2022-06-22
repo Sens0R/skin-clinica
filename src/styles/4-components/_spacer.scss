@@ -1,0 +1,147 @@
+.spacer {
+  // paddings small
+  &-p-sm {
+    @include padding($spacer-sm);
+  }
+  &-pv-sm {
+    @include padding-top($spacer-sm);
+    @include padding-bottom($spacer-sm);
+  }
+  &-ph-sm {
+    @include padding-left($spacer-sm);
+    @include padding-right($spacer-sm);
+  }
+  &-pt-sm {
+    @include padding-top($spacer-sm);
+  }
+  &-pb-sm {
+    @include padding-bottom($spacer-sm);
+  }
+  &-pl-sm {
+    @include padding-left($spacer-sm);
+  }
+  &-pr-sm {
+    @include padding-right($spacer-sm);
+  }
+  // paddings medium
+  &-p-md {
+    @include padding($spacer-md);
+  }
+  &-pv-md {
+    @include padding-top($spacer-md);
+    @include padding-bottom($spacer-md);
+  }
+  &-ph-md {
+    @include padding-left($spacer-md);
+    @include padding-right($spacer-md);
+  }
+  &-pt-md {
+    @include padding-top($spacer-md);
+  }
+  &-pb-md {
+    @include padding-bottom($spacer-md);
+  }
+  &-pl-md {
+    @include padding-left($spacer-md);
+  }
+  &-pr-md {
+    @include padding-right($spacer-md);
+  }
+  // paddings large
+  &-p-lg {
+    @include padding($spacer-lg);
+  }
+  &-pv-lg {
+    @include padding-top($spacer-lg);
+    @include padding-bottom($spacer-lg);
+  }
+  &-ph-lg {
+    @include padding-left($spacer-lg);
+    @include padding-right($spacer-lg);
+  }
+  &-pt-lg {
+    @include padding-top($spacer-lg);
+  }
+  &-pb-lg {
+    @include padding-bottom($spacer-lg);
+  }
+  &-pl-lg {
+    @include padding-left($spacer-lg);
+  }
+  &-pr-lg {
+    @include padding-right($spacer-lg);
+  }
+  // margins small
+  &-m-sm {
+    @include margin($spacer-sm);
+  }
+  &-mv-sm {
+    @include margin-top($spacer-sm);
+    @include margin-bottom($spacer-sm);
+  }
+  &-mh-sm {
+    @include margin-left($spacer-sm);
+    @include margin-right($spacer-sm);
+  }
+  &-mt-sm {
+    @include margin-top($spacer-sm);
+  }
+  &-mb-sm {
+    @include margin-bottom($spacer-sm);
+  }
+  &-ml-sm {
+    @include margin-left($spacer-sm);
+  }
+  &-mr-sm {
+    @include margin-right($spacer-sm);
+  }
+  // margins medium
+  &-m-md {
+    @include margin($spacer-md);
+  }
+  &-mv-md {
+    @include margin-top($spacer-md);
+    @include margin-bottom($spacer-md);
+  }
+  &-mh-md {
+    @include margin-left($spacer-md);
+    @include margin-right($spacer-md);
+  }
+  &-mt-md {
+    @include margin-top($spacer-md);
+  }
+  &-mb-md {
+    @include margin-bottom($spacer-md);
+  }
+  &-ml-md {
+    @include margin-left($spacer-md);
+  }
+  &-mr-md {
+    @include margin-right($spacer-md);
+  }
+  // margins large
+  &-m-lg {
+    @include margin($spacer-lg);
+  }
+  &-mv-lg {
+    @include margin-top($spacer-lg);
+    @include margin-bottom($spacer-lg);
+  }
+  &-mh-lg {
+    @include margin-left($spacer-lg);
+    @include margin-right($spacer-lg);
+  }
+  &-mt-lg {
+    @include margin-top($spacer-lg);
+  }
+  &-mb-lg {
+    @include margin-bottom($spacer-lg);
+  }
+  &-ml-lg {
+    @include margin-left($spacer-lg);
+  }
+  &-mr-lg {
+    @include margin-right($spacer-lg);
+  }
+
+}

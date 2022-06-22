@@ -1,0 +1,127 @@
+.spacer {
+  // paddings
+  &-p-sm {
+    padding: $spacer-sm 0;
+  }
+  &-pt-sm {
+    padding-top: $spacer-sm;
+  }
+  &-pb-sm {
+    padding-bottom: $spacer-sm;
+  }
+
+  &-p-sm {
+    padding: $spacer-md 0;
+  }
+  &-pt-md {
+    padding-top: $spacer-md;
+  }
+  &-pb-md {
+    padding-bottom: $spacer-md;
+  }
+
+  &-p-lg {
+    padding: $spacer-lg 0;
+  }
+  &-pt-lg {
+    padding-top: $spacer-lg;
+  }
+  &-pb-lg {
+    padding-bottom: $spacer-lg;
+  }
+
+  // margins
+  &-m-sm {
+    margin: $spacer-sm 0;
+  }
+  &-mt-sm {
+    margin-top: $spacer-sm;
+  }
+  &-mb-sm {
+    margin-bottom: $spacer-sm;
+  }
+
+  &-m-md {
+    margin: $spacer-md 0;
+  }
+  &-mt-md {
+    margin-top: $spacer-md;
+  }
+  &-mb-md {
+    margin-bottom: $spacer-md;
+  }
+
+  &-m-lg {
+    margin: $spacer-lg 0;
+  }
+  &-mt-lg {
+    margin-top: $spacer-lg;
+  }
+  &-mb-lg {
+    margin-bottom: $spacer-lg;
+  }
+
+  @include media-breakpoint-up(lg) {
+    // paddings
+    &-p-sm {
+      padding: ($spacer-sm * $spacer-multiplier) 0;
+    }
+    &-pt-sm {
+      padding-top: $spacer-sm * $spacer-multiplier;
+    }
+    &-pb-sm {
+      padding-bottom: $spacer-sm * $spacer-multiplier;
+    }
+
+    &-p-md {
+      padding: ($spacer-md * $spacer-multiplier) 0;
+    }
+    &-pt-md {
+      padding-top: $spacer-md * $spacer-multiplier;
+    }
+    &-pb-md {
+      padding-bottom: $spacer-md * $spacer-multiplier;
+    }
+
+    &-p-lg {
+      padding: ($spacer-lg * $spacer-multiplier) 0;
+    }
+    &-pt-lg {
+      padding-top: $spacer-lg * $spacer-multiplier;
+    }
+    &-pb-lg {
+      padding-bottom: $spacer-lg * $spacer-multiplier;
+    }
+
+    // margins
+    &-m-sm {
+      margin: ($spacer-sm * $spacer-multiplier) 0;
+    }
+    &-mt-sm {
+      margin-top: $spacer-sm * $spacer-multiplier;
+    }
+    &-mb-sm {
+      margin-bottom: $spacer-sm * $spacer-multiplier;
+    }
+
+    &-m-md {
+      margin: ($spacer-md * $spacer-multiplier) 0;
+    }
+    &-mt-md {
+      margin-top: $spacer-md * $spacer-multiplier;
+    }
+    &-mb-md {
+      margin-bottom: $spacer-md * $spacer-multiplier;
+    }
+
+    &-m-lg {
+      margin: ($spacer-lg * $spacer-multiplier) 0;
+    }
+    &-mt-lg {
+      margin-top: $spacer-lg * $spacer-multiplier;
+    }
+    &-mb-lg {
+      margin-bottom: $spacer-lg * $spacer-multiplier;
+    }
+  }
+}

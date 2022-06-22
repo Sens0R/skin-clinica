@@ -23,9 +23,10 @@
   },
   "homepage": "https://github.com/Sens0R/skin-clinica#readme",
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1",
     "glob-parent": "^6.0.2",
-    "swiper": "^8.2.2"
+    "rfs": "^9.0.6"
   },
   "devDependencies": {
     "browser-sync": "latest",
@@ -56,6 +57,7 @@
     "gulp-zip": "latest",
     "rename": "latest",
     "sass": "latest",
+    "swiper": "^8.2.4",
     "vinyl-ftp": "latest",
     "webp-converter": "2.2.3",
     "webpack": "latest",

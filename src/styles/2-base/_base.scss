@@ -1,0 +1,93 @@
+html,
+body {
+  font-size: $font-size-base;
+  font-family: $font-primary;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;    
+  background-color: $color-background; //change to white at the end
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include margin-bottom($spacer-headings);
+  @include margin-top($spacer-headings);
+  color: $color-headings;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+}
+
+h1 {
+  @include font-size($font-size-h1);
+}
+h2 {
+  @include font-size($font-size-h2);
+}
+h3 {
+  @include font-size($font-size-h3);
+}
+h4 {
+  @include font-size($font-size-h4);
+}
+h5 {
+  @include font-size($font-size-h5);
+}
+h6 {
+  @include font-size($font-size-h6);
+}
+
+p,
+ul,
+ol,
+blockquote,
+address,
+table,
+hr {
+  @include margin-top($spacer-sm);
+  @include margin-bottom($spacer-sm);
+}
+
+p {
+  color: $color-font;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  //color: $text-color;
+}
+
+a {
+  //color: $text-color;
+  text-decoration: none;
+
+  &:visited {
+    outline: 0;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: underline;
+    outline: 0;
+  }
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+.br {
+  display: block;
+}
