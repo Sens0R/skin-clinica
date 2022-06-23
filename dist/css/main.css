@@ -13417,11 +13417,20 @@ header {
 }
 
 .icon-mono {
+  height: 80px;
+  width: 80px;
   fill: hsl(336deg, 95%, 84%);
 }
 .icon-mono__search {
-  width: 5rem;
-  height: 5rem;
+  stroke: hsl(336deg, 95%, 84%);
+  stroke-width: 0.5px;
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-multi {
+  height: 80px;
+  width: 80px;
 }
 .icon-multi__logo-header {
   height: 80px;

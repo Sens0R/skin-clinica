@@ -32,6 +32,8 @@ function watcher() {
   gulp.watch(path.watch.scss, scss);
   gulp.watch(path.watch.js, js);
   gulp.watch(path.watch.images, images); // Пример автозагрузки на FTP gulp.watch(path.watch.images, gulp.series(images, ftp))
+  gulp.watch(path.watch.svgSpriteMono, spriteMono);
+  gulp.watch(path.watch.svgSpriteMulti, spriteMulti);
 }
 
 // Последовательная обработка шрифтов
