@@ -1,0 +1,19 @@
+.icon {
+  &-mono {
+    fill: $color-primary;
+    &__search {
+     
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  &-multi {
+   &__logo-header {
+    height: 80px;
+    width: 220px;
+   }
+  }
+}
+
+

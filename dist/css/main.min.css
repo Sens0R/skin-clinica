@@ -13415,3 +13415,15 @@ header {
     margin-right: 3rem;
   }
 }
+
+.icon-mono {
+  fill: hsl(336deg, 95%, 84%);
+}
+.icon-mono__search {
+  width: 5rem;
+  height: 5rem;
+}
+.icon-multi__logo-header {
+  height: 80px;
+  width: 220px;
+}
