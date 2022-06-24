@@ -1,21 +1,30 @@
-.icon-mono {
-  height: 80px;
-  width: 80px;
-  fill: $color-primary;
-  &__search {
-    stroke: $color-primary;
-    stroke-width: 0.5px;
-    width: 1rem;
-    height: 1rem;
+.icon {
+  &--mono {
+    
   }
-}
 
-.icon-multi {
-  height: 80px;
-  width: 80px;
+  &--multi {
+  }
 
-  &__logo-header {
+  &-logo-header {
     height: 80px;
     width: 220px;
   }
+
+  &-logo {
+    height: 80px;
+    width: 80px;
+  }
+
+  &-search {
+    width: 1rem;
+    height: 1rem;
+    
+  }
+}
+
+.icon-tools {
+  fill: $color-primary;
+  width: 1.25rem;
+  height: 1.25rem;
 }

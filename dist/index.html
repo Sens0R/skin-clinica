@@ -12,20 +12,53 @@
 
   <body class="preload">
     <header class="header">
-  <a href="index.html">
-    <svg class="icon-multi icon-multi__logo-header">
-      <use href="images/icons/sprite-multi.svg#logo-header"></use>
-    </svg>
-  </a>
+ <div class="container">
+   <div class="row">
+     <div class="col header__logo">
+      <a href="index.html">
+        <svg class="icon icon--multi icon-logo-header">
+          <use href="images/icons/sprite-multi.svg#logo-header"></use>
+        </svg>
+      </a>
+     </div>
+     <div class="col">
+      <form action="">
+        <!-- <svg class="icon icon--mono icon-tools">
+          <use href="images/icons/sprite-mono.svg#search"></use>
+        </svg> -->
 
-  <svg class="icon-mono icon-mono__search">
-    <use href="images/icons/sprite-mono.svg#search"></use>
-  </svg>
-
-  <svg class="icon-mono icon-mono__logo">
-    <use href="images/icons/sprite-mono.svg#logo"></use>
-  </svg>
+    
+        <img src="../images/search.svg" alt="">
+        <input class="header__search" type="text" placeholder="Search">
+      </form>
+      
+     </div>
+     <div class="col header__tools tools">
+     <a href="#" class="tools__account">
+       <svg class="icon icon--mono icon-tools">
+          <use href="images/icons/sprite-mono.svg#account"></use>
+        </svg>
+        <p>Account</p> 
+     </a>
+     <a href="#" class="tools__wishlist">
+       <svg class="icon icon--mono icon-tools">
+          <use href="images/icons/sprite-mono.svg#wishlist"></use>
+        </svg>
+        <p>Wishlist</p>
+     </a>
+     <a href="#" class="tools__cart">
+       <svg class="icon icon--mono icon-tools">
+          <use href="images/icons/sprite-mono.svg#cart"></use>
+        </svg>
+        <p>Cart (0)</p>
+     </a>
+     </div>
+   </div>
 </header>
+
+
+
+
 
     <main>
       <h1>Lorem ipsum dolor</h1>
@@ -38,8 +71,31 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur earum
         saepe eum vel voluptatum magni?
       </p>
-      
-       
+      <div class="section__testimonials testimonials">
+  <!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+</div>
+ 
+
       <!-- TODO FONTS WATCHER -->
     </main>
     <footer class="footer">

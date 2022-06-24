@@ -1,8 +1,12 @@
 header {
   background-color: white; // delete at the end
-  height: 400px;
+  
 }
 
 .header {
- 
+ &__search {
+  background-image: url('@img/search.svg');
+  background-repeat: no-repeat;
+ }
 }
+

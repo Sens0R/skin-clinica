@@ -2,7 +2,6 @@ html,
 body {
   font-size: $font-size-base;
   font-family: $font-primary;
-  font-weight: $font-weight-base;
   line-height: $line-height-base;
   background-color: $color-background; //change to white at the end
 }
@@ -63,7 +62,6 @@ textarea {
 }
 
 a {
-  //color: $text-color;
   text-decoration: none;
 
   &:visited {
@@ -73,7 +71,6 @@ a {
   &:focus,
   &:active,
   &:hover {
-    text-decoration: underline;
     outline: 0;
   }
 }
@@ -91,5 +88,3 @@ strong {
 .br {
   display: block;
 }
-
-

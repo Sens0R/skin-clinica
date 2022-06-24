@@ -19,12 +19,13 @@ export const scss = () => {
         })
       )
     )
-    .pipe(app.plugins.replace(/@img\//g, '../img/'))
     .pipe(
       sass({
         outputStyle: 'expanded',
+        includePaths: ['./node_modules'],
       })
     )
+    .pipe(app.plugins.replace('@img', '../images'))
     .pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))
     .pipe(
       app.plugins.if(

@@ -14,7 +14,6 @@ export const path = {
     fonts: `${buildFolder}/fonts/`,
   },
   src: {
-    fonts: `${srcFolder}/assets/fonts/**/*.{ttf,otf}`,
     js: `${srcFolder}/scripts/app.js`,
     images: `${srcFolder}/assets/images/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/assets/images/**/*.svg`,
@@ -24,7 +23,6 @@ export const path = {
     svgSpriteMulti: `${srcFolder}/assets/svgicons/multi/*.svg`,
   },
   watch: {
-    fonts: `${srcFolder}/assets/fonts/**/*.{ttf,otf}`,
     js: `${srcFolder}/scripts/**/*.js`,
     scss: `${srcFolder}/styles/**/*.scss`,
     html: `${srcFolder}/**/*.html`,

@@ -38,6 +38,7 @@ function watcher() {
 
 // Последовательная обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+
 const mainTasks = gulp.series(
   fonts,
   gulp.parallel(html, scss, js, images, spriteMono, spriteMulti)
