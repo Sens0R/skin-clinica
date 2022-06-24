@@ -61,6 +61,14 @@ textarea {
   //color: $text-color;
 }
 
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  outline: inherit;
+}
+
 a {
   text-decoration: none;
 

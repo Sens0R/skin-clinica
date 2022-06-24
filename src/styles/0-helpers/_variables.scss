@@ -20,8 +20,9 @@ $color-primary-light: $color-pink-light;
 $color-secondary: $color-black-100;
 $color-secondary-light: $color-white-100;
 
-$color-background: $color-white-300;
+$color-background: $color-white;
 $color-border: $color-white-200;
+$color-border-accent: $color-gray;
 
 $color-font: $color-gray;
 $color-font-light: $color-white;
@@ -104,6 +105,7 @@ $zNavMenuBackdrop: $below + $base;
 $zNavMenuPopover: $above + $base;
 $zNavMenuToggle: $above + $zNavMenuPopover;
 
+$transition: 0.2s ease-in-out;
 /* $site-header-height: 4rem;
 
 $container: 1170px;
@@ -118,4 +120,4 @@ $shadow: 0 0.25em 1em 0.7em rgba($color-primary-dark, 0.05);
 $input-x-padding: 1.25em;
 $input-y-padding: 0.75em;
 
-$transition: 0.2s ease-in-out; */
+ */
