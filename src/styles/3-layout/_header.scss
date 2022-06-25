@@ -1,5 +1,58 @@
-header {
-  background-color: white; // delete at the end
+.header {
+  background-color: rgb(223, 223, 223); // delete at the end
+  position: sticky;
+  z-index: $zLayoutHeader;
+  @include padding-top($spacer-md);
+  .header-item {
+    @include padding-bottom($spacer-md);
+  }
+  &__logo {
+    @include flex-properties(flex, left, center);
+  }
+
+  &__search {
+    @include flex-properties(flex, right, center);
+  }
+
+  .tools {
+    @include flex-properties(flex, right, center);
+
+    p {
+      display: none;
+      color: $color-secondary;
+    }
+
+    a {
+      @include margin-left($spacer-xs);
+      white-space: nowrap;
+    }
+
+    @include media-breakpoint-up(sm) {
+      p {
+        display: block;
+      }
+
+      a {
+        @include margin-left($spacer-sm);
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      a {
+        @include margin-left($spacer-md);
+      }
+    }
+
+    &__account {
+      @include flex-properties(flex, center, center);
+    }
+
+    &__wishlist {
+      @include flex-properties(flex, center, center);
+    }
+
+    &__cart {
+      @include flex-properties(flex, center, center);
+    }
+  }
 }
-
-

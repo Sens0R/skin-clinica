@@ -45,8 +45,8 @@ blockquote,
 address,
 table,
 hr {
-  @include margin-top($spacer-sm);
-  @include margin-bottom($spacer-sm);
+  @include margin-top($spacer-xs);
+  @include margin-bottom($spacer-xs);
 }
 
 p {

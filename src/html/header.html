@@ -1,44 +1,19 @@
 <header class="header">
-  <div class="container">
+  <div class="container-fluid container-xl">
     <div class="row">
-      <div class="col header__logo">
+      <div class="header-item col-6 col-lg-4 col-lg header__logo">
         <a href="index.html">
           <svg class="icon icon--multi icon-logo-header">
             <use href="images/icons/sprite-multi.svg#logo-header"></use>
           </svg>
         </a>
       </div>
-      <div class="col">
-        @@include('components/search.html',{})
-
-        <!-- <div class="search">
-        <div class="search__icon">
-          <svg class="icon icon--mono icon-search">
-            <use href="images/icons/sprite-mono.svg#search"></use>
-          </svg>
-        </div>
-        <input class="search__body" type="text" placeholder="Search"> -->
+      <div class="header-item col-6 col-lg-auto order-lg-3 header__tools tools">
+        @@include('components/header-tools.html',{})
       </div>
-    </div>
-    <div class="col header__tools tools">
-      <a href="#" class="tools__account">
-        <svg class="icon icon--mono icon-tools">
-          <use href="images/icons/sprite-mono.svg#account"></use>
-        </svg>
-        <p>Account</p>
-      </a>
-      <a href="#" class="tools__wishlist">
-        <svg class="icon icon--mono icon-tools">
-          <use href="images/icons/sprite-mono.svg#wishlist"></use>
-        </svg>
-        <p>Wishlist</p>
-      </a>
-      <a href="#" class="tools__cart">
-        <svg class="icon icon--mono icon-tools">
-          <use href="images/icons/sprite-mono.svg#cart"></use>
-        </svg>
-        <p>Cart (0)</p>
-      </a>
+      <div class="header-item col-12 col-lg-3 header__search">
+        @@include('components/header-search.html',{})
+      </div>
     </div>
   </div>
 </header>

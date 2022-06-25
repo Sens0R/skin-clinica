@@ -84,9 +84,11 @@ $spacers: (
 );
 
 $spacer-base: 1rem;
-$spacer-sm: $spacer-base * 1.25;
-$spacer-md: $spacer-base * 2;
-$spacer-lg: $spacer-base * 3;
+$spacer-xs: $spacer-base * 0.5;
+$spacer-sm: $spacer-base * 1;
+$spacer-md: $spacer-base * 1.5;
+$spacer-lg: $spacer-base * 2;
+$spacer-xl: $spacer-base * 3;
 $spacer-headings: $spacer-base * 1.25;
 
 // Z-index values || z<Context><Element>
@@ -95,6 +97,7 @@ $above: 1; // use this for all values above the base
 $below: -1; // and this for all values below the base
 
 // Page Layout
+$zLayoutHeader: $above + $base;
 $zLayoutNavigation: $above + $base;
 $zLayoutFooter: $above + $base;
 $zLayoutModal: $above + $zLayoutNavigation;
