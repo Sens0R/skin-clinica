@@ -1,58 +1,61 @@
 .header {
-  background-color: rgb(223, 223, 223); // delete at the end
+  background-color: rgb(255, 255, 255); // delete at the end
   position: sticky;
   z-index: $zLayoutHeader;
-  @include padding-top($spacer-md);
-  .header-item {
-    @include padding-bottom($spacer-md);
-  }
-  &__logo {
-    @include flex-properties(flex, left, center);
-  }
+  top: 0;
+  
+}
 
-  &__search {
-    @include flex-properties(flex, right, center);
-  }
+.header-item {
+  @include padding-bottom($spacer-sm);
+  @include padding-top($spacer-sm);
+}
 
-  .tools {
-    @include flex-properties(flex, right, center);
+.header-toggler {
+  @include flex-properties(flex, left, center);
+}
+
+.header-logo {
+  @include flex-properties(flex, left, center);
+  a {
+    @include flex-properties(flex, center, center);
+  }
+}
+
+.header-search {
+  @include flex-properties(flex, center, center);
+}
+
+.tools {
+  @include flex-properties(flex, right, center);
+  
+  &__item {
+    white-space: nowrap;
+    padding: 0.5rem;
 
     p {
       display: none;
       color: $color-secondary;
     }
 
-    a {
-      @include margin-left($spacer-xs);
-      white-space: nowrap;
-    }
-
     @include media-breakpoint-up(sm) {
       p {
         display: block;
       }
-
-      a {
-        @include margin-left($spacer-sm);
-      }
-    }
-
-    @include media-breakpoint-up(md) {
-      a {
-        @include margin-left($spacer-md);
-      }
-    }
-
-    &__account {
-      @include flex-properties(flex, center, center);
-    }
-
-    &__wishlist {
-      @include flex-properties(flex, center, center);
-    }
-
-    &__cart {
-      @include flex-properties(flex, center, center);
     }
   }
+
+  &__account {
+    @include flex-properties(flex, center, center);
+  }
+
+  &__wishlist {
+    @include flex-properties(flex, center, center);
+  }
+
+  &__cart {
+    @include flex-properties(flex, center, center);
+    padding-right: 0;
+  }
 }
+

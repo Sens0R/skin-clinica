@@ -1,39 +1,41 @@
-.icon {
-  &--mono {
-  }
+.icon-logo-header {
+  height: 40px;
+  width: 110px;
+  transition: 0.6s;
 
-  &--multi {
+  @include media-breakpoint-up(sm) {
+    height: 60px;
+    width: 165px;
   }
+  @include media-breakpoint-up(md) {
+    height: 80px;
+    width: 220px;
+  }
+}
 
-  &-logo-header {
-    height: 3rem;
-    width: 8.25rem;
-    @include media-breakpoint-up(sm) {
-      height: 5rem;
-      width: 13.75rem;
-    }
-  }
-
-  &-logo {
-    height: 5rem;
-    width: 5rem;
-  }
-
-  &-search {
-  }
+.icon-logo {
+  height: 5rem;
+  width: 5rem;
 }
 
 .icon-tools {
   fill: $color-primary;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: 0.2s ease-in-out;
   @include media-breakpoint-up(sm) {
     width: 1.25rem;
     height: 1.25rem;
-    @include margin-right($spacer-xs);
+    margin-right: 0.25rem;
   }
- 
-  @include media-breakpoint-up(md) {
-   
-  };
+}
+
+.nav-toggler-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.nav-toggler-icon-cross {
+  width: 2.5rem;
+  height: 2.5rem;
 }

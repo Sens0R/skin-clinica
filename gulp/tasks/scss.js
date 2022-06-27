@@ -2,6 +2,7 @@ import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 import cleanCss from 'gulp-clean-css'; // Сжатие CSS файла
+import purgecss from 'gulp-purgecss'; // Удаляет не используемые CSS стили
 import webpCss from 'gulp-webpcss'; // Вывод WEBP изображений
 import autoprefixer from 'gulp-autoprefixer'; // Добавление вендорных префиксов
 import groupCssMediaQueries from 'gulp-group-css-media-queries'; // Группировка медиа запросов
@@ -43,6 +44,14 @@ export const scss = () => {
           grid: true,
           overrideBrowserslist: ['last 3 versions'],
           cascade: true,
+        })
+      )
+    )
+    .pipe(
+      app.plugins.if(
+        app.isBuild,
+        purgecss({
+          content: ['src/**/*.html'],
         })
       )
     )

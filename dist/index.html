@@ -11,30 +11,40 @@
 </head>
 
   <body class="preload">
-    <header class="header">
+    <header class="header shadow-sm">
   <div class="container-fluid container-xl">
     <div class="row">
-      <div class="header-item col-6 col-lg-4 col-lg header__logo">
+      <div class="col-auto d-md-none pe-0 header-item header-toggler">
+        <button class="nav-toggler" type="button">
+          <svg class="icon icon--multi nav-toggler-icon">
+            <use href="images/icons/sprite-multi.svg#toggler-multi"></use>
+          </svg>
+          <svg class="icon icon--mono nav-toggler-icon-cross d-none">
+            <use href="images/icons/sprite-mono.svg#toggle-cross"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="col header-item header-logo">
         <a href="index.html">
           <svg class="icon icon--multi icon-logo-header">
             <use href="images/icons/sprite-multi.svg#logo-header"></use>
           </svg>
         </a>
       </div>
-      <div class="header-item col-6 col-lg-auto order-lg-3 header__tools tools">
-        <a href="#" class="tools__account">
+      <div class="col order-md-1 header-item header-tools tools">
+        <a href="#" class="tools__item tools__account">
   <svg class="icon icon--mono icon-tools">
     <use href="images/icons/sprite-mono.svg#account"></use>
   </svg>
   <p>Account</p>
 </a>
-<a href="#" class="tools__wishlist">
+<a href="#" class="tools__item tools__wishlist">
   <svg class="icon icon--mono icon-tools">
     <use href="images/icons/sprite-mono.svg#wishlist"></use>
   </svg>
   <p>Wishlist</p>
 </a>
-<a href="#" class="tools__cart">
+<a href="#" class="tools__item tools__cart">
   <svg class="icon icon--mono icon-tools">
     <use href="images/icons/sprite-mono.svg#cart"></use>
   </svg>
@@ -42,7 +52,7 @@
 </a>
 
       </div>
-      <div class="header-item col-12 col-lg-3 header__search">
+      <div class="col-12 col-md header-item header-search">
         <div class="search">
   <button class="search__btn">
     <svg class="icon icon--mono icon-search">
@@ -53,14 +63,48 @@
 </div>
       </div>
     </div>
+    <div class="row header-item nav-menu">
+      <div class="col d-none d-md-block nav-menu-main">
+        <ul
+          class="nav-menu-main__body text-uppercase text-bold text-sm no-wrap"
+        >
+          <li class="nav-menu-main__item ps-0">
+            <a href="#" class="nav-menu-main__link">Shop</a>
+          </li>
+          <li class="nav-menu-main__item">
+            <a href="#" class="nav-menu-main__link">Skin Intelligence</a>
+          </li>
+          <li class="nav-menu-main__item">
+            <a href="#" class="nav-menu-main__link">Skin Care Packages</a>
+          </li>
+          <li class="nav-menu-main__item">
+            <a href="#" class="nav-menu-main__link">Brands</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col d-none d-md-block nav-menu-secondary">
+        <ul class="nav-menu-secondary__body text-sm">
+          <li class="nav-menu-secondary__item">
+            <a href="#" class="nav-menu-secondary__link">About</a>
+          </li>
+          <li class="nav-menu-secondary__item">
+            <a href="#" class="nav-menu-secondary__link">Faq</a>
+          </li>
+          <li class="nav-menu-secondary__item">
+            <a href="#" class="nav-menu-secondary__link">Blog</a>
+          </li>
+          <li class="nav-menu-secondary__item pe-0">
+            <a href="#" class="nav-menu-secondary__link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>
 
     <main>
       
-       
-
-      <!-- TODO FONTS WATCHER -->
+      
     </main>
     <footer class="footer">
   

@@ -40,8 +40,8 @@ function watcher() {
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 const mainTasks = gulp.series(
-  fonts,
-  gulp.parallel(html, scss, js, images, spriteMono, spriteMulti)
+  gulp.parallel(fonts, spriteMono, spriteMulti),
+  gulp.parallel(html, scss, js, images)
 );
 
 // Построение сценариев выполнения задач

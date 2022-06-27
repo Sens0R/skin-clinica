@@ -4,6 +4,14 @@ body {
   font-family: $font-primary;
   line-height: $line-height-base;
   background-color: $color-background; //change to white at the end
+  box-sizing: border-box;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
 }
 
 h1,
@@ -38,27 +46,10 @@ h6 {
   @include font-size($font-size-h6);
 }
 
-p,
-ul,
-ol,
-blockquote,
-address,
-table,
-hr {
+p {
   @include margin-top($spacer-xs);
   @include margin-bottom($spacer-xs);
-}
-
-p {
   color: $color-font;
-}
-
-html,
-button,
-input,
-select,
-textarea {
-  //color: $text-color;
 }
 
 button {
@@ -69,17 +60,23 @@ button {
   outline: inherit;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
-
+  color: $color-secondary;
   &:visited {
-    outline: 0;
+    
   }
 
   &:focus,
   &:active,
   &:hover {
-    outline: 0;
+   text-decoration: underline;
   }
 }
 
@@ -95,4 +92,8 @@ strong {
 
 .br {
   display: block;
+}
+
+body._lock {
+  overflow: hidden;
 }
