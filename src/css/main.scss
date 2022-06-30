@@ -9,8 +9,8 @@
 
 // 1 - TOOLS
 @import '1-tools/bootstrap';
-
 @import '1-tools/rfs';
+@import '1-tools/hover';
 @import '1-tools/swiper';
 
 // 2 - BASE
@@ -19,16 +19,14 @@
 @import '2-base/base';
 
 // 3 - LAYOUT
-@import '3-layout/header';
+@import '3-layout/header/header';
 @import '3-layout/footer';
 
 // 4 - COMPONENTS
-@import '4-components/accordion';
 @import '4-components/spacer';
 @import '4-components/icons';
 @import '4-components/search';
-@import '4-components/nav-toggler';
-@import '4-components/nav-menu';
+@import '4-components/links';
+@import '4-components/social';
 
 // 5 - PAGES
-

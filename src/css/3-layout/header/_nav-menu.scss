@@ -1,0 +1,29 @@
+.header-nav-menu {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+
+  .nav-menu {
+    @include flex-properties(flex, center, center);
+    white-space: nowrap;
+    &--main {
+      justify-content: left;
+      .nav-menu__item {
+        margin-right: 1rem;
+      }
+    }
+
+    &--secondary {
+      justify-content: right;
+      .nav-menu__item {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &__link {
+    @include shutter-out-vertical;
+    padding: 0 0.2rem;
+  }
+}

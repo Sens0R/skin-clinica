@@ -1,0 +1,19 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+a {
+  text-decoration: none;
+  color: $color-secondary;
+  cursor: pointer;
+  &:visited {
+    color: inherit;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: $color-font-light !important;
+  }
+}

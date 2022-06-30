@@ -1,0 +1,32 @@
+.icon-logo-header {
+  @include rfs(13.75rem, width);
+  @include rfs(5rem, height);
+  z-index: 999;
+}
+
+.icon-logo {
+  @include box(5rem);
+}
+
+.icon-tools {
+  fill: $color-primary;
+  @include box(1.5rem);
+  margin-right: 0.25rem;
+  @include media-breakpoint-up(sm) {
+    @include box(1rem);
+  }
+}
+
+.nav-toggler svg {
+  @include rfs(2.5rem, width);
+  @include rfs(2.5rem, height);
+}
+
+.icon-social {
+  @include box(2rem, 2rem);
+}
+
+.icon-search {
+  fill: $color-primary;
+  @include box(1rem, 1rem);
+}

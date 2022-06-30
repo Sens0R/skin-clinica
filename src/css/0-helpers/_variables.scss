@@ -2,10 +2,7 @@
 COLORS
 =============================================================================================== */
 // First tier variables. Only use them for second tier variables.
-$color-pink: hsl(336, 95%, 84%);
-$color-pink-light: lighten($color-pink, 6%);
 $color-black: hsl(0, 0%, 0%);
-$color-black-100: hsl(0, 5%, 12%);
 $color-gray: hsl(0, 0%, 45%);
 $color-white: hsl(0, 0%, 100%);
 $color-white-100: darken($color-white, 5%);
@@ -15,19 +12,18 @@ $color-white-muted: fade-out($color-white, 0.25); // 0.75 alpha
 $color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
 
 // Second tier variables
-$color-primary: $color-pink;
-$color-primary-light: $color-pink-light;
-$color-secondary: $color-black-100;
+$color-primary: hsl(336, 95%, 84%);
+$color-primary-light: lighten($color-primary, 6%);
+$color-secondary: hsl(0, 5%, 12%);
 $color-secondary-light: $color-white-100;
 
 $color-background: $color-white;
-$color-border: $color-white-200;
-$color-border-accent: $color-gray;
 
+$color-light: $color-white;
+$color-dark: $color-secondary;
 $color-font: $color-gray;
 $color-font-light: $color-white;
-$color-font-dark: $color-black;
-$color-font-accent: $color-pink;
+$color-font-accent: $color-primary;
 $color-font-muted: $color-white-muted;
 
 $color-overlay: $color-white-transparent;
@@ -67,8 +63,13 @@ $font-size-h6: $headings-font-size * 0.875; // 14px
 STRUCTURE
 =============================================================================================== */
 
-// Bootstrap spacers
-$spacer: 1rem;
+// Spacers
+$spacer: 1.5rem;
+$spacer-sm: $spacer * 0.5;
+$spacer-lg: $spacer * 2;
+$spacer-headings: $spacer * 1.25;
+
+// bootstrap spacer map
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
@@ -83,44 +84,36 @@ $spacers: (
   10: $spacer * 5,
 );
 
-$spacer-base: 1rem;
-$spacer-xs: $spacer-base * 0.5;
-$spacer-sm: $spacer-base * 1;
-$spacer-md: $spacer-base * 1.5;
-$spacer-lg: $spacer-base * 2;
-$spacer-xl: $spacer-base * 3;
-$spacer-headings: $spacer-base * 1.25;
+// Shadows
+$shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+$shadow-sm: 0 0.225rem 0.35rem rgba($color-black, 0.075);
+$shadow-lg: 0 1rem 3rem rgba($color-black, 0.175);
+$shadow-inset: inset 0 1px 2px rgba($color-black, 0.075);
 
-// Bootstrap shadows
-$box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
-$box-shadow-sm: 0 0.125rem 0.25rem rgba($color-black, 0.075);
-$box-shadow-lg: 0 1rem 3rem rgba($color-black, 0.175);
-$box-shadow-inset: inset 0 1px 2px rgba($color-black, 0.075);
-
+//TODO переделать на миксины
 // Z-index values || z<Context><Element>
 $base: 0;
 $above: 1; // use this for all values above the base
 $below: -1; // and this for all values below the base
 
-// Page Layout
-$zLayoutHeader: $above + $base;
-$zLayoutFooter: $above + $base;
+$zHeader: $above + $base;
+$zNavToggler: $above + $zHeader;
 
-// NavMenu
-$zNavMenuBackdrop: $below + $base;
-$zNavPopover: $above + $base;
-$zNavToggler: $above + $zNavPopover;
-
+// Transitions
 $transition: 0.2s ease-in-out;
 
 // Borders
+$border-color: $color-white-200;
+$border-color-accent: $color-gray;
 
-// scss-docs-start border-radius-variables
-$border-radius: 0.375rem !default;
-$border-radius-sm: 0.25rem !default;
-$border-radius-lg: 0.5rem !default;
-$border-radius-xl: 1rem !default;
-$border-radius-2xl: 2rem !default;
+$border-1: 1px;
+$border-2: 2px;
+$border-3: 3px;
+
+$border-radius: 0.4rem;
+$border-radius-sm: 0.2rem;
+$border-radius-lg: 0.6rem;
+$border-radius-pill: 50rem;
 
 /* $container: 1170px;
 
@@ -138,6 +131,3 @@ $input-y-padding: 0.75em;
 /* ===============================================================================================
 ELEMENTS
 =============================================================================================== */
-
-
-

@@ -58,7 +58,7 @@ export const ttfToWoff = () => {
 
 export const fontsStyle = () => {
   // Файлы стилей подключения шрифтов
-  let fontsFile = `${app.path.srcFolder}/styles/2-base/_fonts.scss`;
+  let fontsFile = `${app.path.srcFolder}/0-styles/2-base/_fonts.scss`;
 
   // Проверяем существует ли файл стилей шрифтов
   fs.readdir(app.path.build.fonts, function (err, fontsFiles) {

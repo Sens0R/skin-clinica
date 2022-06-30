@@ -47,8 +47,8 @@ h6 {
 }
 
 p {
-  @include margin-top($spacer-xs);
-  @include margin-bottom($spacer-xs);
+  margin: 0;
+  padding: 0;
   color: $color-font;
 }
 
@@ -64,20 +64,6 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: $color-secondary;
-  &:visited {
-    
-  }
-
-  &:focus,
-  &:active,
-  &:hover {
-   text-decoration: underline;
-  }
 }
 
 i,

@@ -1,0 +1,148 @@
+.spacer {
+  // paddings base
+  &-p {
+    @include padding($spacer);
+  }
+  &-p-y {
+    @include padding-top($spacer);
+    @include padding-bottom($spacer);
+  }
+  &-p-x {
+    @include padding-left($spacer);
+    @include padding-right($spacer);
+  }
+  &-p-t {
+    @include padding-top($spacer);
+  }
+  &-p-b {
+    @include padding-bottom($spacer);
+  }
+  &-p-l {
+    @include padding-left($spacer);
+  }
+  &-p-r {
+    @include padding-right($spacer);
+  }
+  // paddings small
+  &-p-sm {
+    @include padding($spacer-sm);
+  }
+  &-p-y-sm {
+    @include padding-top($spacer-sm);
+    @include padding-bottom($spacer-sm);
+  }
+  &-p-x-sm {
+    @include padding-left($spacer-sm);
+    @include padding-right($spacer-sm);
+  }
+  &-p-t-sm {
+    @include padding-top($spacer-sm);
+  }
+  &-p-b-sm {
+    @include padding-bottom($spacer-sm);
+  }
+  &-p-l-sm {
+    @include padding-left($spacer-sm);
+  }
+  &-p-r-sm {
+    @include padding-right($spacer-sm);
+  }
+
+  // paddings large
+  &-p-lg {
+    @include padding($spacer-lg);
+  }
+  &-p-y-lg {
+    @include padding-top($spacer-lg);
+    @include padding-bottom($spacer-lg);
+  }
+  &-p-x-lg {
+    @include padding-left($spacer-lg);
+    @include padding-right($spacer-lg);
+  }
+  &-p-t-lg {
+    @include padding-top($spacer-lg);
+  }
+  &-p-b-lg {
+    @include padding-bottom($spacer-lg);
+  }
+  &-p-l-lg {
+    @include padding-left($spacer-lg);
+  }
+  &-p-r-lg {
+    @include padding-right($spacer-lg);
+  }
+  // margins base
+  &-m {
+    @include margin($spacer);
+  }
+  &-m-y {
+    @include margin-top($spacer);
+    @include margin-bottom($spacer);
+  }
+  &-m-x {
+    @include margin-left($spacer);
+    @include margin-right($spacer);
+  }
+  &-m-t {
+    @include margin-top($spacer);
+  }
+  &-m-b {
+    @include margin-bottom($spacer);
+  }
+  &-m-l {
+    @include margin-left($spacer);
+  }
+  &-m-r {
+    @include margin-right($spacer);
+  }
+  // margins small
+  &-m-sm {
+    @include margin($spacer-sm);
+  }
+  &-m-y-sm {
+    @include margin-top($spacer-sm);
+    @include margin-bottom($spacer-sm);
+  }
+  &-m-x-sm {
+    @include margin-left($spacer-sm);
+    @include margin-right($spacer-sm);
+  }
+  &-m-t-sm {
+    @include margin-top($spacer-sm);
+  }
+  &-m-b-sm {
+    @include margin-bottom($spacer-sm);
+  }
+  &-m-l-sm {
+    @include margin-left($spacer-sm);
+  }
+  &-m-r-sm {
+    @include margin-right($spacer-sm);
+  }
+
+  // margins large
+  &-m-lg {
+    @include margin($spacer-lg);
+  }
+  &-m-y-lg {
+    @include margin-top($spacer-lg);
+    @include margin-bottom($spacer-lg);
+  }
+  &-m-x-lg {
+    @include margin-left($spacer-lg);
+    @include margin-right($spacer-lg);
+  }
+  &-m-t-lg {
+    @include margin-top($spacer-lg);
+  }
+  &-m-b-lg {
+    @include margin-bottom($spacer-lg);
+  }
+  &-m-l-lg {
+    @include margin-left($spacer-lg);
+  }
+  &-m-r-lg {
+    @include margin-right($spacer-lg);
+  }
+}

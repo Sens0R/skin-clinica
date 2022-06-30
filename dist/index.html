@@ -11,18 +11,18 @@
 </head>
 
   <body class="preload">
-    <header class="header shadow-sm">
+    <header class="header">
   <div class="container-fluid container-xl">
     <div class="row">
-      <div class="col-auto d-md-none pe-0 header-item header-toggler">
+      <div class="col-auto d-md-none pe-0 header-item header-nav-toggler">
         <button class="nav-toggler" type="button">
-          <svg class="icon icon--multi nav-toggler-icon">
-            <use href="images/icons/sprite-multi.svg#toggler-multi"></use>
-          </svg>
-          <svg class="icon icon--mono nav-toggler-icon-cross d-none">
-            <use href="images/icons/sprite-mono.svg#toggle-cross"></use>
-          </svg>
-        </button>
+  <svg class="icon icon--multi nav-toggler-icon">
+    <use href="images/icons/sprite-multi.svg#toggler-multi"></use>
+  </svg>
+  <svg class="icon icon--mono nav-toggler-icon-cross d-none">
+    <use href="images/icons/sprite-mono.svg#toggle-cross"></use>
+  </svg>
+</button>
       </div>
       <div class="col header-item header-logo">
         <a href="index.html">
@@ -31,20 +31,22 @@
           </svg>
         </a>
       </div>
-      <div class="col order-md-1 header-item header-tools tools">
-        <a href="#" class="tools__item tools__account">
+      <div class="col order-md-1 header-item tools">
+        <a href="#" class="tools__item">
   <svg class="icon icon--mono icon-tools">
     <use href="images/icons/sprite-mono.svg#account"></use>
   </svg>
   <p>Account</p>
 </a>
-<a href="#" class="tools__item tools__wishlist">
+
+<a href="#" class="tools__item">
   <svg class="icon icon--mono icon-tools">
     <use href="images/icons/sprite-mono.svg#wishlist"></use>
   </svg>
   <p>Wishlist</p>
 </a>
-<a href="#" class="tools__item tools__cart">
+
+<a href="#" class="tools__item">
   <svg class="icon icon--mono icon-tools">
     <use href="images/icons/sprite-mono.svg#cart"></use>
   </svg>
@@ -63,52 +65,123 @@
 </div>
       </div>
     </div>
-    <div class="row header-item nav-menu">
-      <div class="col d-none d-md-block nav-menu-main">
-        <ul
-          class="nav-menu-main__body text-uppercase text-bold text-sm no-wrap"
-        >
-          <li class="nav-menu-main__item ps-0">
-            <a href="#" class="nav-menu-main__link">Shop</a>
-          </li>
-          <li class="nav-menu-main__item">
-            <a href="#" class="nav-menu-main__link">Skin Intelligence</a>
-          </li>
-          <li class="nav-menu-main__item">
-            <a href="#" class="nav-menu-main__link">Skin Care Packages</a>
-          </li>
-          <li class="nav-menu-main__item">
-            <a href="#" class="nav-menu-main__link">Brands</a>
-          </li>
-        </ul>
+    <div class="row header-item header-nav-menu">
+      <div class="col text-uppercase text-bold text-sm">
+        <ul class="nav-menu nav-menu--main">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Shop</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Intelligence</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Care Packages</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Brands</a>
+  </li>
+</ul>
       </div>
-      <div class="col d-none d-md-block nav-menu-secondary">
-        <ul class="nav-menu-secondary__body text-sm">
-          <li class="nav-menu-secondary__item">
-            <a href="#" class="nav-menu-secondary__link">About</a>
-          </li>
-          <li class="nav-menu-secondary__item">
-            <a href="#" class="nav-menu-secondary__link">Faq</a>
-          </li>
-          <li class="nav-menu-secondary__item">
-            <a href="#" class="nav-menu-secondary__link">Blog</a>
-          </li>
-          <li class="nav-menu-secondary__item pe-0">
-            <a href="#" class="nav-menu-secondary__link">Contact</a>
-          </li>
-        </ul>
-      </div>
+      <div class="col text-sm"><ul class="nav-menu nav-menu--secondary">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">About</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Faq</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Blog</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Contact</a>
+  </li>
+</ul>
+</div>
     </div>
   </div>
+  <div class="container-fluid burger-menu">
+  <div class="row burger-header">
+    
+  </div>
+  <div class="row">
+    <div class="col-12"><ul class="nav-menu nav-menu--secondary">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">About</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Faq</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Blog</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Contact</a>
+  </li>
+</ul>
+</div>
+    <div class="col-12"><ul class="nav-menu nav-menu--main">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Shop</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Intelligence</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Care Packages</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Brands</a>
+  </li>
+</ul></div>
+  </div>
+  <div class="row">
+    <div class="col-12"><div class="social">
+  <a href="" class="social__item">
+    <svg class="icon icon--multi icon-social">
+      <use href="images/icons/sprite-multi.svg#socials--facebook"></use>
+    </svg>
+  </a>
+  <a href="" class="social__item">
+    <svg class="icon icon--multi icon-social">
+      <use href="images/icons/sprite-multi.svg#socials--instagram"></use>
+    </svg>
+  </a>
+  <a href="" class="social__item">
+    <svg class="icon icon--multi icon-social">
+      <use href="images/icons/sprite-multi.svg#socials--linkedin"></use>
+    </svg>
+  </a>
+  <a href="" class="social__item">
+    <svg class="icon icon--multi icon-social">
+      <use href="images/icons/sprite-multi.svg#socials--twitter"></use>
+    </svg>
+  </a>
+  <a href="" class="social__item">
+    <svg class="icon icon--multi icon-social">
+      <use href="images/icons/sprite-multi.svg#socials--pinterest"></use>
+    </svg>
+  </a>
+  <a href="" class="social__item">
+    <svg class="icon icon--multi icon-social">
+      <use href="images/icons/sprite-multi.svg#socials--gmail"></use>
+    </svg>
+  </a>
+</div></div>
+  </div>
+</div>
+
 </header>
 
     <main>
-      
-      
+     
+     
     </main>
     <footer class="footer">
   
 </footer>
-    <script src="js/app.min.js"></script>
+       <script src="js/app.min.js"></script>
   </body>
 </html>
+
+//TODO 1. REWORK Z-INDEX
+//TODO 2. MAKE BURGER HEADER / MAYBE REWORK BURGER CROSS + LOGO 

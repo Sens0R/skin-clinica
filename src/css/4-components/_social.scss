@@ -1,0 +1,7 @@
+.social {
+   @include flex-properties(flex, center, center);
+   &__item {
+    margin: 0.15rem;
+   }
+}
+
