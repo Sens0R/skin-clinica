@@ -17,8 +17,9 @@
 }
 
 .burger-toggler svg {
-  @include rfs(2.5rem, width);
-  @include rfs(2.5rem, height);
+  @include rfs(3rem, width);
+  @include rfs(3rem, height);
+  margin-left: -5px;
 }
 
 .icon-social {

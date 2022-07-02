@@ -20796,7 +20796,7 @@ a:focus, a:active, a:hover {
   align-items: center;
 }
 
-.burger-menu-mask {
+.burger-menu-overlay {
   top: 0;
   right: 0;
   bottom: 0;
@@ -20804,7 +20804,7 @@ a:focus, a:active, a:hover {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: hsla(0deg, 0%, 0%, 0.1);
+  background-color: hsla(0deg, 0%, 0%, 0.3);
   backdrop-filter: blur(0.5px);
 }
 
@@ -21257,17 +21257,18 @@ a:focus, a:active, a:hover {
 }
 
 .burger-toggler svg {
-  width: calc(1.375rem + 1.5vw);
-  height: calc(1.375rem + 1.5vw);
+  width: calc(1.425rem + 2.1vw);
+  height: calc(1.425rem + 2.1vw);
+  margin-left: -5px;
 }
 @media (min-width: 1200px) {
   .burger-toggler svg {
-    width: 2.5rem;
+    width: 3rem;
   }
 }
 @media (min-width: 1200px) {
   .burger-toggler svg {
-    height: 2.5rem;
+    height: 3rem;
   }
 }
 
@@ -21322,13 +21323,13 @@ a:focus, a:active, a:hover {
     transform: translateY(0);
   }
 }
-.social {
+.social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.social__item {
-  margin: 0.15rem;
+.social-icons__item {
+  margin: 0.3125rem;
 }
 
 body._lock {

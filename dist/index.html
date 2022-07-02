@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
- 
   <link rel="stylesheet" href="css/main.min.css" />
   <title>Skin Clinica</title>
 </head>
@@ -66,8 +64,8 @@
       </div>
     </div>
     <div class="row header-item header-nav-menu">
-      <div class="col text-uppercase text-bold text-sm">
-        <ul class="nav-menu nav-menu--main">
+      <div id='desktop-nav-menu-main' class="col text-uppercase text-bold text-sm">
+        <ul id='nav-menu-main' class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Shop</a>
   </li>
@@ -82,7 +80,7 @@
   </li>
 </ul>
       </div>
-      <div class="col text-sm"><ul class="nav-menu nav-menu--secondary">
+      <div id="desktop-nav-menu-secondary" class="col text-sm"><ul id="nav-menu-secondary" class="nav-menu nav-menu--secondary">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">About</a>
   </li>
@@ -99,7 +97,9 @@
 </div>
     </div>
   </div>
-  <div class="container-fluid burger-menu d-none animate__animated animate__slideInLeft animate__faster">
+  <div
+  class="container-fluid burger-menu d-none animate__animated animate__slideInLeft animate__faster"
+>
   <div class="row burger-header burger-menu__item">
     <div class="col burger-header__logo"><a href="index.html">
   <svg class="icon icon--multi icon-logo-header">
@@ -108,84 +108,72 @@
 </a></div>
   </div>
   <div class="row burger-menu__item">
-    <div class="col-12 animate__animated animate__fadeInRight animate__fast"><ul class="nav-menu nav-menu--secondary">
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">About</a>
+    <div
+      id="burger-nav-menu-secondary"
+      class="col-12 animate__animated animate__fadeInRight animate__fast"
+    ></div>
+    <div
+      id="burger-nav-menu-main"
+      class="col-12 animate__animated animate__fadeInLeft animate__fast"
+    ></div>
+  </div>
+  <div class="row burger-menu__item">
+    <div class="col-12"><ul class="social-icons">
+  <li class="social-icons__item">
+    <a href="#" class="social__link">
+      <svg class="icon-social">
+        <use href="images/icons/sprite-multi.svg#socials--facebook"></use>
+      </svg>
+    </a>
   </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Faq</a>
+  <li class="social-icons__item">
+    <a href="#" class="social__link">
+      <svg class="icon-social">
+        <use href="images/icons/sprite-multi.svg#socials--instagram"></use>
+      </svg>
+    </a>
   </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Blog</a>
+  <li class="social-icons__item">
+    <a href="#" class="social__link">
+      <svg class="icon-social">
+        <use href="images/icons/sprite-multi.svg#socials--linkedin"></use>
+      </svg>
+    </a>
   </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Contact</a>
+  <li class="social-icons__item">
+    <a href="#" class="social__link">
+      <svg class="icon-social">
+        <use href="images/icons/sprite-multi.svg#socials--twitter"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="social__link">
+      <svg class="icon-social">
+        <use href="images/icons/sprite-multi.svg#socials--pinterest"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="social__link">
+      <svg class="icon-social">
+        <use href="images/icons/sprite-multi.svg#socials--gmail"></use>
+      </svg>
+    </a>
   </li>
 </ul>
 </div>
-    <div class="col-12 animate__animated animate__fadeInLeft animate__fast"><ul class="nav-menu nav-menu--main">
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Shop</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Skin Intelligence</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Skin Care Packages</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Brands</a>
-  </li>
-</ul></div>
   </div>
-  <div class="row burger-menu__item">
-    <div class="col-12"><div class="social">
-  <a href="" class="social__item">
-    <svg class="icon icon--multi icon-social">
-      <use href="images/icons/sprite-multi.svg#socials--facebook"></use>
-    </svg>
-  </a>
-  <a href="" class="social__item">
-    <svg class="icon icon--multi icon-social">
-      <use href="images/icons/sprite-multi.svg#socials--instagram"></use>
-    </svg>
-  </a>
-  <a href="" class="social__item">
-    <svg class="icon icon--multi icon-social">
-      <use href="images/icons/sprite-multi.svg#socials--linkedin"></use>
-    </svg>
-  </a>
-  <a href="" class="social__item">
-    <svg class="icon icon--multi icon-social">
-      <use href="images/icons/sprite-multi.svg#socials--twitter"></use>
-    </svg>
-  </a>
-  <a href="" class="social__item">
-    <svg class="icon icon--multi icon-social">
-      <use href="images/icons/sprite-multi.svg#socials--pinterest"></use>
-    </svg>
-  </a>
-  <a href="" class="social__item">
-    <svg class="icon icon--multi icon-social">
-      <use href="images/icons/sprite-multi.svg#socials--gmail"></use>
-    </svg>
-  </a>
-</div></div>
-  </div>
- 
 </div>
-<div class="burger-menu-mask d-none"></div>
+
+<div class="burger-menu-overlay d-none"></div>
 
 </header>
 
-    <main>
-     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem obcaecati consequuntur deleniti iste incidunt vitae esse vero velit! Perferendis quasi tenetur earum vero! Error rerum eius eum necessitatibus, placeat, voluptate accusantium ab ipsam iure hic in! Tempora odit cumque nemo nam nisi, eveniet eos possimus est soluta. Quidem, facere provident. Libero dignissimos expedita explicabo ipsam perspiciatis beatae eius similique? Distinctio consequatur voluptatum optio! Aliquam nisi excepturi numquam! Magni molestiae facere nisi possimus, corrupti, excepturi quasi iste explicabo minus hic adipisci quam. Deleniti molestiae ea, sit numquam laboriosam animi! Laboriosam, est tenetur? Sequi assumenda architecto reiciendis laborum animi ducimus dignissimos, qui quibusdam veritatis eum consectetur odio tempore, nobis odit perferendis nulla quia unde aliquid. Veniam saepe deserunt reiciendis sed, assumenda unde similique natus ad, et sunt numquam quia! Aspernatur debitis voluptatem recusandae maxime distinctio nisi culpa adipisci, obcaecati ut illum iure quasi deleniti? Nam voluptatum veritatis, expedita amet architecto odit nemo vero repellat voluptatibus tempore blanditiis quod laudantium distinctio commodi sint. Amet accusantium fugit odit libero, laborum repellendus laboriosam asperiores quaerat reiciendis inventore ad dolores deserunt veniam illo, saepe maxime ipsa fugiat architecto error et eaque voluptatem sequi. Sed reprehenderit voluptatum architecto fuga. Delectus, eaque ab facilis ad fuga eum! Voluptatum laborum, eum odio labore ea sint error cupiditate officiis fugiat nam quasi. Inventore molestiae minus doloribus asperiores delectus. Molestiae dolorem ducimus, harum fuga, culpa laboriosam minima consequatur nihil saepe eum aut quos nobis in dolore voluptate natus esse ipsam? Necessitatibus, nisi, voluptate exercitationem itaque expedita laboriosam, enim vitae tempore natus asperiores officia. Accusamus excepturi quaerat aspernatur eligendi quod, ab animi voluptatibus dolore earum laudantium in explicabo similique consequatur. Minus aspernatur a voluptates nostrum esse veniam voluptatibus sit aliquid necessitatibus repellendus praesentium ex accusantium, nam explicabo placeat. Numquam veritatis dolor sed, eveniet eius deleniti possimus voluptate odit hic nulla incidunt dolorem.</p>
-     
-    </main>
+    <main></main>
     <footer class="footer">
   
 </footer>
-       <script src="js/app.min.js"></script>
+    <script src="js/app.min.js"></script>
   </body>
 </html>
-

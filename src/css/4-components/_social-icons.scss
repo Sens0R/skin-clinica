@@ -1,0 +1,6 @@
+.social-icons {
+  @include flex-properties(flex, center, center);
+  &__item {
+    margin: .3125rem;
+  }
+}
