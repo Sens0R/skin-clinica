@@ -1,61 +1,77 @@
-.burger-menu._active {
-  display: block;
-}
-
 .burger-menu {
-  display: none;
-  position: absolute;
-  top: 0;
-  overflow: auto;
-  @include box(100vw, 100vh);
+  @include fixed(top 0);
+  @include z-index(burger-menu);
+  @include box(75vw, 100vh);
   @include gradient($color-primary, darken($color-primary, 25%), vertical);
-  font-size: 1rem;
- 
+  overflow: auto;
+  font-size: $font-size-lg;
+  border-right: 1px solid lighten($color-secondary, 33%);
+  box-shadow: $shadow-lg;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
+  &__item {
+    @include padding-top($spacer-lg);
+    @include padding-bottom($spacer-lg);
+  }
+
   .nav-menu {
-    &--main {
-      @include padding($spacer-lg);
+    padding: $spacer-sm 0;
+
+    &--secondary {
+      text-align: right;
       .nav-menu {
         &__item {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
+        }
+
+        &__link {
+          color: $font-color-light;
+          background-color: $color-dark;
+          padding: 0.1rem 0.5rem;
+        }
+      }
+    }
+
+    &--main {
+      .nav-menu {
+        &__item {
+          margin-bottom: 1.5rem;
           text-transform: uppercase;
           font-weight: bold;
         }
 
         &__link {
           background-color: $color-light;
-          padding: 0.1rem 0.3rem;
-        }
-      }
-    }
-
-    &--secondary {
-      @include padding($spacer-lg);
-      text-align: right;
-      .nav-menu {
-        &__item {
-          margin-bottom: 0.5rem;
-        }
-
-        &__link {
-          color: $color-font-light;
-          background-color: $color-dark;
-          padding: 0.1rem 0.3rem;
+          padding: 0.3rem 0.5rem;
         }
       }
     }
   }
 
   .social {
-    @include padding($spacer-lg);
-    justify-content: left;
+    justify-content: center;
   }
 }
 
 .burger-header {
-  background-color: lighten($color-primary, 5%); 
-  height: 12%;
-  position: sticky;
-  z-index: 2;
-  top: 0;
-  box-shadow: $box-shadow-lg;
+  @include sticky(top 0);
+  @include z-index(burger-menu);
+  padding: $spacer-sm 0;
+  background-color: $color-primary-light;
+  box-shadow: $box-shadow-sm;
+
+  &__logo {
+    @include flex-properties(flex, right, center);
+  }
+}
+
+.burger-menu-mask {
+  @include fixed(top 0 right 0 bottom 0 left 0);
+  @include box(100vw, 100vh);
+  background-color: hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: blur(0.5px);
 }

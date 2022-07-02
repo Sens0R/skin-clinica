@@ -1,15 +1,11 @@
 <header class="header">
   <div class="container-fluid container-xl">
     <div class="row">
-      <div class="col-auto d-md-none pe-0 header-item header-nav-toggler">
-        @@include('nav-toggler.html',{})
+      <div class="col-auto d-md-none pe-0 header-item header-burger-toggler">
+        @@include('burger-toggler.html',{})
       </div>
       <div class="col header-item header-logo">
-        <a href="index.html">
-          <svg class="icon icon--multi icon-logo-header">
-            <use href="images/icons/sprite-multi.svg#logo-header"></use>
-          </svg>
-        </a>
+        @@include('header-logo.html',{})
       </div>
       <div class="col order-md-1 header-item tools">
         @@include('header-tools.html',{})

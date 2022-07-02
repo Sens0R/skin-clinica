@@ -5,6 +5,8 @@ body {
   line-height: $line-height-base;
   background-color: $color-background; //change to white at the end
   box-sizing: border-box;
+  
+  
 }
 
 .preload * {
@@ -22,7 +24,7 @@ h5,
 h6 {
   @include margin-bottom($spacer-headings);
   @include margin-top($spacer-headings);
-  color: $color-headings;
+  color: $headings-color;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
 }
@@ -49,7 +51,7 @@ h6 {
 p {
   margin: 0;
   padding: 0;
-  color: $color-font;
+  color: $font-color;
 }
 
 button {
@@ -80,6 +82,19 @@ strong {
   display: block;
 }
 
-body._lock {
-  overflow: hidden;
+
+
+a {
+  text-decoration: none;
+  color: $color-secondary;
+  cursor: pointer;
+  &:visited {
+    color: inherit;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: inherit;
+  }
 }

@@ -1,7 +1,6 @@
 .icon-logo-header {
   @include rfs(13.75rem, width);
   @include rfs(5rem, height);
-  z-index: 999;
 }
 
 .icon-logo {
@@ -17,7 +16,7 @@
   }
 }
 
-.nav-toggler svg {
+.burger-toggler svg {
   @include rfs(2.5rem, width);
   @include rfs(2.5rem, height);
 }

@@ -1,19 +1,39 @@
-.cursor-pointer {
-  cursor: pointer;
-}
+@mixin underline-reveal {
+  $duration: $mediumDuration;
 
+  @include hacks();
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $activeColor;
+    height: 4px;
 
-a {
-  text-decoration: none;
-  color: $color-secondary;
-  cursor: pointer;
-  &:visited {
-    color: inherit;
+    @include prefixed(transform, translateY(4px));
+    @include prefixed(transition-property, transform);
+    @include prefixed(transition-duration, $duration);
+    @include prefixed(transition-timing-function, ease-out);
   }
 
+  &:hover,
   &:focus,
-  &:active,
-  &:hover {
-    color: $color-font-light !important;
+  &:active {
+    &:before {
+      @include prefixed(transform, translateY(0));
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .header-nav-menu .nav-menu__item,
+  .tools__link {
+    @include underline-reveal;
   }
 }

@@ -1,21 +1,22 @@
 @import 'nav-menu';
-@import 'nav-toggler';
 @import 'burger-menu';
+@import 'search';
 
 .header {
-  position: sticky;
-  z-index: $zHeader;
-  top: 0;
-  box-shadow: $box-shadow-sm;
   @include padding-top($spacer-sm);
+  box-shadow: $box-shadow-sm;
+  background: $color-light;
 }
 
 .header-item {
   @include padding-bottom($spacer-sm);
 }
 
-.header-nav-toggler {
+.header-burger-toggler {
   @include flex-properties(flex, left, center);
+  .burger-toggler {
+    @include z-index(burger-toggler);
+  }
 }
 
 .header-logo {
@@ -31,28 +32,18 @@
 
 .tools {
   @include flex-properties(flex, right, center);
-
-  &__item {
-    @include flex-properties(flex, center, center);
-    white-space: nowrap;
-    margin-left: 1rem;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-
+  &__link {
     p {
+      @include media-breakpoint-up(sm) {
+        display: inline-block;
+      }
+
       display: none;
       color: $color-secondary;
+      vertical-align: middle;
     }
 
-    @include media-breakpoint-up(sm) {
-      p {
-        display: block;
-      }
-    }
-
-    &:hover {
-      transition: $transition;
-      border-bottom: 5px solid $color-primary;
-    }
+    white-space: nowrap;
+    margin-left: 1rem;
   }
 }

@@ -1,12 +1,14 @@
-<div class="container-fluid burger-menu">
-  <div class="row burger-header">
-    
+<div class="container-fluid burger-menu d-none animate__animated animate__slideInLeft animate__faster">
+  <div class="row burger-header burger-menu__item">
+    <div class="col burger-header__logo">@@include('header-logo.html',{})</div>
   </div>
-  <div class="row">
-    <div class="col-12">@@include('nav-menu-secondary.html',{})</div>
-    <div class="col-12">@@include('nav-menu-main.html',{})</div>
+  <div class="row burger-menu__item">
+    <div class="col-12 animate__animated animate__fadeInRight animate__fast">@@include('nav-menu-secondary.html',{})</div>
+    <div class="col-12 animate__animated animate__fadeInLeft animate__fast">@@include('nav-menu-main.html',{})</div>
   </div>
-  <div class="row">
+  <div class="row burger-menu__item">
     <div class="col-12">@@include('../components/social.html',{})</div>
   </div>
+ 
 </div>
+<div class="burger-menu-mask d-none"></div>

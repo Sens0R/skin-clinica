@@ -1,32 +1,47 @@
-const burgerMenuIcon = document.querySelector('.nav-toggler');
+const burgerToggler = document.querySelector('.burger-toggler');
 const burgerMenu = document.querySelector('.burger-menu');
+const burgerMenuMask = document.querySelector('.burger-menu-mask');
+const burgerTogglerIcon = document.querySelector('.burger-toggler-icon');
+const burgerTogglerIconClosed = document.querySelector(
+  '.burger-toggler-icon-closed'
+);
 
-if (burgerMenuIcon) {
-  burgerMenuIcon.addEventListener('click', function () {
+if (burgerToggler) {
+  burgerToggler.addEventListener('click', function () {
     document.body.classList.toggle('_lock');
-    burgerMenuIcon.classList.toggle('_active');
-    burgerMenu.classList.toggle('_active');
-    const navTogglerIcon = document.querySelector('.nav-toggler-icon');
-    const navTogglerCross = document.querySelector('.nav-toggler-icon-cross');
-    if (burgerMenuIcon.classList.contains('_active')) {
-      navTogglerIcon.classList.toggle('d-none');
-      navTogglerCross.classList.toggle('d-none');
-    } else { 
-      navTogglerIcon.classList.toggle('d-none');
-      navTogglerCross.classList.toggle('d-none');
+    burgerMenu.classList.toggle('d-none');
+    burgerMenuMask.classList.toggle('d-none');
+    burgerToggler.classList.toggle('_active');
+
+    if (burgerToggler.classList.contains('_active')) {
+      burgerTogglerIcon.classList.toggle('d-none');
+      burgerTogglerIconClosed.classList.toggle('d-none');
+    } else {
+      burgerTogglerIcon.classList.toggle('d-none');
+      burgerTogglerIconClosed.classList.toggle('d-none');
     }
+  });
+}
+
+function closeBurgerMenu() {
+  document.body.classList.toggle('_lock');
+  burgerMenuMask.classList.add('d-none');
+  burgerMenu.classList.add('d-none');
+  burgerToggler.classList.remove('_active');
+  burgerTogglerIconClosed.classList.add('d-none');
+  burgerTogglerIcon.classList.remove('d-none');
+}
+
+if (burgerMenuMask) {
+  burgerMenuMask.addEventListener('click', function () {
+    closeBurgerMenu();
   });
 }
 
 window.addEventListener('resize', resizeListener);
 
 function resizeListener() {
-  if (window.innerWidth > 991 && document.body.classList.contains('_lock')) {
-    document.body.style.overflow = 'visible';
-  } else if (
-    window.innerWidth < 992 &&
-    document.body.classList.contains('_lock')
-  ) {
-    document.body.style.overflow = '';
+  if (window.innerWidth > 767 && burgerToggler.classList.contains('_active')) {
+    closeBurgerMenu();
   }
 }

@@ -15,27 +15,21 @@ $color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
 $color-primary: hsl(336, 95%, 84%);
 $color-primary-light: lighten($color-primary, 6%);
 $color-secondary: hsl(0, 5%, 12%);
-$color-secondary-light: $color-white-100;
 
 $color-background: $color-white;
-
 $color-light: $color-white;
 $color-dark: $color-secondary;
-$color-font: $color-gray;
-$color-font-light: $color-white;
-$color-font-accent: $color-primary;
-$color-font-muted: $color-white-muted;
-
-$color-overlay: $color-white-transparent;
-
-$color-headings: $color-secondary;
-
+$overlay: mix($color-background, white, 50%);
 /* ===============================================================================================
 TYPOGRAPHY 
 =============================================================================================== */
 // Fonts
 $font-primary: DMSans, sans-serif;
 $font-secondary: null;
+
+$font-color: $color-gray;
+$font-color-light: $color-white;
+$font-color-accent: $color-primary;
 
 $font-size-base: 1rem;
 $font-size-sm: $font-size-base * 0.875; // 14px HTML text-sm
@@ -46,6 +40,8 @@ $line-height-sm: 1.25; // HTML lh-sm
 $line-height-lg: 2; // HTML lh-lg
 
 // Headings
+$headings-color: $color-secondary;
+
 $headings-font-family: null;
 $headings-font-style: null;
 $headings-font-weight: bold;
@@ -90,17 +86,11 @@ $shadow-sm: 0 0.225rem 0.35rem rgba($color-black, 0.075);
 $shadow-lg: 0 1rem 3rem rgba($color-black, 0.175);
 $shadow-inset: inset 0 1px 2px rgba($color-black, 0.075);
 
-//TODO переделать на миксины
-// Z-index values || z<Context><Element>
-$base: 0;
-$above: 1; // use this for all values above the base
-$below: -1; // and this for all values below the base
-
-$zHeader: $above + $base;
-$zNavToggler: $above + $zHeader;
-
-// Transitions
-$transition: 0.2s ease-in-out;
+// z-index map
+$z-index: (
+  burger-toggler: 110,
+  burger-menu: 100,
+);
 
 // Borders
 $border-color: $color-white-200;
@@ -115,6 +105,14 @@ $border-radius-sm: 0.2rem;
 $border-radius-lg: 0.6rem;
 $border-radius-pill: 50rem;
 
+// Underline
+$underline-color: $color-primary;
+$underline-thickness: 0.3125em;
+$underline-offset: 0.1875em;
+$underline-round-cap: true;
+
+// Transitions
+$transition: 0.2s ease-in-out;
 /* $container: 1170px;
 
 $container-p-sm: 1rem;
