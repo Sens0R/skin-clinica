@@ -4,7 +4,6 @@
 
 .header {
   @include padding-top($spacer-sm);
-  box-shadow: $box-shadow-sm;
   background: $color-light;
 }
 

@@ -15,11 +15,11 @@ $color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
 $color-primary: hsl(336, 95%, 84%);
 $color-primary-light: lighten($color-primary, 6%);
 $color-secondary: hsl(0, 5%, 12%);
-
 $color-background: $color-white;
 $color-light: $color-white;
 $color-dark: $color-secondary;
 $overlay: mix($color-background, white, 50%);
+
 /* ===============================================================================================
 TYPOGRAPHY 
 =============================================================================================== */

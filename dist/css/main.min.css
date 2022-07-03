@@ -20850,7 +20850,6 @@ a:focus, a:active, a:hover {
 
 .header {
   padding-top: 0.75rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   background: hsl(0deg, 0%, 100%);
 }
 
