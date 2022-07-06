@@ -9,17 +9,16 @@
 // MOBILE
 @include media-breakpoint-down(lg) {
   .nav-main {
-    z-index: -1;
     overflow: auto;
     transform: translateY(-100%);
     @include z-index(burger-menu);
     @include fixed(top 0 right 0 bottom 0);
-    @include box(100%, 100%);
+    @include box(80%, 100%);
     background: $color-secondary;
     margin: 0;
     color: $font-color-light;
+    box-shadow: $shadow-lg;
     
-
     &__header {
       @include sticky(top 0);
       @include z-index(burger-menu-header);

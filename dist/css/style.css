@@ -20741,7 +20741,6 @@ a:hover, a:active, a:visited {
 
 @media (max-width: 991.98px) {
   .nav-main {
-    z-index: -1;
     overflow: auto;
     transform: translateY(-100%);
     z-index: 100;
@@ -20749,11 +20748,12 @@ a:hover, a:active, a:visited {
     right: 0;
     bottom: 0;
     position: fixed;
-    width: 100%;
+    width: 80%;
     height: 100%;
     background: hsl(0deg, 5%, 12%);
     margin: 0;
     color: hsl(0deg, 0%, 100%);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   }
   .nav-main__header {
     top: 0;
@@ -20935,7 +20935,7 @@ a:hover, a:active, a:visited {
 .burger-toggler svg {
   width: calc(1.425rem + 2.1vw);
   height: calc(1.425rem + 2.1vw);
-  margin-right: -5px;
+  margin-right: -0.6rem;
 }
 @media (min-width: 1200px) {
   .burger-toggler svg {
@@ -21230,6 +21230,20 @@ a:hover, a:active, a:visited {
   width: 2rem;
   height: 2rem;
   fill: hsl(0deg, 5%, 12%);
+}
+
+#backdrop {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: #000;
+  transition: 3s ease-in-out;
+  opacity: 0.4;
 }
 
 .banner {

@@ -1,0 +1,8 @@
+#backdrop {
+  @include fixed(top 0 left 0 bottom 0 right 0);
+  @include box(100vw, 100vh);
+  @include z-index(backdrop);
+  background-color: #000;
+  transition: 3s ease-in-out;
+  opacity: 0.4;
+}
