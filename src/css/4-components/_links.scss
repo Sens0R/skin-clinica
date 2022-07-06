@@ -4,8 +4,9 @@
   @include hacks();
   position: relative;
   overflow: hidden;
-  padding-bottom: 3px;
-  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+
   &:before {
     content: '';
     position: absolute;
@@ -31,9 +32,11 @@
   }
 }
 
-@include media-breakpoint-up(sm) {
-  .header-nav-menu .nav-menu__item,
-  .tools__link {
+
+
+@include media-breakpoint-up(lg) {
+  .nav-menu__link,
+  .nav-tools__link {
     @include underline-reveal;
   }
 }

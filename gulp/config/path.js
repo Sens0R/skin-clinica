@@ -17,7 +17,7 @@ export const path = {
     js: `${srcFolder}/js/app.js`,
     images: `${srcFolder}/assets/images/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/assets/images/**/*.svg`,
-    scss: `${srcFolder}/css/main.scss`,
+    scss: `${srcFolder}/css/style.scss`,
     html: `${srcFolder}/*.html`,
     svgSpriteMono: `${srcFolder}/assets/svgicons/mono/**/*.svg`,
     svgSpriteMulti: `${srcFolder}/assets/svgicons/multi/**/*.svg`,

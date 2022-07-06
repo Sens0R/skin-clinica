@@ -1,48 +1,111 @@
-@import 'nav-menu';
-@import 'burger-menu';
-@import 'search';
+@import 'nav-main';
 
-.header {
-  @include padding-top($spacer-sm);
-  background: $color-light;
+.navbar {
+  @include margin-top($spacer);
+  @include margin-bottom($spacer);
 }
 
-.header-item {
-  @include padding-bottom($spacer-sm);
+.nav-belt {
+  @include margin-bottom($spacer);
 }
 
-.header-burger-toggler {
-  @include flex-properties(flex, left, center);
-  .burger-toggler {
-    @include z-index(burger-toggler);
+.logo {
+  &-icon {
+    @include rfs(5rem, height);
+    @include rfs(13.75rem, width);
   }
 }
 
-.header-logo {
-  @include flex-properties(flex, left, center);
-  a {
-    @include flex-properties(flex, center, center);
+.nav-search {
+  position: relative;
+
+  &__btn {
+    @include absolute(left 0);
+    padding: 0 1rem;
+    height: 100%;
   }
-}
 
-.header-search {
-  @include flex-properties(flex, center, center);
-}
+  &__icon {
+    fill: $color-primary;
+    @include box(1rem, 1rem);
+  }
 
-.tools {
-  @include flex-properties(flex, right, center);
-  &__link {
-    p {
-      @include media-breakpoint-up(sm) {
-        display: inline-block;
-      }
+  &__body {
+    height: 42px;
+    min-width: 350px;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding-left: 3rem;
+    outline: 0;
 
-      display: none;
-      color: $color-secondary;
-      vertical-align: middle;
+    &:hover {
+      border: 1px solid darken($border-color, 20%);
+      background: darken($color-bg, 2%);
     }
 
-    white-space: nowrap;
-    margin-left: 1rem;
+    &:focus {
+      border: 1px solid $border-color-accent;
+      background: darken($color-bg, 2%);
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
+    &::placeholder {
+      color: $color-secondary;
+    }
+  }
+}
+
+.nav-tools {
+  @include flex(flex, center, center);
+  &__link {
+    @include flex(flex, center, center);
+    padding: 0.4rem;
+    margin-left: 0.3rem;
+    background-color: $color-primary-light;
+    border-radius: 100%;
+
+    @include media-breakpoint-up(sm) {
+      padding: 0.8rem;
+      margin-left: 0.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-left: 1rem;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+    }
+  }
+
+  &__name {
+    display: none;
+    color: $color-secondary;
+    @include media-breakpoint-up(lg) {
+      display: inline-block;
+    }
+  }
+
+  &__icon {
+    @include box(1rem);
+    fill: #d81159;
+
+    @include media-breakpoint-up(lg) {
+      margin-right: 0.15rem;
+      fill: $color-primary;
+    }
+  }
+}
+
+.burger-toggler {
+  &--close {
+    fill: $color-light;
+  }
+
+  svg {
+    @include rfs(3rem, width);
+    @include rfs(3rem, height);
+    margin-right: -5px;
   }
 }

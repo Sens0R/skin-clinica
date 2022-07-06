@@ -1,7 +1,7 @@
 /* ===============================================================================================
 COLORS
 =============================================================================================== */
-// First tier variables. Only use them for second tier variables.
+
 $color-black: hsl(0, 0%, 0%);
 $color-gray: hsl(0, 0%, 45%);
 $color-white: hsl(0, 0%, 100%);
@@ -11,59 +11,57 @@ $color-white-300: darken($color-white, 15%);
 $color-white-muted: fade-out($color-white, 0.25); // 0.75 alpha
 $color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
 
-// Second tier variables
+
 $color-primary: hsl(336, 95%, 84%);
 $color-primary-light: lighten($color-primary, 6%);
 $color-secondary: hsl(0, 5%, 12%);
-$color-background: $color-white;
+$color-bg: $color-white;
 $color-light: $color-white;
 $color-dark: $color-secondary;
-$overlay: mix($color-background, white, 50%);
 
 /* ===============================================================================================
 TYPOGRAPHY 
 =============================================================================================== */
 // Fonts
-$font-primary: DMSans, sans-serif;
-$font-secondary: null;
+$ff-primary: DMSans, sans-serif;
+$ff-secondary: null;
 
-$font-color: $color-gray;
+$font-color: $color-secondary;
 $font-color-light: $color-white;
 $font-color-accent: $color-primary;
 
-$font-size-base: 1rem;
-$font-size-sm: $font-size-base * 0.875; // 14px HTML text-sm
-$font-size-lg: $font-size-base * 1.125; // 18px HTML text-lg
+$fs-base: 1rem;
+$fs-sm: $fs-base * 0.875; // 14px HTML text-sm
+$fs-lg: $fs-base * 1.125; // 18px HTML text-lg
 
-$line-height-base: 1.6; // HTML lh-base    // HTML lh-1
-$line-height-sm: 1.25; // HTML lh-sm
-$line-height-lg: 2; // HTML lh-lg
+$lh-base: 1.6; // HTML lh-base    // HTML lh-1
+$lh-sm: 1.25; // HTML lh-sm
+$lh-lg: 2; // HTML lh-lg
 
 // Headings
 $headings-color: $color-secondary;
+$headings-ff: $ff-primary;
+$headings-fs: null;
+$headings-fw: bold;
+$headings-lh: 1.2;
 
-$headings-font-family: null;
-$headings-font-style: null;
-$headings-font-weight: bold;
-$headings-line-height: 1.2;
-
-$headings-font-size: $font-size-base * 1;
-$font-size-h1: $headings-font-size * 3; // 48px
-$font-size-h2: $headings-font-size * 2.5; // 40px
-$font-size-h3: $headings-font-size * 2; // 32px
-$font-size-h4: $headings-font-size * 1.625; // 26px
-$font-size-h5: $headings-font-size * 1.25; // 20px
-$font-size-h6: $headings-font-size * 0.875; // 14px
+$headings-fs: $fs-base * 1;
+$fs-h1: $headings-fs * 3; // 48px
+$fs-h2: $headings-fs * 2.5; // 40px
+$fs-h3: $headings-fs * 2; // 32px
+$fs-h4: $headings-fs * 1.625; // 26px
+$fs-h5: $headings-fs * 1.25; // 20px
+$fs-h6: $headings-fs * 0.875; // 14px
 
 /* ===============================================================================================
 STRUCTURE
 =============================================================================================== */
 
 // Spacers
-$spacer: 1.5rem;
+$spacer: 1.25rem;
 $spacer-sm: $spacer * 0.5;
-$spacer-lg: $spacer * 2;
-$spacer-headings: $spacer * 1.25;
+$spacer-lg: $spacer * 1.5;
+$spacer-headings: $spacer * 1;
 
 // bootstrap spacer map
 $spacers: (
@@ -88,7 +86,7 @@ $shadow-inset: inset 0 1px 2px rgba($color-black, 0.075);
 
 // z-index map
 $z-index: (
-  burger-toggler: 110,
+  burger-menu-header: 110,
   burger-menu: 100,
 );
 

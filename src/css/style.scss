@@ -14,7 +14,6 @@
 @import '1-tools/swiper';
 @import '1-tools/animate';
 
-
 // 2 - BASE
 @import '2-base/typography';
 @import '2-base/fonts';
@@ -26,9 +25,8 @@
 
 // 4 - COMPONENTS
 @import '4-components/spacer';
-@import '4-components/icons';
 @import '4-components/links';
 @import '4-components/social-icons';
-@import '4-components/overlay';
 
 // 5 - PAGES
+@import '5-pages/main';
