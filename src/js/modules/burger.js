@@ -1,10 +1,50 @@
 const burgerTogglerOpen = document.querySelector('.burger-toggler--open');
 const burgerTogglerClose = document.querySelector('.burger-toggler--close');
-const burgerMenu = document.querySelector('.nav-main');
+const burgerMenu = document.getElementById('navigation');
+const navResize = document.querySelectorAll('[data-nav-resize]');
+
+/*  BURGER CONTROL VARIABLES */
+const sm = 576;
+const md = 768;
+const lg = 992;
+const xl = 1200;
+const mediaBreakpoint = lg;
+const showDesktop = 'd-lg-none';
+
+window.addEventListener('load', () => {
+  showNavigation(mediaBreakpoint);
+  navResize.forEach((attr) => {
+    attr.classList.add(showDesktop);
+  });
+});
+
+window.addEventListener('resize', () => {
+  showNavigation(mediaBreakpoint);
+  closeBurgerOnResize(mediaBreakpoint);
+});
+
+function closeBurgerOnResize(width) {
+  if (window.innerWidth >= width && burgerMenu.classList.contains('_active')) {
+    closeBurgerMenu();
+  }
+}
+
+function showNavigation(width) {
+  // show mobile
+  if (window.innerWidth < width) {
+    burgerMenu.classList.add('nav-mobile');
+    burgerMenu.classList.remove('nav-desktop');
+  }
+  // show desktop
+  if (window.innerWidth >= width) {
+    burgerMenu.classList.remove('nav-mobile');
+    burgerMenu.classList.add('nav-desktop');
+  }
+}
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
   // We create a Promise and return it
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     const animationName = `${prefix}${animation}`;
     const node = document.querySelector(element);
 
@@ -36,7 +76,6 @@ function openBurgerMenu() {
   burgerMenu.classList.add('_active');
   addBackdrop();
 }
-// TODO REMOVE BACKDROP ON CLICK
 
 function closeBurgerMenu() {
   document.body.style.removeProperty('overflow');
@@ -44,26 +83,18 @@ function closeBurgerMenu() {
   removeBackdrop();
 }
 
-window.addEventListener('resize', resizeListener);
-
-function resizeListener() {
-  if (window.innerWidth > 991 && burgerMenu.classList.contains('_active')) {
-    closeBurgerMenu();
-  }
-}
-
 if (burgerTogglerOpen) {
   burgerTogglerOpen.addEventListener('click', function () {
     openBurgerMenu();
-    animateCSS('.nav-main', 'slideInDown');
-    animateCSS('.nav-main', 'faster');
+    animateCSS('#navigation', 'slideInDown');
+    animateCSS('#navigation', 'faster');
   });
 }
 
 if (burgerTogglerClose) {
   burgerTogglerClose.addEventListener('click', function () {
     closeBurgerMenu();
-    animateCSS('.nav-main', 'slideOutUp');
-    animateCSS('.nav-main', 'faster');
+    animateCSS('#navigation', 'slideOutUp');
+    animateCSS('#navigation', 'faster');
   });
 }
