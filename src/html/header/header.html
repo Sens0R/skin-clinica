@@ -58,7 +58,10 @@
       </div>
 
       <!--  nav-toggler -->
-      <div data-nav-resize class="col-auto d-flex justify-content-end ps-0 ps-sm-3">
+      <div
+        data-nav-resize
+        class="col-auto d-flex justify-content-end ps-0 ps-sm-3"
+      >
         <button class="burger-toggler burger-toggler--open" type="button">
           <svg class="burger-toggler-icon">
             <use href="images/icons/sprite-mono.svg#toggler-open"></use>
@@ -68,7 +71,6 @@
     </div>
 
     <div id="navigation" class="row">
-      
       <div data-nav-resize class="col-12 nav-mobile__header align-self-start">
         <a class="logo logo--white" href="index.html">
           <svg class="logo-icon">
@@ -81,15 +83,14 @@
           </svg>
         </button>
       </div>
+
       
       <div class="col nav-main">
-        <hr data-nav-resize>
         @@include('nav-menu-secondary.html',{})
         <hr data-nav-resize>
         @@include('nav-menu-main.html',{})
-        <hr data-nav-resize>
       </div>
-      
+
       <div data-nav-resize class="col-12 nav-mobile__socials">
         @@include('../components/social.html',{})
       </div>

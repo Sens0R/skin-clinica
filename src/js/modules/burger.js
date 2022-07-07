@@ -1,6 +1,6 @@
 const burgerTogglerOpen = document.querySelector('.burger-toggler--open');
 const burgerTogglerClose = document.querySelector('.burger-toggler--close');
-const burgerMenu = document.getElementById('navigation');
+const navigation = document.getElementById('navigation');
 const navResize = document.querySelectorAll('[data-nav-resize]');
 
 /*  BURGER CONTROL VARIABLES */
@@ -10,37 +10,115 @@ const lg = 992;
 const xl = 1200;
 const mediaBreakpoint = lg;
 const showDesktop = 'd-lg-none';
+const addBackdrop = true;
 
-window.addEventListener('load', () => {
-  showNavigation(mediaBreakpoint);
-  navResize.forEach((attr) => {
-    attr.classList.add(showDesktop);
+//TODO MAKE BACKDROP CLASS/DATA-ATTR
+//TODO REWORK ANIMATIONS
+//TODO ADD ANIMATIONS TO EVERY <a></a> INSIDE BURGER
+//TODO MOVE TO REGULAR JS
+
+if (navigation) {
+  window.addEventListener('load', () => {
+    showNavigation(mediaBreakpoint);
+    navResize.forEach((attr) => {
+      attr.classList.add(showDesktop);
+    });
   });
-});
 
-window.addEventListener('resize', () => {
-  showNavigation(mediaBreakpoint);
-  closeBurgerOnResize(mediaBreakpoint);
-});
+  window.addEventListener('resize', () => {
+    showNavigation(mediaBreakpoint);
+    closeBurgerOnResize(mediaBreakpoint);
+  });
+}
+
+
+/*  ---------------------- BACKDROP -------------------------- */
+
+if (addBackdrop == true) {
+  const createBackdrop = document.createElement('div');
+  createBackdrop.classList.add('backdrop');
+  navigation.after(createBackdrop);
+
+  const backdrop = document.querySelector('.backdrop');
+  backdrop.addEventListener('click', function () {
+    closeBurger();
+    animateCSS('#navigation', 'slideOutUp');
+    animateCSS('#navigation', 'faster');
+  });
+
+}
+
+const backdrop = document.querySelector('.backdrop');
+
+function activateBackdrop() {
+  if (addBackdrop == true) {
+    backdrop.classList.add('_active');
+  }
+}
+
+function removeBackdrop() {
+  if (addBackdrop == true) {
+    backdrop.classList.remove('_active');
+  }
+}
+
+
 
 function closeBurgerOnResize(width) {
-  if (window.innerWidth >= width && burgerMenu.classList.contains('_active')) {
-    closeBurgerMenu();
+  if (window.innerWidth >= width && navigation.classList.contains('_active')) {
+    closeBurger();
+    removeBackdrop();
   }
 }
 
 function showNavigation(width) {
   // show mobile
   if (window.innerWidth < width) {
-    burgerMenu.classList.add('nav-mobile');
-    burgerMenu.classList.remove('nav-desktop');
+    navigation.classList.add('nav-mobile');
+    navigation.classList.remove('nav-desktop');
   }
   // show desktop
   if (window.innerWidth >= width) {
-    burgerMenu.classList.remove('nav-mobile');
-    burgerMenu.classList.add('nav-desktop');
+    navigation.classList.remove('nav-mobile');
+    navigation.classList.add('nav-desktop');
   }
 }
+
+/*  ---------------------- HELPER FUNCTIONS -------------------------- */
+function openBurger() {
+  document.body.style.overflow = 'hidden';
+  navigation.classList.add('_active');
+  activateBackdrop();
+}
+
+function closeBurger() {
+  document.body.style.removeProperty('overflow');
+  navigation.classList.remove('_active');
+  removeBackdrop();
+}
+
+
+/*  ---------------------- OPEN BURGER ON CLICK -------------------------- */
+
+if (burgerTogglerOpen) {
+  burgerTogglerOpen.addEventListener('click', function () {
+    openBurger();
+    animateCSS('#navigation', 'slideInDown');
+    animateCSS('#navigation', 'faster');
+  });
+}
+
+/*  ---------------------- CLOSE BURGER ON CLICK -------------------------- */
+
+if (burgerTogglerClose) {
+  burgerTogglerClose.addEventListener('click', function () {
+    closeBurger();
+    animateCSS('#navigation', 'slideOutUp');
+    animateCSS('#navigation', 'faster');
+  });
+}
+
+/*  ---------------------- ANIMATE-CSS ---------------------------------- */
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
   // We create a Promise and return it
@@ -59,42 +137,3 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 
     node.addEventListener('animationend', handleAnimationEnd, { once: true });
   });
-
-function addBackdrop() {
-  const addBackdrop = document.createElement('div');
-  addBackdrop.id = 'backdrop';
-  document.body.appendChild(addBackdrop);
-}
-
-function removeBackdrop() {
-  const removeBackdropEl = document.getElementById('backdrop');
-  removeBackdropEl.remove();
-}
-
-function openBurgerMenu() {
-  document.body.style.overflow = 'hidden';
-  burgerMenu.classList.add('_active');
-  addBackdrop();
-}
-
-function closeBurgerMenu() {
-  document.body.style.removeProperty('overflow');
-  burgerMenu.classList.remove('_active');
-  removeBackdrop();
-}
-
-if (burgerTogglerOpen) {
-  burgerTogglerOpen.addEventListener('click', function () {
-    openBurgerMenu();
-    animateCSS('#navigation', 'slideInDown');
-    animateCSS('#navigation', 'faster');
-  });
-}
-
-if (burgerTogglerClose) {
-  burgerTogglerClose.addEventListener('click', function () {
-    closeBurgerMenu();
-    animateCSS('#navigation', 'slideOutUp');
-    animateCSS('#navigation', 'faster');
-  });
-}

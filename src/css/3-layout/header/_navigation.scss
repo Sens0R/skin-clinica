@@ -8,11 +8,12 @@
 
 // MOBILE
 .nav-mobile {
-  overflow: auto;
-  transform: translateY(-110%);
-  @include z-index(burger-menu);
   @include fixed(top 0 right 0 bottom 0);
   @include box(80%, 100%);
+  @include z-index(burger-menu);
+
+  overflow: auto;
+  transform: translateY(-110%);
   margin: 0;
   background: $color-secondary;
   color: $font-color-light;
@@ -27,20 +28,26 @@
     background: inherit;
   }
 
-  .social-icons {
-    @include padding-bottom($spacer);
+  &__socials {
+    @include flex(flex, center, center);
+    padding: $spacer 0;
   }
 
-  .social-icons__item {
+  .social-icons {
     flex-wrap: wrap;
-    @include flex(flex, center, center);
-    @include box(2.5rem, 2.5rem);
-    background: $color-primary;
-    border-radius: 100%;
+    &__item {
+      @include flex(flex, center, center);
+      @include box(2rem, 2rem);
+      background: $color-primary;
+      border-radius: 100%;
+    }
   }
 
   .icon-social {
-    @include box(1.5rem, 1.5rem);
+    @include box(1rem, 1rem);
+  }
+
+  .nav-main {
   }
 
   .nav-menu {

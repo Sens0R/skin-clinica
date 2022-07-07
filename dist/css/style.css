@@ -20740,15 +20740,15 @@ a:hover, a:active, a:visited {
 }
 
 .nav-mobile {
-  overflow: auto;
-  transform: translateY(-110%);
-  z-index: 100;
   top: 0;
   right: 0;
   bottom: 0;
   position: fixed;
   width: 80%;
   height: 100%;
+  z-index: 100;
+  overflow: auto;
+  transform: translateY(-110%);
   margin: 0;
   background: hsl(0deg, 5%, 12%);
   color: hsl(0deg, 0%, 100%);
@@ -20765,22 +20765,27 @@ a:hover, a:active, a:visited {
   align-items: center;
   background: inherit;
 }
-.nav-mobile .social-icons {
-  padding-bottom: 1.25rem;
-}
-.nav-mobile .social-icons__item {
-  flex-wrap: wrap;
+.nav-mobile__socials {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  padding: 1.25rem 0;
+}
+.nav-mobile .social-icons {
+  flex-wrap: wrap;
+}
+.nav-mobile .social-icons__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
   background: hsl(336deg, 95%, 84%);
   border-radius: 100%;
 }
 .nav-mobile .icon-social {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
 }
 .nav-mobile .nav-menu {
   font-size: 1.25rem;
@@ -21230,15 +21235,19 @@ a:hover, a:active, a:visited {
   fill: hsl(0deg, 5%, 12%);
 }
 
-#backdrop {
+.backdrop {
   top: 0;
   left: 0;
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 10;
   background-color: #000;
   opacity: 0.4;
+  transform: translateY(-110%);
+}
+
+.backdrop._active {
+  transform: none;
 }
 
 .banner {
