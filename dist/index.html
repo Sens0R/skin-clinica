@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.min.css" />
   <title>Skin Clinica</title>
 </head>
 
-  <body>
+  <body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
     
     <header class="header">
   <nav class="container-xxl navbar">
@@ -40,7 +41,7 @@
       <!-- tools -->
       <div class="col-auto d-flex justify-content-end">
         <div class="nav-tools">
-          <a data-nav-resize href="#" class="nav-tools__link">
+          <a href="#" class="nav-tools__link d-lg-none">
             <svg class="nav-tools__icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
             </svg>
@@ -71,8 +72,8 @@
 
       <!--  nav-toggler -->
       <div
-        data-nav-resize
-        class="col-auto d-flex justify-content-end ps-0 ps-sm-3"
+       
+        class="col-auto d-flex justify-content-end ps-0 ps-sm-3 d-lg-none"
       >
         <button class="burger-toggler burger-toggler--open" type="button">
           <svg class="burger-toggler-icon">
@@ -82,8 +83,9 @@
       </div>
     </div>
 
-    <div id="navigation" class="row">
-      <div data-nav-resize class="col-12 nav-mobile__header align-self-start">
+    <!-- NAVIGATION -->
+    <div id="navigation" class="row nav-mobile nav-desktop">
+      <div class="col-12 nav-mobile__header align-self-start d-lg-none">
         <a class="logo logo--white" href="index.html">
           <svg class="logo-icon">
             <use href="images/icons/sprite-multi.svg#logo-footer"></use>
@@ -96,25 +98,7 @@
         </button>
       </div>
 
-      
-      <div class="col nav-main">
-        <ul class="nav-menu nav-menu--secondary ">
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">About</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Faq</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Blog</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Contact</a>
-  </li>
-</ul>
-
-        <hr data-nav-resize>
-        <ul class="nav-menu nav-menu--main order-first">
+      <div class="col nav-main"><ul class="nav-menu nav-menu--main order-first">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Shop</a>
   </li>
@@ -128,9 +112,23 @@
     <a href="#" class="nav-menu__link">Brands</a>
   </li>
 </ul>
-      </div>
+<hr class="d-lg-none">
+<ul class="nav-menu nav-menu--secondary ">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">About</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Faq</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Blog</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Contact</a>
+  </li>
+</ul></div>
 
-      <div data-nav-resize class="col-12 nav-mobile__socials">
+      <div class="col-12 nav-mobile__socials d-lg-none">
         <ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="social-icons__link">
@@ -190,6 +188,6 @@
     <footer class="footer">
   
 </footer>
-    <script src="js/app.min.js"></script>
+   <script defer src="js/app.min.js"></script> 
   </body>
 </html>

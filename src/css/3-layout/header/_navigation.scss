@@ -7,82 +7,85 @@
 }
 
 // MOBILE
-.nav-mobile {
-  @include fixed(top 0 right 0 bottom 0);
-  @include box(80%, 100%);
-  @include z-index(burger-menu);
+@include media-breakpoint-down(lg) {
+  .nav-mobile {
+    transform: translateY(-110%);
+    @include fixed(top 0 right 0 bottom 0);
+    @include box(80%, 100%);
+    @include z-index(burger-menu);
+    overflow: auto;
+    margin: 0;
+    background: $color-secondary;
+    color: $font-color-light;
+    box-shadow: $shadow-lg;
 
-  overflow: auto;
-  transform: translateY(-110%);
-  margin: 0;
-  background: $color-secondary;
-  color: $font-color-light;
-  box-shadow: $shadow-lg;
+    &__header {
+      @include sticky(top 0);
+      @include z-index(burger-menu-header);
+      @include padding-top($spacer);
+      @include padding-bottom($spacer);
+      @include flex(flex, space-between, center);
+      background: inherit;
+    }
 
-  &__header {
-    @include sticky(top 0);
-    @include z-index(burger-menu-header);
-    @include padding-top($spacer);
-    @include padding-bottom($spacer);
-    @include flex(flex, space-between, center);
-    background: inherit;
-  }
-
-  &__socials {
-    @include flex(flex, center, center);
-    padding: $spacer 0;
-  }
-
-  .social-icons {
-    flex-wrap: wrap;
-    &__item {
+    &__socials {
       @include flex(flex, center, center);
-      @include box(2rem, 2rem);
-      background: $color-primary;
-      border-radius: 100%;
-    }
-  }
-
-  .icon-social {
-    @include box(1rem, 1rem);
-  }
-
-  .nav-main {
-  }
-
-  .nav-menu {
-    font-size: 1.25rem;
-    &__item {
-      padding: 0.5rem 0;
+      padding: $spacer 0;
     }
 
-    &--main {
-      font-weight: bold;
+    .social-icons {
+      flex-wrap: wrap;
+      &__item {
+        @include flex(flex, center, center);
+        @include box(2rem, 2rem);
+        background: $color-primary;
+        border-radius: 100%;
+      }
+    }
+
+    .icon-social {
+      @include box(1rem, 1rem);
+    }
+
+    .nav-main {
+    }
+
+    .nav-menu {
+      font-size: 1.25rem;
+      &__item {
+        padding: 0.5rem 0;
+      }
+
+      &--main {
+        font-weight: bold;
+      }
     }
   }
 }
 
 // DESKTOP
-.nav-desktop {
-  .nav-main {
-    @include flex(flex, space-between, center);
-  }
-
-  .nav-menu {
-    @include flex(flex, center, center);
-    font-size: $font-size-sm;
-    &--main {
-      font-weight: bold;
-      justify-content: left;
-      .nav-menu__item {
-        margin-right: 1rem;
-      }
+@include media-breakpoint-up(lg) {
+  .nav-desktop {
+    .nav-main {
+      @include flex(flex, space-between, center);
     }
 
-    &--secondary {
-      justify-content: right;
-      .nav-menu__item {
-        margin-left: 1rem;
+    .nav-menu {
+      @include flex(flex, center, center);
+      font-size: $font-size-sm;
+      &--main {
+        font-weight: bold;
+        justify-content: left;
+        .nav-menu__item {
+          margin-right: 1rem;
+        }
+      }
+
+      &--secondary {
+        justify-content: right;
+        .nav-menu__item {
+          margin-left: 1rem;
+        }
       }
     }
   }

@@ -1,7 +1,6 @@
 const burgerTogglerOpen = document.querySelector('.burger-toggler--open');
 const burgerTogglerClose = document.querySelector('.burger-toggler--close');
 const navigation = document.getElementById('navigation');
-const navResize = document.querySelectorAll('[data-nav-resize]');
 
 /*  BURGER CONTROL VARIABLES */
 const sm = 576;
@@ -9,30 +8,22 @@ const md = 768;
 const lg = 992;
 const xl = 1200;
 const mediaBreakpoint = lg;
-const showDesktop = 'd-lg-none';
-const addBackdrop = true;
+let addBackdrop = false;
 
-//TODO MAKE BACKDROP CLASS/DATA-ATTR
+//TODO BACKDROP TRANSITION
 //TODO REWORK ANIMATIONS
 //TODO ADD ANIMATIONS TO EVERY <a></a> INSIDE BURGER
 //TODO MOVE TO REGULAR JS
 
-if (navigation) {
-  window.addEventListener('load', () => {
-    showNavigation(mediaBreakpoint);
-    navResize.forEach((attr) => {
-      attr.classList.add(showDesktop);
-    });
-  });
-
-  window.addEventListener('resize', () => {
-    showNavigation(mediaBreakpoint);
-    closeBurgerOnResize(mediaBreakpoint);
-  });
-}
-
+window.addEventListener('resize', () => {
+  closeBurgerOnResize(mediaBreakpoint);
+});
 
 /*  ---------------------- BACKDROP -------------------------- */
+
+if (navigation.hasAttribute('data-backdrop')) {
+  addBackdrop = true;
+}
 
 if (addBackdrop == true) {
   const createBackdrop = document.createElement('div');
@@ -45,7 +36,6 @@ if (addBackdrop == true) {
     animateCSS('#navigation', 'slideOutUp');
     animateCSS('#navigation', 'faster');
   });
-
 }
 
 const backdrop = document.querySelector('.backdrop');
@@ -62,7 +52,7 @@ function removeBackdrop() {
   }
 }
 
-
+/*  ---------------------- HELPER FUNCTIONS -------------------------- */
 
 function closeBurgerOnResize(width) {
   if (window.innerWidth >= width && navigation.classList.contains('_active')) {
@@ -71,20 +61,6 @@ function closeBurgerOnResize(width) {
   }
 }
 
-function showNavigation(width) {
-  // show mobile
-  if (window.innerWidth < width) {
-    navigation.classList.add('nav-mobile');
-    navigation.classList.remove('nav-desktop');
-  }
-  // show desktop
-  if (window.innerWidth >= width) {
-    navigation.classList.remove('nav-mobile');
-    navigation.classList.add('nav-desktop');
-  }
-}
-
-/*  ---------------------- HELPER FUNCTIONS -------------------------- */
 function openBurger() {
   document.body.style.overflow = 'hidden';
   navigation.classList.add('_active');
@@ -96,7 +72,6 @@ function closeBurger() {
   navigation.classList.remove('_active');
   removeBackdrop();
 }
-
 
 /*  ---------------------- OPEN BURGER ON CLICK -------------------------- */
 

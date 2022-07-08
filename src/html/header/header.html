@@ -28,7 +28,7 @@
       <!-- tools -->
       <div class="col-auto d-flex justify-content-end">
         <div class="nav-tools">
-          <a data-nav-resize href="#" class="nav-tools__link">
+          <a href="#" class="nav-tools__link d-lg-none">
             <svg class="nav-tools__icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
             </svg>
@@ -59,8 +59,8 @@
 
       <!--  nav-toggler -->
       <div
-        data-nav-resize
-        class="col-auto d-flex justify-content-end ps-0 ps-sm-3"
+       
+        class="col-auto d-flex justify-content-end ps-0 ps-sm-3 d-lg-none"
       >
         <button class="burger-toggler burger-toggler--open" type="button">
           <svg class="burger-toggler-icon">
@@ -70,8 +70,9 @@
       </div>
     </div>
 
-    <div id="navigation" class="row">
-      <div data-nav-resize class="col-12 nav-mobile__header align-self-start">
+    <!-- NAVIGATION -->
+    <div id="navigation" class="row nav-mobile nav-desktop">
+      <div class="col-12 nav-mobile__header align-self-start d-lg-none">
         <a class="logo logo--white" href="index.html">
           <svg class="logo-icon">
             <use href="images/icons/sprite-multi.svg#logo-footer"></use>
@@ -84,14 +85,9 @@
         </button>
       </div>
 
-      
-      <div class="col nav-main">
-        @@include('nav-menu-secondary.html',{})
-        <hr data-nav-resize>
-        @@include('nav-menu-main.html',{})
-      </div>
+      <div class="col nav-main">@@include('nav-menu.html',{})</div>
 
-      <div data-nav-resize class="col-12 nav-mobile__socials">
+      <div class="col-12 nav-mobile__socials d-lg-none">
         @@include('../components/social.html',{})
       </div>
     </div>
