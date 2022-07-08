@@ -36,7 +36,6 @@
     .social-icons {
       flex-wrap: wrap;
       &__item {
-        @include flex(flex, center, center);
         @include box(2rem, 2rem);
         background: $color-primary;
         border-radius: 100%;
@@ -45,9 +44,6 @@
 
     .icon-social {
       @include box(1rem, 1rem);
-    }
-
-    .nav-main {
     }
 
     .nav-menu {
