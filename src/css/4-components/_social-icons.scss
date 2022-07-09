@@ -3,6 +3,12 @@
   &__item {
     margin: .3125rem;
   }
+  &__link {
+    padding: 0.4rem;
+     @include flex(flex, center, center);
+    background: $color-secondary;
+    border-radius: 100%;
+  }
 }
 
 .icon-social {

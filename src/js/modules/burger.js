@@ -2,24 +2,35 @@ const burgerTogglerOpen = document.querySelector('.burger-toggler--open');
 const burgerTogglerClose = document.querySelector('.burger-toggler--close');
 const navigation = document.getElementById('navigation');
 
-/*  BURGER CONTROL VARIABLES */
+
+//TODO ADD ANIMATIONS TO EVERY <a></a> INSIDE BURGER
+//TODO MOVE TO REGULAR JS
+
+
+
+
+/*  ---------------------- CLOSE ON RESIZE -------------------------- */
+
 const sm = 576;
 const md = 768;
 const lg = 992;
 const xl = 1200;
-const mediaBreakpoint = lg;
-let addBackdrop = false;
-
-//TODO BACKDROP TRANSITION
-//TODO REWORK ANIMATIONS
-//TODO ADD ANIMATIONS TO EVERY <a></a> INSIDE BURGER
-//TODO MOVE TO REGULAR JS
+const mediaBreakpoint = lg; //for resize function
 
 window.addEventListener('resize', () => {
   closeBurgerOnResize(mediaBreakpoint);
 });
 
+function closeBurgerOnResize(width) {
+  if (window.innerWidth >= width && navigation.classList.contains('_active')) {
+    closeBurger();
+    removeBackdrop();
+  }
+}
+
 /*  ---------------------- BACKDROP -------------------------- */
+
+let addBackdrop = true;
 
 if (navigation.hasAttribute('data-backdrop')) {
   addBackdrop = true;
@@ -33,8 +44,7 @@ if (addBackdrop == true) {
   const backdrop = document.querySelector('.backdrop');
   backdrop.addEventListener('click', function () {
     closeBurger();
-    animateCSS('#navigation', 'slideOutUp');
-    animateCSS('#navigation', 'faster');
+    addCloseAnimation(closeAnimation);
   });
 }
 
@@ -52,13 +62,13 @@ function removeBackdrop() {
   }
 }
 
-/*  ---------------------- HELPER FUNCTIONS -------------------------- */
+/*  ---------------------- OPEN BURGER -------------------------- */
 
-function closeBurgerOnResize(width) {
-  if (window.innerWidth >= width && navigation.classList.contains('_active')) {
-    closeBurger();
-    removeBackdrop();
-  }
+if (burgerTogglerOpen) {
+  burgerTogglerOpen.addEventListener('click', function () {
+    openBurger();
+    addOpenAnimation(openAnimation);
+  });
 }
 
 function openBurger() {
@@ -67,33 +77,35 @@ function openBurger() {
   activateBackdrop();
 }
 
+/*  ---------------------- CLOSE BURGER -------------------------- */
+
+if (burgerTogglerClose) {
+  burgerTogglerClose.addEventListener('click', function () {
+    closeBurger();
+    addCloseAnimation(closeAnimation);
+  });
+}
+
 function closeBurger() {
   document.body.style.removeProperty('overflow');
   navigation.classList.remove('_active');
   removeBackdrop();
 }
 
-/*  ---------------------- OPEN BURGER ON CLICK -------------------------- */
-
-if (burgerTogglerOpen) {
-  burgerTogglerOpen.addEventListener('click', function () {
-    openBurger();
-    animateCSS('#navigation', 'slideInDown');
-    animateCSS('#navigation', 'faster');
-  });
-}
-
-/*  ---------------------- CLOSE BURGER ON CLICK -------------------------- */
-
-if (burgerTogglerClose) {
-  burgerTogglerClose.addEventListener('click', function () {
-    closeBurger();
-    animateCSS('#navigation', 'slideOutUp');
-    animateCSS('#navigation', 'faster');
-  });
-}
-
 /*  ---------------------- ANIMATE-CSS ---------------------------------- */
+
+let openAnimation = 'slideInDown';
+let closeAnimation = 'slideOutUp';
+
+function addOpenAnimation(openAnimation) {
+  animateCSS('#navigation', openAnimation);
+  animateCSS('#navigation', 'faster');
+}
+
+function addCloseAnimation(closeAnimation) {
+  animateCSS('#navigation', closeAnimation);
+  animateCSS('#navigation', 'faster');
+}
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
   // We create a Promise and return it

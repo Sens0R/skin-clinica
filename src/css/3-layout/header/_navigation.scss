@@ -2,86 +2,82 @@
   white-space: nowrap;
 }
 
-.nav-mobile._active {
+#navigation._active {
   transform: none;
 }
 
 // MOBILE
 @include media-breakpoint-down(lg) {
-  .nav-mobile {
+  #navigation {
     transform: translateY(-110%);
     @include fixed(top 0 right 0 bottom 0);
     @include box(80%, 100%);
     @include z-index(burger-menu);
-    overflow: auto;
+    @include padding-bottom($spacer);
     margin: 0;
+    overflow: auto;
     background: $color-secondary;
     color: $font-color-light;
-    box-shadow: $shadow-lg;
+    //box-shadow: $shadow-lg; // shadow for backdrop
+  }
 
-    &__header {
-      @include sticky(top 0);
-      @include z-index(burger-menu-header);
-      @include padding-top($spacer);
-      @include padding-bottom($spacer);
-      @include flex(flex, space-between, center);
-      background: inherit;
+  .nav-mobile-header {
+    @include sticky(top 0);
+    @include z-index(burger-menu-header);
+    @include padding-top($spacer);
+    @include flex(flex, space-between, center);
+    background: inherit;
+  }
+
+  .nav-main {
+    @include padding-top($spacer);
+    @include padding-bottom($spacer);
+  }
+
+  .nav-menu {
+    font-size: 1.25rem;
+    &__item {
+      margin: 1rem 0;
     }
 
-    &__socials {
-      @include flex(flex, center, center);
-      padding: $spacer 0;
+    &--main {
+      font-weight: bold;
     }
+  }
 
-    .social-icons {
-      flex-wrap: wrap;
-      &__item {
-        @include box(2rem, 2rem);
-        background: $color-primary;
-        border-radius: 100%;
-      }
+  .social-icons {
+    flex-wrap: wrap;
+    .social-icons__link {
+      background: $color-primary;
     }
-
-    .icon-social {
-      @include box(1rem, 1rem);
-    }
-
-    .nav-menu {
-      font-size: 1.25rem;
-      &__item {
-        padding: 0.5rem 0;
-      }
-
-      &--main {
-        font-weight: bold;
-      }
-    }
+  }
+  
+  .nav-mobile-socials .icon-social {
+    @include box(1rem, 1rem);
   }
 }
 
 // DESKTOP
 @include media-breakpoint-up(lg) {
-  .nav-desktop {
-    .nav-main {
-      @include flex(flex, space-between, center);
+  .nav-main {
+    @include flex(flex, space-between, center);
+  }
+
+  .nav-menu {
+    @include flex(flex, center, center);
+    font-size: $font-size-sm;
+    &--main {
+      font-weight: bold;
+      justify-content: left;
+      .nav-menu__item {
+        margin-right: 1rem;
+      }
     }
 
-    .nav-menu {
-      @include flex(flex, center, center);
-      font-size: $font-size-sm;
-      &--main {
-        font-weight: bold;
-        justify-content: left;
-        .nav-menu__item {
-          margin-right: 1rem;
-        }
-      }
-
-      &--secondary {
-        justify-content: right;
-        .nav-menu__item {
-          margin-left: 1rem;
-        }
+    &--secondary {
+      justify-content: right;
+      .nav-menu__item {
+        margin-left: 1rem;
       }
     }
   }

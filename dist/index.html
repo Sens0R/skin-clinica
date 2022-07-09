@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="images/favicon.svg">
   <link rel="preload" href="fonts/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin> 
-  <link rel="preload" href="images/icons/sprite-mono.svg" as="image" type="image/svg+xml" crossorigin /> 
-  <link rel="stylesheet" href="css/style.min.css?_v=20220709010018" />
-  <script defer src="js/app.min.js?_v=20220709010018"></script> 
+  <!-- <link rel="preload" href="images/icons/sprite-mono.svg" as="image" type="image/svg+xml" />  -->
+  <link rel="stylesheet" href="css/style.min.css" />
+  <script defer src="js/app.min.js"></script> 
   <title>Skin Clinica</title>
 </head>
 
@@ -87,8 +87,8 @@
     </div>
 
     <!-- NAVIGATION -->
-    <div id="navigation" class="row nav-mobile nav-desktop">
-      <div class="col-12 nav-mobile__header align-self-start d-lg-none">
+    <div id="navigation" class="row">
+      <div class="col-12 nav-mobile-header align-self-start d-lg-none">
         <a class="logo logo--white" href="index.html">
           <svg class="logo-icon">
             <use href="images/icons/sprite-multi.svg#logo-footer"></use>
@@ -101,7 +101,22 @@
         </button>
       </div>
 
-      <div class="col nav-main"><ul class="nav-menu nav-menu--main order-first">
+      <div class="col nav-main"><ul class="nav-menu nav-menu--secondary order-lg-last">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">About</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Faq</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Blog</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Contact</a>
+  </li>
+</ul>
+<hr class="d-lg-none">
+<ul class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Shop</a>
   </li>
@@ -115,23 +130,10 @@
     <a href="#" class="nav-menu__link">Brands</a>
   </li>
 </ul>
-<hr class="d-lg-none">
-<ul class="nav-menu nav-menu--secondary ">
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">About</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Faq</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Blog</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Contact</a>
-  </li>
-</ul></div>
 
-      <div class="col-12 nav-mobile__socials d-lg-none">
+</div>
+
+      <div class="col-12 nav-mobile-socials d-lg-none">
         <ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="social-icons__link">

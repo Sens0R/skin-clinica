@@ -2,13 +2,12 @@
   @include fixed(top 0 left 0);
   @include box(100vw, 100vh);
   background-color: #000;
-  opacity: 0.4;
-  
+  opacity: 0;
   transform: translateY(-110%);
- 
 }
 
 .backdrop._active {
   transform: none;
-  //transition: opacity 1.15s linear;
+  opacity: 0.4;
+  transition: opacity 0.2s linear;
 }
