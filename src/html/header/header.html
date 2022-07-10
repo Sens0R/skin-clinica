@@ -10,29 +10,37 @@
         </a>
       </div>
       <!-- search -->
-      <div class="col d-none d-lg-flex justify-content-end">
-        <div class="nav-search">
-          <button class="nav-search__btn">
-            <svg class="nav-search__icon">
-              <use href="images/icons/sprite-mono.svg#search"></use>
-            </svg>
-          </button>
-          <input
-            type="text"
-            class="nav-search__body text-sm"
-            placeholder="Search"
-          />
+
+      <div class="col d-lg-flex justify-content-end">
+        <div class="container-fluid mobile-search">
+          <div class="nav-search">
+            <button class="nav-search__btn">
+              <svg class="nav-search__icon">
+                <use href="images/icons/sprite-mono.svg#search"></use>
+              </svg>
+            </button>
+            <input
+              type="text"
+              class="nav-search__body text-sm"
+              placeholder="Search"
+            />
+            <button data-search="close" class="d-lg-none nav-search-btn-close" type="button">
+              <svg class="nav-search-btn-close__icon">
+                <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- tools -->
       <div class="col-auto d-flex justify-content-end">
         <div class="nav-tools">
-          <a href="#" class="nav-tools__link d-lg-none">
+          <button data-search="open" class="nav-tools__link d-lg-none" type="button">
             <svg class="nav-tools__icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
             </svg>
-          </a>
+          </button>
 
           <a href="#" class="nav-tools__link">
             <svg class="nav-tools__icon">
@@ -58,10 +66,7 @@
       </div>
 
       <!--  nav-toggler -->
-      <div
-       
-        class="col-auto d-flex justify-content-end ps-0 ps-sm-3 d-lg-none"
-      >
+      <div class="col-auto d-flex justify-content-end ps-0 ps-sm-3 d-lg-none">
         <button class="burger-toggler burger-toggler--open" type="button">
           <svg class="burger-toggler-icon">
             <use href="images/icons/sprite-mono.svg#toggler-open"></use>

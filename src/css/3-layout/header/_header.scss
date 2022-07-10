@@ -57,6 +57,41 @@
   }
 }
 
+@include media-breakpoint-down(lg) {
+  .mobile-search._active {
+    transform: none;
+  }
+
+  .mobile-search {
+    @include fixed(top 0 left 0);
+    transform: translateX(-110%);
+    @include flex(flex, center, center);
+    width: 100%;
+    height: 7rem;
+    @include gradient($color-primary, #d81159, horizontal);
+    //background: $color-secondary;
+    box-shadow: $shadow;
+  }
+
+  .nav-search {
+    @include flex(flex, center, center);
+    &__body {
+      min-width: 70vw;
+    }
+
+    &__icon {
+      fill: #d81159;
+    }
+  }
+
+  .nav-search-btn-close {
+    &__icon {
+      fill: $color-light;
+      @include box(3rem, 3rem);
+    }
+  }
+}
+
 .nav-tools {
   @include flex(flex, center, center);
   &__link {
