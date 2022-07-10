@@ -1,16 +1,12 @@
-let navigation = '';
-let backdrop = '';
 
-const breakpoint = {
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-};
+
+let navigation = '';
+
 
 /*  ---------------------- BURGER VARIABLES -------------------------- */
+
 const mediaBreakpoint = breakpoint.lg; // closing breakpoint
-let addBackdrop = false;
+let addBackdrop = true;
 const animations = {
   openAnimation: 'slideInDown',
   closeAnimation: 'slideOutUp',
@@ -19,7 +15,7 @@ const animations = {
 
 /*  ---------------------- RUN BURGER -------------------------- */
 
-export function burger() {
+export function runBurger() {
   navigation = document.getElementById('navigation');
   const burgerTogglerOpen = document.querySelector('.burger-toggler--open');
   const burgerTogglerClose = document.querySelector('.burger-toggler--close');

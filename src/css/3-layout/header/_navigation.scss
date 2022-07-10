@@ -6,6 +6,18 @@
   transform: none;
 }
 
+.burger-toggler {
+  &--close {
+    fill: $color-light;
+  }
+
+  svg {
+    @include rfs(3rem, width);
+    @include rfs(3rem, height);
+    margin-right: -0.6rem;
+  }
+}
+
 // MOBILE
 @include media-breakpoint-down(lg) {
   #navigation {
@@ -25,6 +37,7 @@
     @include sticky(top 0);
     @include z-index(burger-menu-header);
     @include padding-top($spacer);
+    @include padding-bottom($spacer);
     @include flex(flex, space-between, center);
     background: inherit;
   }
@@ -51,7 +64,7 @@
       background: $color-primary;
     }
   }
-  
+
   .nav-mobile-socials .icon-social {
     @include box(1rem, 1rem);
   }

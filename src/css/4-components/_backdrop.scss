@@ -3,11 +3,23 @@
   @include box(100vw, 100vh);
   background-color: #000;
   opacity: 0;
-  transform: translateY(-110%);
+  transform: translateY(-100%);
 }
 
 .backdrop._active {
   transform: none;
   opacity: 0.4;
+  transition: opacity 0.2s linear;
+}
+
+.backdrop._active-light {
+  transform: none;
+  opacity: 0.1;
+  transition: opacity 0.2s linear;
+}
+
+.backdrop._active-transparent {
+  transform: none;
+  opacity: 0;
   transition: opacity 0.2s linear;
 }
