@@ -23,7 +23,7 @@
   #navigation {
     transform: translateY(-110%);
     @include fixed(top 0 right 0 bottom 0);
-    @include box(100%, 100%);
+    @include box(80%, 100%);
     @include z-index(burger-menu);
     @include padding-bottom($spacer);
     margin: 0;

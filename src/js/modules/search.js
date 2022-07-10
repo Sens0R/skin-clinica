@@ -3,7 +3,8 @@ import {
   removeBackdrop,
   addOpenAnimation,
   addCloseAnimation,
-  closeSearchOnResize,
+  closeOnResize,
+  closeOnClick,
 } from './functions.js';
 
 const openSearchBtn = document.querySelector("[data-search='open']");
@@ -12,29 +13,22 @@ const animatedEl = '.mobile-search';
 const openAnimation = 'slideInLeft';
 const closeAnimation = 'slideOutRight';
 const animationSpeed = 'faster';
-const backdropStyle = '_active-transparent';
 
-export function runSearch(breakpoint) {
+export function runSearch(breakpointSelect, backdropStyle) {
   openSearchBtn.addEventListener('click', function () {
     mobileSearchEl.classList.add('_active');
     addBackdrop(backdropStyle);
     addOpenAnimation(animatedEl, openAnimation, animationSpeed);
-    document.querySelector('.nav-search__body').focus();
+    document.querySelector('.nav-search__body').focus(); // optional focus on search input
 
-    const backdropClick = document.querySelector("[data-backdrop='close']");
-    backdropClick.addEventListener('click', function () {
-      closeSearch();
-    });
+    closeOnClick(
+      document.querySelector("[data-backdrop='close']"),
+      closeSearch
+    );
   });
 
-  const closeSearchBtn = document.querySelector("[data-search='close']");
-  closeSearchBtn.addEventListener('click', function () {
-    closeSearch();
-  });
-
-  window.addEventListener('resize', () => {
-    closeSearchOnResize(breakpoint, mobileSearchEl);
-  });
+  closeOnClick(document.querySelector("[data-search='close']"), closeSearch);
+  closeOnResize(breakpointSelect, mobileSearchEl, removeBackdrop);
 }
 
 function closeSearch() {

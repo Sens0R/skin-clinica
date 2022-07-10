@@ -10,47 +10,44 @@ export const breakpoint = {
 
 export let backdrop = '';
 
-export function addBackdrop(activation) {
+export function addBackdrop(backdropStyle) {
   const createBackdrop = document.createElement('div');
   createBackdrop.classList.add('backdrop');
   document.body.appendChild(createBackdrop);
   backdrop = document.querySelector('.backdrop');
-  backdrop.classList.add(activation);
+  backdrop.classList.add(backdropStyle);
   backdrop.setAttribute('data-backdrop', 'close');
 }
-
-//backdrop.addEventListener('click', function () { });
 
 export function removeBackdrop() {
   document.querySelector('.backdrop').remove();
 }
 
-export function backdropClick() {
-  backdrop.addEventListener('click', function () {});
-}
-
-/*  ============================= MOBILE RESIZE ========================
+/*  ======================== ELEMENT CLOSING ========================
 ======================================================================== */
 
-export function closeBurgerOnResize(width, activeEl) {
-  if (window.innerWidth >= width && activeEl.classList.contains('_active')) {
-  }
+export function closeOnClick(element, closingFunction, ...params) {
+  element.addEventListener('click', function () {
+    closingFunction(...params);
+  });
 }
 
-export function closeSearchOnResize(width, activeEl) {
-  if (window.innerWidth >= width && activeEl.classList.contains('_active')) {
-    removeBackdrop();
-    activeEl.classList.remove('_active');
-  }
+export function closeOnResize(width, activeEl, closingFunction) {
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= width && activeEl.classList.contains('_active')) {
+      closingFunction.call();
+      activeEl.classList.remove('_active');
+    }
+  });
 }
 
 /*  ============================= ANIMATIONS ========================
 ======================================================================== */
 
-const animatedEl = '#navigation';
-const openAnimation = 'slideInDown';
-const closeAnimation = 'slideOutUp';
-const animationSpeed = 'faster';
+//const animatedEl = '#navigation';
+//const openAnimation = 'slideInDown';
+//const closeAnimation = 'slideOutUp';
+//const animationSpeed = 'faster';
 
 export function addOpenAnimation(animatedEl, openAnimation, animationSpeed) {
   animateCSS(animatedEl, openAnimation);
