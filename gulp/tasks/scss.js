@@ -52,6 +52,9 @@ export const scss = () => {
         app.isBuild,
         purgecss({
           content: ['src/**/*.html'],
+          safelist: {
+            greedy: [/backdrop/, /animate/, /webp/, /_active/]
+          },
         })
       )
     )
