@@ -20923,7 +20923,7 @@ a:hover, a:active, a:visited {
     top: 0;
     left: 0;
     position: absolute;
-    transform: translateX(-110%);
+    transform: translateY(-110%);
     display: flex;
     justify-content: center;
     align-items: center;

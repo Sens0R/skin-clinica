@@ -73,7 +73,7 @@
 @include media-breakpoint-down(lg) {
   .mobile-search {
     @include absolute(top 0 left 0);
-    transform: translateX(-110%);
+    transform: translateY(-110%);
     @include flex(flex, center, center);
     z-index: 1;
     height: 4.5rem;
