@@ -27,8 +27,8 @@ export function runBurger(
 
   // default options
   let mediaBreakpoint = breakpoint.lg;
-  let activeBackdrop = false;
-  let overflow = false;
+  let activeBackdrop = '_active';
+  let overflow = true;
   let focusEl = false;
 
   // default animations
@@ -42,8 +42,8 @@ export function runBurger(
   if (openBtnElement) openBtn = document.querySelector(openBtnElement);
   if (closeBtnElement) closeBtn = document.querySelector(closeBtnElement);
   if (breakpointSelect) mediaBreakpoint = breakpointSelect;
-  if (backdropStyle) activeBackdrop = true;
-  if (bodyOverflow) overflow = true;
+  if (backdropStyle) activeBackdrop = backdropStyle;
+  if (bodyOverflow !== undefined) overflow = bodyOverflow;
   if (focusElement) focusEl = focusElement;
   if (openAnimation) open = openAnimation;
   if (closeAnimation) close = closeAnimation;
@@ -52,11 +52,12 @@ export function runBurger(
   openBtn.addEventListener('click', function () {
     mainElement.classList.add('_active');
 
-    if (overflow) document.body.style.overflow = 'hidden';
+    if (overflow || overflow == undefined)
+      document.body.style.overflow = 'hidden';
     if (focusEl) document.querySelector(focusElement).focus();
     if (open) addAnimation(mainElement, open, speed);
     if (activeBackdrop) {
-      addBackdrop(mainElement, backdropStyle);
+      addBackdrop(mainElement, activeBackdrop);
       const backdrop = document.querySelector("[data-backdrop='close']");
       backdrop.addEventListener('click', function () {
         closeElement();
@@ -69,9 +70,10 @@ export function runBurger(
     closeElement();
     if (close) addAnimation(mainElement, close, speed);
   });
-//TODO DEFAULT BREAKPOINT !
-  if (breakpointSelect || (mediaBreakpoint && !breakpointSelect))
+
+  if (breakpointSelect == undefined || breakpointSelect) {
     closeOnResize(mediaBreakpoint, mainElement, closeElement);
+  }
 
   /*  ---------------------- HELPERS -------------------------- */
 

@@ -11,7 +11,7 @@ runBurger(
   '.mobile-search',
   '.nav-search-btn-open',
   '.nav-search-btn-close',
-  false,
+  breakpoint.lg,
   true,
   false,
   '.nav-search__body',
