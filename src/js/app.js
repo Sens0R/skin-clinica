@@ -15,8 +15,8 @@ runBurger(
   true,
   false,
   '.nav-search__body',
-  'slideInLeft',
-  'slideOutRight',
+  'slideInDown',
+  'slideOutUp',
   'faster'
 );
 
