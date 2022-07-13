@@ -10,10 +10,10 @@ export const breakpoint = {
 
 export let backdrop = '';
 
-export function addBackdrop(backdropStyle) {
+export function addBackdrop(targetElement, backdropStyle) {
   const createBackdrop = document.createElement('div');
   createBackdrop.classList.add('backdrop');
-  document.body.appendChild(createBackdrop);
+  targetElement.after(createBackdrop);
   backdrop = document.querySelector('.backdrop');
   backdrop.classList.add(backdropStyle);
   backdrop.setAttribute('data-backdrop', 'close');
@@ -23,20 +23,17 @@ export function removeBackdrop() {
   document.querySelector('.backdrop').remove();
 }
 
-/*  ======================== ELEMENT CLOSING ========================
+/*  ======================== CLOSE ON RESIZE ========================
 ======================================================================== */
 
-export function closeOnClick(element, closingFunction, ...params) {
-  element.addEventListener('click', function () {
-    closingFunction(...params);
-  });
-}
-
-export function closeOnResize(width, activeEl, closingFunction) {
+export function closeOnResize(width, targetElement, closingFunction) {
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= width && activeEl.classList.contains('_active')) {
+    if (
+      window.innerWidth >= width &&
+      targetElement.classList.contains('_active')
+    ) {
       closingFunction.call();
-      activeEl.classList.remove('_active');
+      targetElement.classList.remove('_active');
     }
   });
 }
@@ -44,19 +41,9 @@ export function closeOnResize(width, activeEl, closingFunction) {
 /*  ============================= ANIMATIONS ========================
 ======================================================================== */
 
-//const animatedEl = '#navigation';
-//const openAnimation = 'slideInDown';
-//const closeAnimation = 'slideOutUp';
-//const animationSpeed = 'faster';
-
-export function addOpenAnimation(animatedEl, openAnimation, animationSpeed) {
-  animateCSS(animatedEl, openAnimation);
-  animateCSS(animatedEl, animationSpeed);
-}
-
-export function addCloseAnimation(animatedEl, closeAnimation, animationSpeed) {
-  animateCSS(animatedEl, closeAnimation);
-  animateCSS(animatedEl, animationSpeed);
+export function addAnimation(targetElement, style, speed) {
+  animateCSS(targetElement, style);
+  if (speed) animateCSS(targetElement, speed);
 }
 
 export const animateCSS = (element, animation, prefix = 'animate__') =>

@@ -7,6 +7,8 @@ import { breakpoint } from './modules/functions.js';
 isWebP();
 
 runBurger(breakpoint.lg, '_active');
-runSearch(breakpoint.lg, '_active-transparent');
+runSearch(breakpoint.lg, true);
 
-//TODO rework animations. make callbacks
+// TODO add backdrop animations
+// TODO add backdrop fade out animations maybe
+//TODO change animations from APP.JS

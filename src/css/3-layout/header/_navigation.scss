@@ -1,3 +1,7 @@
+#navigation {
+  @include padding-bottom($spacer);
+}
+
 .nav-menu {
   white-space: nowrap;
 }
@@ -25,7 +29,6 @@
     @include fixed(top 0 right 0 bottom 0);
     @include box(80%, 100%);
     @include z-index(burger-menu);
-    @include padding-bottom($spacer);
     margin: 0;
     overflow: auto;
     background: $color-secondary;
@@ -35,16 +38,10 @@
 
   .nav-mobile-header {
     @include sticky(top 0);
-    @include z-index(burger-menu-header);
-    @include padding-top($spacer);
-    @include padding-bottom($spacer);
+    padding-top: $spacer-sm;
+    padding-bottom: $spacer-sm;
     @include flex(flex, space-between, center);
     background: inherit;
-  }
-
-  .nav-main {
-    @include padding-top($spacer);
-    @include padding-bottom($spacer);
   }
 
   .nav-menu {
@@ -60,9 +57,13 @@
 
   .social-icons {
     flex-wrap: wrap;
+
     .social-icons__link {
       background: $color-primary;
     }
+  }
+  .nav-mobile-socials {
+    @include flex(flex, left, start);
   }
 
   .nav-mobile-socials .icon-social {

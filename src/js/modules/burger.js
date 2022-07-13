@@ -1,73 +1,64 @@
 import {
   addBackdrop,
   removeBackdrop,
-  addOpenAnimation,
-  addCloseAnimation,
+  addAnimation,
   closeOnResize,
-  closeOnClick,
 } from './functions.js';
-
-let navigation = '';
 
 /*  ---------------------- BURGER VARIABLES -------------------------- */
 
 let activeBackdrop = false;
-const openAnimation = 'slideInDown';
-const closeAnimation = 'slideOutUp';
-const animationSpeed = 'faster';
+const navigationEl = document.getElementById('navigation');
+const openBurgerBtn = document.querySelector('.burger-toggler--open');
+const closeBurgerBtn = document.querySelector('.burger-toggler--close');
+
+// Default animations
+let open = 'slideInDown';
+let close = 'slideOutUp';
+let speed = 'faster';
 
 /*  ---------------------- RUN BURGER -------------------------- */
 
-export function runBurger(breakpointSelect, backdropStyle) {
-  if (backdropStyle) {
-    activeBackdrop = true;
-  }
+export function runBurger(
+  breakpointSelect,
+  backdropStyle,
+  openAnimation,
+  closeAnimation,
+  animationSpeed
+) {
+  if (openAnimation) open = openAnimation;
+  if (closeAnimation) close = closeAnimation;
+  if (animationSpeed) speed = animationSpeed;
 
-  navigation = document.getElementById('navigation');
-  const burgerTogglerOpen = document.querySelector('.burger-toggler--open');
-  const burgerTogglerClose = document.querySelector('.burger-toggler--close');
+  if (backdropStyle) activeBackdrop = true;
 
-  burgerTogglerClose.addEventListener('click', function () {
+  openBurgerBtn.addEventListener('click', function () {
+    document.body.style.overflow = 'hidden'; // optional overflow
+    navigationEl.classList.add('_active');
+    if (open) addAnimation('#navigation', open, speed);
+
+    if (activeBackdrop) {
+      addBackdrop(navigationEl, backdropStyle);
+      const backdrop = document.querySelector("[data-backdrop='close']");
+      backdrop.addEventListener('click', function () {
+        closeBurger();
+        if (close) addAnimation('#navigation', close, speed);
+      });
+    }
+  });
+
+  closeBurgerBtn.addEventListener('click', function () {
     closeBurger();
-    addCloseAnimation('#navigation', closeAnimation, animationSpeed);
+    if (close) addAnimation('#navigation', close, speed);
   });
 
-  burgerTogglerOpen.addEventListener('click', function () {
-    openBurger();
-    addOpenAnimation('#navigation', openAnimation, animationSpeed);
-    ifBackdropActive(addBackdrop, backdropStyle);
-    ifBackdropActive(
-      closeOnClick,
-      document.querySelector("[data-backdrop='close']"),
-      closeBurger,
-      addCloseAnimation,
-      '#navigation',
-      closeAnimation,
-      animationSpeed
-    );
-  });
-
-  closeOnResize(breakpointSelect, navigation, closeBurger);
+  closeOnResize(breakpointSelect, navigationEl, closeBurger);
 }
 
 /*  ---------------------- HELPER FUNCTIONS -------------------------- */
 
-function ifBackdropActive(callbackFunction, ...params) {
-  if (activeBackdrop == true) {
-    callbackFunction(...params);
-  }
-}
-
-function openBurger() {
-  document.body.style.overflow = 'hidden';
-  navigation.classList.add('_active');
-}
-
-function closeBurger(animation, ...params) {
-  document.body.style.removeProperty('overflow');
-  navigation.classList.remove('_active');
-  ifBackdropActive(removeBackdrop);
-  if (animation) {
-    animation(...params);
-  }
+function closeBurger() {
+  document.body.style.removeProperty('overflow'); // optional overflow
+  navigationEl.classList.remove('_active');
+  if (activeBackdrop) removeBackdrop();
 }

@@ -88,12 +88,6 @@
   }
 }
 
-@mixin center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
   content: $content;
   display: $display;
