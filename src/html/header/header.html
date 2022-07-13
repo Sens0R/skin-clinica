@@ -24,7 +24,7 @@
               class="nav-search__body text-sm"
               placeholder="Search"
             />
-            <button data-search="close" class="d-lg-none nav-search-btn-close" type="button">
+            <button class="d-lg-none nav-search-btn-close" type="button">
               <svg class="nav-search-btn-close__icon">
                 <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
               </svg>
@@ -35,8 +35,11 @@
 
       <!-- tools -->
       <div class="col-auto d-flex justify-content-end ps-0">
-        <div class="nav-tools ">
-          <button data-search="open" class="nav-tools__link d-lg-none ms-0" type="button">
+        <div class="nav-tools">
+          <button
+            class="nav-tools__link d-lg-none ms-0 nav-search-btn-open"
+            type="button"
+          >
             <svg class="nav-tools__icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
             </svg>
@@ -76,7 +79,7 @@
     </div>
 
     <!-- NAVIGATION -->
-    <div id="navigation" class="row">
+    <div class="row navigation">
       <div class="col-12 nav-mobile-header align-self-start d-lg-none">
         <a class="logo logo--white" href="index.html">
           <svg class="logo-icon">

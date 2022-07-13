@@ -1,14 +1,34 @@
 import { isWebP } from './modules/webP.js';
-import { runSearch } from './modules/search.js';
 import { runBurger } from './modules/burger.js';
 import './modules/swiper.js';
 import { breakpoint } from './modules/functions.js';
 
 isWebP();
 
-runBurger(breakpoint.lg, '_active');
-runSearch(breakpoint.lg, true);
+runBurger();
 
-// TODO add backdrop animations
-// TODO add backdrop fade out animations maybe
-//TODO change animations from APP.JS
+runBurger(
+  '.mobile-search',
+  '.nav-search-btn-open',
+  '.nav-search-btn-close',
+  false,
+  true,
+  false,
+  '.nav-search__body',
+  'slideInLeft',
+  'slideOutRight',
+  'faster'
+);
+
+/* runBurger(
+  targetElement,   // Main element class
+  openBtnElement,  // Class that will open
+  closeBtnElement, // Class that will close
+  false, // media closing breakpoint. use breakpoint object
+  false, // true == backdrop default style (transparent), class if you want different backdrop style or animations
+  bodyOverflow, // scroll lock on other elements
+  openAnimation, // opening animation
+  closeAnimation, // closing animation
+  animationSpeed, // animation speed
+  focusElement // focus on element when you open
+); */

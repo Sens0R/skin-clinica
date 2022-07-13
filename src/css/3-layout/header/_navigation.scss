@@ -1,4 +1,4 @@
-#navigation {
+.navigation {
   @include padding-bottom($spacer);
 }
 
@@ -6,7 +6,7 @@
   white-space: nowrap;
 }
 
-#navigation._active {
+.navigation._active {
   transform: none;
 }
 
@@ -24,7 +24,7 @@
 
 // MOBILE
 @include media-breakpoint-down(lg) {
-  #navigation {
+  .navigation {
     transform: translateY(-110%);
     @include fixed(top 0 right 0 bottom 0);
     @include box(80%, 100%);
@@ -63,7 +63,7 @@
     }
   }
   .nav-mobile-socials {
-    @include flex(flex, left, start);
+    @include flex(flex, left, flex-start);
   }
 
   .nav-mobile-socials .icon-social {

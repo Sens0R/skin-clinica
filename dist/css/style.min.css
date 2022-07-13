@@ -20731,7 +20731,7 @@ a:hover, a:active, a:visited {
   color: inherit;
 }
 
-#navigation {
+.navigation {
   padding-bottom: 1.25rem;
 }
 
@@ -20739,7 +20739,7 @@ a:hover, a:active, a:visited {
   white-space: nowrap;
 }
 
-#navigation._active {
+.navigation._active {
   transform: none;
 }
 
@@ -20763,7 +20763,7 @@ a:hover, a:active, a:visited {
 }
 
 @media (max-width: 991.98px) {
-  #navigation {
+  .navigation {
     transform: translateY(-110%);
     top: 0;
     right: 0;
@@ -20805,7 +20805,7 @@ a:hover, a:active, a:visited {
   .nav-mobile-socials {
     display: flex;
     justify-content: left;
-    align-items: start;
+    align-items: flex-start;
   }
   .nav-mobile-socials .icon-social {
     width: 1rem;

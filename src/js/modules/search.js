@@ -5,59 +5,78 @@ import {
   closeOnResize,
 } from './functions.js';
 
-/*  ---------------------- SEARCH VARIABLES -------------------------- */
+/*  ---------------------- BURGER VARIABLES -------------------------- */
 
+// default element selectors
+let mainElement = '';
+let openBtn = '';
+let closeBtn = '';
+let breakpoint = false;
+
+// default options
 let activeBackdrop = false;
-const mobileSearchEl = document.querySelector('.mobile-search');
-const openSearchBtn = document.querySelector("[data-search='open']");
-const closeSearchBtn = document.querySelector("[data-search='close']");
+let overflow = false;
+let focusEl = false;
 
-// Default animations
-let open = 'slideInLeft';
-let close = 'slideOutRight';
+// default animations
+let open = 'slideInDown';
+let close = 'slideOutUp';
 let speed = 'faster';
 
-/*  ---------------------- RUN SEARCH -------------------------------- */
+/*  ---------------------- RUN BURGER -------------------------- */
 
 export function runSearch(
+  targetElement,
+  openBtnElement,
+  closeBtnElement,
   breakpointSelect,
   backdropStyle,
+  bodyOverflow,
   openAnimation,
   closeAnimation,
-  animationSpeed
+  animationSpeed,
+  focusElement
 ) {
+  if (targetElement) mainElement = document.querySelector(targetElement);
+  if (openBtnElement) openBtn = document.querySelector(openBtnElement);
+  if (closeBtnElement) closeBtn = document.querySelector(closeBtnElement);
+  if (breakpointSelect) breakpoint = breakpointSelect;
+  if (backdropStyle) activeBackdrop = true;
+  if (bodyOverflow) overflow = true;
   if (openAnimation) open = openAnimation;
   if (closeAnimation) close = closeAnimation;
   if (animationSpeed) speed = animationSpeed;
+  if (focusElement) focusEl = focusElement;
 
-  if (backdropStyle) activeBackdrop = true;
-
-  openSearchBtn.addEventListener('click', function () {
-    mobileSearchEl.classList.add('_active');
-    addAnimation('.mobile-search', open, speed);
-    document.querySelector('.nav-search__body').focus(); // optional focus on search input
+  openBtn.addEventListener('click', function () {
+    mainElement.classList.add('_active');
+    if (overflow) document.body.style.overflow = 'hidden'; // optional overflow
+    if (focusEl) document.querySelector(focusElement).focus(); // optional focus
+    if (open) addAnimation(mainElement, open, speed);
 
     if (activeBackdrop) {
-      addBackdrop(mobileSearchEl, backdropStyle);
+      addBackdrop(mainElement, backdropStyle);
       const backdrop = document.querySelector("[data-backdrop='close']");
       backdrop.addEventListener('click', function () {
-        closeSearch();
-        if (close) addAnimation('.mobile-search', close, speed);
+        closeElement();
+        if (close) addAnimation(mainElement, close, speed);
       });
     }
   });
 
-  closeSearchBtn.addEventListener('click', function () {
-    closeSearch();
-    if (close) addAnimation('.mobile-search', close, speed);
+  closeBtn.addEventListener('click', function () {
+    closeElement();
+    if (close) addAnimation(mainElement, close, speed);
   });
 
-  closeOnResize(breakpointSelect, mobileSearchEl, closeSearch);
+  if (breakpointSelect)
+    closeOnResize(breakpointSelect, mainElement, closeElement);
 }
 
 /*  ---------------------- HELPER FUNCTIONS -------------------------- */
 
-function closeSearch() {
-  mobileSearchEl.classList.remove('_active');
+function closeElement() {
+  if (overflow) document.body.style.removeProperty('overflow');
+  mainElement.classList.remove('_active');
   if (activeBackdrop) removeBackdrop();
 }
