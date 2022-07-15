@@ -1,10 +1,12 @@
-export const breakpoints = {
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-};
-
+export function breakpoint() {
+  const breakpoints = {
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+  };
+  const { sm, md, lg, xl } = breakpoints;
+}
 
 /*  ============================= BACKDROP ================================
 ======================================================================== */

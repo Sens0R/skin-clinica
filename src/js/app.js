@@ -1,23 +1,23 @@
 import './modules/swiper.js';
 import { isWebP } from './modules/webP.js';
 import { runBurger } from './modules/burger.js';
-import { breakpoints } from './modules/functions.js';
-const { sm, md, lg, xl } = breakpoints;
+import { breakpoint } from './modules/functions.js';
+breakpoint()
 
 isWebP();
 
-runBurger();
+runBurger({
+  backdrop: "_active",
+  scrollBlock: true,
+});
 
 runBurger({
   mainElement: '.mobile-search',
   openBtn: '.nav-search-btn-open',
   closeBtn: '.nav-search-btn-close',
-  breakpoint: md,
   backdrop: true,
-  scrollBlock: false,
   focusElement: '.nav-search__body',
 });
-
 
 /*  
   mainElement: // Main element class

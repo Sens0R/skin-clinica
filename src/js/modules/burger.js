@@ -3,8 +3,9 @@ import {
   removeBackdrop,
   addAnimation,
   closeOnResize,
-    
+  
 } from './functions.js';
+
 
 const defaultOptions = {
   mainElement: '.navigation',
@@ -12,7 +13,7 @@ const defaultOptions = {
   closeBtn: '.burger-toggler--close',
   breakpoint: 992,
   backdrop: false,
-  scrollBlock: true,
+  scrollBlock: false,
   focusElement: false,
   animationOpen: 'slideInDown',
   animationClose: 'slideOutUp',
@@ -21,9 +22,8 @@ const defaultOptions = {
 
 /*  ---------------------- RUN  -------------------------- */
 
-export function runBurger(userOptions = {}) {
+export function runBurger(userOptions = defaultOptions) {
   const options = { ...defaultOptions, ...userOptions };
-
   const {
     mainElement,
     openBtn,
