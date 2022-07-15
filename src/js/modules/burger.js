@@ -3,83 +3,76 @@ import {
   removeBackdrop,
   addAnimation,
   closeOnResize,
-  breakpoint,
+    
 } from './functions.js';
 
-export function runBurger(
-  targetElement,
-  openBtnElement,
-  closeBtnElement,
-  breakpointSelect,
-  backdropStyle,
-  bodyOverflow,
-  focusElement,
-  openAnimation,
-  closeAnimation,
-  animationSpeed
-) {
-  /*  ---------------------- VARIABLES -------------------------- */
+const defaultOptions = {
+  mainElement: '.navigation',
+  openBtn: '.burger-toggler--open',
+  closeBtn: '.burger-toggler--close',
+  breakpoint: 992,
+  backdrop: false,
+  scrollBlock: true,
+  focusElement: false,
+  animationOpen: 'slideInDown',
+  animationClose: 'slideOutUp',
+  animationSpeed: 'faster',
+};
 
-  // default element selectors
-  let mainElement = document.querySelector('.navigation');
-  let openBtn = document.querySelector('.burger-toggler--open');
-  let closeBtn = document.querySelector('.burger-toggler--close');
+/*  ---------------------- RUN  -------------------------- */
 
-  // default options
-  let mediaBreakpoint = breakpoint.lg;
-  let activeBackdrop = '_active';
-  let overflow = true;
-  let focusEl = false;
+export function runBurger(userOptions = {}) {
+  const options = { ...defaultOptions, ...userOptions };
 
-  // default animations
-  let open = 'slideInDown';
-  let close = 'slideOutUp';
-  let speed = 'faster';
+  const {
+    mainElement,
+    openBtn,
+    closeBtn,
+    breakpoint,
+    backdrop,
+    scrollBlock,
+    focusElement,
+    animationOpen,
+    animationClose,
+    animationSpeed,
+  } = options;
 
-  /*  ---------------------- RUN  -------------------------- */
+  document.querySelector(openBtn).addEventListener('click', function () {
+    document.querySelector(mainElement).classList.add('_active');
 
-  if (targetElement) mainElement = document.querySelector(targetElement);
-  if (openBtnElement) openBtn = document.querySelector(openBtnElement);
-  if (closeBtnElement) closeBtn = document.querySelector(closeBtnElement);
-  if (breakpointSelect) mediaBreakpoint = breakpointSelect;
-  if (backdropStyle) activeBackdrop = backdropStyle;
-  if (bodyOverflow !== undefined) overflow = bodyOverflow;
-  if (focusElement) focusEl = focusElement;
-  if (openAnimation) open = openAnimation;
-  if (closeAnimation) close = closeAnimation;
-  if (animationSpeed) speed = animationSpeed;
-
-  openBtn.addEventListener('click', function () {
-    mainElement.classList.add('_active');
-
-    if (overflow || overflow == undefined)
-      document.body.style.overflow = 'hidden';
-    if (focusEl) document.querySelector(focusElement).focus();
-    if (open) addAnimation(mainElement, open, speed);
-    if (activeBackdrop) {
-      addBackdrop(mainElement, activeBackdrop);
-      const backdrop = document.querySelector("[data-backdrop='close']");
-      backdrop.addEventListener('click', function () {
+    if (scrollBlock) document.body.style.overflow = 'hidden';
+    if (focusElement) document.querySelector(focusElement).focus();
+    if (animationOpen) addAnimation(mainElement, animationOpen, animationSpeed);
+    if (backdrop) {
+      addBackdrop(document.querySelector(mainElement), backdrop);
+      const backdropClose = document.querySelector("[data-backdrop='close']");
+      backdropClose.addEventListener('click', function () {
         closeElement();
-        if (close) addAnimation(mainElement, close, speed);
+        if (animationClose)
+          addAnimation(mainElement, animationClose, animationSpeed);
       });
     }
   });
 
-  closeBtn.addEventListener('click', function () {
+  document.querySelector(closeBtn).addEventListener('click', function () {
     closeElement();
-    if (close) addAnimation(mainElement, close, speed);
+    if (animationClose)
+      addAnimation(mainElement, animationClose, animationSpeed);
   });
 
-  if (breakpointSelect == undefined || breakpointSelect) {
-    closeOnResize(mediaBreakpoint, mainElement, closeElement);
+  if (breakpoint) {
+    closeOnResize(
+      breakpoint,
+      document.querySelector(mainElement),
+      closeElement
+    );
   }
 
   /*  ---------------------- HELPERS -------------------------- */
 
   function closeElement() {
-    if (overflow) document.body.style.removeProperty('overflow');
-    mainElement.classList.remove('_active');
-    if (activeBackdrop) removeBackdrop();
+    if (scrollBlock) document.body.style.removeProperty('overflow');
+    document.querySelector(mainElement).classList.remove('_active');
+    if (backdrop) removeBackdrop();
   }
 }

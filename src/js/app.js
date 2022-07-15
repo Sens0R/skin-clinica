@@ -1,34 +1,33 @@
+import './modules/swiper.js';
 import { isWebP } from './modules/webP.js';
 import { runBurger } from './modules/burger.js';
-import './modules/swiper.js';
-import { breakpoint } from './modules/functions.js';
+import { breakpoints } from './modules/functions.js';
+const { sm, md, lg, xl } = breakpoints;
 
 isWebP();
 
 runBurger();
 
-runBurger(
-  '.mobile-search',
-  '.nav-search-btn-open',
-  '.nav-search-btn-close',
-  breakpoint.lg,
-  true,
-  false,
-  '.nav-search__body',
-  'slideInDown',
-  'slideOutUp',
-  'faster'
-);
+runBurger({
+  mainElement: '.mobile-search',
+  openBtn: '.nav-search-btn-open',
+  closeBtn: '.nav-search-btn-close',
+  breakpoint: md,
+  backdrop: true,
+  scrollBlock: false,
+  focusElement: '.nav-search__body',
+});
 
-/* runBurger(
-  targetElement,   // Main element class
-  openBtnElement,  // Class that will open
-  closeBtnElement, // Class that will close
-  false, // media closing breakpoint. use breakpoint object
-  false, // true == backdrop default style (transparent), class if you want different backdrop style or animations
-  bodyOverflow, // scroll lock on other elements
-  openAnimation, // opening animation
-  closeAnimation, // closing animation
-  animationSpeed, // animation speed
-  focusElement // focus on element when you open
-); */
+
+/*  
+  mainElement: // Main element class
+  openBtn: // Class that will open main element
+  closeBtn: // Class that will close main element
+  breakpoint: // media closing breakpoint. use breakpoint object
+  backdrop: // true == backdrop default style (transparent), class if you want different backdrop style
+  scrollBlock: // body scroll block
+  focusElement: // opening animation
+  animationOpen: // closing animation
+  animationClose: // animation speed
+  animationSpeed: // focus on element when you open main element 
+  */

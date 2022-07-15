@@ -1,22 +1,23 @@
-export const breakpoint = {
+export const breakpoints = {
   sm: 576,
   md: 768,
   lg: 992,
   xl: 1200,
 };
 
+
 /*  ============================= BACKDROP ================================
 ======================================================================== */
 
-export let backdrop = '';
+export let backdropEl = '';
 
-export function addBackdrop(targetElement, backdropStyle) {
+export function addBackdrop(targetElement, backdropClass) {
   const createBackdrop = document.createElement('div');
   createBackdrop.classList.add('backdrop');
   targetElement.after(createBackdrop);
-  backdrop = document.querySelector('.backdrop');
-  backdrop.classList.add(backdropStyle);
-  backdrop.setAttribute('data-backdrop', 'close');
+  backdropEl = document.querySelector('.backdrop');
+  backdropEl.classList.add(backdropClass);
+  backdropEl.setAttribute('data-backdrop', 'close');
 }
 
 export function removeBackdrop() {
@@ -50,17 +51,16 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
   // We create a Promise and return it
   new Promise((resolve) => {
     const animationName = `${prefix}${animation}`;
+    const node = document.querySelector(element);
 
-    element.classList.add(`${prefix}animated`, animationName);
+    node.classList.add(`${prefix}animated`, animationName);
 
     // When the animation ends, we clean the classes and resolve the Promise
     function handleAnimationEnd(event) {
       event.stopPropagation();
-      element.classList.remove(`${prefix}animated`, animationName);
+      node.classList.remove(`${prefix}animated`, animationName);
       resolve('Animation ended');
     }
 
-    element.addEventListener('animationend', handleAnimationEnd, {
-      once: true,
-    });
+    node.addEventListener('animationend', handleAnimationEnd, { once: true });
   });
