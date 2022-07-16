@@ -8,6 +8,7 @@ import {
 
 const { sm, md, lg, xl } = breakpoint;
 
+// Default options
 const defaultOptions = {
   mainClass: '.navigation',
   openBtn: '.burger-toggler--open',
@@ -25,17 +26,12 @@ const defaultOptions = {
 
 export function runBurger(userOptions) {
   let htmlDataOptions = '';
+  let options = defaultOptions;
 
-  if (userOptions && userOptions.mainClass) {
-    dataParse(userOptions);
-  } else {
-    dataParse(defaultOptions);
-  }
+  optionsHandler();
 
-  if (htmlDataOptions.breakpoint)
-    htmlDataOptions.breakpoint = eval(htmlDataOptions.breakpoint);
+  if (options.breakpoint) options.breakpoint = eval(options.breakpoint);
 
-  const options = { ...defaultOptions, ...userOptions, ...htmlDataOptions };
   const {
     mainClass,
     openBtn,
@@ -48,8 +44,6 @@ export function runBurger(userOptions) {
     animationClose,
     animationSpeed,
   } = options;
-
-  console.log(`${options.mainClass} = ${JSON.stringify(options, undefined, 2)}`);
 
   const mainElement = document.querySelector(mainClass);
 
@@ -83,13 +77,36 @@ export function runBurger(userOptions) {
 
   function closeElement() {
     if (scrollBlock) document.body.style.removeProperty('overflow');
-    mainElement.classList.remove('_active');
     if (backdrop) removeBackdrop();
+    mainElement.classList.remove('_active');
   }
 
-  function dataParse(optionsObject) {
-    const mainElData = document.querySelector(optionsObject.mainClass);
-    const mainElJSON = mainElData.getAttribute('data-burger');
-    if (mainElJSON) htmlDataOptions = JSON.parse(mainElJSON);
+  function optionsHandler() {
+    let mainElement = '';
+    if (userOptions && 'mainClass' in userOptions) {
+      mainElement = document.querySelector(userOptions.mainClass);
+    } else mainElement = document.querySelector(defaultOptions.mainClass);
+
+    const mainElementDataJSON = mainElement.getAttribute('data-burger');
+    if (mainElementDataJSON) htmlDataOptions = JSON.parse(mainElementDataJSON);
+
+    if (userOptions && mainElementDataJSON) {
+      options = { ...defaultOptions, ...userOptions, ...htmlDataOptions };
+      console.log(options);
+      return;
+    }
+
+    if (userOptions && !mainElementDataJSON) {
+      options = { ...defaultOptions, ...userOptions };
+      console.log(options);
+      return;
+    }
+
+    if (!userOptions && mainElementDataJSON) {
+      options = { ...defaultOptions, ...htmlDataOptions };
+      console.log(options);
+      return;
+    }
+    console.log(options);
   }
 }

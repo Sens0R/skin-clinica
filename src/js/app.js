@@ -6,7 +6,9 @@ const { sm, md, lg, xl } = breakpoint;
 
 isWebP();
 
+
 runBurger();
+
 
 runBurger({
   mainClass: '.mobile-search',
