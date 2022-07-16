@@ -1,12 +1,9 @@
-export function breakpoint() {
-  const breakpoints = {
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-  };
-  const { sm, md, lg, xl } = breakpoints;
-}
+export const breakpoint = {
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+};
 
 /*  ============================= BACKDROP ================================
 ======================================================================== */
@@ -23,7 +20,8 @@ export function addBackdrop(targetElement, backdropClass) {
 }
 
 export function removeBackdrop() {
-  document.querySelector('.backdrop').remove();
+  const removeBackdrop = document.querySelector('.backdrop');
+  if (removeBackdrop) removeBackdrop.remove();
 }
 
 /*  ======================== CLOSE ON RESIZE ========================

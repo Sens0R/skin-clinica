@@ -1,18 +1,15 @@
 import './modules/swiper.js';
 import { isWebP } from './modules/webP.js';
-import { runBurger } from './modules/burger.js';
 import { breakpoint } from './modules/functions.js';
-breakpoint()
+import { runBurger } from './modules/burger.js';
+const { sm, md, lg, xl } = breakpoint;
 
 isWebP();
 
-runBurger({
-  backdrop: "_active",
-  scrollBlock: true,
-});
+runBurger();
 
 runBurger({
-  mainElement: '.mobile-search',
+  mainClass: '.mobile-search',
   openBtn: '.nav-search-btn-open',
   closeBtn: '.nav-search-btn-close',
   backdrop: true,
@@ -20,10 +17,10 @@ runBurger({
 });
 
 /*  
-  mainElement: // Main element class
+  mainClass: // Main element class
   openBtn: // Class that will open main element
   closeBtn: // Class that will close main element
-  breakpoint: // media closing breakpoint. use breakpoint object
+  breakpoint: // media closing breakpoint - sm, md, lg, xl variables
   backdrop: // true == backdrop default style (transparent), class if you want different backdrop style
   scrollBlock: // body scroll block
   focusElement: // opening animation
