@@ -1,6 +1,8 @@
- .banner {
-  background-image: url('@img/banner.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+.banner {
+  height: 33vh;
+  @include media-breakpoint-up(md) {
+    height: 66vh;
+  }
+  background: url('@img/banner.jpg');
+  @include background-cover();
 }

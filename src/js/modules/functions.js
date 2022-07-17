@@ -5,9 +5,7 @@ export const breakpoint = {
   xl: 1200,
 };
 
-
-/*  ============================= BACKDROP ================================
-======================================================================== */
+/*  ============================= BACKDROP ========================= */
 
 export let backdropEl = '';
 
@@ -25,8 +23,7 @@ export function removeBackdrop() {
   if (removeBackdrop) removeBackdrop.remove();
 }
 
-/*  ======================== CLOSE ON RESIZE ========================
-======================================================================== */
+/*  ======================== CLOSE ON RESIZE ======================= */
 
 export function closeOnResize(width, targetElement, closingFunction) {
   window.addEventListener('resize', () => {
@@ -40,8 +37,7 @@ export function closeOnResize(width, targetElement, closingFunction) {
   });
 }
 
-/*  ============================= ANIMATIONS ========================
-======================================================================== */
+/*  ============================= ANIMATIONS ========================= */
 
 export function addAnimation(targetElement, style, speed) {
   animateCSS(targetElement, style);

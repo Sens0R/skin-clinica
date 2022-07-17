@@ -2,12 +2,15 @@
   @include padding-bottom($spacer);
 }
 
-.nav-menu {
-  white-space: nowrap;
-}
-
 .navigation._active {
   transform: none;
+}
+
+.nav-menu {
+  white-space: nowrap;
+  &--main {
+    font-weight: bold;
+  }
 }
 
 .burger-toggler {
@@ -49,25 +52,20 @@
     &__item {
       margin: 1rem 0;
     }
-
-    &--main {
-      font-weight: bold;
-    }
   }
 
-  .social-icons {
-    flex-wrap: wrap;
-
+  .nav-mobile-socials {
+    @include flex(flex, left, flex-start);
+   
     .social-icons__link {
       background: $color-primary;
     }
+    .icon-social {
+      fill: $color-secondary;
+    }
   }
-  .nav-mobile-socials {
-    @include flex(flex, left, flex-start);
-  }
-
-  .nav-mobile-socials .icon-social {
-    @include box(1rem, 1rem);
+  .logo-icon-mobile {
+    @include box(10.3125rem, 3.75rem );
   }
 }
 
@@ -81,7 +79,6 @@
     @include flex(flex, center, center);
     font-size: $font-size-sm;
     &--main {
-      font-weight: bold;
       justify-content: left;
       .nav-menu__item {
         margin-right: 1rem;

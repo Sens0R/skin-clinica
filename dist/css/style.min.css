@@ -94,7 +94,7 @@ ELEMENTS
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-heading-color: hsl(0deg, 5%, 12%);
+  --bs-heading-color: ;
   --bs-link-color: #0d6efd;
   --bs-link-hover-color: #0a58ca;
   --bs-code-color: #d63384;
@@ -20502,7 +20502,7 @@ button.swiper-pagination-bullet {
 }
 
 .text-lg {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .text-uppercase {
@@ -20572,6 +20572,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
 blockquote,
@@ -20596,7 +20598,9 @@ html:focus-within {
 /* Set core body defaults */
 body,
 html {
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -20646,10 +20650,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  margin-bottom: 0.625rem;
+  margin-top: 0.625rem;
   font-family: DMSans, Arial, sans-serif;
-  color: hsl(0deg, 5%, 12%);
   font-weight: bold;
   line-height: 1.2;
 }
@@ -20735,12 +20738,15 @@ a:hover, a:active, a:visited {
   padding-bottom: 1.25rem;
 }
 
+.navigation._active {
+  transform: none;
+}
+
 .nav-menu {
   white-space: nowrap;
 }
-
-.navigation._active {
-  transform: none;
+.nav-menu--main {
+  font-weight: bold;
 }
 
 .burger-toggler--close {
@@ -20793,23 +20799,20 @@ a:hover, a:active, a:visited {
   .nav-menu__item {
     margin: 1rem 0;
   }
-  .nav-menu--main {
-    font-weight: bold;
-  }
-  .social-icons {
-    flex-wrap: wrap;
-  }
-  .social-icons .social-icons__link {
-    background: hsl(336deg, 95%, 84%);
-  }
   .nav-mobile-socials {
     display: flex;
     justify-content: left;
     align-items: flex-start;
   }
+  .nav-mobile-socials .social-icons__link {
+    background: hsl(336deg, 95%, 84%);
+  }
   .nav-mobile-socials .icon-social {
-    width: 1rem;
-    height: 1rem;
+    fill: hsl(0deg, 5%, 12%);
+  }
+  .logo-icon-mobile {
+    width: 10.3125rem;
+    height: 3.75rem;
   }
 }
 @media (min-width: 992px) {
@@ -20825,7 +20828,6 @@ a:hover, a:active, a:visited {
     font-size: 0.875rem;
   }
   .nav-menu--main {
-    font-weight: bold;
     justify-content: left;
   }
   .nav-menu--main .nav-menu__item {
@@ -21019,6 +21021,79 @@ a:hover, a:active, a:visited {
     margin-right: 0.15rem;
     fill: hsl(336deg, 95%, 84%);
   }
+}
+
+.footer {
+  margin-top: auto;
+  background: url("../images/banner-footer.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: hsl(0deg, 0%, 100%);
+}
+.footer__content {
+  padding-top: calc(1.3125rem + 0.75vw);
+  padding-bottom: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .footer__content {
+    padding-top: 1.875rem;
+  }
+}
+@media (min-width: 1200px) {
+  .footer__content {
+    padding-bottom: 1.875rem;
+  }
+}
+.footer__copyright {
+  margin-top: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .footer__copyright {
+    margin-top: 1.875rem;
+  }
+}
+.footer__copyright p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.footer-nav-menu {
+  white-space: nowrap;
+}
+.footer-nav-menu__item {
+  margin-bottom: 1.25rem;
+}
+.footer-nav-menu__item:first-child {
+  margin-bottom: 1.875rem;
+  /* @include media-breakpoint-up(lg) {
+    position: relative;
+   .logo-icon {
+      z-index: 1;
+    }
+  } */
+}
+.footer-nav-menu__header {
+  text-transform: uppercase;
+}
+.footer-nav-menu__link {
+  font-size: 0.875rem;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 1.875rem 0;
+  /*  @include media-breakpoint-up(lg) {
+     @include absolute();
+     padding-top: 4.5rem;
+
+     .social-icons {
+       flex-wrap: nowrap;
+     }
+   } */
 }
 
 .spacer-p {
@@ -21292,14 +21367,14 @@ a:hover, a:active, a:visited {
 }
 .social-icons {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .social-icons__item {
-  margin: 0.3125rem;
+  margin: 0 0.25rem 0.25rem 0;
 }
 .social-icons__link {
-  padding: 0.4rem;
+  padding: 0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21308,9 +21383,9 @@ a:hover, a:active, a:visited {
 }
 
 .icon-social {
-  width: 2rem;
-  height: 2rem;
-  fill: hsl(0deg, 5%, 12%);
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: hsl(336deg, 95%, 84%);
 }
 
 .backdrop {
@@ -21333,8 +21408,14 @@ a:hover, a:active, a:visited {
   }
 }
 .banner {
-  background-image: url("../images/banner.jpg");
+  height: 33vh;
+  background: url("../images/banner.jpg");
   background-size: cover;
-  background-position: center;
-  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 768px) {
+  .banner {
+    height: 66vh;
+  }
 }

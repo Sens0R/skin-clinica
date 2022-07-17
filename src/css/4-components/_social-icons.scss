@@ -1,18 +1,20 @@
 .social-icons {
-  @include flex(flex, center, center);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
   &__item {
-    margin: .3125rem;
+    margin: 0 0.25rem 0.25rem 0;
   }
   &__link {
-    padding: 0.4rem;
-     @include flex(flex, center, center);
+    padding: 0.7rem;
+    @include flex(flex, center, center);
     background: $color-secondary;
     border-radius: 100%;
   }
 }
 
 .icon-social {
-  @include box(2rem, 2rem);
-  fill: $color-secondary;
+  @include box(0.75rem, 0.75rem);
+  fill: $color-primary;
 }
-

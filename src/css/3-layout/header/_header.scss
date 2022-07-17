@@ -15,11 +15,9 @@
   @include padding-bottom($spacer);
 }
 
-.logo {
-  &-icon {
-    @include rfs(5rem, height);
-    @include rfs(13.75rem, width);
-  }
+.logo-icon {
+  @include rfs(5rem, height);
+  @include rfs(13.75rem, width);
 }
 
 /* ----------------------------------- SEARCH ----------------------------------- */

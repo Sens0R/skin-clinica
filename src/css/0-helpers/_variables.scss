@@ -38,7 +38,7 @@ $lh-sm: 1.25; // HTML lh-sm
 $lh-lg: 2; // HTML lh-lg
 
 // Headings
-$headings-color: $color-secondary;
+$headings-color: null;
 $headings-ff: $ff-primary;
 $headings-fs: null;
 $headings-fw: bold;
@@ -60,7 +60,7 @@ STRUCTURE
 $spacer: 1.25rem;
 $spacer-sm: $spacer * 0.5;
 $spacer-lg: $spacer * 1.5;
-$spacer-headings: $spacer * 1;
+$spacer-headings: $spacer * 0.5;
 
 // bootstrap spacer map
 $spacers: (

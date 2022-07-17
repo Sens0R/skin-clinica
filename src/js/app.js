@@ -9,7 +9,6 @@ isWebP();
 
 runBurger();
 
-
 runBurger({
   mainClass: '.mobile-search',
   openBtn: '.nav-search-btn-open',
