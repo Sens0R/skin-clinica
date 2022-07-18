@@ -21165,6 +21165,7 @@ a:hover, a:active, a:visited {
   font-size: 0.875rem;
 }
 .footer-nav-body__link:hover {
+  transition: 0.7s;
   color: hsl(336deg, 95%, 84%);
 }
 
