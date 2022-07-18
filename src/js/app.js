@@ -14,6 +14,7 @@ runBurger({
   openBtn: '.nav-search-btn-open',
   closeBtn: '.nav-search-btn-close',
   backdrop: true,
+  scrollBlock: false,
   focusElement: '.nav-search__body',
 });
 

@@ -15,6 +15,6 @@
 }
 
 .icon-social {
-  @include box(0.75rem, 0.75rem);
+  @include box(1rem, 1rem);
   fill: $color-primary;
 }

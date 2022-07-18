@@ -44,6 +44,18 @@
       @include padding-top($spacer-lg);
     }
   }
+
+  .social-icons__item {
+    transition: 0.5s;
+  }
+  .social-icons__item:hover {
+    @include bounce-in;
+    transition: 0.3s;
+    .social-icons__link {
+      background-color: black;
+    }
+
+  }
 }
 
 .footer-nav-body {
@@ -61,5 +73,8 @@
 
   &__link {
     font-size: $fs-sm;
+    &:hover {
+      color: $color-primary;
+    }
   }
 }

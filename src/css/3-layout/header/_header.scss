@@ -108,7 +108,7 @@
   @include flex(flex, center, center);
   &__link {
     @include flex(flex, center, center);
-    padding: 0.4rem;
+    padding: 0.6rem;
     margin-left: 0.3rem;
     background-color: $color-primary-light;
     border-radius: 100%;
@@ -135,8 +135,11 @@
   }
 
   &__icon {
-    @include box(1rem);
+    @include box(0.75rem);
     fill: #d81159;
+    @include media-breakpoint-up(sm) {
+      @include box(1rem);
+    }
 
     @include media-breakpoint-up(lg) {
       margin-right: 0.15rem;

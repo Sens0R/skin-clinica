@@ -20979,7 +20979,7 @@ a:hover, a:active, a:visited {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.4rem;
+  padding: 0.6rem;
   margin-left: 0.3rem;
   background-color: #fecde1;
   border-radius: 100%;
@@ -21008,9 +21008,15 @@ a:hover, a:active, a:visited {
   }
 }
 .nav-tools__icon {
-  width: 1rem;
-  height: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
   fill: #d81159;
+}
+@media (min-width: 576px) {
+  .nav-tools__icon {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 @media (min-width: 992px) {
   .nav-tools__icon {
@@ -21111,6 +21117,28 @@ a:hover, a:active, a:visited {
     padding-top: 1.875rem;
   }
 }
+.footer-nav .social-icons__item {
+  transition: 0.5s;
+}
+.footer-nav .social-icons__item:hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  transition: 0.3s;
+}
+.footer-nav .social-icons__item:hover:hover, .footer-nav .social-icons__item:hover:focus, .footer-nav .social-icons__item:hover:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+.footer-nav .social-icons__item:hover .social-icons__link {
+  background-color: black;
+}
 
 .footer-nav-body {
   white-space: nowrap;
@@ -21135,6 +21163,9 @@ a:hover, a:active, a:visited {
 }
 .footer-nav-body__link {
   font-size: 0.875rem;
+}
+.footer-nav-body__link:hover {
+  color: hsl(336deg, 95%, 84%);
 }
 
 .spacer-p {
@@ -21424,8 +21455,8 @@ a:hover, a:active, a:visited {
 }
 
 .icon-social {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 1rem;
+  height: 1rem;
   fill: hsl(336deg, 95%, 84%);
 }
 

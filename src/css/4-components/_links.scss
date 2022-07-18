@@ -36,7 +36,8 @@
 
 @include media-breakpoint-up(lg) {
   .nav-menu__link,
-  .nav-tools__link {
+  .nav-tools__link/* ,
+  .footer-nav-body__link */ {
     @include underline-reveal;
   }
 }

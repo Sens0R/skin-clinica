@@ -15,7 +15,7 @@ const defaultOptions = {
   closeBtn: '.burger-toggler--close',
   breakpoint: lg,
   backdrop: false,
-  scrollBlock: false,
+  scrollBlock: true,
   focusElement: false,
   animationOpen: 'slideInDown',
   animationClose: 'slideOutUp',
