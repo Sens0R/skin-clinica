@@ -20650,8 +20650,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 0.625rem;
-  margin-top: 0.625rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
   font-family: DMSans, Arial, sans-serif;
   font-weight: bold;
   line-height: 1.2;
@@ -20771,8 +20771,8 @@ a:hover, a:active, a:visited {
     right: 0;
     bottom: 0;
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: 100;
     margin: 0;
     overflow: auto;
