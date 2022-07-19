@@ -1,40 +1,14 @@
-@mixin underline-reveal {
-  $duration: $mediumDuration;
-
-  @include hacks();
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 4px;
-  padding-top: 4px;
-
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $activeColor;
-    height: 4px;
-
-    @include prefixed(transform, translateY(4px));
-    @include prefixed(transition-property, transform);
-    @include prefixed(transition-duration, $duration);
-    @include prefixed(transition-timing-function, ease-out);
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    &:before {
-      @include prefixed(transform, translateY(0));
-    }
-  }
-}
-
 @include media-breakpoint-up(lg) {
   .nav-menu__link,
   .nav-tools__link {
-    @include underline-reveal;
+    &:hover {
+      transition: 0.4s;
+      color: $color-primary-dark;
+
+      svg {
+        fill: $color-primary-dark;
+        transition: 0.4s;
+      }
+    }
   }
 }

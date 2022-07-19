@@ -11,9 +11,9 @@ $mediumDuration: .3s;
 $slowDuration: .5s;
 
 // Colors
-$primaryColor: #e1e1e1;
-$secondaryColor: #666;
-$highlightColor: #ccc;
+$primaryColor: $color-primary-dark;
+$secondaryColor:  $color-primary-dark;
+$highlightColor: $color-primary-dark;
 $activeColor: $color-primary;
 $shadowColor: rgba(0, 0, 0, .6);
 
@@ -42,4 +42,4 @@ $ms: false;
 $o: false;
 
 // Compile with or without classes
-$includeClasses: true;
+$includeClasses: false;

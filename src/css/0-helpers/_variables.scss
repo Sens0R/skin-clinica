@@ -1,7 +1,7 @@
 /* ===============================================================================================
 COLORS
 =============================================================================================== */
-
+$color-pink: hsl(336, 95%, 84%);
 $color-black: hsl(0, 0%, 0%);
 $color-gray: hsl(0, 0%, 45%);
 $color-white: hsl(0, 0%, 100%);
@@ -11,8 +11,10 @@ $color-white-300: darken($color-white, 15%);
 $color-white-muted: fade-out($color-white, 0.25); // 0.75 alpha
 $color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
 
-$color-primary: hsl(336, 95%, 84%);
+$color-primary: $color-pink;
 $color-primary-light: lighten($color-primary, 6%);
+$color-primary-dark: darken($color-primary, 40%);
+
 $color-secondary: hsl(0, 5%, 12%);
 $color-bg: $color-white;
 $color-light: $color-white;
@@ -103,8 +105,8 @@ $border-radius-pill: 50rem;
 
 // Underline
 $underline-color: $color-primary;
-$underline-thickness: 0.3125em;
-$underline-offset: 0.1875em;
+$underline-thickness: 0.2em;
+$underline-offset: 0.4em;
 $underline-round-cap: true;
 
 // Transitions

@@ -1,0 +1,28 @@
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.875rem;
+  background-color: $color-secondary;
+  color: $color-light;
+  border-radius: $border-radius-sm;
+  line-height: $lh-sm;
+  font-weight: bold;
+  transition: 0.4s;
+  &:hover,
+  &:active,
+  &:visited {
+    color: $color-light;
+  }
+
+  &:hover {
+    background-color: $color-black;
+  }
+}
+
+.btn--light {
+  background-color: $color-primary-dark;
+  transition: 0.2s;
+  &:hover {
+    background-color: lighten($color-primary-dark, 5%);
+    color: $color-light;
+  }
+}

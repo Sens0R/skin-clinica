@@ -29,6 +29,12 @@
     @include absolute(left 0);
     padding: 0 1rem;
     height: 100%;
+    &:hover {
+      svg {
+        fill: $color-primary-dark;
+        transition: 0.4s;
+      }
+    }
   }
 
   &__icon {
@@ -42,18 +48,15 @@
     border: 1px solid $border-color;
     border-radius: 3px;
     padding-left: 3rem;
-    outline: 0;
 
+    &:focus,
     &:hover {
-      border: 1px solid darken($border-color, 20%);
-      background: darken($color-bg, 2%);
+      border: 1px solid $color-primary;
     }
 
     &:focus {
-      border: 1px solid $border-color-accent;
-      background: darken($color-bg, 2%);
       &::placeholder {
-        color: transparent;
+        color: $color-gray;
       }
     }
 
@@ -75,7 +78,7 @@
     @include flex(flex, center, center);
     z-index: 1;
     height: 4.5rem;
-    @include gradient($color-primary, #d81159, horizontal);
+    @include gradient($color-primary, $color-primary-dark, horizontal);
     box-shadow: $shadow;
     @include media-breakpoint-up(sm) {
       height: 6rem;
@@ -88,7 +91,7 @@
     width: 100%;
     max-width: 600px;
     &__icon {
-      fill: #d81159;
+      fill: $color-primary-dark;
     }
   }
 
@@ -136,7 +139,7 @@
 
   &__icon {
     @include box(0.75rem);
-    fill: #d81159;
+    fill: $color-primary-dark;
     @include media-breakpoint-up(sm) {
       @include box(1rem);
     }

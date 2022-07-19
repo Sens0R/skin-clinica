@@ -94,8 +94,6 @@ h3,
 h4,
 h5,
 h6 {
-  @include margin-bottom($spacer-headings);
-  @include margin-top($spacer-headings);
   font-family: $headings-ff;
   color: $headings-color;
   font-weight: $headings-fw;
@@ -119,16 +117,6 @@ h5 {
 }
 h6 {
   @include font-size($fs-h6);
-}
-
-p {
-
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
 }
 
 button {
@@ -156,3 +144,7 @@ a {
   }
 }
 
+input {
+  outline: none;
+  border: none;
+}
