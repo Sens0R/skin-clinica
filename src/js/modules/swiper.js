@@ -1,7 +1,7 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 
 
-const swiper = new Swiper('.swiper', {
+ const swiper = new Swiper('.swiper', {
   // configure Swiper to use modules
   modules: [Navigation, Pagination],
    // Optional parameters
@@ -22,5 +22,6 @@ const swiper = new Swiper('.swiper', {
    // And if we need scrollbar
    scrollbar: {
      el: '.swiper-scrollbar',
+    
    },
 });

@@ -20773,7 +20773,7 @@ input {
     z-index: 100;
     margin: 0;
     overflow: auto;
-    background: hsl(0deg, 5%, 12%);
+    background: hsl(0deg, 0%, 12%);
     color: hsl(0deg, 0%, 100%);
   }
   .nav-mobile-header {
@@ -20801,7 +20801,7 @@ input {
     background: hsl(336deg, 95%, 84%);
   }
   .nav-mobile-socials .icon-social {
-    fill: hsl(0deg, 5%, 12%);
+    fill: hsl(0deg, 0%, 12%);
   }
   .logo-icon-mobile {
     width: 10.3125rem;
@@ -20900,11 +20900,14 @@ input {
 .nav-search__body:focus, .nav-search__body:hover {
   border: 1px solid hsl(336deg, 95%, 84%);
 }
+.nav-search__body:focus {
+  border: 1px solid #db065b;
+}
 .nav-search__body:focus::placeholder {
   color: hsl(0deg, 0%, 45%);
 }
 .nav-search__body::placeholder {
-  color: hsl(0deg, 5%, 12%);
+  color: hsl(0deg, 0%, 12%);
 }
 
 .mobile-search._active {
@@ -20922,8 +20925,7 @@ input {
     align-items: center;
     z-index: 1;
     height: 4.5rem;
-    background: hsl(336deg, 95%, 84%);
-    background: linear-gradient(to right, hsl(336deg, 95%, 84%), #db065b);
+    background-color: #db065b;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
 }
@@ -20995,7 +20997,7 @@ input {
 }
 .nav-tools__name {
   display: none;
-  color: hsl(0deg, 5%, 12%);
+  color: hsl(0deg, 0%, 12%);
 }
 @media (min-width: 992px) {
   .nav-tools__name {
@@ -21024,7 +21026,7 @@ input {
   margin-top: auto;
   background: url("../images/banner-footer.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   color: hsl(0deg, 0%, 100%);
 }
@@ -21514,7 +21516,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: hsl(0deg, 5%, 12%);
+  background: hsl(0deg, 0%, 12%);
   border-radius: 100%;
 }
 
@@ -21546,7 +21548,7 @@ input {
 .btn {
   display: inline-block;
   padding: 0.5rem 1.875rem;
-  background-color: hsl(0deg, 5%, 12%);
+  background-color: hsl(0deg, 0%, 12%);
   color: hsl(0deg, 0%, 100%);
   border-radius: 0.2rem;
   line-height: 1.25;
@@ -21573,11 +21575,124 @@ input {
   height: 33vh;
   background: url("../images/banner.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   .banner {
     height: 66vh;
   }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.section-testimonials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: calc(1.3125rem + 0.75vw);
+  padding-bottom: calc(1.3125rem + 0.75vw);
+  position: relative;
+  user-select: none;
+}
+@media (min-width: 1200px) {
+  .section-testimonials {
+    padding-top: 1.875rem;
+  }
+}
+@media (min-width: 1200px) {
+  .section-testimonials {
+    padding-bottom: 1.875rem;
+  }
+}
+
+.section-testimonials::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../images/testimonials-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.testimonials {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  padding-top: calc(1.3125rem + 0.75vw);
+  padding-bottom: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .testimonials {
+    padding-top: 1.875rem;
+  }
+}
+@media (min-width: 1200px) {
+  .testimonials {
+    padding-bottom: 1.875rem;
+  }
+}
+.testimonials__header {
+  padding-top: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .testimonials__header {
+    padding-top: 1.875rem;
+  }
+}
+.testimonials__body {
+  font-style: italic;
+  font-size: 1.125rem;
+  color: hsl(0deg, 0%, 45%);
+  padding-top: calc(1.3125rem + 0.75vw);
+  padding-bottom: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .testimonials__body {
+    padding-top: 1.875rem;
+  }
+}
+@media (min-width: 1200px) {
+  .testimonials__body {
+    padding-bottom: 1.875rem;
+  }
+}
+.testimonials__person {
+  padding-bottom: calc(1.3125rem + 0.75vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 1200px) {
+  .testimonials__person {
+    padding-bottom: 1.875rem;
+  }
+}
+
+.person-photo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.person-name {
+  padding-top: 0.35rem;
+  color: #db065b;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
 }
