@@ -5,7 +5,7 @@ const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination, Keyboard, Autoplay],
   // Optional parameters
   direction: 'horizontal',
-
+  cssMode: true,
   grabCursor: true,
   autoplay: {
     delay: 5000,
