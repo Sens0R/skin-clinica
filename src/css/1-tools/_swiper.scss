@@ -4,7 +4,11 @@
 
 .swiper {
   width: 100%;
-  height: 100%;
+  height: 275px;
+}
+
+.swiper-slide {
+  height: 275px;
 }
 
 .swiper-pagination {
@@ -32,28 +36,46 @@
   @include flex(flex, center, center);
   @include box(5rem, 5rem);
   transition: 0.2s ease-in-out;
-  @include center(vertical);
-  z-index: 10;
+  @include absolute();
+  bottom: 0;
+  @include media-breakpoint-up(md) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  z-index: 15;
 
   svg {
     @include box(1.5rem, 1.5rem);
   }
-  
-/*   @include media-breakpoint-down(xl) {
-    display: none;
-  } */
+
+  @include media-breakpoint-down(xl) {
+    //display: none;
+  }
 
   fill: $color-gray;
 
-  &:hover {
-    fill: $color-primary;
+  @media (hover: hover) {
+    &:hover {
+      fill: $color-primary;
+    }
   }
 
   &--left {
-    left: 23%;
+    left: 0;
   }
 
   &--right {
-    right: 23%;
+    right: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    &--left {
+      left: 20%;
+    }
+
+    &--right {
+      right: 20%;
+    }
   }
 }
