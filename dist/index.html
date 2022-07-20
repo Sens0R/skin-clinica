@@ -10,8 +10,8 @@
   <link rel="preload" href="fonts/DMSans-Bold.woff2" as="font" type="font/woff2" crossorigin> 
 <!--   <link rel="preload" href="images/banner.jpg" as="image" crossorigin> -->
  
-  <link rel="stylesheet" href="css/style.min.css?_v=20220719212510" />
-  <script defer src="js/app.min.js?_v=20220719212510"></script> 
+  <link rel="stylesheet" href="css/style.min.css" />
+  <script defer src="js/app.min.js"></script> 
   <link rel="shortcut icon" href="images/favicon.svg">
   <title>Skin Clinica</title>
 </head>
@@ -196,27 +196,13 @@
 </header>
 
     <main><div class="container-fluid banner"></div>
-<div class="container-fluid section-testimonials overlay">
-  <div class="testimonials">
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev">
-        <svg class="arrow-left-icon">
-          <use href="images/icons/sprite-mono.svg#arrow-left"></use>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg class="arrow-right-icon">
-          <use href="images/icons/sprite-mono.svg#arrow-right"></use>
-        </svg>
-      </div>
-    <!-- Slider main container -->
-    <div class="swiper">
-      
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <h4 class="testimonials__header">What You’re Saying</h4>
+<div class="container-fluid testimonials">
+  <h4 class="testimonials__header">What You’re Saying</h4>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="col-12 col-sm-9 col-md-7 col-lg-5 testimonials__content">
           <div class="testimonials__body">
             <p>
               "Love Skin Clinica! It's completely opened my eyes to the harmful
@@ -233,13 +219,14 @@
             <p class="person-name">Florence</p>
           </div>
         </div>
-        <div class="swiper-slide">
-          <h4 class="testimonials__header">What You’re Saying</h4>
+      </div>
+      <div class="swiper-slide">
+        <div class="col-12 col-sm-9 col-md-7 col-lg-5 testimonials__content">
           <div class="testimonials__body">
             <p>
-              "Love Skin Clinica! It's completely opened my eyes to the harmful
-              ingredients I've been putting on my face. I'll be sure to check
-              the ingredients next time I'm purchasing products!"
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              consectetur voluptas vero eum a accusantium ea alias laborum iste
+              quo dolorem aspernatur nihil.
             </p>
           </div>
           <div class="testimonials__person">
@@ -248,16 +235,16 @@
               src="images/testimonial-person-2.jpg"
               alt="Customer Photo"
             />
-            <p class="person-name">Florence</p>
+            <p class="person-name">Katy</p>
           </div>
         </div>
-        <div class="swiper-slide">
-          <h4 class="testimonials__header">What You’re Saying</h4>
+      </div>
+      <div class="swiper-slide">
+        <div class="col-12 col-sm-9 col-md-7 col-lg-5 testimonials__content">
           <div class="testimonials__body">
             <p>
               "Love Skin Clinica! It's completely opened my eyes to the harmful
-              ingredients I've been putting on my face. I'll be sure to check
-              the ingredients next time I'm purchasing products!"
+              ingredients I've been putting on my face."
             </p>
           </div>
           <div class="testimonials__person">
@@ -266,16 +253,18 @@
               src="images/testimonial-person-3.jpg"
               alt="Customer Photo"
             />
-            <p class="person-name">Florence</p>
+            <p class="person-name">Rachel</p>
           </div>
         </div>
-        <div class="swiper-slide">
-          <h4 class="testimonials__header">What You’re Saying</h4>
+      </div>
+      <div class="swiper-slide">
+        <div class="col-12 col-sm-6 col-md-7 col-lg-5 testimonials__content">
           <div class="testimonials__body">
             <p>
-              "Love Skin Clinica! It's completely opened my eyes to the harmful
-              ingredients I've been putting on my face. I'll be sure to check
-              the ingredients next time I'm purchasing products!"
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+              aspernatur excepturi placeat. Tempore maiores blanditiis in ipsam
+              odit asperiores nulla est pariatur quas consequatur nihil sequi
+              adipisci, soluta, facilis libero."
             </p>
           </div>
           <div class="testimonials__person">
@@ -284,16 +273,22 @@
               src="images/testimonial-person-4.jpg"
               alt="Customer Photo"
             />
-            <p class="person-name">Florence</p>
+            <p class="person-name">Annabelle</p>
           </div>
         </div>
       </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-
-    
- 
     </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-btn swiper-btn--left">
+    <svg class="arrow-left-icon">
+      <use href="images/icons/sprite-mono.svg#arrow-left"></use>
+    </svg>
+  </div>
+  <div class="swiper-btn swiper-btn--right">
+    <svg class="arrow-right-icon">
+      <use href="images/icons/sprite-mono.svg#arrow-right"></use>
+    </svg>
   </div>
 </div>
 </main>

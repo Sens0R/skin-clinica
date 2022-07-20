@@ -1,6 +1,7 @@
 @import 'navigation';
 
 .header {
+  @include z-index(header);
   @include media-breakpoint-down(lg) {
     @include sticky(top 0);
   }
@@ -52,17 +53,9 @@
     &:focus,
     &:hover {
       border: 1px solid $color-primary;
-    }
-
-    &:focus {
-      border: 1px solid $color-primary-dark;
       &::placeholder {
         color: $color-gray;
       }
-    }
-
-    &::placeholder {
-      color: $color-secondary;
     }
   }
 }

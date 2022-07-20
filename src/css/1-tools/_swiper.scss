@@ -3,6 +3,56 @@
 @import 'swiper/modules/navigation/navigation.scss';
 
 .swiper {
-  width: 900px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-pagination {
+  @include flex(flex, center, center);
+  position: static !important;
+  @include padding-bottom($spacer-xl);
+}
+
+.swiper-pagination-bullet {
+  @include box(6px, 6px);
+  display: inline-block;
+  border-radius: 50%;
+  background: #000;
+  opacity: 0.2;
+  margin: 0.3rem !important;
+}
+
+.swiper-pagination-bullet-active {
+  @include box(12px, 12px);
+  opacity: 1;
+  background: $color-primary;
+}
+
+.swiper-btn {
+  @include flex(flex, center, center);
+  @include box(5rem, 5rem);
+  transition: 0.2s ease-in-out;
+  @include center(vertical);
+  z-index: 10;
+
+  svg {
+    @include box(1.5rem, 1.5rem);
+  }
+  @include media-breakpoint-down(xl) {
+    display: none;
+  }
+
+  fill: $color-gray;
+
+  &:hover {
+    fill: $color-primary;
+  }
+
+  &--left {
+    left: 23%;
+  }
+
+  &--right {
+    right: 23%;
+  }
 }

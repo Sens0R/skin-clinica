@@ -5,6 +5,13 @@
   opacity: 0;
 }
 
+.overlay {
+  background-color: #000;
+  opacity: 0.1;
+  @include absolute(top 0 left 0);
+  @include box(100%, 100%);
+}
+
 .backdrop._active {
   animation: opacity-03 1s forwards;
 }
