@@ -1,25 +1,19 @@
-import Swiper, {
-  Navigation,
-  Pagination,
-  Keyboard,
-  Autoplay,
-  EffectFade
-} from 'swiper';
+import Swiper, { Navigation, Pagination, Keyboard, Autoplay } from 'swiper';
 
 const swiper = new Swiper('.swiper', {
   // configure Swiper to use modules
-  modules: [Navigation, Pagination, Keyboard, Autoplay, EffectFade],
+  modules: [Navigation, Pagination, Keyboard, Autoplay],
   // Optional parameters
   direction: 'horizontal',
-  
+  loop: true,
   grabCursor: true,
-  speed: 500,
+
   autoplay: {
     delay: 4000,
   },
   effect: 'fade',
   fadeEffect: {
-    crossFade: true
+    crossFade: true,
   },
   // If we need pagination
   pagination: {
