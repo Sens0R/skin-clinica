@@ -16825,16 +16825,14 @@ button.swiper-pagination-bullet {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  /*   @include media-breakpoint-down(xl) {
+      display: none;
+    } */
   fill: hsl(0deg, 0%, 45%);
 }
 .swiper-btn svg {
   width: 1.5rem;
   height: 1.5rem;
-}
-@media (max-width: 1199.98px) {
-  .swiper-btn {
-    display: none;
-  }
 }
 .swiper-btn:hover {
   fill: hsl(336deg, 95%, 84%);

@@ -5,16 +5,13 @@ const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination, Keyboard, Autoplay],
   // Optional parameters
   direction: 'horizontal',
-  loop: true,
-  grabCursor: true,
 
+  grabCursor: true,
   autoplay: {
-    delay: 4000,
+    delay: 5000,
+    disableOnInteraction: false,
   },
-  effect: 'fade',
-  fadeEffect: {
-    crossFade: true,
-  },
+
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
