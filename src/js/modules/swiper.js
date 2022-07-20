@@ -6,10 +6,10 @@ const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   cssMode: true,
-  grabCursor: true,
+  longSwipes: false,
   autoplay: {
     delay: 5000,
-    disableOnInteraction: false,
+   
   },
 
   // If we need pagination
