@@ -20787,10 +20787,11 @@ dd {
   margin: 0;
 }
 
-a {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
-}
-a:hover, a:active, a:visited {
   color: inherit;
 }
 
@@ -21331,6 +21332,37 @@ input {
   padding-left: 5px;
 }
 
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+.card__content {
+  margin: 0.625rem 0;
+}
+.card__content > * {
+  padding: 1.25rem;
+}
+.card__text {
+  color: hsl(0deg, 0%, 45%);
+  font-size: 0.875rem;
+}
+.card__link {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #db065b;
+}
+.card__link:hover {
+  color: #db065b;
+}
+
+.link-arrow-right-icon {
+  fill: #db065b;
+  width: 1rem;
+  height: 1rem;
+}
+
 .spacer-p {
   padding: 1.25rem;
 }
@@ -21733,4 +21765,8 @@ input {
   font-size: 0.875rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
+}
+
+.text-accent {
+  color: #db065b;
 }
