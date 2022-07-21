@@ -1,17 +1,15 @@
 .card {
   @include flex(flex, center, left);
   flex-direction: column;
-  &__img {
-  }
+
   &__content {
-    margin: $spacer-sm 0;
-
-    > * {
-      @include padding($spacer);
+    @include padding-top($spacer-lg);
+    @include padding-bottom($spacer-lg);
+    @include padding-right($spacer);
+    @include padding-left($spacer);
+    > :first-child {
+      margin-top: 0;
     }
-  }
-
-  &__header {
   }
 
   &__text {

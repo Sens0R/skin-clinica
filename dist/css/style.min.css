@@ -20772,6 +20772,22 @@ h6 {
   font-size: 0.875rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+blockquote,
+address,
+table,
+hr {
+  margin: 1.25rem 0;
+}
+
 button {
   background-color: transparent;
   color: inherit;
@@ -21339,10 +21355,23 @@ input {
   flex-direction: column;
 }
 .card__content {
-  margin: 0.625rem 0;
+  padding-top: calc(1.3125rem + 0.75vw);
+  padding-bottom: calc(1.3125rem + 0.75vw);
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
 }
-.card__content > * {
-  padding: 1.25rem;
+@media (min-width: 1200px) {
+  .card__content {
+    padding-top: 1.875rem;
+  }
+}
+@media (min-width: 1200px) {
+  .card__content {
+    padding-bottom: 1.875rem;
+  }
+}
+.card__content > :first-child {
+  margin-top: 0;
 }
 .card__text {
   color: hsl(0deg, 0%, 45%);
