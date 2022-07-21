@@ -16784,10 +16784,6 @@ button.swiper-pagination-bullet {
   height: 100%;
 }
 
-.swiper-slide {
-  height: 100%;
-}
-
 .swiper-pagination {
   display: flex;
   justify-content: center;
@@ -16825,20 +16821,21 @@ button.swiper-pagination-bullet {
   width: 5rem;
   height: 5rem;
   transition: 0.2s ease-in-out;
-  position: absolute;
+  top: 50%;
   bottom: 0;
+  position: absolute;
+  transform: translateY(-50%);
   z-index: 15;
   fill: hsl(0deg, 0%, 45%);
-}
-@media (min-width: 768px) {
-  .swiper-btn {
-    top: 50%;
-    transform: translateY(-50%);
-  }
 }
 .swiper-btn svg {
   width: 1.5rem;
   height: 1.5rem;
+}
+@media (max-width: 1199.98px) {
+  .swiper-btn {
+    display: none;
+  }
 }
 @media (hover: hover) {
   .swiper-btn:hover {
@@ -16853,10 +16850,10 @@ button.swiper-pagination-bullet {
 }
 @media (min-width: 992px) {
   .swiper-btn--left {
-    left: 20%;
+    left: 23%;
   }
   .swiper-btn--right {
-    right: 20%;
+    right: 23%;
   }
 }
 
@@ -21670,7 +21667,6 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   flex-direction: column;
   width: 100%;
   text-align: center;
