@@ -32,7 +32,10 @@
   text-align: center;
   user-select: none;
   background: url('@img/testimonials-bg.jpg');
-  @include background-cover();
+  //@include background-cover();
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   &__content {
 
