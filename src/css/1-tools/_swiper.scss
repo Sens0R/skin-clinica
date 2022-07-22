@@ -7,6 +7,10 @@
   height: 100%;
 }
 
+.swiper-slide {
+  height: 500px;
+}
+
 .swiper-pagination {
   @include flex(flex, center, center);
   bottom: 0 !important;

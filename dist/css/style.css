@@ -13518,6 +13518,10 @@ button.swiper-pagination-bullet {
   height: 100%;
 }
 
+.swiper-slide {
+  height: 500px;
+}
+
 .swiper-pagination {
   display: flex;
   justify-content: center;
@@ -17404,12 +17408,10 @@ html:focus-within {
 }
 
 /* Set core body defaults */
-body,
-html {
-  height: 100%;
-}
-
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   line-height: 1.7;

@@ -28,17 +28,15 @@ html:focus-within {
 }
 
 /* Set core body defaults */
-body,
-html {
- height: 100%;
-  
-}
-
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   line-height: 1.7;
 }
+
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
