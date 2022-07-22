@@ -3,13 +3,7 @@
   flex-direction: column;
 
   &__content {
-    @include padding-top($spacer-lg);
-    @include padding-bottom($spacer-lg);
-    @include padding-right($spacer);
-    @include padding-left($spacer);
-    > :first-child {
-      margin-top: 0;
-    }
+    @include padding($spacer);
   }
 
   &__text {
@@ -21,13 +15,19 @@
     font-size: $fs-sm;
     font-weight: bold;
     color: $color-primary-dark;
+    @include icon-wobble-horizontal();
   }
-  &__link:hover {
+
+  &__link:hover,
+  &__link:focus,
+  &__link:active {
     color: $color-primary-dark;
   }
 }
 
 .link-arrow-right-icon {
   fill: $color-primary-dark;
-  @include box(1rem, 1rem);
+  padding-left: .25rem;
+
+  @include box(0.75rem, 0.75rem);
 }

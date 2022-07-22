@@ -4,11 +4,12 @@
     &:hover {
       transition: 0.4s;
       color: $color-primary-dark;
-
       svg {
-        fill: $color-primary-dark;
         transition: 0.4s;
+        fill: $color-primary-dark;
       }
     }
   }
 }
+
+

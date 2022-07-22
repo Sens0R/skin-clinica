@@ -68,16 +68,11 @@ $spacer-headings: $spacer * 1;
 // bootstrap spacer map
 $spacers: (
   0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer * 0.75,
-  4: $spacer,
-  5: $spacer * 1.25,
-  6: $spacer * 1.5,
-  7: $spacer * 2,
-  8: $spacer * 3,
-  9: $spacer * 4,
-  10: $spacer * 5,
+  sm: $spacer-sm,
+  md: $spacer,
+  lg: $spacer-lg,
+  xl: $spacer-xl,
+  heading: $spacer-headings,
 );
 
 // Shadows

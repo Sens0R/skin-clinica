@@ -35,6 +35,7 @@
   @include absolute(bottom 0 top 50%);
   transform: translateY(-50%);
   z-index: 15;
+  @include icon-grow();
 
   svg {
     @include box(1.5rem, 1.5rem);
@@ -48,7 +49,7 @@
 
   @media (hover: hover) {
     &:hover {
-      fill: $color-primary;
+      fill: $color-primary-dark;
     }
   }
 

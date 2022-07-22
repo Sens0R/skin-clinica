@@ -8,26 +8,16 @@
 }
 
 /* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-figure,
-blockquote,
-dl,
-dd {
+* {
   margin: 0;
   padding: 0;
   font: inherit;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol,
+dl {
   list-style: none;
 }
 
@@ -133,6 +123,7 @@ address,
 table,
 hr {
   margin: $spacer 0;
+  padding: 0;
 }
 
 button {
@@ -142,21 +133,16 @@ button {
   cursor: pointer;
 }
 
-ul,
-ol,
-dd {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 a,
+a:link,
 a:hover,
 a:focus,
 a:active {
+  cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
+
 
 input {
   outline: none;

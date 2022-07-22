@@ -6,6 +6,10 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
+.text-accent {
+  color: $color-primary-dark;
+}
+
 .text-sm {
   font-size: $fs-sm;
 }
