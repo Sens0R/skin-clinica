@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
+  @include margin-top($spacer);
+  @include margin-bottom($spacer);
   &__item {
     margin: 0 0.25rem 0.25rem 0;
   }

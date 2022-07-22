@@ -16,12 +16,12 @@
     font-weight: bold;
     color: $color-primary-dark;
     @include icon-wobble-horizontal();
-  }
 
-  &__link:hover,
-  &__link:focus,
-  &__link:active {
-    color: $color-primary-dark;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-primary-dark;
+    }
   }
 }
 

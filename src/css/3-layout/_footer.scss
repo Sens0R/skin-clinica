@@ -11,8 +11,8 @@
   }
 
   &-logo {
-    @include padding-top($spacer);
-    @include padding-bottom($spacer);
+    @include margin-top($spacer);
+    @include margin-bottom($spacer);
     a {
       @include icon-sink();
     }
@@ -22,9 +22,6 @@
 .mailing-list {
   @include padding-top($spacer-xl);
   @include padding-bottom($spacer-xl);
-  h4 {
-    margin-top: $spacer-sm;
-  }
 }
 
 .footer-nav {
@@ -70,13 +67,15 @@
 
 .mailing-form {
   @include flex(flex, center, center);
-  @include padding-top($spacer-sm);
+
   &__item {
     @include flex(flex, center, center);
-    margin-bottom: $spacer-sm;
+
     &:first-child {
+      margin-bottom: $spacer-sm;
       @include media-breakpoint-up(sm) {
         justify-content: right;
+        margin-bottom: 0;
       }
     }
 
@@ -85,24 +84,24 @@
         justify-content: left;
       }
     }
+  }
 
-    &:last-child {
-      @include padding-top($spacer-xl);
-      @include media-breakpoint-up(md) {
-        padding-top: 0;
-      }
+  &__button {
+    margin-bottom: 0 !important;
+    @include media-breakpoint-up(md) {
+      margin: 0 !important;
     }
   }
 
   &__input {
-    height: 36px;
+    height: 2.25rem;
     width: 255px;
     padding: 0.625rem 0 0.625rem 1rem;
     border-radius: $border-radius-sm;
     &::placeholder {
       color: $color-gray;
       font-size: $fs-sm;
-      padding-left: 5px;
+      padding-left: 0.5em;
     }
   }
 }

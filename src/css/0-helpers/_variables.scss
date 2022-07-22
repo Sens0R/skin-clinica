@@ -1,8 +1,8 @@
-/* ===============================================================================================
-COLORS
-=============================================================================================== */
+/* ====================   COLORS   ==================== */
+
 $color-pink: hsl(336, 95%, 84%);
 $color-black: hsl(0, 0%, 0%);
+$color-black-100: hsl(0, 0%, 12%);
 $color-gray: hsl(0, 0%, 45%);
 $color-white: hsl(0, 0%, 100%);
 $color-white-100: darken($color-white, 5%);
@@ -15,14 +15,13 @@ $color-primary: $color-pink;
 $color-primary-light: lighten($color-primary, 6%);
 $color-primary-dark: darken($color-primary, 40%);
 
-$color-secondary: hsl(0, 0%, 12%);
+$color-secondary: $color-black-100;
 $color-bg: $color-white;
 $color-light: $color-white;
 $color-dark: $color-secondary;
 
-/* ===============================================================================================
-TYPOGRAPHY 
-=============================================================================================== */
+/* ====================   TYPOGRAPHY   ==================== */
+
 // Fonts
 $ff-primary: DMSans, Arial, sans-serif;
 $ff-secondary: null;
@@ -54,9 +53,10 @@ $fs-h4: $headings-fs * 1.625; // 26px
 $fs-h5: $headings-fs * 1.25; // 20px
 $fs-h6: $headings-fs * 0.875; // 14px
 
-/* ===============================================================================================
-STRUCTURE
-=============================================================================================== */
+/* ====================   STRUCTURE   ==================== */
+
+// GRID
+$grid-gutter-width: 1.5rem;
 
 // Spacers
 $spacer: 1.25rem;
@@ -108,19 +108,3 @@ $underline-round-cap: true;
 
 // Transitions
 $transition: 0.2s ease-in-out;
-/* $container: 1170px;
-
-$container-p-sm: 1rem;
-$container-p-md: 2rem;
-$container-p-lg: 3rem;
-
-
-
-
-$input-x-padding: 1.25em;
-$input-y-padding: 0.75em;
- */
-
-/* ===============================================================================================
-ELEMENTS
-=============================================================================================== */

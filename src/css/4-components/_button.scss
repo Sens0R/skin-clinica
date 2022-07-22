@@ -7,6 +7,8 @@
   line-height: $lh-sm;
   font-weight: bold;
   transition: 0.4s;
+  @include margin-top($spacer);
+  @include margin-bottom($spacer);
   @include grow-rotate();
   &:hover,
   &:active,
@@ -18,5 +20,6 @@
 .btn--light {
   background-color: $color-primary-dark;
   transition: 0.2s;
+  
 }
 

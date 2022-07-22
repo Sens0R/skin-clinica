@@ -1,30 +1,9 @@
 /*--------------------------------------------------------------
 # Import
 --------------------------------------------------------------*/
-/* ===============================================================================================
-COLORS
-=============================================================================================== */
-/* ===============================================================================================
-TYPOGRAPHY 
-=============================================================================================== */
-/* ===============================================================================================
-STRUCTURE
-=============================================================================================== */
-/* $container: 1170px;
-
-$container-p-sm: 1rem;
-$container-p-md: 2rem;
-$container-p-lg: 3rem;
-
-
-
-
-$input-x-padding: 1.25em;
-$input-y-padding: 0.75em;
- */
-/* ===============================================================================================
-ELEMENTS
-=============================================================================================== */
+/* ====================   COLORS   ==================== */
+/* ====================   TYPOGRAPHY   ==================== */
+/* ====================   STRUCTURE   ==================== */
 /*!
  * Bootstrap Grid v5.2.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -13543,19 +13522,12 @@ button.swiper-pagination-bullet {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: static !important;
-  padding-bottom: calc(1.5rem + 3vw);
-}
-@media (min-width: 1200px) {
-  .swiper-pagination {
-    padding-bottom: 3.75rem;
-  }
+  bottom: 0 !important;
 }
 
 .swiper-pagination-bullet {
   width: 6px;
   height: 6px;
-  display: inline-block;
   border-radius: 50%;
   background: #000;
   opacity: 0.2;
@@ -13570,16 +13542,8 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 5rem;
   height: 5rem;
-  transition: 0.2s ease-in-out;
-  top: 50%;
-  bottom: 0;
-  position: absolute;
-  transform: translateY(-50%);
   z-index: 15;
   display: inline-block;
   vertical-align: middle;
@@ -13588,6 +13552,12 @@ button.swiper-pagination-bullet {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   fill: hsl(0deg, 0%, 45%);
 }
 .swiper-btn .hvr-icon {
@@ -13617,12 +13587,6 @@ button.swiper-pagination-bullet {
   .swiper-btn:hover {
     fill: #db065b;
   }
-}
-.swiper-btn--left {
-  left: 0;
-}
-.swiper-btn--right {
-  right: 0;
 }
 @media (min-width: 992px) {
   .swiper-btn--left {
@@ -17430,6 +17394,7 @@ button.swiper-pagination-bullet {
 ul,
 ol,
 dl {
+  padding: 0;
   list-style: none;
 }
 
@@ -17554,9 +17519,10 @@ ol,
 blockquote,
 address,
 table,
+.spacer,
 hr {
-  margin: 1.25rem 0;
-  padding: 0;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 button {
@@ -17743,16 +17709,20 @@ input {
   height: 1rem;
 }
 .nav-search__body {
-  height: calc(1.3875rem + 1.65vw);
+  padding: 0.3125rem;
+  height: 1.875rem;
   width: 100%;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   padding-left: 3rem;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .nav-search__body {
     height: 2.625rem;
   }
+}
+.nav-search__body::placeholder {
+  padding-left: 0.5em;
 }
 .nav-search__body:focus, .nav-search__body:hover {
   border: 1px solid hsl(336deg, 95%, 84%);
@@ -17887,8 +17857,8 @@ input {
   text-align: center;
 }
 .footer-logo {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 .footer-logo a {
   display: inline-block;
@@ -17927,9 +17897,6 @@ input {
   .mailing-list {
     padding-bottom: 3.75rem;
   }
-}
-.mailing-list h4 {
-  margin-top: 0.625rem;
 }
 
 .footer-nav {
@@ -17985,17 +17952,19 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 0.625rem;
 }
 .mailing-form__item {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.mailing-form__item:first-child {
   margin-bottom: 0.625rem;
 }
 @media (min-width: 576px) {
   .mailing-form__item:first-child {
     justify-content: right;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 576px) {
@@ -18003,21 +17972,16 @@ input {
     justify-content: left;
   }
 }
-.mailing-form__item:last-child {
-  padding-top: calc(1.5rem + 3vw);
-}
-@media (min-width: 1200px) {
-  .mailing-form__item:last-child {
-    padding-top: 3.75rem;
-  }
+.mailing-form__button {
+  margin-bottom: 0 !important;
 }
 @media (min-width: 768px) {
-  .mailing-form__item:last-child {
-    padding-top: 0;
+  .mailing-form__button {
+    margin: 0 !important;
   }
 }
 .mailing-form__input {
-  height: 36px;
+  height: 2.25rem;
   width: 255px;
   padding: 0.625rem 0 0.625rem 1rem;
   border-radius: 0.2rem;
@@ -18025,7 +17989,7 @@ input {
 .mailing-form__input::placeholder {
   color: hsl(0deg, 0%, 45%);
   font-size: 0.875rem;
-  padding-left: 5px;
+  padding-left: 0.5em;
 }
 
 .card {
@@ -18323,6 +18287,8 @@ input {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 .social-icons__item {
   margin: 0 0.25rem 0.25rem 0;
@@ -18380,6 +18346,8 @@ input {
   line-height: 1.25;
   font-weight: bold;
   transition: 0.4s;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -18403,6 +18371,11 @@ input {
   transition: 0.2s;
 }
 
+.section-header {
+  align-self: flex-start;
+}
+
+/* ====================   BANNER   ==================== */
 .banner {
   height: 300px;
   background: url("../images/banner.jpg");
@@ -18416,17 +18389,34 @@ input {
   }
 }
 
-.section-header {
-  align-self: flex-start;
-  margin-top: 0;
+/* ====================   BLOG   ==================== */
+.blog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: calc(1.5rem + 3vw);
+  padding-bottom: calc(1.5rem + 3vw);
+  flex-direction: column;
+}
+@media (min-width: 1200px) {
+  .blog {
+    padding-top: 3.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  .blog {
+    padding-bottom: 3.75rem;
+  }
 }
 
+/* ====================   TESTIMONIALS   ==================== */
 .testimonials {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: calc(1.5rem + 3vw);
+  padding-bottom: calc(1.5rem + 3vw);
   flex-direction: column;
-  width: 100%;
   text-align: center;
   user-select: none;
   background: url("../images/testimonials-bg.jpg");
@@ -18434,17 +18424,14 @@ input {
   background-position: center;
   background-repeat: no-repeat;
 }
-.testimonials__content {
-  margin-right: auto;
-  margin-left: auto;
-}
-.testimonials__header {
-  padding-top: calc(1.5rem + 3vw);
-  margin: 0;
+@media (min-width: 1200px) {
+  .testimonials {
+    padding-top: 3.75rem;
+  }
 }
 @media (min-width: 1200px) {
-  .testimonials__header {
-    padding-top: 3.75rem;
+  .testimonials {
+    padding-bottom: 3.75rem;
   }
 }
 .testimonials__body {
@@ -18468,37 +18455,15 @@ input {
 }
 
 .person-name {
-  margin-top: 0.625rem;
+  margin-bottom: calc(1.5rem + 3vw);
   color: #db065b;
   text-transform: uppercase;
   font-size: 0.875rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
 }
-
-.blog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: calc(1.5rem + 3vw);
-  padding-bottom: calc(1.5rem + 3vw);
-  flex-direction: column;
-}
 @media (min-width: 1200px) {
-  .blog {
-    padding-top: 3.75rem;
-  }
-}
-@media (min-width: 1200px) {
-  .blog {
-    padding-bottom: 3.75rem;
-  }
-}
-.blog__button {
-  margin-top: calc(1.3125rem + 0.75vw);
-}
-@media (min-width: 1200px) {
-  .blog__button {
-    margin-top: 1.875rem;
+  .person-name {
+    margin-bottom: 3.75rem;
   }
 }

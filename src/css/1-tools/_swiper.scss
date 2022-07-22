@@ -9,13 +9,11 @@
 
 .swiper-pagination {
   @include flex(flex, center, center);
-  position: static !important;
-  @include padding-bottom($spacer-xl);
+  bottom: 0 !important;
 }
 
 .swiper-pagination-bullet {
   @include box(6px, 6px);
-  display: inline-block;
   border-radius: 50%;
   background: #000;
   opacity: 0.2;
@@ -29,13 +27,11 @@
 }
 
 .swiper-btn {
-  @include flex(flex, center, center);
   @include box(5rem, 5rem);
-  transition: 0.2s ease-in-out;
-  @include absolute(bottom 0 top 50%);
-  transform: translateY(-50%);
   z-index: 15;
   @include icon-grow();
+  @include flex(flex, center, center);
+  @include center(vertical);
 
   svg {
     @include box(1.5rem, 1.5rem);
@@ -51,14 +47,6 @@
     &:hover {
       fill: $color-primary-dark;
     }
-  }
-
-  &--left {
-    left: 0;
-  }
-
-  &--right {
-    right: 0;
   }
 
   @include media-breakpoint-up(lg) {
