@@ -2,6 +2,7 @@ import './modules/swiper.js';
 import { isWebP } from './modules/webP.js';
 import { breakpoint } from './modules/functions.js';
 import { runBurger } from './modules/burger.js';
+
 const { sm, md, lg, xl } = breakpoint;
 
 isWebP();
@@ -16,8 +17,6 @@ runBurger({
   scrollBlock: false,
   focusElement: '.nav-search__body',
 });
-
-
 
 /*  
   mainClass: // Main element class

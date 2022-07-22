@@ -22,10 +22,9 @@
     "url": "https://github.com/Sens0R/skin-clinica/issues"
   },
   "homepage": "https://github.com/Sens0R/skin-clinica#readme",
-  "dependencies": {
-    "aos": "^2.3.4"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "aos": "^2.3.4",
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1",
     "browser-sync": "latest",
@@ -63,6 +62,7 @@
     "rename": "latest",
     "rfs": "^9.0.6",
     "sass": "latest",
+    "shave": "^5.0.0",
     "smart-grid": "^2.1.2",
     "swiper": "^8.2.4",
     "vinyl-ftp": "latest",
