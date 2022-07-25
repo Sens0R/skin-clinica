@@ -118,6 +118,15 @@
   background-repeat: no-repeat;
 }
 
+@mixin background-img() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
 @mixin underline(
   $color: $underline-color,
   $thickness: $underline-thickness,

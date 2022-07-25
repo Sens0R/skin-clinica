@@ -6604,7 +6604,8 @@ a:not([class]) {
 
 /* Make images easier to work with */
 
-img {
+img,
+picture {
   max-width: 100%;
   display: block;
 }
@@ -6846,15 +6847,21 @@ input {
   fill: #db065b;
 }
 
-.no-webp .footer {
-  background: url("../images/banner-footer.jpg"); }
-
 .footer {
   margin-top: auto;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
   color: hsl(0deg, 0%, 100%);
+}
+
+.footer__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .footer-copyright {
@@ -6903,6 +6910,10 @@ input {
   -webkit-transform: translateY(4px);
   -ms-transform: translateY(4px);
       transform: translateY(4px);
+}
+
+.footer-inner {
+  position: relative;
 }
 
 .mailing-list {
@@ -7218,14 +7229,13 @@ input {
 
 /* ====================   BANNER   ==================== */
 
-.no-webp .banner {
-  background: url("../images/banner.jpg"); }
-
-.banner {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.banner__background {
+  width: 100%;
+  max-height: 50vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 /* ====================   BLOG   ==================== */
@@ -7250,10 +7260,9 @@ input {
 
 /* ====================   TESTIMONIALS   ==================== */
 
-.no-webp .testimonials {
-  background: url("../images/testimonials-bg.jpg"); }
-
 .testimonials {
+  position: relative;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7274,9 +7283,17 @@ input {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+
+.testimonials__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .testimonials__body {
@@ -7380,10 +7397,6 @@ input {
 
   .mailing-form__button {
     margin: 0 !important;
-  }
-
-  .banner {
-    height: 600px;
   }
 }
 
@@ -7784,9 +7797,3 @@ input {
     scroll-behavior: auto !important;
   }
 }
-
-.webp .footer { background: url(../images/banner-footer.webp); }
-
-.webp .banner { background: url(../images/banner.webp); }
-
-.webp .testimonials { background: url(../images/testimonials-bg.webp); }

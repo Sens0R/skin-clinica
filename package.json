@@ -22,10 +22,9 @@
     "url": "https://github.com/Sens0R/skin-clinica/issues"
   },
   "homepage": "https://github.com/Sens0R/skin-clinica#readme",
-  "dependencies": {},
   "devDependencies": {
-    "aos": "^2.3.4",
     "@popperjs/core": "^2.11.5",
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.0-beta1",
     "browser-sync": "latest",
     "del": "latest",
@@ -48,6 +47,7 @@
     "gulp-rename": "latest",
     "gulp-replace": "latest",
     "gulp-sass": "latest",
+    "gulp-sharp-responsive": "^0.4.0",
     "gulp-svg-sprite": "latest",
     "gulp-ttf2woff": "latest",
     "gulp-ttf2woff2": "latest",
@@ -55,7 +55,7 @@
     "gulp-version-number": "latest",
     "gulp-webp": "latest",
     "gulp-webp-css": "latest",
-    "gulp-webp-html-nosvg": "latest",
+    "gulp-webp-html-nosvg": "^1.1.1",
     "gulp-webpcss": "latest",
     "gulp-zip": "latest",
     "hover.css": "^2.3.2",

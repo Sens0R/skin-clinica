@@ -3,7 +3,6 @@ import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 import cleanCss from 'gulp-clean-css'; // Сжатие CSS файла
 import purgecss from 'gulp-purgecss'; // Удаляет не используемые CSS стили
-import webpCss from 'gulp-webpcss'; // Вывод WEBP изображений
 import autoprefixer from 'gulp-autoprefixer'; // Добавление вендорных префиксов
 import groupCssMediaQueries from 'gulp-group-css-media-queries'; // Группировка медиа запросов
 
@@ -27,19 +26,21 @@ export const scss = () => {
       })
     )
     .pipe(app.plugins.replace('@img', '../images'))
-    .pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))
+    .pipe(app.plugins.if(app.isDev, groupCssMediaQueries()))
     .pipe(
       app.plugins.if(
-        app.isBuild,
-        webpCss({
-          webpClass: '.webp',
-          noWebpClass: '.no-webp',
+        app.isDev,
+        purgecss({
+          content: ['src/**/*.html'],
+          safelist: {
+            greedy: [/backdrop/, /animate/, /_active/],
+          },
         })
       )
     )
     .pipe(
       app.plugins.if(
-        app.isBuild,
+        app.isDev,
         autoprefixer({
           grid: true,
           overrideBrowserslist: ['last 3 versions'],
@@ -47,19 +48,8 @@ export const scss = () => {
         })
       )
     )
-    .pipe(
-      app.plugins.if(
-        app.isBuild,
-        purgecss({
-          content: ['src/**/*.html'],
-          safelist: {
-            greedy: [/backdrop/, /animate/, /webp/, /_active/]
-          },
-        })
-      )
-    )
     .pipe(app.gulp.dest(app.path.build.css)) // Раскоментировать если нужен не сжатый дубль файла стилей
-    .pipe(app.plugins.if(app.isBuild, cleanCss()))
+    .pipe(app.plugins.if(app.isDev, cleanCss()))
     .pipe(
       rename({
         extname: '.min.css',
@@ -68,3 +58,5 @@ export const scss = () => {
     .pipe(app.gulp.dest(app.path.build.css))
     .pipe(app.plugins.browsersync.stream());
 };
+
+// FIX isDev > isBuild
