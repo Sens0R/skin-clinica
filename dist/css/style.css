@@ -13518,10 +13518,6 @@ button.swiper-pagination-bullet {
   height: 100%;
 }
 
-.swiper-slide {
-  height: 500px;
-}
-
 .swiper-pagination {
   display: flex;
   justify-content: center;
@@ -13594,10 +13590,12 @@ button.swiper-pagination-bullet {
 }
 @media (min-width: 992px) {
   .swiper-btn--left {
-    left: 23%;
+    left: 20%;
+    top: 25%;
   }
   .swiper-btn--right {
-    right: 23%;
+    right: 20%;
+    top: 25%;
   }
 }
 
@@ -18402,7 +18400,7 @@ input {
 }
 @media (min-width: 768px) {
   .banner-bg {
-    max-height: 60vh;
+    max-height: 75vh;
   }
 }
 
@@ -18458,7 +18456,17 @@ input {
     padding-bottom: 3.75rem;
   }
 }
+.testimonials__content {
+  max-width: 31.25rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.testimonials__header {
+  z-index: 1;
+}
 .testimonials__body {
+  position: relative;
   font-style: italic;
   font-size: 1.125rem;
   color: hsl(0deg, 0%, 45%);
@@ -18470,12 +18478,13 @@ input {
   flex-direction: column;
 }
 
-.person-photo {
+.person-photo-thumbnail {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .person-name {

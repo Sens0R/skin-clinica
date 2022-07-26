@@ -16,6 +16,7 @@ export const path = {
   src: {
     js: `${srcFolder}/js/app.js`,
     images: `${srcFolder}/assets/images/**/*.{jpg,jpeg,png,gif,webp}`,
+    thumbnail: `${srcFolder}/assets/thumbnail/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/assets/images/**/*.svg`,
     scss: `${srcFolder}/css/style.scss`,
     html: `${srcFolder}/*.html`,
@@ -27,6 +28,7 @@ export const path = {
     scss: `${srcFolder}/css/**/*.scss`,
     html: `${srcFolder}/**/*.html`,
     images: `${srcFolder}/assets/images/**/*.{jpg,jpeg,png,gif,webp,svg,ico}`,
+    thumbnail: `${srcFolder}/assets/thumbnail/**/*.{jpg,jpeg,png,gif,webp,svg,ico}`,
     svgSpriteMono: `${srcFolder}/assets/svgicons/mono/**/*.svg`,
     svgSpriteMulti: `${srcFolder}/assets/svgicons/multi/**/*.svg`,
   },

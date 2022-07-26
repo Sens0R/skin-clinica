@@ -14,9 +14,7 @@ export const images = () => {
     .pipe(app.plugins.if(app.isDev, app.plugins.newer(app.path.build.images)))
     .pipe(
       sharpResponsive({
-        includeOriginalFile: true,
         formats: [
-          { includeOriginalFile: true },
           // jpeg
           {
             width: 320,
@@ -131,9 +129,50 @@ export const images = () => {
         ],
       })
     )
-    .pipe(app.gulp.src(app.path.src.svg))
     .pipe(app.gulp.dest(app.path.build.images))
     .pipe(app.plugins.browsersync.stream());
 };
 
-//FIX isDev > isBuild
+export const thumbnail = () => {
+  return app.gulp
+    .src(app.path.src.thumbnail)
+    .pipe(
+      app.plugins.plumber(
+        app.plugins.notify.onError({
+          title: 'THUMBNAIL',
+          message: 'Error: <%= error.message %>',
+        })
+      )
+    )
+    .pipe(
+      sharpResponsive({
+        formats: [
+          // jpeg
+          {
+            width: 160,
+            format: 'jpeg',
+            rename: { suffix: '-thumbnail' },
+            jpegOptions: { quality: 50, progressive: true },
+          },
+
+          // webp
+          {
+            width: 160,
+            format: 'webp',
+            rename: { suffix: '-thumbnail' },
+            webpOptions: { quality: 70, progressive: true },
+          },
+
+          // avif
+          {
+            width: 160,
+            format: 'avif',
+            rename: { suffix: '-thumbnail' },
+            avifOptions: { quality: 50, progressive: true },
+          },
+        ],
+      })
+    )
+    .pipe(app.gulp.dest(app.path.build.images))
+    .pipe(app.plugins.browsersync.stream());
+};

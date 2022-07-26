@@ -5,8 +5,6 @@ import { runBurger } from './modules/burger.js';
 
 const { sm, md, lg, xl } = breakpoint;
 
-
-
 runBurger();
 
 runBurger({

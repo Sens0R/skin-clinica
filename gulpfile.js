@@ -20,20 +20,23 @@ import { html } from './gulp/tasks/html.js';
 import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
-import { images } from './gulp/tasks/images.js';
+import { images, thumbnail } from './gulp/tasks/images.js';
 import { otfToTtf, ttfToWoff, fontsStyle } from './gulp/tasks/fonts.js';
 import { spriteMono, spriteMulti } from './gulp/tasks/svgSprites.js';
 import { zip } from './gulp/tasks/zip.js';
 import { ftp } from './gulp/tasks/ftp.js';
+
 
 //Наблюдатель за изменениями в файлах
 function watcher() {
   gulp.watch(path.watch.html, html);
   gulp.watch(path.watch.scss, scss);
   gulp.watch(path.watch.js, js);
-  gulp.watch(path.watch.images, images); // Пример автозагрузки на FTP gulp.watch(path.watch.images, gulp.series(images, ftp))
+  gulp.watch(path.watch.images, images);
+  gulp.watch(path.watch.thumbnail, thumbnail);
   gulp.watch(path.watch.svgSpriteMono, spriteMono);
   gulp.watch(path.watch.svgSpriteMulti, spriteMulti);
+   // Пример автозагрузки на FTP gulp.watch(path.watch.images, gulp.series(images, ftp))
 }
 
 // Последовательная обработка шрифтов
@@ -41,7 +44,7 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 const mainTasks = gulp.series(
   gulp.parallel(fonts, spriteMono, spriteMulti),
-  gulp.parallel(html, scss, js, images)
+  gulp.parallel(html, scss, js, images, thumbnail)
 );
 
 // Построение сценариев выполнения задач

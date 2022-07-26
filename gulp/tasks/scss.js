@@ -26,10 +26,10 @@ export const scss = () => {
       })
     )
     .pipe(app.plugins.replace('@img', '../images'))
-    .pipe(app.plugins.if(app.isDev, groupCssMediaQueries()))
+    .pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))
     .pipe(
       app.plugins.if(
-        app.isDev,
+        app.isBuild,
         purgecss({
           content: ['src/**/*.html'],
           safelist: {
@@ -40,7 +40,7 @@ export const scss = () => {
     )
     .pipe(
       app.plugins.if(
-        app.isDev,
+        app.isBuild,
         autoprefixer({
           grid: true,
           overrideBrowserslist: ['last 3 versions'],
@@ -49,7 +49,7 @@ export const scss = () => {
       )
     )
     .pipe(app.gulp.dest(app.path.build.css)) // Раскоментировать если нужен не сжатый дубль файла стилей
-    .pipe(app.plugins.if(app.isDev, cleanCss()))
+    .pipe(app.plugins.if(app.isBuild, cleanCss()))
     .pipe(
       rename({
         extname: '.min.css',
@@ -58,5 +58,3 @@ export const scss = () => {
     .pipe(app.gulp.dest(app.path.build.css))
     .pipe(app.plugins.browsersync.stream());
 };
-
-// FIX isDev > isBuild

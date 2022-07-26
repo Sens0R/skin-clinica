@@ -261,53 +261,53 @@
 
 <!-- ====================   TESTIMONIALS   ==================== -->
 
-<div class="testimonials">
+<div class="container-fluid testimonials">
   <div class="testimonials__background">
-     <picture>
-        <source
-          type="image/avif"
-          sizes="100vw"
-          srcset="
-            images/testimonials-bg-320.avif   320w,
-            images/testimonials-bg-640.avif   640w,
-            images/testimonials-bg-960.avif   960w,
-            images/testimonials-bg-1280.avif 1280w,
-            images/testimonials-bg-1920.avif 1920w,
-            images/testimonials-bg-2560.avif 2560w
-          "
-        />
-        <source
-          type="image/webp"
-          sizes="100vw"
-          srcset="
-            images/testimonials-bg-320.webp   320w,
-            images/testimonials-bg-640.webp   640w,
-            images/testimonials-bg-960.webp   960w,
-            images/testimonials-bg-1280.webp 1280w,
-            images/testimonials-bg-1920.webp 1920w,
-            images/testimonials-bg-2560.webp 2560w
-          "
-        />
-        <source
-          type="image/jpeg"
-          sizes="100vw"
-          srcset="
-            images/testimonials-bg-320.jpg   320w,
-            images/testimonials-bg-640.jpg   640w,
-            images/testimonials-bg-960.jpg   960w,
-            images/testimonials-bg-1280.jpg 1280w,
-            images/testimonials-bg-1920.jpg 1920w,
-            images/testimonials-bg-2560.jpg 2560w
-          "
-        />
-        <img
-          class="testimonials-bg"
-          src="images/testimonials-bg-960.jpg"
-          alt="testimonials-bg"
-          width="2560"
-          height="2560"
-        />
-      </picture>
+    <picture>
+      <source
+        type="image/avif"
+        sizes="100vw"
+        srcset="
+          images/testimonials-bg-320.avif   320w,
+          images/testimonials-bg-640.avif   640w,
+          images/testimonials-bg-960.avif   960w,
+          images/testimonials-bg-1280.avif 1280w,
+          images/testimonials-bg-1920.avif 1920w,
+          images/testimonials-bg-2560.avif 2560w
+        "
+      />
+      <source
+        type="image/webp"
+        sizes="100vw"
+        srcset="
+          images/testimonials-bg-320.webp   320w,
+          images/testimonials-bg-640.webp   640w,
+          images/testimonials-bg-960.webp   960w,
+          images/testimonials-bg-1280.webp 1280w,
+          images/testimonials-bg-1920.webp 1920w,
+          images/testimonials-bg-2560.webp 2560w
+        "
+      />
+      <source
+        type="image/jpeg"
+        sizes="100vw"
+        srcset="
+          images/testimonials-bg-320.jpg   320w,
+          images/testimonials-bg-640.jpg   640w,
+          images/testimonials-bg-960.jpg   960w,
+          images/testimonials-bg-1280.jpg 1280w,
+          images/testimonials-bg-1920.jpg 1920w,
+          images/testimonials-bg-2560.jpg 2560w
+        "
+      />
+      <img
+        class="testimonials-bg"
+        src="images/testimonials-bg-960.jpg"
+        alt="testimonials-bg"
+        width="2560"
+        height="2560"
+      />
+    </picture>
   </div>
   <h4 class="testimonials__header">What You’re Saying</h4>
   <div class="swiper">
@@ -322,11 +322,30 @@
             </p>
           </div>
           <div class="testimonials__person">
-            <img
-              class="person-photo"
-              src="@img/testimonial-person-1.jpg"
-              alt="Customer Photo"
-            />
+            <div class="person-photo">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="images/testimonials-person-1-thumbnail.avif"
+                />
+                <source
+                  type="image/webp"
+                  srcset="images/testimonials-person-1-thumbnail.webp"
+                />
+                <source
+                  type="image/jpeg"
+                  srcset="images/testimonials-person-1-thumbnail.jpg"
+                />
+                <img
+                  class="person-photo-thumbnail"
+                  src="images/testimonials-person-1-thumbnail-960.jpg"
+                  alt="testimonials-person-1-thumbnail"
+                  width="160"
+                  height="160"
+                />
+              </picture>
+            </div>
+
             <p class="person-name">Florence</p>
           </div>
         </div>
@@ -341,11 +360,29 @@
             </p>
           </div>
           <div class="testimonials__person">
-            <img
-              class="person-photo"
-              src="@img/testimonial-person-2.jpg"
-              alt="Customer Photo"
-            />
+            <div class="person-photo">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="images/testimonials-person-2-thumbnail.avif"
+                />
+                <source
+                  type="image/webp"
+                  srcset="images/testimonials-person-2-thumbnail.webp"
+                />
+                <source
+                  type="image/jpeg"
+                  srcset="images/testimonials-person-2-thumbnail.jpg"
+                />
+                <img
+                  class="person-photo-thumbnail"
+                  src="images/testimonials-person-2-thumbnail-960.jpg"
+                  alt="testimonials-person-2-thumbnail"
+                  width="160"
+                  height="160"
+                />
+              </picture>
+            </div>
             <p class="person-name">Katy</p>
           </div>
         </div>
@@ -359,11 +396,29 @@
             </p>
           </div>
           <div class="testimonials__person">
-            <img
-              class="person-photo"
-              src="@img/testimonial-person-3.jpg"
-              alt="Customer Photo"
-            />
+            <div class="person-photo">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="images/testimonials-person-3-thumbnail.avif"
+                />
+                <source
+                  type="image/webp"
+                  srcset="images/testimonials-person-3-thumbnail.webp"
+                />
+                <source
+                  type="image/jpeg"
+                  srcset="images/testimonials-person-3-thumbnail.jpg"
+                />
+                <img
+                  class="person-photo-thumbnail"
+                  src="images/testimonials-person-3-thumbnail-960.jpg"
+                  alt="testimonials-person-3-thumbnail"
+                  width="160"
+                  height="160"
+                />
+              </picture>
+            </div>
             <p class="person-name">Rachel</p>
           </div>
         </div>
@@ -379,11 +434,29 @@
             </p>
           </div>
           <div class="testimonials__person">
-            <img
-              class="person-photo"
-              src="@img/testimonial-person-4.jpg"
-              alt="Customer Photo"
-            />
+            <div class="person-photo">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="images/testimonials-person-4-thumbnail.avif"
+                />
+                <source
+                  type="image/webp"
+                  srcset="images/testimonials-person-4-thumbnail.webp"
+                />
+                <source
+                  type="image/jpeg"
+                  srcset="images/testimonials-person-4-thumbnail.jpg"
+                />
+                <img
+                  class="person-photo-thumbnail"
+                  src="images/testimonials-person-4-thumbnail-960.jpg"
+                  alt="testimonials-person-4-thumbnail"
+                  width="160"
+                  height="160"
+                />
+              </picture>
+            </div>
             <p class="person-name">Annabelle</p>
           </div>
         </div>
