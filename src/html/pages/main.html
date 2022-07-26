@@ -4,42 +4,42 @@
       type="image/avif"
       sizes="100vw"
       srcset="
-        images/banner-320.avif   320w,
-        images/banner-640.avif   640w,
-        images/banner-960.avif   960w,
-        images/banner-1280.avif 1280w,
-        images/banner-1920.avif 1920w,
-        images/banner-2560.avif 2560w
+        images/banner-bg-320.avif   320w,
+        images/banner-bg-640.avif   640w,
+        images/banner-bg-960.avif   960w,
+        images/banner-bg-1280.avif 1280w,
+        images/banner-bg-1920.avif 1920w,
+        images/banner-bg-2560.avif 2560w
       "
     />
     <source
       type="image/webp"
       sizes="100vw"
       srcset="
-        images/banner-320.webp   320w,
-        images/banner-640.webp   640w,
-        images/banner-960.webp   960w,
-        images/banner-1280.webp 1280w,
-        images/banner-1920.webp 1920w,
-        images/banner-2560.webp 2560w
+        images/banner-bg-320.webp   320w,
+        images/banner-bg-640.webp   640w,
+        images/banner-bg-960.webp   960w,
+        images/banner-bg-1280.webp 1280w,
+        images/banner-bg-1920.webp 1920w,
+        images/banner-bg-2560.webp 2560w
       "
     />
     <source
       type="image/jpeg"
       sizes="100vw"
       srcset="
-        images/banner-320.jpg   320w,
-        images/banner-640.jpg   640w,
-        images/banner-960.jpg   960w,
-        images/banner-1280.jpg 1280w,
-        images/banner-1920.jpg 1920w,
-        images/banner-2560.jpg 2560w
+        images/banner-bg-320.jpg   320w,
+        images/banner-bg-640.jpg   640w,
+        images/banner-bg-960.jpg   960w,
+        images/banner-bg-1280.jpg 1280w,
+        images/banner-bg-1920.jpg 1920w,
+        images/banner-bg-2560.jpg 2560w
       "
     />
     <img
-      class="banner__img"
-      src="images/banner-960.jpg"
-      alt="banner"
+      class="banner-bg"
+      src="images/banner-bg-960.jpg"
+      alt="banner-bg"
       width="2560"
       height="2560"
     />
@@ -262,11 +262,53 @@
 <!-- ====================   TESTIMONIALS   ==================== -->
 
 <div class="testimonials">
-  <img
-    class="testimonials__background"
-    src="@img/testimonials-bg.jpg"
-    alt="testimonials-background"
-  />
+  <div class="testimonials__background">
+     <picture>
+        <source
+          type="image/avif"
+          sizes="100vw"
+          srcset="
+            images/testimonials-bg-320.avif   320w,
+            images/testimonials-bg-640.avif   640w,
+            images/testimonials-bg-960.avif   960w,
+            images/testimonials-bg-1280.avif 1280w,
+            images/testimonials-bg-1920.avif 1920w,
+            images/testimonials-bg-2560.avif 2560w
+          "
+        />
+        <source
+          type="image/webp"
+          sizes="100vw"
+          srcset="
+            images/testimonials-bg-320.webp   320w,
+            images/testimonials-bg-640.webp   640w,
+            images/testimonials-bg-960.webp   960w,
+            images/testimonials-bg-1280.webp 1280w,
+            images/testimonials-bg-1920.webp 1920w,
+            images/testimonials-bg-2560.webp 2560w
+          "
+        />
+        <source
+          type="image/jpeg"
+          sizes="100vw"
+          srcset="
+            images/testimonials-bg-320.jpg   320w,
+            images/testimonials-bg-640.jpg   640w,
+            images/testimonials-bg-960.jpg   960w,
+            images/testimonials-bg-1280.jpg 1280w,
+            images/testimonials-bg-1920.jpg 1920w,
+            images/testimonials-bg-2560.jpg 2560w
+          "
+        />
+        <img
+          class="testimonials-bg"
+          src="images/testimonials-bg-960.jpg"
+          alt="testimonials-bg"
+          width="2560"
+          height="2560"
+        />
+      </picture>
+  </div>
   <h4 class="testimonials__header">What You’re Saying</h4>
   <div class="swiper">
     <div class="swiper-wrapper">

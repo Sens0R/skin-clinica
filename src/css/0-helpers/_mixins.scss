@@ -4,27 +4,9 @@
   align-items: $align-items;
 }
 
-@mixin aspect-ratio($width, $height) {
-  aspect-ratio: calc($width / $height);
-  // Fallback (current, using padding hack)
-  @supports not (aspect-ratio: 1 / 1) {
-    div::before {
-      float: left;
-      padding-top: 56.25%;
-      content: '';
-    }
-
-    div::after {
-      display: block;
-      content: '';
-      clear: both;
-    }
-  }
-}
-
-@mixin image-cover() {
+@mixin image-cover($height) {
   width: 100%;
-  height: auto;
+  height: $height;
   object-fit: cover;
   object-position: center;
 }
@@ -101,55 +83,11 @@
   height: $height;
 }
 
-@mixin fade($type) {
-  @if $type== 'hide' {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 1s, opacity 1s;
-  } @else if $type== 'show' {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 1s, opacity 1s;
-  }
-}
 
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
   content: $content;
   display: $display;
   position: $pos;
-}
-
-@mixin responsive-ratio($x, $y, $pseudo: false) {
-  $padding: unquote(($y / $x) * 100 + '%');
-  @if $pseudo {
-    &:before {
-      @include pseudo($pos: relative);
-      width: 100%;
-      padding-top: $padding;
-    }
-  } @else {
-    padding-top: $padding;
-  }
-}
-
-@mixin reset-list() {
-  list-style: none;
-  padding: 0;
-}
-
-@mixin background-cover() {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-@mixin background-img() {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  object-fit: cover;
-  object-position: center;
 }
 
 @mixin underline(

@@ -1,9 +1,11 @@
+.footer-bg {
+  @include absolute(top 0 left 0);
+  @include image-cover(100%);
+}
+
 .footer {
   margin-top: auto;
   position: relative;
-  &__background {
-   @include background-img();
-  }
   color: $font-color-light;
 
   &-copyright {
