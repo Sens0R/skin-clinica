@@ -4,6 +4,31 @@
   align-items: $align-items;
 }
 
+@mixin aspect-ratio($width, $height) {
+  aspect-ratio: calc($width / $height);
+  // Fallback (current, using padding hack)
+  @supports not (aspect-ratio: 1 / 1) {
+    div::before {
+      float: left;
+      padding-top: 56.25%;
+      content: '';
+    }
+
+    div::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+}
+
+@mixin image-cover() {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
 @mixin position($position, $args) {
   @each $o in top right bottom left {
     $i: index($args, $o);

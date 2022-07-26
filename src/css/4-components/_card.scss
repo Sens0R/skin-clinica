@@ -2,6 +2,15 @@
   @include flex(flex, center, left);
   flex-direction: column;
 
+  &__img {
+    
+  }
+
+  .card-img {
+    @include image-cover;
+    @include aspect-ratio(16, 9);
+  }
+
   &__content {
     @include padding($spacer);
   }

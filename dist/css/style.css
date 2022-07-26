@@ -7050,6 +7050,30 @@ input {
           flex-direction: column;
 }
 
+.card .card-img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  aspect-ratio: 1.7777777778;
+}
+
+@supports not (aspect-ratio: 1/1) {
+  .card .card-img div::before {
+    float: left;
+    padding-top: 56.25%;
+    content: "";
+  }
+
+  .card .card-img div::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
 .card__content {
   padding: 1.25rem;
 }
@@ -7228,13 +7252,14 @@ input {
 
 /* ====================   BANNER   ==================== */
 
-.banner-img {
+.banner__img {
   width: 100%;
-  max-height: 50vh;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  max-height: 40vh;
 }
 
 /* ====================   BLOG   ==================== */
@@ -7396,6 +7421,10 @@ input {
 
   .mailing-form__button {
     margin: 0 !important;
+  }
+
+  .banner__img {
+    max-height: 60vh;
   }
 }
 
