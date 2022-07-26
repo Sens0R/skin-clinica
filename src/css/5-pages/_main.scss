@@ -4,13 +4,11 @@
 
 /* ====================   BANNER   ==================== */
 
-.banner {
-  &__background {
-    width: 100%;
-    max-height: 50vh;
-    object-fit: cover;
-    object-position: center;
-  }
+.banner-img {
+  width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ====================   BLOG   ==================== */
