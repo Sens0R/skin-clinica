@@ -17544,10 +17544,6 @@ input {
   border: none;
 }
 
-.navigation {
-  padding-bottom: 1.25rem;
-}
-
 .navigation._active {
   transform: none;
 }
@@ -17565,7 +17561,6 @@ input {
 .burger-toggler svg {
   width: calc(1.425rem + 2.1vw);
   height: calc(1.425rem + 2.1vw);
-  margin-right: -0.6rem;
 }
 @media (min-width: 1200px) {
   .burger-toggler svg {
@@ -17651,6 +17646,8 @@ input {
   }
 }
 .header {
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
   z-index: 50;
 }
 @media (max-width: 991.98px) {
@@ -17661,14 +17658,8 @@ input {
 }
 
 .nav-belt {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-@media (max-width: 991.98px) {
-  .nav-belt {
-    padding: 0.625rem 0;
-    background-color: hsl(0deg, 0%, 100%);
-  }
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .logo-icon {
@@ -17743,7 +17734,7 @@ input {
     align-items: center;
     z-index: 1;
     height: 4.5rem;
-    background-color: #db065b;
+    background-color: hsl(0deg, 0%, 12%);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
 }
@@ -17758,10 +17749,13 @@ input {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 37.5rem;
+  }
+  .nav-search__body:focus {
+    border: none;
   }
   .nav-search__icon {
-    fill: #db065b;
+    fill: hsl(336deg, 95%, 84%);
   }
 }
 @media (max-width: 991.98px) {

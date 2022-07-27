@@ -1,7 +1,3 @@
-.navigation {
-  @include padding-bottom($spacer);
-}
-
 .navigation._active {
   transform: none;
 }
@@ -21,7 +17,6 @@
   svg {
     @include rfs(3rem, width);
     @include rfs(3rem, height);
-    margin-right: -0.6rem;
   }
 }
 
@@ -56,7 +51,7 @@
 
   .nav-mobile-socials {
     @include flex(flex, left, flex-start);
-   
+
     .social-icons__link {
       background: $color-primary;
     }
@@ -65,7 +60,7 @@
     }
   }
   .logo-icon-mobile {
-    @include box(10.3125rem, 3.75rem );
+    @include box(10.3125rem, 3.75rem);
   }
 }
 

@@ -1,6 +1,8 @@
 @import 'navigation';
 
 .header {
+  background-color: $color-light;
+  box-shadow: $shadow-sm;
   @include z-index(header);
   @include media-breakpoint-down(lg) {
     @include sticky(top 0);
@@ -8,12 +10,8 @@
 }
 
 .nav-belt {
-  @include media-breakpoint-down(lg) {
-    padding: $spacer-sm 0;
-    background-color: $color-light;
-  }
-  @include padding-top($spacer);
-  @include padding-bottom($spacer);
+  @include margin-top($spacer);
+  @include margin-bottom($spacer);
 }
 
 .logo-icon {
@@ -45,7 +43,7 @@
   }
 
   &__body {
-    padding: .3125rem;
+    padding: 0.3125rem;
     height: 1.875rem;
     @include media-breakpoint-up(md) {
       height: 2.625rem;
@@ -69,11 +67,11 @@
   }
 }
 
+// mobile-search
 .mobile-search._active {
   transform: none;
 }
 
-// mobile-search
 @include media-breakpoint-down(lg) {
   .mobile-search {
     @include absolute(top 0 left 0);
@@ -81,8 +79,9 @@
     @include flex(flex, center, center);
     z-index: 1;
     height: 4.5rem;
-    background-color: $color-primary-dark;
+    background-color: $color-secondary;
     box-shadow: $shadow;
+
     @include media-breakpoint-up(sm) {
       height: 6rem;
     }
@@ -90,11 +89,16 @@
 
   .nav-search {
     @include flex(flex, center, center);
+    &__body {
+      &:focus {
+        border: none;
+      }
+    }
 
     width: 100%;
-    max-width: 600px;
+    max-width: 37.5rem;
     &__icon {
-      fill: $color-primary-dark;
+      fill: $color-primary;
     }
   }
 
