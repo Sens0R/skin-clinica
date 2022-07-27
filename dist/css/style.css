@@ -17948,6 +17948,9 @@ input {
 .footer-nav-body__header {
   text-transform: uppercase;
 }
+.footer-nav-body__list > li:not(:last-child) {
+  margin-bottom: 0.75em;
+}
 .footer-nav-body__link {
   font-size: 0.875rem;
 }
@@ -18372,6 +18375,7 @@ input {
   transition-duration: 0.3s;
   -webkit-transition-property: transform;
   transition-property: transform;
+  box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
 }
 .btn:hover, .btn:focus, .btn:active {
   -webkit-transform: scale(1.1) rotate(4deg);

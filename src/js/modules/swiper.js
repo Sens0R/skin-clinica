@@ -8,14 +8,14 @@ const swiper = new Swiper('.swiper', {
   grabCursor: true,
   loop: true,
   autoHeight: true,
+
   autoplay: {
     delay: 5000,
   },
 
   // If we need pagination
   pagination: {
-    el: '.swiper-pagination'
-    
+    el: '.swiper-pagination',
   },
 
   // Navigation arrows
@@ -30,4 +30,3 @@ const swiper = new Swiper('.swiper', {
     pageUpDown: true,
   },
 });
-

@@ -10,6 +10,7 @@
   @include margin-top($spacer);
   @include margin-bottom($spacer);
   @include grow-rotate();
+  box-shadow: $shadow-sm;
   &:hover,
   &:active,
   &:visited {
@@ -20,6 +21,4 @@
 .btn--light {
   background-color: $color-primary-dark;
   transition: 0.2s;
-  
 }
-

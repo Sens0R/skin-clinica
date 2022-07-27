@@ -7,7 +7,6 @@
   margin-top: auto;
   position: relative;
   color: $font-color-light;
-
   &-copyright {
     color: $color-white-muted;
     font-size: 0.75rem;
@@ -47,6 +46,7 @@
   .social-icons__item {
     transition: 0.5s;
   }
+
   .social-icons__item:hover {
     transition: 0.2s;
     .social-icons__link {
@@ -60,6 +60,9 @@
 
   &__header {
     text-transform: uppercase;
+  }
+  &__list > li:not(:last-child) {
+    margin-bottom: 0.75em;
   }
 
   &__link {
