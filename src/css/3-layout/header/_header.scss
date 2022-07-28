@@ -1,6 +1,7 @@
 @import 'navigation';
 
 .header {
+  user-select: none;
   background-color: $color-light;
   box-shadow: $shadow-sm;
   @include z-index(header);
@@ -43,22 +44,22 @@
   }
 
   &__body {
-    padding: 0.3125rem;
-    height: 1.875rem;
-    @include media-breakpoint-up(md) {
-      height: 2.625rem;
-    }
-
+    padding: 0.25rem;
+    height: 2.5rem;
     width: 100%;
     border: 1px solid $border-color;
-    border-radius: 3px;
+    border-radius: $border-radius-sm;
     padding-left: 3rem;
     &::placeholder {
       padding-left: 0.5em;
     }
 
-    &:focus,
-    &:hover {
+    &:focus {
+      outline: 2px solid $color-primary-dark;
+    }
+
+    &:hover,
+    &:active {
       border: 1px solid $color-primary;
       &::placeholder {
         color: $color-gray;
@@ -78,28 +79,23 @@
     transform: translateY(-110%);
     @include flex(flex, center, center);
     z-index: 1;
-    height: 4.5rem;
+    height: 7rem;
     background-color: $color-secondary;
-    box-shadow: $shadow;
-
-    @include media-breakpoint-up(sm) {
-      height: 6rem;
-    }
+    box-shadow: $shadow-sm;
   }
 
   .nav-search {
     @include flex(flex, center, center);
     &__body {
-      &:focus {
+      &:focus,
+      &:active,
+      &:hover {
         border: none;
       }
     }
 
     width: 100%;
     max-width: 37.5rem;
-    &__icon {
-      fill: $color-primary;
-    }
   }
 
   .nav-search-btn-close {

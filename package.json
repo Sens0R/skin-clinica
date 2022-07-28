@@ -8,8 +8,8 @@
     "dev": "gulp",
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build",
-    "ftp": "gulp deployFTP --build",
-    "svgSprites": "gulp svgSprites"
+    "ftp": "gulp deployFTP --build"
+    
   },
   "repository": {
     "type": "git",

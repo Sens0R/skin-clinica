@@ -4,6 +4,7 @@
 }
 
 .footer {
+  user-select: none;
   margin-top: auto;
   position: relative;
   color: $font-color-light;
@@ -16,11 +17,9 @@
   &-logo {
     @include margin-top($spacer);
     @include margin-bottom($spacer);
-    a {
-      @include icon-sink();
-    }
   }
 }
+
 .footer-inner {
   position: relative;
 }
@@ -60,17 +59,16 @@
 
   &__header {
     text-transform: uppercase;
+    font-weight: bold;
   }
+
   &__list > li:not(:last-child) {
     margin-bottom: 0.75em;
   }
 
   &__link {
     font-size: $fs-sm;
-    &:hover {
-      transition: 0.4s;
-      color: $color-primary;
-    }
+    color: $color-light;
   }
 }
 
@@ -107,6 +105,10 @@
     width: 255px;
     padding: 0.625rem 0 0.625rem 1rem;
     border-radius: $border-radius-sm;
+    &:focus-visible {
+      outline: 2px solid $color-light;
+    }
+
     &::placeholder {
       color: $color-gray;
       font-size: $fs-sm;

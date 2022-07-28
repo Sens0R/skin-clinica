@@ -128,21 +128,41 @@ button {
   color: inherit;
   border-width: 0;
   cursor: pointer;
+  user-select: none;
 }
 
-a,
-a:link,
-a:hover,
-a:focus,
-a:active {
+a {
   cursor: pointer;
   text-decoration: none;
+  user-select: none;
+}
+
+a:link {
+}
+
+a:visited {
+}
+
+a:hover {
+  transition: 0.4s;
   color: inherit;
+}
+
+:focus {
+  outline: 2px solid $color-primary-dark;
+}
+
+:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+a:focus {
+}
+
+a:active {
 }
 
 input {
   outline: none;
   border: none;
 }
-
-

@@ -1,24 +1,18 @@
 @font-face {
-  font-family: DMSans;
-  font-display: swap;
-  src: url('../fonts/DMSans-Bold.woff2') format('woff2'),
-    url('../fonts/DMSans-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
+	font-family: "DMSans";
+	font-display: swap;
+	src: url("../fonts/DMSans-Bold.woff2") format("woff2"), url("../fonts/DMSans-Bold.woff") format("woff");
+	font-weight: 700;
+	}
 @font-face {
-  font-family: DMSans;
-  font-display: swap;
-  src: url('../fonts/DMSans-Italic.woff2') format('woff2'),
-    url('../fonts/DMSans-Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
+	font-family: "DMSans";
+	font-display: swap;
+	src: url("../fonts/DMSans-Italic.woff2") format("woff2"), url("../fonts/DMSans-Italic.woff") format("woff");
+	font-weight: 400;
+	}
 @font-face {
-  font-family: DMSans;
-  font-display: swap;
-  src: url('../fonts/DMSans-Regular.woff2') format('woff2'),
-    url('../fonts/DMSans-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
+	font-family: "DMSans";
+	font-display: swap;
+	src: url("../fonts/DMSans-Regular.woff2") format("woff2"), url("../fonts/DMSans-Regular.woff") format("woff");
+	font-weight: 400;
+	}

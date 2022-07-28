@@ -2,7 +2,6 @@
   .nav-menu__link,
   .nav-tools__link {
     &:hover {
-      transition: 0.4s;
       color: $color-primary-dark;
       svg {
         transition: 0.4s;
@@ -12,4 +11,8 @@
   }
 }
 
-
+.footer-nav-body__link {
+  &:hover {
+    color: $color-primary;
+  }
+}

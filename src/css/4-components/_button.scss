@@ -11,6 +11,7 @@
   @include margin-bottom($spacer);
   @include grow-rotate();
   box-shadow: $shadow-sm;
+
   &:hover,
   &:active,
   &:visited {
@@ -19,6 +20,10 @@
 }
 
 .btn--light {
+  &:focus-visible {
+    outline: 2px solid $color-light;
+  }
+  
   background-color: $color-primary-dark;
   transition: 0.2s;
 }

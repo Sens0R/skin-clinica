@@ -58,64 +58,59 @@ export const ttfToWoff = () => {
 
 export const fontsStyle = () => {
   // Файлы стилей подключения шрифтов
-  let fontsFile = `${app.path.srcFolder}/0-styles/2-base/_fonts.scss`;
-
-  // Проверяем существует ли файл стилей шрифтов
+  let fontsFile = `${app.path.srcFolder}/css/2-base/_fonts.scss`;
+  // Проверяем существуют ли файлы шрифтов
   fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
-    if (fs.existsSync(fontsFile)) {
-      fs.unlinkSync(fontsFile);
-      console.log('File removed:', fontsFile);
-    }
-    // Проверяем существует ли файл стилей для подключения шрифтов
-    if (!fs.existsSync(fontsFile)) {
-      // Если файла нет - создаем его
-      fs.writeFile(fontsFile, '', cb);
-      let newFileOnly;
-      for (var i = 0; i < fontsFiles.length; i++) {
-        // Записываем подключение шрифтов в файл стилей
-        let fontFileName = fontsFiles[i].split('.')[0];
-        if (newFileOnly !== fontFileName) {
-          let fontName = fontFileName.split('-')[0]
-            ? fontFileName.split('-')[0]
-            : fontFileName;
-          let fontWeight = fontFileName.split('-')[1]
-            ? fontFileName.split('-')[1]
-            : fontFileName;
-          if (fontWeight.toLowerCase() === 'thin') {
-            fontWeight = 100;
-          } else if (fontWeight.toLowerCase() === 'extralight') {
-            fontWeight = 200;
-          } else if (fontWeight.toLowerCase() === 'light') {
-            fontWeight = 300;
-          } else if (fontWeight.toLowerCase() === 'medium') {
-            fontWeight = 500;
-          } else if (fontWeight.toLowerCase() === 'semibold') {
-            fontWeight = 600;
-          } else if (fontWeight.toLowerCase() === 'bold') {
-            fontWeight = 700;
-          } else if (
-            fontWeight.toLowerCase() === 'extrabold' ||
-            fontWeight.toLowerCase() === 'heavy'
-          ) {
-            fontWeight = 800;
-          } else if (fontWeight.toLowerCase() === 'black') {
-            fontWeight = 200;
-          } else {
-            fontWeight = 400;
+    if (fontsFile) {
+      // Проверяем существует ли файл fonts.scss
+      if (!fs.existsSync(fontsFile)) {
+        fs.writeFile(fontsFile, '', cb);
+        let newFileOnly;
+        for (var i = 0; i < fontsFiles.length; i++) {
+          // Записываем подключение шрифтов в файл стилей
+          let fontFileName = fontsFiles[i].split('.')[0];
+          if (newFileOnly !== fontFileName) {
+            let fontName = fontFileName.split('-')[0]
+              ? fontFileName.split('-')[0]
+              : fontFileName;
+            let fontWeight = fontFileName.split('-')[1]
+              ? fontFileName.split('-')[1]
+              : fontFileName;
+            if (fontWeight.toLowerCase() === 'thin') {
+              fontWeight = 100;
+            } else if (fontWeight.toLowerCase() === 'extralight') {
+              fontWeight = 200;
+            } else if (fontWeight.toLowerCase() === 'light') {
+              fontWeight = 300;
+            } else if (fontWeight.toLowerCase() === 'medium') {
+              fontWeight = 500;
+            } else if (fontWeight.toLowerCase() === 'semibold') {
+              fontWeight = 600;
+            } else if (fontWeight.toLowerCase() === 'bold') {
+              fontWeight = 700;
+            } else if (
+              fontWeight.toLowerCase() === 'extrabold' ||
+              fontWeight.toLowerCase() === 'heavy'
+            ) {
+              fontWeight = 800;
+            } else if (fontWeight.toLowerCase() === 'black') {
+              fontWeight = 200;
+            } else {
+              fontWeight = 400;
+            }
+            fs.appendFile(
+              fontsFile,
+              `@font-face {\n\tfont-family: "${fontName}";\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWeight};\n\t}\r\n`,
+              cb
+            );
+            newFileOnly = fontFileName;
           }
-          fs.appendFile(
-            fontsFile,
-            `@font-face {
-                font-family: ${fontName};
-                font-display: swap;
-                src: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");
-                 font-weight: ${fontWeight};
-                 font-style: normal;
-                }\r\n`,
-            cb
-          );
-          newFileOnly = fontFileName;
         }
+      } else {
+        // Если файл есть, выводим сообщение
+        console.log(
+          'Файл scss/fonts.scss уже существует. Для обновления файла нужно его удалить!'
+        );
       }
     }
   });

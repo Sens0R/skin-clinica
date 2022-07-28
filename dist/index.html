@@ -4,15 +4,31 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
-  
-  <link rel="preload" href="fonts/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin> 
-  <link rel="preload" href="fonts/DMSans-Bold.woff2" as="font" type="font/woff2" crossorigin> 
 
- 
-  <link rel="stylesheet" href="css/style.min.css" />
-  <script defer src="js/app.min.js"></script> 
-  <link rel="shortcut icon" href="images/favicon.svg">
+  <meta
+    name="description"
+    content="Skin Clinica is your one stop online shop for skin care routines and natural products. We have skincare for all skin types. Free shipping available!"
+  />
+
+  <link
+    rel="preload"
+    href="fonts/DMSans-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+
+  <link
+    rel="preload"
+    href="fonts/DMSans-Bold.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+
+  <link rel="stylesheet" href="css/style.min.css?_v=20220728210840" />
+  <script defer src="js/app.min.js?_v=20220728210840"></script>
+  <link rel="shortcut icon" href="images/favicon.svg" />
   <title>Skin Clinica</title>
 </head>
 
@@ -22,7 +38,7 @@
     <div class="row nav-belt align-items-center">
       <!--  logo -->
       <div class="col pe-0">
-        <a class="logo" href="index.html">
+        <a class="logo" href="index.html" aria-label="Skin clinica">
           <svg class="logo-icon hvr-icon">
             <use href="images/icons/sprite-multi.svg#logo-header"></use>
           </svg>
@@ -33,7 +49,7 @@
       <div class="col d-lg-flex justify-content-end">
         <div class="container-fluid mobile-search">
           <div class="nav-search">
-            <button class="nav-search__btn">
+            <button class="nav-search__btn" aria-label="Search">
               <svg class="nav-search__icon hvr-icon">
                 <use href="images/icons/sprite-mono.svg#search"></use>
               </svg>
@@ -126,7 +142,7 @@
     <a href="#" class="nav-menu__link">Contact</a>
   </li>
 </ul>
-<hr class="d-lg-none">
+<hr class="d-lg-none my-lg">
 <ul class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Shop</a>
@@ -147,42 +163,42 @@
       <div class="col-12 nav-mobile-socials d-lg-none">
         <ul class="social-icons">
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Facebook">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--facebook"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Instagram">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--instagram"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Linkedin">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--linkedin"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Twitter">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--twitter"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Pinterest">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--pinterest"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Gmail">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--gmail"></use>
       </svg>
@@ -199,7 +215,6 @@
   <picture>
     <source
       type="image/avif"
-      sizes="100vw"
       srcset="
         images/banner-bg-320.avif   320w,
         images/banner-bg-640.avif   640w,
@@ -211,7 +226,6 @@
     />
     <source
       type="image/webp"
-      sizes="100vw"
       srcset="
         images/banner-bg-320.webp   320w,
         images/banner-bg-640.webp   640w,
@@ -223,7 +237,6 @@
     />
     <source
       type="image/jpeg"
-      sizes="100vw"
       srcset="
         images/banner-bg-320.jpg   320w,
         images/banner-bg-640.jpg   640w,
@@ -234,6 +247,7 @@
       "
     />
     <img
+      draggable="false"
       class="banner-bg"
       src="images/banner-bg-960.jpg"
       alt="banner-bg"
@@ -242,434 +256,457 @@
     />
   </picture>
 </div>
-
-<!-- ====================   BLOG   ==================== -->
-
-<div class="container-xxl blog">
-  <h4 class="section-header">From The <span class="text-accent">Blog</span></h4>
+<!-- ====================   ABOUT-US   ==================== -->
+<div class="container">
   <div class="row">
-    <div class="col-12 col-md">
-      <div class="card">
-        <div class="card__img">
-          <picture>
-            <source
-              type="image/avif"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-1-320.avif   320w,
-                images/card-1-640.avif   640w,
-                images/card-1-960.avif   960w,
-                images/card-1-1280.avif 1280w,
-                images/card-1-1920.avif 1920w,
-                images/card-1-2560.avif 2560w
-              "
-            />
-            <source
-              type="image/webp"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-1-320.webp   320w,
-                images/card-1-640.webp   640w,
-                images/card-1-960.webp   960w,
-                images/card-1-1280.webp 1280w,
-                images/card-1-1920.webp 1920w,
-                images/card-1-2560.webp 2560w
-              "
-            />
-            <source
-              type="image/jpeg"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-1-320.jpg   320w,
-                images/card-1-640.jpg   640w,
-                images/card-1-960.jpg   960w,
-                images/card-1-1280.jpg 1280w,
-                images/card-1-1920.jpg 1920w,
-                images/card-1-2560.jpg 2560w
-              "
-            />
-            <img
-              height="2560"
-              width="2560"
-              class="card-img"
-              src="images/card-1-960.jpg"
-              alt="card-1"
-            />
-          </picture>
-        </div>
-
-        <div class="card__content">
-          <h5 class="card__header">What are retinoids?</h5>
-          <p class="card__text">
-            The topic of retinoids is a very confusing one. Find out all you
-            need to know about Tretinoin, Retinol, Retinal and other retinoids.
-          </p>
-          <h6>
-            <a class="card__link" href="#"
-              >Read more
-              <svg class="link-arrow-right-icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#link-arrow-right"></use>
-              </svg>
-            </a>
-          </h6>
-        </div>
-      </div>
+    <div class="col-12 col-lg-6">
+      <h1>Achieve <span class="color-primary-dark">Your Best Skin</span> With Skin Clinica</h1>
+      <p>Actives, correctives, cosmeceuticals, dermaceuticals… it can all get too confusing. Skin is as unique as you are. With a personalised skin care routine, you can tackle your skin concerns confidently. Understand the products you’re putting on your skin, how safe they are and what delivers results and what doesn’t. Follow the science and stop wasting your money on products that could be all marketing.</p>
     </div>
-    <div class="col-12 col-md">
-      <div class="card">
-        <div class="card__img">
-          <picture>
-            <source
-              type="image/avif"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-2-320.avif   320w,
-                images/card-2-640.avif   640w,
-                images/card-2-960.avif   960w,
-                images/card-2-1280.avif 1280w,
-                images/card-2-1920.avif 1920w,
-                images/card-2-2560.avif 2560w
-              "
-            />
-            <source
-              type="image/webp"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-2-320.webp   320w,
-                images/card-2-640.webp   640w,
-                images/card-2-960.webp   960w,
-                images/card-2-1280.webp 1280w,
-                images/card-2-1920.webp 1920w,
-                images/card-2-2560.webp 2560w
-              "
-            />
-            <source
-              type="image/jpeg"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-2-320.jpg   320w,
-                images/card-2-640.jpg   640w,
-                images/card-2-960.jpg   960w,
-                images/card-2-1280.jpg 1280w,
-                images/card-2-1920.jpg 1920w,
-                images/card-2-2560.jpg 2560w
-              "
-            />
-            <img
-              height="2560"
-              width="2560"
-              class="card-img"
-              src="images/card-2-960.jpg"
-              alt="card-2"
-            />
-          </picture>
-        </div>
-
-        <div class="card__content">
-          <h5 class="card__header">Natural skin care products</h5>
-          <p class="card__text">
-            Natural skin care products have become skin care’s poster child. But
-            are these products really clean and green? . . .
-          </p>
-          <h6>
-            <a class="card__link" href="#"
-              >Read more
-              <svg class="link-arrow-right-icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#link-arrow-right"></use>
-              </svg>
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md">
-      <div class="card">
-        <div class="card__img">
-          <picture>
-            <source
-              type="image/avif"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-3-320.avif   320w,
-                images/card-3-640.avif   640w,
-                images/card-3-960.avif   960w,
-                images/card-3-1280.avif 1280w,
-                images/card-3-1920.avif 1920w,
-                images/card-3-2560.avif 2560w
-              "
-            />
-            <source
-              type="image/webp"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-3-320.webp   320w,
-                images/card-3-640.webp   640w,
-                images/card-3-960.webp   960w,
-                images/card-3-1280.webp 1280w,
-                images/card-3-1920.webp 1920w,
-                images/card-3-2560.webp 2560w
-              "
-            />
-            <source
-              type="image/jpeg"
-              sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
-              srcset="
-                images/card-3-320.jpg   320w,
-                images/card-3-640.jpg   640w,
-                images/card-3-960.jpg   960w,
-                images/card-3-1280.jpg 1280w,
-                images/card-3-1920.jpg 1920w,
-                images/card-3-2560.jpg 2560w
-              "
-            />
-            <img
-              height="2560"
-              width="2560"
-              class="card-img"
-              src="images/card-3-960.jpg"
-              alt="card-3"
-            />
-          </picture>
-        </div>
-
-        <div class="card__content">
-          <h5 class="card__header">Skin health: Take a deeper look</h5>
-
-          <p class="card__text">
-            Treating your skin condition is not always as simple as treating
-            your skin symptoms. You may have noticed that, despite, the best
-            topical . . .
-          </p>
-
-          <h6>
-            <a class="card__link" href="#"
-              >Read more
-              <svg class="link-arrow-right-icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#link-arrow-right"></use>
-              </svg>
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
+    <div class="col-12 col-lg-6"></div>
   </div>
-  <a href="#" class="blog__button btn">View all</a>
-</div>
-
-<!-- ====================   TESTIMONIALS   ==================== -->
-
-<div class="container-fluid testimonials">
-  <div class="testimonials__background">
-    <picture>
-      <source
-        type="image/avif"
-        sizes="100vw"
-        srcset="
-          images/testimonials-bg-320.avif   320w,
-          images/testimonials-bg-640.avif   640w,
-          images/testimonials-bg-960.avif   960w,
-          images/testimonials-bg-1280.avif 1280w,
-          images/testimonials-bg-1920.avif 1920w,
-          images/testimonials-bg-2560.avif 2560w
-        "
-      />
-      <source
-        type="image/webp"
-        sizes="100vw"
-        srcset="
-          images/testimonials-bg-320.webp   320w,
-          images/testimonials-bg-640.webp   640w,
-          images/testimonials-bg-960.webp   960w,
-          images/testimonials-bg-1280.webp 1280w,
-          images/testimonials-bg-1920.webp 1920w,
-          images/testimonials-bg-2560.webp 2560w
-        "
-      />
-      <source
-        type="image/jpeg"
-        sizes="100vw"
-        srcset="
-          images/testimonials-bg-320.jpg   320w,
-          images/testimonials-bg-640.jpg   640w,
-          images/testimonials-bg-960.jpg   960w,
-          images/testimonials-bg-1280.jpg 1280w,
-          images/testimonials-bg-1920.jpg 1920w,
-          images/testimonials-bg-2560.jpg 2560w
-        "
-      />
-      <img
-        class="testimonials-bg"
-        src="images/testimonials-bg-960.jpg"
-        alt="testimonials-bg"
-        width="2560"
-        height="2560"
-      />
-    </picture>
   </div>
-  <h4 class="testimonials__header">What You’re Saying</h4>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="testimonials__content">
-          <div class="testimonials__body">
-            <p>
-              "Love Skin Clinica! It's completely opened my eyes to the harmful
-              ingredients I've been putting on my face. I'll be sure to check
-              the ingredients next time I'm purchasing products!"
-            </p>
-          </div>
-          <div class="testimonials__person">
-            <div class="person-photo">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="images/testimonials-person-1-thumbnail.avif"
-                />
-                <source
-                  type="image/webp"
-                  srcset="images/testimonials-person-1-thumbnail.webp"
-                />
-                <source
-                  type="image/jpeg"
-                  srcset="images/testimonials-person-1-thumbnail.jpg"
-                />
-                <img
-                  class="person-photo-thumbnail"
-                  src="images/testimonials-person-1-thumbnail-960.jpg"
-                  alt="testimonials-person-1-thumbnail"
-                  width="160"
-                  height="160"
-                />
-              </picture>
-            </div>
+  <!-- ====================   BLOG   ==================== -->
 
-            <p class="person-name">Florence</p>
+  <div class="container-xxl blog">
+    <h2 class="section-header">
+      From The <span class="color-primary-dark">Blog</span>
+    </h2>
+    <div class="row">
+      <div class="col-12 col-md">
+        <div class="card">
+          <div class="card__img">
+            <picture>
+              <source
+                type="image/avif"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-1-320.avif   320w,
+                  images/card-1-640.avif   640w,
+                  images/card-1-960.avif   960w,
+                  images/card-1-1280.avif 1280w,
+                  images/card-1-1920.avif 1920w,
+                  images/card-1-2560.avif 2560w
+                "
+              />
+              <source
+                type="image/webp"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-1-320.webp   320w,
+                  images/card-1-640.webp   640w,
+                  images/card-1-960.webp   960w,
+                  images/card-1-1280.webp 1280w,
+                  images/card-1-1920.webp 1920w,
+                  images/card-1-2560.webp 2560w
+                "
+              />
+              <source
+                type="image/jpeg"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-1-320.jpg   320w,
+                  images/card-1-640.jpg   640w,
+                  images/card-1-960.jpg   960w,
+                  images/card-1-1280.jpg 1280w,
+                  images/card-1-1920.jpg 1920w,
+                  images/card-1-2560.jpg 2560w
+                "
+              />
+              <img
+                draggable="false"
+                height="2560"
+                width="2560"
+                class="card-img"
+                src="images/card-1-960.jpg"
+                alt="card-1"
+              />
+            </picture>
+          </div>
+
+          <div class="card__content">
+            <h3 class="card__header">What are retinoids?</h3>
+            <p class="card__text">
+              The topic of retinoids is a very confusing one. Find out all you
+              need to know about Tretinoin, Retinol, Retinal and other
+              retinoids.
+            </p>
+            <div class="spacer">
+              <a class="card__link" href="#"
+                >Read more
+                <svg class="link-arrow-right-icon hvr-icon">
+                  <use
+                    href="images/icons/sprite-mono.svg#link-arrow-right"
+                  ></use>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="testimonials__content">
-          <div class="testimonials__body">
-            <p>
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-              consectetur voluptas vero eum a accusantium ea alias laborum iste
-              quo dolorem aspernatur nihil.
-            </p>
+      <div class="col-12 col-md">
+        <div class="card">
+          <div class="card__img">
+            <picture>
+              <source
+                type="image/avif"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-2-320.avif   320w,
+                  images/card-2-640.avif   640w,
+                  images/card-2-960.avif   960w,
+                  images/card-2-1280.avif 1280w,
+                  images/card-2-1920.avif 1920w,
+                  images/card-2-2560.avif 2560w
+                "
+              />
+              <source
+                type="image/webp"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-2-320.webp   320w,
+                  images/card-2-640.webp   640w,
+                  images/card-2-960.webp   960w,
+                  images/card-2-1280.webp 1280w,
+                  images/card-2-1920.webp 1920w,
+                  images/card-2-2560.webp 2560w
+                "
+              />
+              <source
+                type="image/jpeg"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-2-320.jpg   320w,
+                  images/card-2-640.jpg   640w,
+                  images/card-2-960.jpg   960w,
+                  images/card-2-1280.jpg 1280w,
+                  images/card-2-1920.jpg 1920w,
+                  images/card-2-2560.jpg 2560w
+                "
+              />
+              <img
+                draggable="false"
+                height="2560"
+                width="2560"
+                class="card-img"
+                src="images/card-2-960.jpg"
+                alt="card-2"
+              />
+            </picture>
           </div>
-          <div class="testimonials__person">
-            <div class="person-photo">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="images/testimonials-person-2-thumbnail.avif"
-                />
-                <source
-                  type="image/webp"
-                  srcset="images/testimonials-person-2-thumbnail.webp"
-                />
-                <source
-                  type="image/jpeg"
-                  srcset="images/testimonials-person-2-thumbnail.jpg"
-                />
-                <img
-                  class="person-photo-thumbnail"
-                  src="images/testimonials-person-2-thumbnail-960.jpg"
-                  alt="testimonials-person-2-thumbnail"
-                  width="160"
-                  height="160"
-                />
-              </picture>
+
+          <div class="card__content">
+            <h3 class="card__header">Natural skin care products</h3>
+            <p class="card__text">
+              Natural skin care products have become skin care’s poster child.
+              But are these products really clean and green? . . .
+            </p>
+            <div class="spacer">
+              <a class="card__link" href="#"
+                >Read more
+                <svg class="link-arrow-right-icon hvr-icon">
+                  <use
+                    href="images/icons/sprite-mono.svg#link-arrow-right"
+                  ></use>
+                </svg>
+              </a>
             </div>
-            <p class="person-name">Katy</p>
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="testimonials__content">
-          <div class="testimonials__body">
-            <p>
-              "Love Skin Clinica! It's completely opened my eyes to the harmful
-              ingredients I've been putting on my face."
+      <div class="col-12 col-md">
+        <div class="card">
+          <div class="card__img">
+            <picture>
+              <source
+                type="image/avif"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-3-320.avif   320w,
+                  images/card-3-640.avif   640w,
+                  images/card-3-960.avif   960w,
+                  images/card-3-1280.avif 1280w,
+                  images/card-3-1920.avif 1920w,
+                  images/card-3-2560.avif 2560w
+                "
+              />
+              <source
+                type="image/webp"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-3-320.webp   320w,
+                  images/card-3-640.webp   640w,
+                  images/card-3-960.webp   960w,
+                  images/card-3-1280.webp 1280w,
+                  images/card-3-1920.webp 1920w,
+                  images/card-3-2560.webp 2560w
+                "
+              />
+              <source
+                type="image/jpeg"
+                sizes="(min-width: 1400px) 440px, (min-width: 768px) 33vw, 100vw"
+                srcset="
+                  images/card-3-320.jpg   320w,
+                  images/card-3-640.jpg   640w,
+                  images/card-3-960.jpg   960w,
+                  images/card-3-1280.jpg 1280w,
+                  images/card-3-1920.jpg 1920w,
+                  images/card-3-2560.jpg 2560w
+                "
+              />
+              <img
+                draggable="false"
+                height="2560"
+                width="2560"
+                class="card-img"
+                src="images/card-3-960.jpg"
+                alt="card-3"
+              />
+            </picture>
+          </div>
+
+          <div class="card__content">
+            <h3 class="card__header">Skin health: Take a deeper look</h3>
+
+            <p class="card__text">
+              Treating your skin condition is not always as simple as treating
+              your skin symptoms. You may have noticed that, despite, the best
+              topical . . .
             </p>
-          </div>
-          <div class="testimonials__person">
-            <div class="person-photo">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="images/testimonials-person-3-thumbnail.avif"
-                />
-                <source
-                  type="image/webp"
-                  srcset="images/testimonials-person-3-thumbnail.webp"
-                />
-                <source
-                  type="image/jpeg"
-                  srcset="images/testimonials-person-3-thumbnail.jpg"
-                />
-                <img
-                  class="person-photo-thumbnail"
-                  src="images/testimonials-person-3-thumbnail-960.jpg"
-                  alt="testimonials-person-3-thumbnail"
-                  width="160"
-                  height="160"
-                />
-              </picture>
+
+            <div class="spacer">
+              <a class="card__link" href="#"
+                >Read more
+                <svg class="link-arrow-right-icon hvr-icon">
+                  <use
+                    href="images/icons/sprite-mono.svg#link-arrow-right"
+                  ></use>
+                </svg>
+              </a>
             </div>
-            <p class="person-name">Rachel</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="testimonials__content">
-          <div class="testimonials__body">
-            <p>
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-              aspernatur excepturi placeat. Tempore maiores blanditiis in ipsam
-              odit asperiores nulla est pariatur quas consequatur nihil sequi
-              adipisci, soluta, facilis libero."
-            </p>
-          </div>
-          <div class="testimonials__person">
-            <div class="person-photo">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="images/testimonials-person-4-thumbnail.avif"
-                />
-                <source
-                  type="image/webp"
-                  srcset="images/testimonials-person-4-thumbnail.webp"
-                />
-                <source
-                  type="image/jpeg"
-                  srcset="images/testimonials-person-4-thumbnail.jpg"
-                />
-                <img
-                  class="person-photo-thumbnail"
-                  src="images/testimonials-person-4-thumbnail-960.jpg"
-                  alt="testimonials-person-4-thumbnail"
-                  width="160"
-                  height="160"
-                />
-              </picture>
-            </div>
-            <p class="person-name">Annabelle</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="swiper-btn swiper-btn--right">
-      <svg class="arrow-right-icon hvr-icon">
-        <use href="images/icons/sprite-mono.svg#arrow-right"></use>
-      </svg>
+    <a href="#" class="blog__button btn">View all</a>
+  </div>
+
+  <!-- ====================   TESTIMONIALS   ==================== -->
+
+  <div class="container-fluid testimonials">
+    <div class="testimonials__background">
+      <picture>
+        <source
+          type="image/avif"
+          sizes="100vw"
+          srcset="
+            images/testimonials-bg-320.avif   320w,
+            images/testimonials-bg-640.avif   640w,
+            images/testimonials-bg-960.avif   960w,
+            images/testimonials-bg-1280.avif 1280w,
+            images/testimonials-bg-1920.avif 1920w,
+            images/testimonials-bg-2560.avif 2560w
+          "
+        />
+        <source
+          type="image/webp"
+          sizes="100vw"
+          srcset="
+            images/testimonials-bg-320.webp   320w,
+            images/testimonials-bg-640.webp   640w,
+            images/testimonials-bg-960.webp   960w,
+            images/testimonials-bg-1280.webp 1280w,
+            images/testimonials-bg-1920.webp 1920w,
+            images/testimonials-bg-2560.webp 2560w
+          "
+        />
+        <source
+          type="image/jpeg"
+          sizes="100vw"
+          srcset="
+            images/testimonials-bg-320.jpg   320w,
+            images/testimonials-bg-640.jpg   640w,
+            images/testimonials-bg-960.jpg   960w,
+            images/testimonials-bg-1280.jpg 1280w,
+            images/testimonials-bg-1920.jpg 1920w,
+            images/testimonials-bg-2560.jpg 2560w
+          "
+        />
+        <img
+          draggable="false"
+          class="testimonials-bg"
+          src="images/testimonials-bg-960.jpg"
+          alt="testimonials-bg"
+          width="2560"
+          height="2560"
+        />
+      </picture>
     </div>
-    <div class="swiper-btn swiper-btn--left">
-      <svg class="arrow-left-icon hvr-icon">
-        <use href="images/icons/sprite-mono.svg#arrow-left"></use>
-      </svg>
+    <h2 class="testimonials__header">What You’re Saying</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonials__content">
+            <div class="testimonials__body">
+              <p>
+                "Love Skin Clinica! It's completely opened my eyes to the
+                harmful ingredients I've been putting on my face. I'll be sure
+                to check the ingredients next time I'm purchasing products!"
+              </p>
+            </div>
+            <div class="testimonials__person">
+              <div class="person-photo">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="images/testimonials-person-1-thumbnail.avif"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="images/testimonials-person-1-thumbnail.webp"
+                  />
+                  <source
+                    type="image/jpeg"
+                    srcset="images/testimonials-person-1-thumbnail.jpg"
+                  />
+                  <img
+                    class="person-photo-thumbnail"
+                    src="images/testimonials-person-1-thumbnail-960.jpg"
+                    alt="testimonials-person-1-thumbnail"
+                    width="160"
+                    height="160"
+                  />
+                </picture>
+              </div>
+
+              <p class="person-name">Florence</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonials__content">
+            <div class="testimonials__body">
+              <p>
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                consectetur voluptas vero eum a accusantium ea alias laborum
+                iste quo dolorem aspernatur nihil.
+              </p>
+            </div>
+            <div class="testimonials__person">
+              <div class="person-photo">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="images/testimonials-person-2-thumbnail.avif"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="images/testimonials-person-2-thumbnail.webp"
+                  />
+                  <source
+                    type="image/jpeg"
+                    srcset="images/testimonials-person-2-thumbnail.jpg"
+                  />
+                  <img
+                    class="person-photo-thumbnail"
+                    src="images/testimonials-person-2-thumbnail-960.jpg"
+                    alt="testimonials-person-2-thumbnail"
+                    width="160"
+                    height="160"
+                  />
+                </picture>
+              </div>
+              <p class="person-name">Katy</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonials__content">
+            <div class="testimonials__body">
+              <p>
+                "Love Skin Clinica! It's completely opened my eyes to the
+                harmful ingredients I've been putting on my face."
+              </p>
+            </div>
+            <div class="testimonials__person">
+              <div class="person-photo">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="images/testimonials-person-3-thumbnail.avif"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="images/testimonials-person-3-thumbnail.webp"
+                  />
+                  <source
+                    type="image/jpeg"
+                    srcset="images/testimonials-person-3-thumbnail.jpg"
+                  />
+                  <img
+                    class="person-photo-thumbnail"
+                    src="images/testimonials-person-3-thumbnail-960.jpg"
+                    alt="testimonials-person-3-thumbnail"
+                    width="160"
+                    height="160"
+                  />
+                </picture>
+              </div>
+              <p class="person-name">Rachel</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonials__content">
+            <div class="testimonials__body">
+              <p>
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                aspernatur excepturi placeat. Tempore maiores blanditiis in
+                ipsam odit asperiores nulla est pariatur quas consequatur nihil
+                sequi adipisci, soluta, facilis libero."
+              </p>
+            </div>
+            <div class="testimonials__person">
+              <div class="person-photo">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="images/testimonials-person-4-thumbnail.avif"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="images/testimonials-person-4-thumbnail.webp"
+                  />
+                  <source
+                    type="image/jpeg"
+                    srcset="images/testimonials-person-4-thumbnail.jpg"
+                  />
+                  <img
+                    class="person-photo-thumbnail"
+                    src="images/testimonials-person-4-thumbnail-960.jpg"
+                    alt="testimonials-person-4-thumbnail"
+                    width="160"
+                    height="160"
+                  />
+                </picture>
+              </div>
+              <p class="person-name">Annabelle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="swiper-btn swiper-btn--right" aria-label="Next slide">
+        <svg class="arrow-right-icon hvr-icon">
+          <use href="images/icons/sprite-mono.svg#arrow-right"></use>
+        </svg>
+      </button>
+      <button class="swiper-btn swiper-btn--left" aria-label="Previous slide">
+        <svg class="arrow-left-icon hvr-icon">
+          <use href="images/icons/sprite-mono.svg#arrow-left"></use>
+        </svg>
+      </button>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
 </div>
 </main>
@@ -713,6 +750,7 @@
         "
       />
       <img
+        draggable="false"
         class="footer-bg"
         src="images/footer-bg-960.jpg"
         alt="footer-bg"
@@ -724,7 +762,7 @@
 
   <div class="container-xxl footer-inner">
     <div class="mailing-list text-center">
-      <h4>Join our mailing list</h4>
+      <h2>Join our mailing list</h2>
       <p>
         Sign up to be the first to receive special news and updates from Skin
         Clinica.
@@ -755,7 +793,7 @@
     </div>
     <div class="footer-nav">
       <div class="footer-logo">
-        <a href="index.html">
+        <a href="index.html" aria-label="Skin clinica">
           <svg class="logo-icon hvr-icon">
             <use href="images/icons/sprite-multi.svg#logo-footer"></use>
           </svg>
@@ -764,7 +802,7 @@
       <div class="footer-nav-body">
         <div class="row">
           <div class="col-12 col-sm footer-nav-body__item">
-            <h6 class="footer-nav-body__header">Menu</h6>
+            <p class="footer-nav-body__header">Menu</p>
             <ul class="footer-nav-body__list">
               <li><a class="footer-nav-body__link" href="#">Shop</a></li>
               <li>
@@ -777,7 +815,7 @@
             </ul>
           </div>
           <div class="col-12 col-sm footer-nav-body__item">
-            <h6 class="footer-nav-body__header">Company</h6>
+            <p class="footer-nav-body__header">Company</p>
             <ul class="footer-nav-body__list">
               <li><a class="footer-nav-body__link" href="#">About</a></li>
               <li><a class="footer-nav-body__link" href="#">Faq</a></li>
@@ -786,7 +824,7 @@
             </ul>
           </div>
           <div class="col-12 col-sm footer-nav-body__item">
-            <h6 class="footer-nav-body__header">Customer support</h6>
+            <p class="footer-nav-body__header">Customer support</p>
             <ul class="footer-nav-body__list">
               <li>
                 <a class="footer-nav-body__link" href="#">Why Buy From Us</a>
@@ -806,42 +844,42 @@
       <div class="footer-nav-socials">
         <ul class="social-icons">
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Facebook">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--facebook"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Instagram">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--instagram"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Linkedin">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--linkedin"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Twitter">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--twitter"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Pinterest">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--pinterest"></use>
       </svg>
     </a>
   </li>
   <li class="social-icons__item">
-    <a href="#" class="social-icons__link">
+    <a href="#" class="social-icons__link" aria-label="Gmail">
       <svg class="icon-social hvr-icon">
         <use href="images/icons/sprite-mono.svg#socials--gmail"></use>
       </svg>

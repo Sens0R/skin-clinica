@@ -26,7 +26,6 @@ import { spriteMono, spriteMulti } from './gulp/tasks/svgSprites.js';
 import { zip } from './gulp/tasks/zip.js';
 import { ftp } from './gulp/tasks/ftp.js';
 
-
 //Наблюдатель за изменениями в файлах
 function watcher() {
   gulp.watch(path.watch.html, html);
@@ -36,30 +35,30 @@ function watcher() {
   gulp.watch(path.watch.thumbnail, thumbnail);
   gulp.watch(path.watch.svgSpriteMono, spriteMono);
   gulp.watch(path.watch.svgSpriteMulti, spriteMulti);
-   // Пример автозагрузки на FTP gulp.watch(path.watch.images, gulp.series(images, ftp))
+  // Пример автозагрузки на FTP gulp.watch(path.watch.images, gulp.series(images, ftp))
 }
 
-// Последовательная обработка шрифтов
+// Последовательная сценарии
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
-const mainTasks = gulp.series(
-  gulp.parallel(fonts, spriteMono, spriteMulti),
-  gulp.parallel(html, scss, js, images, thumbnail)
-);
+// Параллельные сценарии
+const imageTasks = gulp.parallel(images, thumbnail);
+const svgSprites = gulp.parallel(spriteMono, spriteMulti);
+
+// Основной сценарий
+const mainTasks = gulp.series(fonts, gulp.parallel(html, scss, js, svgSprites, imageTasks));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
 const deployZIP = gulp.series(reset, mainTasks, zip);
 const deployFTP = gulp.series(reset, mainTasks, ftp);
-const svgSprites = gulp.parallel(spriteMono, spriteMulti);
 
 // Экспорт сценариев
 export { dev };
 export { build };
 export { deployZIP };
 export { deployFTP };
-export { svgSprites };
 
 // Выполнение сценария по умолчанию
 gulp.task('default', dev);

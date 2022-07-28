@@ -20,19 +20,16 @@
     font-size: $fs-sm;
     font-weight: bold;
     color: $color-primary-dark;
-    @include icon-wobble-horizontal();
-
-    &:hover,
-    &:focus,
-    &:active {
+    &:hover {
       color: $color-primary-dark;
     }
+    
+    @include icon-wobble-horizontal();
   }
 }
 
 .link-arrow-right-icon {
   fill: $color-primary-dark;
   padding-left: 0.25rem;
-
   @include box(0.75rem, 0.75rem);
 }

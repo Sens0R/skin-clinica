@@ -7,12 +7,10 @@
 }
 
 .swiper-slide {
-
 }
 
 .swiper-pagination {
   @include flex(flex, center, center);
-  bottom: 0 !important;
 }
 
 .swiper-pagination-bullet {

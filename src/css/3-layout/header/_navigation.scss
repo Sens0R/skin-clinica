@@ -3,6 +3,9 @@
 }
 
 .nav-menu {
+  &__link {
+    color: $color-secondary;
+  }
   white-space: nowrap;
   &--main {
     font-weight: bold;
@@ -36,17 +39,26 @@
 
   .nav-mobile-header {
     @include sticky(top 0);
-    padding-top: $spacer-sm;
-    padding-bottom: $spacer-sm;
+    @include padding-top($spacer);
+    @include padding-bottom($spacer);
     @include flex(flex, space-between, center);
     background: inherit;
   }
 
   .nav-menu {
     font-size: 1.25rem;
+    &__link {
+      color: $color-light;
+    }
     &__item {
       margin: 1rem 0;
     }
+  }
+  .nav-menu__item {
+    &:not(:first-child) {
+      @include margin-top($spacer-xl);
+    }
+    @include margin-bottom($spacer-xl);
   }
 
   .nav-mobile-socials {
