@@ -1,12 +1,18 @@
 .social-icons {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   @include margin-top($spacer);
   @include margin-bottom($spacer);
+  flex-wrap: wrap;
   &__item {
-    margin: 0 0.25rem 0.25rem 0;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+    @include media-breakpoint-up(sm) {
+      margin-right: 0.25rem;
+      margin-bottom: 0;
+    }
   }
+
   &__link {
     padding: 0.7rem;
     @include flex(flex, center, center);

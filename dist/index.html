@@ -26,8 +26,8 @@
     crossorigin
   />
 
-  <link rel="stylesheet" href="css/style.min.css?_v=20220728210840" />
-  <script defer src="js/app.min.js?_v=20220728210840"></script>
+  <link rel="stylesheet" href="css/style.min.css" />
+  <script defer src="js/app.min.js"></script>
   <link rel="shortcut icon" href="images/favicon.svg" />
   <title>Skin Clinica</title>
 </head>
@@ -35,8 +35,9 @@
   <body>
     <header class="header">
   <nav class="container-xxl">
-    <div class="row nav-belt align-items-center">
-      <!--  logo -->
+    <div class="row nav-belt">
+      <!-- ====================   LOGO   ==================== -->
+
       <div class="col pe-0">
         <a class="logo" href="index.html" aria-label="Skin clinica">
           <svg class="logo-icon hvr-icon">
@@ -44,57 +45,71 @@
           </svg>
         </a>
       </div>
-      <!-- search -->
 
-      <div class="col d-lg-flex justify-content-end">
+      <!-- ====================   SEARCH   ==================== -->
+
+      <div class="col">
         <div class="container-fluid mobile-search">
           <div class="nav-search">
-            <button class="nav-search__btn" aria-label="Search">
-              <svg class="nav-search__icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#search"></use>
-              </svg>
-            </button>
-            <input
-              type="search"
-              class="nav-search__body text-sm"
-              placeholder="Search"
-            />
-            <button class="d-lg-none nav-search-btn-close" type="button">
-              <svg class="nav-search-btn-close__icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-              </svg>
-            </button>
+            <div class="input-wrapper position-relative d-flex justify-content-center align-items-center">
+              <input
+                type="search"
+                class="nav-search-input text-sm"
+                placeholder="Search"
+              />
+              <div class="nav-search-buttons">
+                <button class="nav-search-buttons__search" aria-label="Search">
+                  <svg class="nav-search-buttons__search-icon hvr-icon">
+                    <use href="images/icons/sprite-mono.svg#search"></use>
+                  </svg>
+                </button>
+
+                <button
+                  class="d-lg-none nav-search-buttons__close"
+                  type="button"
+                  aria-label="Close search"
+                >
+                  <svg class="nav-search-buttons__close-icon hvr-icon">
+                    <use
+                      href="images/icons/sprite-mono.svg#toggler-closed"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- tools -->
-      <div class="col-auto d-flex justify-content-end ps-0">
+      <!-- ====================   TOOLS   ==================== -->
+
+      <div class="col d-flex justify-content-end ps-0">
         <div class="nav-tools">
           <button
-            class="nav-tools__link d-lg-none ms-0 nav-search-btn-open"
+            class="nav-tools__link d-lg-none ms-0 nav-search-buttons__open"
             type="button"
+            aria-label="Search"
           >
             <svg class="nav-tools__icon hvr-icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
             </svg>
           </button>
 
-          <a href="#" class="nav-tools__link">
+          <a href="#" class="nav-tools__link" aria-label="Account">
             <svg class="nav-tools__icon hvr-icon">
               <use href="images/icons/sprite-mono.svg#account"></use>
             </svg>
             <p class="nav-tools__name">Account</p>
           </a>
 
-          <a href="#" class="nav-tools__link">
+          <a href="#" class="nav-tools__link" aria-label="Wishlist">
             <svg class="nav-tools__icon hvr-icon">
               <use href="images/icons/sprite-mono.svg#wishlist"></use>
             </svg>
             <p class="nav-tools__name">Wishlist</p>
           </a>
 
-          <a href="#" class="nav-tools__link">
+          <a href="#" class="nav-tools__link" aria-label="Shopping cart">
             <svg class="nav-tools__icon hvr-icon">
               <use href="images/icons/sprite-mono.svg#cart"></use>
             </svg>
@@ -103,9 +118,14 @@
         </div>
       </div>
 
-      <!--  nav-toggler -->
-      <div class="col-auto d-flex justify-content-end ps-0 ps-sm-3 d-lg-none">
-        <button class="burger-toggler burger-toggler--open" type="button">
+      <!-- ====================   NAV-TOGGLER   ==================== -->
+
+      <div class="col-auto ps-0 ps-sm-lg d-lg-none">
+        <button
+          class="burger-toggler burger-toggler--open"
+          type="button"
+          aria-label="Open navigation menu"
+        >
           <svg class="burger-toggler-icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-open"></use>
           </svg>
@@ -113,15 +133,16 @@
       </div>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- ====================   NAVIGATION   ==================== -->
+
     <div class="row navigation">
       <div class="col-12 nav-mobile-header align-self-start d-lg-none">
-        <a class="logo logo--white" href="index.html">
-          <svg class="logo-icon-mobile hvr-icon">
-            <use href="images/icons/sprite-multi.svg#logo-footer"></use>
-          </svg>
-        </a>
-        <button class="burger-toggler burger-toggler--close" type="button">
+       
+        <button
+          class="burger-toggler burger-toggler--close"
+          type="button"
+          aria-label="Close navigation menu"
+        >
           <svg class="burger-toggler-icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
           </svg>
@@ -157,7 +178,7 @@
     <a href="#" class="nav-menu__link">Brands</a>
   </li>
 </ul>
-
+<hr class="d-lg-none my-lg">
 </div>
 
       <div class="col-12 nav-mobile-socials d-lg-none">

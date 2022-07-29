@@ -12,7 +12,7 @@ const { sm, md, lg, xl } = breakpoint;
 const defaultOptions = {
   mainClass: '.navigation',
   openBtn: '.burger-toggler--open',
-  closeBtn: '.burger-toggler--close',
+  closeBtn: '.nav-mobile-header',
   breakpoint: lg,
   backdrop: false,
   scrollBlock: true,

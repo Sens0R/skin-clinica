@@ -6,7 +6,9 @@
   &__link {
     color: $color-secondary;
   }
+
   white-space: nowrap;
+
   &--main {
     font-weight: bold;
   }
@@ -14,7 +16,8 @@
 
 .burger-toggler {
   &--close {
-    fill: $color-light;
+    fill: $color-secondary;
+    margin-left: auto;
   }
 
   svg {
@@ -23,42 +26,44 @@
   }
 }
 
-// MOBILE
+/* ====================   MOBILE   ==================== */
+
 @include media-breakpoint-down(lg) {
   .navigation {
     transform: translateY(-110%);
+    display: block;
     @include fixed(top 0 right 0 bottom 0);
-    @include box(100vw, 100vh);
     @include z-index(burger-menu);
+    max-width: 20rem;
+    height: 100vh;
     margin: 0;
     overflow: auto;
-    background: $color-secondary;
-    color: $font-color-light;
-    //box-shadow: $shadow-lg; // shadow for backdrop
+    background: $color-light;
+    box-shadow: $shadow-lg; // shadow for backdrop
   }
 
   .nav-mobile-header {
     @include sticky(top 0);
     @include padding-top($spacer);
     @include padding-bottom($spacer);
-    @include flex(flex, space-between, center);
-    background: inherit;
+    @include flex(flex, center, center);
+    background: $color-light;
   }
-
+ 
   .nav-menu {
     font-size: 1.25rem;
-    &__link {
-      color: $color-light;
-    }
-    &__item {
-      margin: 1rem 0;
+    &--secondary {
+      margin-top: 0;
     }
   }
+
   .nav-menu__item {
     &:not(:first-child) {
-      @include margin-top($spacer-xl);
+      @include margin-top($spacer-lg);
     }
-    @include margin-bottom($spacer-xl);
+    &:not(:last-child) {
+      @include margin-bottom($spacer-lg);
+    }
   }
 
   .nav-mobile-socials {
@@ -67,16 +72,15 @@
     .social-icons__link {
       background: $color-primary;
     }
+
     .icon-social {
-      fill: $color-secondary;
+      fill: $color-primary-dark;
     }
-  }
-  .logo-icon-mobile {
-    @include box(10.3125rem, 3.75rem);
   }
 }
 
-// DESKTOP
+/* ====================   DESKTOP   ==================== */
+
 @include media-breakpoint-up(lg) {
   .nav-main {
     @include flex(flex, space-between, center);

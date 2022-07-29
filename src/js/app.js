@@ -5,15 +5,15 @@ import { runBurger } from './modules/burger.js';
 
 const { sm, md, lg, xl } = breakpoint;
 
-runBurger();
+runBurger({backdrop: '_active'});
 
 runBurger({
   mainClass: '.mobile-search',
-  openBtn: '.nav-search-btn-open',
-  closeBtn: '.nav-search-btn-close',
+  openBtn: '.nav-search-buttons__open',
+  closeBtn: '.nav-search-buttons__close',
   backdrop: true,
   scrollBlock: false,
-  focusElement: '.nav-search__body',
+  focusElement: '.nav-search-input',
 });
 
 /*  
