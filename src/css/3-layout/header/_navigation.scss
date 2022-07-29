@@ -1,6 +1,4 @@
-.navigation._active {
-  transform: none;
-}
+
 
 .nav-menu {
   &__link {
@@ -13,6 +11,8 @@
     font-weight: bold;
   }
 }
+
+
 
 .burger-toggler {
   &--close {
@@ -28,12 +28,19 @@
 
 /* ====================   MOBILE   ==================== */
 
+.navigation._active {
+  transform: none;
+  visibility: visible;
+}
+
 @include media-breakpoint-down(lg) {
   .navigation {
-    transform: translateY(-110%);
+    visibility: hidden;
+    transform: translateX(110%);
     display: block;
     @include fixed(top 0 right 0 bottom 0);
     @include z-index(burger-menu);
+    transition: 0.3s ease;
     max-width: 20rem;
     height: 100vh;
     margin: 0;
@@ -47,9 +54,10 @@
     @include padding-top($spacer);
     @include padding-bottom($spacer);
     @include flex(flex, center, center);
+    z-index: 1;
     background: $color-light;
   }
- 
+
   .nav-menu {
     font-size: 1.25rem;
     &--secondary {

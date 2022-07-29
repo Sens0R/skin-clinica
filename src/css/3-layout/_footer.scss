@@ -56,6 +56,9 @@
 
 .footer-nav-body {
   white-space: nowrap;
+  @include media-breakpoint-up(lg) {
+    @include margin-left($spacer-xl);
+  }
 
   &__header {
     text-transform: uppercase;
@@ -95,7 +98,7 @@
 
   &__button {
     margin-bottom: 0 !important;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       margin: 0 !important;
     }
   }

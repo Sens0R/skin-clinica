@@ -1,25 +1,29 @@
 /* ====================   COLORS   ==================== */
-//TODO Добавить meta-description 
-/* Skin Clinica | Skin Care Online Australia | All Skin Types
-https://skinclinica.com.au
-Skin Clinica is your one stop online shop for skin care routines and natural products. We have skincare for all skin types. Free shipping available! */
-//TODO В конце пофиксить структуру headings https://web.dev/heading-order/?utm_source=lighthouse&utm_medium=devtools
-// TODO сделать отдельную задачу для картинок, чтоб картинки не удалялись после перезапуска
-// TODO проверить purgeCss и build
+
+//Сделать анимацию бургера справа
+//Сделать социал иконки более яркими
+//Поменять праймари Дарк на акцент 
+//Переделать бургер анимации
+// Burger сделать автофокус на первый айтем https://bholmes.dev/blog/accessible-show-hide-animations/
+//  LAZY image loading
+//  сделать отдельную задачу для картинок, чтоб картинки не удалялись после перезапуска
+//  проверить purgeCss и build
+
 $color-pink: hsl(336, 95%, 84%);
 $color-black: hsl(0, 0%, 0%);
 $color-black-100: hsl(0, 0%, 12%);
 $color-gray: hsl(0, 0%, 45%);
 $color-white: hsl(0, 0%, 100%);
-$color-white-100: darken($color-white, 5%);
-$color-white-200: darken($color-white, 10%);
-$color-white-300: darken($color-white, 15%);
-$color-white-muted: fade-out($color-white, 0.25); // 0.75 alpha
-$color-white-transparent: fade-out($color-white-300, 0.75); // 0.25 alpha
+$color-white-100: darken($color-white, 10%);
+
+
 
 $color-primary: $color-pink;
 $color-primary-light: lighten($color-primary, 6%);
 $color-primary-dark: darken($color-primary, 40%);
+
+$color-white-muted: fade-out($color-white, 0.5); // 0.5alpha
+$color-white-transparent: fade-out($color-white, 0.75); // 0.25 alpha
 
 $color-secondary: $color-black-100;
 $color-bg: $color-white;
@@ -94,7 +98,7 @@ $z-index: (
 );
 
 // Borders
-$border-color: $color-white-200;
+$border-color: $color-white-100;
 $border-color-accent: $color-gray;
 
 $border-1: 1px;

@@ -2,6 +2,44 @@
   align-self: flex-start;
 }
 
+main > *:not(:first-child) {
+  @include padding-top($spacer-xl);
+  @include padding-bottom($spacer-xl);
+}
+
+/* ====================   ABOUT-US   ==================== */
+
+.about-us {
+  &__item {
+    background: rgb(209, 209, 209);
+  }
+  .row {
+    height: 40rem;
+  }
+}
+
+.about-us p {
+  color: $color-gray;
+}
+
+.about-us-text-content {
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    max-width: 75%;
+  }
+}
+
+.about-us-tabs {
+  height: 100%;
+  background-color: $color-primary-light;
+}
+
+.logo-regular-icon {
+  fill: $color-primary;
+  @include rfs(5rem, height);
+  @include rfs(5rem, width);
+}
+
 /* ====================   BANNER   ==================== */
 
 .banner-bg {
@@ -16,12 +54,11 @@
 
 .blog {
   @include flex(flex, center, center);
-  @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
   flex-direction: column;
 }
 
 /* ====================   TESTIMONIALS   ==================== */
+
 .testimonials-bg {
   @include absolute(top 0 left 0);
   @include image-cover(100%);
@@ -30,8 +67,6 @@
 .testimonials {
   position: relative;
   @include flex(flex, center, center);
-  @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
   flex-direction: column;
   text-align: center;
   user-select: none;
@@ -40,7 +75,7 @@
     max-width: 31.25rem;
     @include center-block();
   }
-  
+
   &__header {
     z-index: 1;
     margin-bottom: 0;

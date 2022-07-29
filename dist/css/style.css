@@ -2,9 +2,6 @@
 # Import
 --------------------------------------------------------------*/
 /* ====================   COLORS   ==================== */
-/* Skin Clinica | Skin Care Online Australia | All Skin Types
-https://skinclinica.com.au
-Skin Clinica is your one stop online shop for skin care routines and natural products. We have skincare for all skin types. Free shipping available! */
 /* ====================   TYPOGRAPHY   ==================== */
 /* ====================   STRUCTURE   ==================== */
 /*!
@@ -17427,6 +17424,7 @@ img,
 picture {
   max-width: 100%;
   display: block;
+  user-select: none;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -17529,9 +17527,23 @@ button {
 }
 
 a {
+  position: relative;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
+}
+
+a::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 48px;
+  min-height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 a:hover {
@@ -17550,10 +17562,6 @@ a:hover {
 input {
   outline: none;
   border: none;
-}
-
-.navigation._active {
-  transform: none;
 }
 
 .nav-menu {
@@ -17586,15 +17594,22 @@ input {
 }
 
 /* ====================   MOBILE   ==================== */
+.navigation._active {
+  transform: none;
+  visibility: visible;
+}
+
 @media (max-width: 991.98px) {
   .navigation {
-    transform: translateY(-110%);
+    visibility: hidden;
+    transform: translateX(110%);
     display: block;
     top: 0;
     right: 0;
     bottom: 0;
     position: fixed;
     z-index: 100;
+    transition: 0.3s ease;
     max-width: 20rem;
     height: 100vh;
     margin: 0;
@@ -17610,6 +17625,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
     background: hsl(0deg, 0%, 100%);
   }
   .nav-menu {
@@ -17781,15 +17797,18 @@ input {
 
 /* ====================   MOBILE SEARCH   ==================== */
 .mobile-search._active {
+  visibility: visible;
   transform: none;
 }
 
 @media (max-width: 991.98px) {
   .mobile-search {
+    visibility: hidden;
+    transition: 0.3s ease;
+    transform: translateY(-110%);
     top: 0;
     left: 0;
     position: absolute;
-    transform: translateY(-110%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17835,6 +17854,7 @@ input {
   }
 }
 .nav-tools__name {
+  margin: 0;
   display: none;
   color: hsl(0deg, 0%, 12%);
 }
@@ -17878,7 +17898,7 @@ input {
   color: hsl(0deg, 0%, 100%);
 }
 .footer-copyright {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.75rem;
   text-align: center;
 }
@@ -17907,7 +17927,7 @@ input {
 }
 
 .footer-nav {
-  border-top: 1px solid rgba(217, 217, 217, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
   padding-top: calc(1.5rem + 3vw);
   padding-bottom: calc(1.5rem + 3vw);
   display: grid;
@@ -17943,6 +17963,16 @@ input {
 
 .footer-nav-body {
   white-space: nowrap;
+}
+@media (min-width: 992px) {
+  .footer-nav-body {
+    margin-left: calc(1.5rem + 3vw);
+  }
+}
+@media (min-width: 992px) and (min-width: 1200px) {
+  .footer-nav-body {
+    margin-left: 3.75rem;
+  }
 }
 .footer-nav-body__header {
   text-transform: uppercase;
@@ -17983,7 +18013,7 @@ input {
 .mailing-form__button {
   margin-bottom: 0 !important;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .mailing-form__button {
     margin: 0 !important;
   }
@@ -18407,6 +18437,63 @@ input {
   align-self: flex-start;
 }
 
+main > *:not(:first-child) {
+  padding-top: calc(1.5rem + 3vw);
+  padding-bottom: calc(1.5rem + 3vw);
+}
+@media (min-width: 1200px) {
+  main > *:not(:first-child) {
+    padding-top: 3.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  main > *:not(:first-child) {
+    padding-bottom: 3.75rem;
+  }
+}
+
+/* ====================   ABOUT-US   ==================== */
+.about-us__item {
+  background: rgb(209, 209, 209);
+}
+.about-us .row {
+  height: 40rem;
+}
+
+.about-us p {
+  color: hsl(0deg, 0%, 45%);
+}
+
+.about-us-text-content {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .about-us-text-content {
+    max-width: 75%;
+  }
+}
+
+.about-us-tabs {
+  height: 100%;
+  background-color: #fecde1;
+}
+
+.logo-regular-icon {
+  fill: hsl(336deg, 95%, 84%);
+  height: calc(1.625rem + 4.5vw);
+  width: calc(1.625rem + 4.5vw);
+}
+@media (min-width: 1200px) {
+  .logo-regular-icon {
+    height: 5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .logo-regular-icon {
+    width: 5rem;
+  }
+}
+
 /* ====================   BANNER   ==================== */
 .banner-bg {
   width: 100%;
@@ -18426,19 +18513,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: calc(1.5rem + 3vw);
-  padding-bottom: calc(1.5rem + 3vw);
   flex-direction: column;
-}
-@media (min-width: 1200px) {
-  .blog {
-    padding-top: 3.75rem;
-  }
-}
-@media (min-width: 1200px) {
-  .blog {
-    padding-bottom: 3.75rem;
-  }
 }
 
 /* ====================   TESTIMONIALS   ==================== */
@@ -18457,21 +18532,9 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: calc(1.5rem + 3vw);
-  padding-bottom: calc(1.5rem + 3vw);
   flex-direction: column;
   text-align: center;
   user-select: none;
-}
-@media (min-width: 1200px) {
-  .testimonials {
-    padding-top: 3.75rem;
-  }
-}
-@media (min-width: 1200px) {
-  .testimonials {
-    padding-bottom: 3.75rem;
-  }
 }
 .testimonials__content {
   max-width: 31.25rem;

@@ -17,8 +17,8 @@ const defaultOptions = {
   backdrop: false,
   scrollBlock: true,
   focusElement: false,
-  animationOpen: 'slideInDown',
-  animationClose: 'slideOutUp',
+  animationOpen: false,
+  animationClose: false,
   animationSpeed: 'faster',
 };
 
@@ -68,7 +68,12 @@ export function runBurger(userOptions) {
     mainElement.classList.add('_active');
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
-    if (focusElement) document.querySelector(focusElement).focus();
+    if (focusElement)
+      document
+        .querySelector(focusElement)
+        .addEventListener('transitionend', function () {
+          focusElement.focus();
+        });
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
     if (backdrop) {
       addBackdrop(mainElement, backdrop);

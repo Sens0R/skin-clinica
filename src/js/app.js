@@ -5,7 +5,7 @@ import { runBurger } from './modules/burger.js';
 
 const { sm, md, lg, xl } = breakpoint;
 
-runBurger({backdrop: '_active'});
+runBurger({ backdrop: '_active', focusElement: '.nav-menu__shop-link' });
 
 runBurger({
   mainClass: '.mobile-search',

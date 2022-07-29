@@ -90,13 +90,16 @@
 /* ====================   MOBILE SEARCH   ==================== */
 
 .mobile-search._active {
+  visibility: visible;
   transform: none;
 }
 
 @include media-breakpoint-down(lg) {
   .mobile-search {
-    @include absolute(top 0 left 0);
+    visibility: hidden;
+    transition: 0.3s ease;
     transform: translateY(-110%);
+    @include absolute(top 0 left 0);
     @include flex(flex, center, center);
     z-index: 1;
     height: 7rem;
@@ -135,6 +138,7 @@
   }
 
   &__name {
+    margin: 0;
     display: none;
     color: $color-secondary;
     @include media-breakpoint-up(lg) {
