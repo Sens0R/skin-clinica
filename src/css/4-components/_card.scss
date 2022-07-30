@@ -19,9 +19,10 @@
   &__link {
     font-size: $fs-sm;
     font-weight: bold;
-    color: $color-primary-dark;
+    color: $color-accent;
+
     &:hover {
-      color: $color-primary-dark;
+      color: $color-accent;
     }
     
     @include icon-wobble-horizontal();
@@ -29,7 +30,7 @@
 }
 
 .link-arrow-right-icon {
-  fill: $color-primary-dark;
+  fill: $color-accent;
   padding-left: 0.25rem;
   @include box(0.75rem, 0.75rem);
 }

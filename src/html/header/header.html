@@ -14,9 +14,9 @@
       <!-- ====================   SEARCH   ==================== -->
 
       <div class="col">
-        <div class="container-fluid mobile-search">
+        <div class="container-fluid mobile-search" aria-labelledby="Active search">
           <div class="nav-search">
-            <div class="input-wrapper position-relative d-flex justify-content-center align-items-center">
+            <div class="input-wrapper">
               <input
                 type="search"
                 class="nav-search-input text-sm"
@@ -53,7 +53,7 @@
           <button
             class="nav-tools__link d-lg-none ms-0 nav-search-buttons__open"
             type="button"
-            aria-label="Search"
+            aria-labelledby="Search"
           >
             <svg class="nav-tools__icon hvr-icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
@@ -100,7 +100,7 @@
 
     <!-- ====================   NAVIGATION   ==================== -->
 
-    <div class="row navigation">
+    <div class="row navigation" aria-labelledby="Primary navigation">
       <div class="col-12 nav-mobile-header align-self-start d-lg-none">
        
         <button
@@ -114,7 +114,7 @@
         </button>
       </div>
 
-      <div class="col nav-main">@@include('nav-menu.html',{})</div>
+      <div class="col nav-main d-lg-flex">@@include('nav-menu.html',{})</div>
 
       <div class="col-12 nav-mobile-socials d-lg-none">
         @@include('../components/social.html',{})

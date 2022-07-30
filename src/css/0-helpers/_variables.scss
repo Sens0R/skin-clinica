@@ -1,9 +1,13 @@
 /* ====================   COLORS   ==================== */
 
-//Сделать анимацию бургера справа
+// only burger elements focusable
+// переделать бекдроп анимацию, чтоб была анимация при закрытии
+// Переделать списки навигации в правильный порядок
+// сделать автофокус в бургере
 //Сделать социал иконки более яркими
 //Поменять праймари Дарк на акцент 
 //Переделать бургер анимации
+//Собрать все линки в links.scss
 // Burger сделать автофокус на первый айтем https://bholmes.dev/blog/accessible-show-hide-animations/
 //  LAZY image loading
 //  сделать отдельную задачу для картинок, чтоб картинки не удалялись после перезапуска
@@ -16,19 +20,17 @@ $color-gray: hsl(0, 0%, 45%);
 $color-white: hsl(0, 0%, 100%);
 $color-white-100: darken($color-white, 10%);
 
-
-
 $color-primary: $color-pink;
 $color-primary-light: lighten($color-primary, 6%);
-$color-primary-dark: darken($color-primary, 40%);
+$color-secondary: $color-black-100;
+$color-accent: darken($color-primary, 40%);
+
+
+$color-light: $color-white;
+$color-dark: $color-black;
 
 $color-white-muted: fade-out($color-white, 0.5); // 0.5alpha
 $color-white-transparent: fade-out($color-white, 0.75); // 0.25 alpha
-
-$color-secondary: $color-black-100;
-$color-bg: $color-white;
-$color-light: $color-white;
-$color-dark: $color-secondary;
 
 /* ====================   TYPOGRAPHY   ==================== */
 

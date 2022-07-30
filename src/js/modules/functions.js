@@ -5,6 +5,8 @@ export const breakpoint = {
   xl: 1200,
 };
 
+
+
 /*  ============================= BACKDROP ========================= */
 
 export let backdropEl = '';
@@ -26,13 +28,12 @@ export function removeBackdrop() {
 /*  ======================== CLOSE ON RESIZE ======================= */
 
 export function closeOnResize(width, targetElement, closingFunction) {
-  window.addEventListener('resize', () => {
+  addEventListener('resize', () => {
     if (
       window.innerWidth >= width &&
       targetElement.classList.contains('_active')
     ) {
-      closingFunction.call();
-      targetElement.classList.remove('_active');
+      closingFunction();
     }
   });
 }

@@ -2,6 +2,7 @@
   @include fixed(top 0 left 0);
   @include box(100vw, 100vh);
   background-color: #000;
+
   opacity: 0;
 }
 
@@ -13,7 +14,7 @@
 }
 
 .backdrop._active {
-  animation: opacity-03 1s forwards;
+  animation: opacity-03 0.3s forwards;
 }
 
 @keyframes opacity-03 {

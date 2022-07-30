@@ -104,7 +104,7 @@ main > *:not(:first-child) {
 
 .person-name {
   @include margin-bottom($spacer-xl);
-  color: $color-primary-dark;
+  color: $color-accent;
   text-transform: uppercase;
   font-size: $fs-sm;
   letter-spacing: 0.1rem;

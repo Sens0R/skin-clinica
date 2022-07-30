@@ -13582,10 +13582,8 @@ button.swiper-pagination-bullet {
     display: none;
   }
 }
-@media (hover: hover) {
-  .swiper-btn:hover {
-    fill: #db065b;
-  }
+.swiper-btn:focus, .swiper-btn:hover {
+  fill: #db065b;
 }
 @media (min-width: 992px) {
   .swiper-btn--left {
@@ -17311,7 +17309,7 @@ button.swiper-pagination-bullet {
   color: hsl(336deg, 95%, 84%);
 }
 
-.color-primary-dark {
+.color-accent {
   color: #db065b;
 }
 
@@ -17547,7 +17545,7 @@ a::before {
 }
 
 a:hover {
-  transition: 0.4s;
+  transition: 0.3s ease;
   color: inherit;
 }
 
@@ -17601,21 +17599,27 @@ input {
 
 @media (max-width: 991.98px) {
   .navigation {
-    visibility: hidden;
-    transform: translateX(110%);
-    display: block;
     top: 0;
     right: 0;
     bottom: 0;
     position: fixed;
     z-index: 100;
-    transition: 0.3s ease;
+    transition: transform 0.3s ease-in-out;
     max-width: 20rem;
     height: 100vh;
     margin: 0;
     overflow: auto;
     background: hsl(0deg, 0%, 100%);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    visibility: hidden;
+    transform: translateX(100%);
+  }
+  .navigation._active {
+    transform: none;
+  }
+  .navigation.is-changing, .navigation._active {
+    visibility: visible;
+    transition: transform 0.3s ease-in-out;
   }
   .nav-mobile-header {
     top: 0;
@@ -17736,28 +17740,24 @@ input {
 }
 
 .input-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 35rem;
 }
 
 .nav-search-input {
   width: 100%;
-  max-width: 35rem;
-  padding: 0.25rem;
   height: 2.5rem;
+  padding: 0.25rem;
   border: 1px solid #e6e6e6;
   border-radius: 0.2rem;
   padding-left: 3rem;
 }
 .nav-search-input::placeholder {
   padding-left: 0.5em;
-}
-.nav-search-input:focus, .nav-search-input:hover, .nav-search-input:active {
-  border: 1px solid transparent;
-  outline: 1px solid hsl(0deg, 0%, 12%);
-}
-.nav-search-input:focus::placeholder, .nav-search-input:hover::placeholder, .nav-search-input:active::placeholder {
-  color: hsl(0deg, 0%, 45%);
 }
 
 .nav-search-buttons__search {
@@ -17767,17 +17767,13 @@ input {
   padding: 0 1rem;
   height: 100%;
 }
-.nav-search-buttons__search:hover svg {
-  fill: #db065b;
-  transition: 0.4s;
-}
 .nav-search-buttons__search-icon {
   fill: hsl(336deg, 95%, 84%);
   width: 1rem;
   height: 1rem;
 }
 .nav-search-buttons__close {
-  padding: 0.5rem;
+  margin-left: 1rem;
 }
 .nav-search-buttons__close-icon {
   fill: hsl(0deg, 0%, 12%);
@@ -17796,19 +17792,14 @@ input {
 }
 
 /* ====================   MOBILE SEARCH   ==================== */
-.mobile-search._active {
-  visibility: visible;
-  transform: none;
-}
-
 @media (max-width: 991.98px) {
   .mobile-search {
     visibility: hidden;
-    transition: 0.3s ease;
-    transform: translateY(-110%);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17816,6 +17807,13 @@ input {
     height: 7rem;
     background: hsl(0deg, 0%, 100%);
     box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
+  }
+  .mobile-search._active {
+    transform: none;
+  }
+  .mobile-search.is-changing, .mobile-search._active {
+    visibility: visible;
+    transition: transform 0.3s ease-in-out;
   }
   .nav-search {
     display: flex;
@@ -18024,7 +18022,7 @@ input {
   padding: 0.625rem 0 0.625rem 1rem;
   border-radius: 0.2rem;
 }
-.mailing-form__input:focus-visible {
+.mailing-form__input:focus {
   outline: 2px solid hsl(0deg, 0%, 100%);
 }
 .mailing-form__input::placeholder {
@@ -18319,17 +18317,31 @@ input {
   }
 }
 
-@media (min-width: 992px) {
-  .nav-menu__link:hover,
-.nav-tools__link:hover {
-    color: #db065b;
-  }
-  .nav-menu__link:hover svg,
-.nav-tools__link:hover svg {
-    transition: 0.4s;
-    fill: #db065b;
-  }
+.nav-menu__link:hover {
+  color: #db065b;
 }
+
+.nav-tools__link:focus, .nav-tools__link:hover {
+  color: #db065b;
+}
+.nav-tools__link:focus svg, .nav-tools__link:hover svg {
+  transition: 0.4s;
+  fill: #db065b;
+}
+
+.nav-search-input:focus, .nav-search-input:hover, .nav-search-input:active {
+  border: 1px solid transparent;
+  outline: 1px solid hsl(0deg, 0%, 12%);
+}
+.nav-search-input:focus::placeholder, .nav-search-input:hover::placeholder, .nav-search-input:active::placeholder {
+  color: hsl(0deg, 0%, 45%);
+}
+
+.nav-search-buttons__search:focus svg, .nav-search-buttons__search:hover svg {
+  fill: #db065b;
+  transition: 0.4s;
+}
+
 .footer-nav-body__link:hover {
   color: hsl(336deg, 95%, 84%);
 }
@@ -18387,7 +18399,7 @@ input {
 }
 
 .backdrop._active {
-  animation: opacity-03 1s forwards;
+  animation: opacity-03 0.3s forwards;
 }
 
 @keyframes opacity-03 {
@@ -18396,41 +18408,32 @@ input {
   }
 }
 .btn {
-  display: inline-block;
   padding: 0.5rem 1.875rem;
   background-color: hsl(0deg, 0%, 12%);
   color: hsl(0deg, 0%, 100%);
   border-radius: 0.2rem;
   line-height: 1.25;
   font-weight: bold;
-  transition: 0.4s;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
   box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
+  transition: 0.3s ease-in-out;
 }
-.btn:hover, .btn:focus, .btn:active {
-  -webkit-transform: scale(1.1) rotate(4deg);
-  transform: scale(1.1) rotate(4deg);
-}
-.btn:hover, .btn:active, .btn:visited {
+.btn:focus, .btn:hover {
+  outline: none;
   color: hsl(0deg, 0%, 100%);
+  background-color: #db065b;
 }
 
 .btn--light {
   background-color: #db065b;
-  transition: 0.2s;
 }
-.btn--light:focus-visible {
+.btn--light:focus {
+  transition: none;
   outline: 2px solid hsl(0deg, 0%, 100%);
+}
+.btn--light:hover {
+  background-color: #f91a73;
 }
 
 .section-header {

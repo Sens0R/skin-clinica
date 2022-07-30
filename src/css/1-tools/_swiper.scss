@@ -44,10 +44,9 @@
 
   fill: $color-gray;
 
-  @media (hover: hover) {
-    &:hover {
-      fill: $color-primary-dark;
-    }
+  &:focus,
+  &:hover {
+    fill: $color-accent;
   }
 
   @include media-breakpoint-up(lg) {

@@ -65,15 +65,11 @@ export function runBurger(userOptions) {
   } = options;
 
   document.querySelector(openBtn).addEventListener('click', function () {
+    transitionDuration();
     mainElement.classList.add('_active');
-
     if (scrollBlock) document.body.style.overflow = 'hidden';
-    if (focusElement)
-      document
-        .querySelector(focusElement)
-        .addEventListener('transitionend', function () {
-          focusElement.focus();
-        });
+    if (focusElement) document.querySelector(focusElement).focus();
+
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
@@ -97,9 +93,21 @@ export function runBurger(userOptions) {
 
   /*  ---------------------- HELPERS -------------------------- */
 
+  function transitionDuration() {
+    mainElement.classList.add('is-changing');
+    let transitionDuration = getComputedStyle(mainElement).getPropertyValue(
+      'transition-duration'
+    );
+    transitionDuration = Number(transitionDuration.replace('s', '')) * 1000;
+    setTimeout(function () {
+      mainElement.classList.remove('is-changing');
+    }, transitionDuration);
+  }
+
   function closeElement() {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
+    transitionDuration();
     mainElement.classList.remove('_active');
   }
 }

@@ -49,9 +49,9 @@
       <!-- ====================   SEARCH   ==================== -->
 
       <div class="col">
-        <div class="container-fluid mobile-search">
+        <div class="container-fluid mobile-search" aria-labelledby="Active search">
           <div class="nav-search">
-            <div class="input-wrapper position-relative d-flex justify-content-center align-items-center">
+            <div class="input-wrapper">
               <input
                 type="search"
                 class="nav-search-input text-sm"
@@ -88,7 +88,7 @@
           <button
             class="nav-tools__link d-lg-none ms-0 nav-search-buttons__open"
             type="button"
-            aria-label="Search"
+            aria-labelledby="Search"
           >
             <svg class="nav-tools__icon hvr-icon">
               <use href="images/icons/sprite-mono.svg#search"></use>
@@ -135,7 +135,7 @@
 
     <!-- ====================   NAVIGATION   ==================== -->
 
-    <div class="row navigation">
+    <div class="row navigation" aria-labelledby="Primary navigation">
       <div class="col-12 nav-mobile-header align-self-start d-lg-none">
        
         <button
@@ -149,22 +149,7 @@
         </button>
       </div>
 
-      <div class="col nav-main"><ul class="nav-menu nav-menu--secondary order-lg-last">
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">About</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Faq</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Blog</a>
-  </li>
-  <li class="nav-menu__item">
-    <a href="#" class="nav-menu__link">Contact</a>
-  </li>
-</ul>
-<hr class="d-lg-none my-lg">
-<ul class="nav-menu nav-menu--main">
+      <div class="col nav-main d-lg-flex"><ul class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link nav-menu__shop-link">Shop</a>
   </li>
@@ -178,7 +163,22 @@
     <a href="#" class="nav-menu__link">Brands</a>
   </li>
 </ul>
-<hr class="d-lg-none my-lg">
+<hr class="d-lg-none my-lg" />
+<ul class="nav-menu nav-menu--secondary">
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">About</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Faq</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Blog</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Contact</a>
+  </li>
+</ul>
+<hr class="d-lg-none my-lg" />
 </div>
 
       <div class="col-12 nav-mobile-socials d-lg-none">
@@ -283,7 +283,7 @@
     <div class="col-12 col-lg-6 about-us__">
       <div class="about-us-text-content">
         <h1>
-          Achieve <span class="color-primary-dark">Your Best Skin</span> With
+          Achieve <span class="color-accent">Your Best Skin</span> With
           Skin Clinica
         </h1>
         <p class="a">
@@ -306,7 +306,7 @@
 
 <div class="container-fluid container-md blog">
   <h2 class="section-header">
-    From The <span class="color-primary-dark">Blog</span>
+    From The <span class="color-accent">Blog</span>
   </h2>
   <div class="row">
     <div class="col-12 col-md">

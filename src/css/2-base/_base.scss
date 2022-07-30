@@ -72,7 +72,7 @@ body {
   font-size: $fs-base;
   font-family: $ff-primary;
   line-height: $lh-base;
-  background-color: $color-bg;
+  background-color: $color-light;
 }
 
 h1,
@@ -150,12 +150,12 @@ a:visited {
 }
 
 a:hover {
-  transition: 0.4s;
+  transition: 0.3s ease;
   color: inherit;
 }
 
 :focus {
-  outline: 2px solid $color-primary-dark;
+  outline: 2px solid $color-accent;
 }
 
 :focus:not(:focus-visible) {
@@ -172,3 +172,4 @@ input {
   outline: none;
   border: none;
 }
+
