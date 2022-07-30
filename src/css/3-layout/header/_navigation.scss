@@ -35,7 +35,6 @@
     @include z-index(burger-menu);
     transition: transform 0.3s ease-in-out;
     max-width: 20rem;
-    height: 100vh;
     margin: 0;
     overflow: auto;
     background: $color-light;
