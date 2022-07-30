@@ -17531,7 +17531,7 @@ a {
   user-select: none;
 }
 
-a::before {
+a:before {
   content: "";
   display: block;
   width: 100%;
@@ -17598,14 +17598,18 @@ input {
 }
 
 @media (max-width: 991.98px) {
+  .nav-body {
+    width: 300px;
+  }
   .navigation {
     top: 0;
     right: 0;
     bottom: 0;
     position: fixed;
     z-index: 100;
+    display: block;
     transition: transform 0.3s ease-in-out;
-    max-width: 20rem;
+    max-width: 100%;
     margin: 0;
     overflow: auto;
     background: hsl(0deg, 0%, 100%);
@@ -17657,21 +17661,13 @@ input {
   }
 }
 @media (max-width: 991.98px) {
-  .nav-mobile-socials {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-  }
-  .nav-mobile-socials .social-icons__link {
-    background: hsl(336deg, 95%, 84%);
-  }
-  .nav-mobile-socials .icon-social {
-    fill: #db065b;
+  .nav-mobile-socials .social-icons {
+    margin-top: 0;
   }
 }
 /* ====================   DESKTOP   ==================== */
 @media (min-width: 992px) {
-  .nav-main {
+  .nav-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17827,6 +17823,9 @@ input {
   justify-content: center;
   align-items: center;
 }
+.nav-tools button {
+  position: relative;
+}
 .nav-tools__link {
   display: flex;
   justify-content: center;
@@ -17835,6 +17834,18 @@ input {
   margin-left: 0.3rem;
   background-color: #fecde1;
   border-radius: 100%;
+}
+.nav-tools__link:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 48px;
+  min-height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 @media (min-width: 576px) {
   .nav-tools__link {
@@ -18350,17 +18361,9 @@ input {
   align-items: center;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  flex-wrap: wrap;
 }
-.social-icons__item {
+.social-icons__item:not(:last-child) {
   margin-right: 0.6rem;
-  margin-bottom: 0.6rem;
-}
-@media (min-width: 576px) {
-  .social-icons__item {
-    margin-right: 0.25rem;
-    margin-bottom: 0;
-  }
 }
 .social-icons__link {
   padding: 0.7rem;

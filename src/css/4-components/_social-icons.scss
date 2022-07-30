@@ -3,14 +3,9 @@
   align-items: center;
   @include margin-top($spacer);
   @include margin-bottom($spacer);
-  flex-wrap: wrap;
-  &__item {
+
+  &__item:not(:last-child) {
     margin-right: 0.6rem;
-    margin-bottom: 0.6rem;
-    @include media-breakpoint-up(sm) {
-      margin-right: 0.25rem;
-      margin-bottom: 0;
-    }
   }
 
   &__link {

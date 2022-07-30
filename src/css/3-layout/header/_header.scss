@@ -106,8 +106,15 @@
 
 .nav-tools {
   @include flex(flex, center, center);
+ 
+
+  button {
+    position: relative;
+  }
+
   &__link {
     @include flex(flex, center, center);
+    @include link-space();
     padding: 0.6rem;
     margin-left: 0.3rem;
     background-color: $color-primary-light;

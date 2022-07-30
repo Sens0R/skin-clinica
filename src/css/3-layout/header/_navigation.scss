@@ -30,11 +30,16 @@
 }
 
 @include media-breakpoint-down(lg) {
+  .nav-body {
+    width: 300px;
+  }
+
   .navigation {
     @include fixed(top 0 right 0 bottom 0);
     @include z-index(burger-menu);
+    display: block;
     transition: transform 0.3s ease-in-out;
-    max-width: 20rem;
+    max-width: 100%;
     margin: 0;
     overflow: auto;
     background: $color-light;
@@ -78,23 +83,15 @@
     }
   }
 
-  .nav-mobile-socials {
-    @include flex(flex, left, flex-start);
-
-    .social-icons__link {
-      background: $color-primary;
-    }
-
-    .icon-social {
-      fill: $color-accent;
-    }
+  .nav-mobile-socials .social-icons {
+    margin-top: 0;
   }
 }
 
 /* ====================   DESKTOP   ==================== */
 
 @include media-breakpoint-up(lg) {
-  .nav-main {
+  .nav-body {
     @include flex(flex, space-between, center);
   }
 
