@@ -7,7 +7,6 @@ const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   grabCursor: true,
   loop: true,
-  autoHeight: true,
 
   autoplay: {
     delay: 5000,

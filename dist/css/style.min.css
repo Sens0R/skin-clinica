@@ -17629,10 +17629,6 @@ input {
   transform: translate3d(0, -100%, 0);
 }
 
-.scroll-up header {
-  filter: drop-shadow(0 -10px 20px #aaaaaa);
-}
-
 .nav-menu {
   white-space: nowrap;
 }
@@ -17790,6 +17786,7 @@ input {
   user-select: none;
   background-color: hsl(0deg, 0%, 100%);
   z-index: 1000;
+  filter: drop-shadow(0 -10px 20px #aaaaaa);
 }
 
 .nav-belt {
