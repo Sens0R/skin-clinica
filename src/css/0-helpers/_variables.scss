@@ -1,5 +1,10 @@
 /* ====================   COLORS   ==================== */
 
+//Fix sticky header
+//Вернуть социал иконки в бургере на яркие
+//Добавить немного отступа сверху для пагинации
+//Кнопка поиска на мобильной клаве не работает
+//Remove swiper height
 // Добавить больше link-space для tools на lg
 // Добавить анимации кнопок бургера
 // Добавить цвет выделения текста
@@ -8,10 +13,9 @@
 // переделать бекдроп анимацию, чтоб была анимация при закрытии
 // Переделать списки навигации в правильный порядок
 // сделать автофокус в бургере
-//Сделать социал иконки более яркими
-//Поменять праймари Дарк на акцент 
-//Переделать бургер анимации
-//Собрать все линки в links.scss
+// Сделать социал иконки более яркими
+// Переделать бургер анимации
+// Собрать все линки в links.scss
 // Burger сделать автофокус на первый айтем https://bholmes.dev/blog/accessible-show-hide-animations/
 //  LAZY image loading
 // fix favicon не трогать svg в галп
@@ -29,7 +33,6 @@ $color-primary: $color-pink;
 $color-primary-light: lighten($color-primary, 6%);
 $color-secondary: $color-black-100;
 $color-accent: darken($color-primary, 40%);
-
 
 $color-light: $color-white;
 $color-dark: $color-black;
@@ -101,7 +104,7 @@ $shadow-inset: inset 0 1px 2px rgba($color-black, 0.075);
 // z-index map
 $z-index: (
   burger-menu: 100,
-  header: 50,
+  header: 1000,
 );
 
 // Borders

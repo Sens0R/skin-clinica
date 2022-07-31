@@ -17399,7 +17399,7 @@ body {
   background-color: hsl(0deg, 0%, 100%);
 }
 
-.site-wrapper {
+.page-wrapper {
   overflow: hidden;
   min-height: 100%;
   display: flex;
@@ -17625,6 +17625,14 @@ input {
   content: none;
 }
 
+.scroll-down header {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up header {
+  filter: drop-shadow(0 -10px 20px #aaaaaa);
+}
+
 .nav-menu {
   white-space: nowrap;
 }
@@ -17774,16 +17782,14 @@ input {
   }
 }
 .header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  transition: all 400ms ease-in-out;
   user-select: none;
   background-color: hsl(0deg, 0%, 100%);
-  box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
-  z-index: 50;
-}
-@media (max-width: 991.98px) {
-  .header {
-    top: 0;
-    position: sticky;
-  }
+  z-index: 1000;
 }
 
 .nav-belt {

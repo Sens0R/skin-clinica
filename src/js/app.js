@@ -1,7 +1,8 @@
 import './modules/swiper.js';
-
 import { breakpoint } from './modules/functions.js';
 import { runBurger } from './modules/burger.js';
+import './modules/sticky-header.js';
+
 
 const { sm, md, lg, xl } = breakpoint;
 

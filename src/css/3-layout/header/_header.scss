@@ -1,14 +1,12 @@
 @import 'navigation';
 
 .header {
+  @include fixed(top 0 left 0);
+  width: 100%;
+  transition: all 400ms ease-in-out;
   user-select: none;
   background-color: $color-light;
-  box-shadow: $shadow-sm;
-
   @include z-index(header);
-  @include media-breakpoint-down(lg) {
-    @include sticky(top 0);
-  }
 }
 
 .nav-belt {
@@ -108,7 +106,6 @@
 
   &__link {
     @include flex(flex, center, center);
-   
     padding: 0.6rem;
     margin-right: 0.3rem;
     background-color: $color-primary-light;
