@@ -11,6 +11,8 @@
 
 .swiper-pagination {
   @include flex(flex, center, center);
+  user-select: none;
+  z-index: -1;
 }
 
 .swiper-pagination-bullet {
@@ -44,10 +46,11 @@
 
   fill: $color-gray;
 
-  &:focus,
+  &:focus-visible,
   &:hover {
     fill: $color-accent;
   }
+ 
 
   @include media-breakpoint-up(lg) {
     &--left {

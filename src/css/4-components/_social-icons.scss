@@ -1,22 +1,37 @@
+.icon-social {
+  @include box(1rem, 1rem);
+  fill: $color-primary;
+  transition: 0.4s ease-in-out;
+}
+
 .social-icons {
   display: flex;
   align-items: center;
   @include margin-top($spacer);
   @include margin-bottom($spacer);
+  @include media-breakpoint-down(sm) {
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
 
-  &__item:not(:last-child) {
-    margin-right: 0.6rem;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 0.6rem;
+    }
   }
 
   &__link {
+    transition: 0.2s ease-in-out;
     padding: 0.7rem;
     @include flex(flex, center, center);
     background: $color-secondary;
     border-radius: 100%;
+    &:focus,
+    &:hover {
+      background: $color-accent;
+      .icon-social {
+        fill: $color-light;
+      }
+    }
   }
-}
-
-.icon-social {
-  @include box(1rem, 1rem);
-  fill: $color-primary;
 }

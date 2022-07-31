@@ -1,4 +1,7 @@
 /* ====================   COLORS   ==================== */
+
+// Добавить больше link-space для tools на lg
+// Добавить анимации кнопок бургера
 // Добавить цвет выделения текста
 // переделать иконки бургера и закрытия
 // only burger elements focusable
@@ -11,6 +14,7 @@
 //Собрать все линки в links.scss
 // Burger сделать автофокус на первый айтем https://bholmes.dev/blog/accessible-show-hide-animations/
 //  LAZY image loading
+// fix favicon не трогать svg в галп
 //  сделать отдельную задачу для картинок, чтоб картинки не удалялись после перезапуска
 //  проверить purgeCss и build
 
@@ -79,14 +83,14 @@ $spacer-xl: $spacer * 3;
 $spacer-headings: $spacer * 1;
 
 // bootstrap spacer map
-$spacers: (
+/* $spacers: (
   0: 0,
   sm: $spacer-sm,
   md: $spacer,
   lg: $spacer-lg,
   xl: $spacer-xl,
   heading: $spacer-headings,
-);
+); */
 
 // Shadows
 $shadow: 0 0.5rem 1rem rgba($color-black, 0.15);

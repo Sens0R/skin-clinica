@@ -12,21 +12,20 @@
 }
 
 .nav-belt {
-  @include margin-top($spacer);
-  @include margin-bottom($spacer);
-  @include flex(flex, space-between, center);
+  > * {
+    @include flex(flex, center, center);
+    @include margin-top($spacer);
+    @include margin-bottom($spacer);
+  }
+  align-items: center;
 }
 
 .logo-icon {
-  @include rfs(5rem, height);
-  @include rfs(13.75rem, width);
+  @include rfs(5rem, max-height);
+  @include rfs(13.75rem, max-width);
 }
 
 /* ====================   SEARCH   ==================== */
-
-.nav-search {
-  @include flex(flex, center, center);
-}
 
 .input-wrapper {
   position: relative;
@@ -106,30 +105,28 @@
 
 .nav-tools {
   @include flex(flex, center, center);
- 
-
-  button {
-    position: relative;
-  }
 
   &__link {
     @include flex(flex, center, center);
-    @include link-space();
+   
     padding: 0.6rem;
-    margin-left: 0.3rem;
+    margin-right: 0.3rem;
     background-color: $color-primary-light;
     border-radius: 100%;
 
     @include media-breakpoint-up(sm) {
       padding: 0.8rem;
-      margin-left: 0.5rem;
+      margin-right: 0.5rem;
     }
 
     @include media-breakpoint-up(lg) {
-      margin-left: 1rem;
+      margin-right: 1rem;
       padding: 0;
       background-color: transparent;
       border-radius: 0;
+    }
+    &:last-child {
+      margin-right: 0;
     }
   }
 

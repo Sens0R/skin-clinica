@@ -11,9 +11,12 @@
 }
 
 .burger-toggler {
+  @include flex(flex, flex-end, center);
+  @include link-space(72px);
+
   &--close {
     fill: $color-secondary;
-    margin-left: auto;
+    min-height: 2.5rem;
   }
 
   svg {
@@ -41,7 +44,8 @@
     transition: transform 0.3s ease-in-out;
     max-width: 100%;
     margin: 0;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     background: $color-light;
     box-shadow: $shadow-lg; // shadow for backdrop
     visibility: hidden;
@@ -59,11 +63,11 @@
   }
 
   .nav-mobile-header {
+    z-index: 1;
     @include sticky(top 0);
+    @include flex(flex, flex-end, center);
     @include padding-top($spacer);
     @include padding-bottom($spacer);
-    @include flex(flex, center, center);
-    z-index: 1;
     background: $color-light;
   }
 

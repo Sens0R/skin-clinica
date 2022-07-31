@@ -12,14 +12,14 @@ const { sm, md, lg, xl } = breakpoint;
 const defaultOptions = {
   mainClass: '.navigation',
   openBtn: '.burger-toggler--open',
-  closeBtn: '.nav-mobile-header',
+  closeBtn: '.burger-toggler--close',
   breakpoint: lg,
   backdrop: false,
   scrollBlock: true,
   focusElement: false,
   animationOpen: false,
   animationClose: false,
-  animationSpeed: 'faster',
+  animationSpeed: false,
 };
 
 /*  ---------------------- RUN  -------------------------- */
@@ -69,8 +69,11 @@ export function runBurger(userOptions) {
     mainElement.classList.add('_active');
     if (scrollBlock) document.body.style.overflow = 'hidden';
     if (focusElement) document.querySelector(focusElement).focus();
-
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
+    setTimeout(function () {
+      addAnimation(closeBtn, 'heartBeat', animationSpeed);
+    }, 300);
+
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
       const backdropClose = document.querySelector("[data-backdrop='close']");

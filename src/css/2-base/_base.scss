@@ -28,9 +28,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+ 
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   line-height: 1.7;
@@ -73,6 +71,13 @@ body {
   font-family: $ff-primary;
   line-height: $lh-base;
   background-color: $color-light;
+}
+
+.site-wrapper {
+  overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -133,14 +138,10 @@ button {
 }
 
 a {
-  position: relative;
+  @include link-space();
   cursor: pointer;
   text-decoration: none;
   user-select: none;
-}
-
-a {
- @include link-space();
 }
 
 a:link {
@@ -172,4 +173,3 @@ input {
   outline: none;
   border: none;
 }
-

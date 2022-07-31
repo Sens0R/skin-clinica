@@ -5,6 +5,8 @@
 }
 
 @mixin link-space($size: 48px) {
+  position: relative;
+  
   &:before {
     content: '';
     display: block;

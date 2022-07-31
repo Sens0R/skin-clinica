@@ -1,0 +1,72 @@
+.disable-select {
+  user-select: none !important;
+}
+
+.color-primary {
+  color: $color-primary !important;
+}
+
+.color-accent {
+  color: $color-accent !important;
+}
+
+.color-secondary {
+  color: $color-secondary !important;
+}
+
+.text-sm {
+  font-size: $fs-sm !important;
+}
+
+.text-lg {
+  font-size: $fs-lg !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.text-italic {
+  font-style: italic !important;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.text-normal {
+  font-weight: normal !important;
+}
+
+.text-light {
+  font-weight: light !important;
+}
+
+.no-wrap {
+  white-space: nowrap !important;
+}
+
+.link-space {
+  @include link-space();
+
+  &-sm {
+    @include link-space(24px);
+  }
+
+  &-lg {
+    @include link-space(72px);
+  }
+
+  &-none {
+    position: auto;
+    content: none;
+  }
+}
