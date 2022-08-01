@@ -5,6 +5,7 @@ import {
   closeOnResize,
   breakpoint,
 } from './functions.js';
+import { headroom } from './headroom.js';
 
 const { sm, md, lg, xl } = breakpoint;
 
@@ -65,6 +66,7 @@ export function runBurger(userOptions) {
   } = options;
 
   document.querySelector(openBtn).addEventListener('click', function () {
+    if (headroom) headroom.destroy();
     transitionDuration();
     mainElement.classList.add('_active');
     if (scrollBlock) document.body.style.overflow = 'hidden';
@@ -110,6 +112,7 @@ export function runBurger(userOptions) {
   function closeElement() {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
+    if (headroom) headroom.init();
     transitionDuration();
     mainElement.classList.remove('_active');
   }

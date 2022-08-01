@@ -1,130 +1,135 @@
-<header class="header">
-  <nav class="container-fluid container-lg">
-    <div class="row nav-belt">
-      <!-- ====================   LOGO   ==================== -->
 
-      <div class="col pe-0 justify-content-start">
-        <a
-          class="logo link-space-lg"
-          href="index.html"
-          aria-label="Skin clinica"
-        >
-          <svg class="logo-icon hvr-icon">
-            <use href="images/icons/sprite-multi.svg#logo-header"></use>
-          </svg>
-        </a>
-      </div>
+  <header class="header">
+    <nav class="container-fluid container-lg">
+      <div class="row nav-belt">
+        <!-- ====================   LOGO   ==================== -->
 
-      <!-- ====================   SEARCH   ==================== -->
+        <div class="col pe-0 justify-content-start">
+          <a
+            class="logo link-space-lg"
+            href="index.html"
+            aria-label="Skin clinica"
+          >
+            <svg class="logo-icon hvr-icon">
+              <use href="images/icons/sprite-multi.svg#logo-header"></use>
+            </svg>
+          </a>
+        </div>
 
-      <div class="col gx-0">
-        <div
-          class="container-fluid mobile-search"
-          aria-labelledby="Active search"
-        >
-          <div class="nav-search">
-            <div class="input-wrapper">
-              <input
-                type="search"
-                class="nav-search-input text-sm"
-                placeholder="Search"
-              />
-              <div class="nav-search-buttons">
-                <button class="nav-search-buttons__search" aria-label="Search">
-                  <svg class="nav-search-buttons__search-icon hvr-icon">
-                    <use href="images/icons/sprite-mono.svg#search"></use>
-                  </svg>
-                </button>
+        <!-- ====================   SEARCH   ==================== -->
 
-                <button
-                  class="d-lg-none nav-search-buttons__close"
-                  type="button"
-                  aria-label="Close search"
-                >
-                  <svg class="nav-search-buttons__close-icon hvr-icon">
-                    <use
-                      href="images/icons/sprite-mono.svg#toggler-closed"
-                    ></use>
-                  </svg>
-                </button>
+        <div class="col gx-0">
+          <div
+            class="container-fluid mobile-search"
+            aria-labelledby="Active search"
+          >
+            <div class="nav-search">
+              <div class="input-wrapper">
+                <input
+                  type="search"
+                  class="nav-search-input text-sm"
+                  placeholder="Search"
+                />
+                <div class="nav-search-buttons">
+                  <button
+                    class="nav-search-buttons__search"
+                    aria-label="Search"
+                  >
+                    <svg class="nav-search-buttons__search-icon hvr-icon">
+                      <use href="images/icons/sprite-mono.svg#search"></use>
+                    </svg>
+                  </button>
+
+                  <button
+                    class="d-lg-none nav-search-buttons__close"
+                    type="button"
+                    aria-label="Close search"
+                  >
+                    <svg class="nav-search-buttons__close-icon hvr-icon">
+                      <use
+                        href="images/icons/sprite-mono.svg#toggler-closed"
+                      ></use>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ====================   TOOLS   ==================== -->
+        <!-- ====================   TOOLS   ==================== -->
 
-      <div class="col d-flex justify-content-end">
-        <div class="nav-tools">
+        <div class="col d-flex justify-content-end">
+          <div class="nav-tools">
+            <button
+              class="nav-tools__link d-lg-none nav-search-buttons__open"
+              type="button"
+              aria-labelledby="Search"
+            >
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#search"></use>
+              </svg>
+            </button>
+
+            <a href="#" class="nav-tools__link" aria-label="Account">
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#account"></use>
+              </svg>
+              <p class="nav-tools__name">Account</p>
+            </a>
+
+            <a href="#" class="nav-tools__link" aria-label="Wishlist">
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#wishlist"></use>
+              </svg>
+              <p class="nav-tools__name">Wishlist</p>
+            </a>
+
+            <a href="#" class="nav-tools__link" aria-label="Shopping cart">
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#cart"></use>
+              </svg>
+              <p class="nav-tools__name">Cart (0)</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- ====================   NAV-TOGGLER   ==================== -->
+
+        <div class="col-auto ps-sm-lg d-lg-none">
           <button
-            class="nav-tools__link d-lg-none nav-search-buttons__open"
+            class="burger-toggler burger-toggler--open"
             type="button"
-            aria-labelledby="Search"
+            aria-label="Open navigation menu"
           >
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#search"></use>
+            <svg class="burger-toggler-icon hvr-icon">
+              <use href="images/icons/sprite-mono.svg#toggler-open"></use>
             </svg>
           </button>
-
-          <a href="#" class="nav-tools__link" aria-label="Account">
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#account"></use>
-            </svg>
-            <p class="nav-tools__name">Account</p>
-          </a>
-
-          <a href="#" class="nav-tools__link" aria-label="Wishlist">
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#wishlist"></use>
-            </svg>
-            <p class="nav-tools__name">Wishlist</p>
-          </a>
-
-          <a href="#" class="nav-tools__link" aria-label="Shopping cart">
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#cart"></use>
-            </svg>
-            <p class="nav-tools__name">Cart (0)</p>
-          </a>
         </div>
       </div>
 
-      <!-- ====================   NAV-TOGGLER   ==================== -->
+      <!-- ====================   NAVIGATION   ==================== -->
 
-      <div class="col-auto ps-sm-lg d-lg-none">
-        <button
-          class="burger-toggler burger-toggler--open"
-          type="button"
-          aria-label="Open navigation menu"
-        >
-          <svg class="burger-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-          </svg>
-        </button>
+      <div class="row navigation" aria-labelledby="Primary navigation">
+        <div class="col-12 nav-mobile-header align-self-start d-lg-none">
+          <button
+            class="burger-toggler burger-toggler--close"
+            type="button"
+            aria-label="Close navigation menu"
+          >
+            <svg class="burger-toggler-icon hvr-icon">
+              <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="col nav-body d-lg-flex">@@include('nav-menu.html',{})</div>
+
+        <div class="col-12 nav-mobile-socials d-lg-none">
+          @@include('../components/social.html',{})
+        </div>
       </div>
-    </div>
+    </nav>
+  </header>
 
-    <!-- ====================   NAVIGATION   ==================== -->
-
-    <div class="row navigation" aria-labelledby="Primary navigation">
-      <div class="col-12 nav-mobile-header align-self-start d-lg-none">
-        <button
-          class="burger-toggler burger-toggler--close"
-          type="button"
-          aria-label="Close navigation menu"
-        >
-          <svg class="burger-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-          </svg>
-        </button>
-      </div>
-
-      <div class="col nav-body d-lg-flex">@@include('nav-menu.html',{})</div>
-
-      <div class="col-12 nav-mobile-socials d-lg-none">
-        @@include('../components/social.html',{})
-      </div>
-    </div>
-  </nav>
-</header>

@@ -1,0 +1,11 @@
+.headroom {
+  will-change: transform;
+  transition: transform 400ms ease-in-out;
+}
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translate3d(0, -100%, 0);
+}
+

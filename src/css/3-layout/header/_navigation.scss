@@ -12,7 +12,7 @@
 
 .burger-toggler {
   @include flex(flex, flex-end, center);
-  @include link-space(72px);
+  //@include link-space(72px);
 
   &--close {
     fill: $color-secondary;
@@ -44,7 +44,7 @@
     transition: transform 0.3s ease-in-out;
     max-width: 100%;
     margin: 0;
-    overflow-x: hidden;
+   
     overflow-y: auto;
     background: $color-light;
     box-shadow: $shadow-lg; // shadow for backdrop
