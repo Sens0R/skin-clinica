@@ -17312,7 +17312,7 @@ button.swiper-pagination-bullet {
 }
 
 .headroom {
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .headroom.slide-up {

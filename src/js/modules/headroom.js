@@ -13,10 +13,7 @@ let headerOptions = {
     bottom: 'bottom',
     notBottom: 'not-bottom',
   },
-  tolerance: {
-    up: 5,
-    down: 5,
-  },
+  
 };
 
 export const headroom = new Headroom(header, headerOptions);
