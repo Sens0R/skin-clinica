@@ -17312,29 +17312,26 @@ button.swiper-pagination-bullet {
 }
 
 .headroom {
-  transition: transform 200ms linear;
+  transition: transform 0.3s ease-in-out;
 }
 
-.headroom-slideDown {
-  transform: translateY(0%);
-}
-
-.headroom-slideUp {
+.headroom.slide-up {
   transform: translateY(-100%);
 }
 
-.headroom-bottom {
-  transform: translateY(0%);
+.headroom.slide-down,
+.headroom.bottom {
+  transform: translateY(0);
 }
 
 /* 
 initial: .headroom
-pinned: .headroom-slideDown
-unpinned: .headroom-slideUp
-top: .headroom-top
-notTop: .headroom-not-top
-bottom : .headroom-bottom
-notBottom : .headroom-not-bottom
+pinned: .headroom--slide-down
+unpinned: .headroom--slide-up
+top: .headroom--top
+notTop: .headroom--not-top
+bottom : .headroom--bottom
+notBottom : .headroom--not-bottom
 */
 @font-face {
   font-family: "DMSans";

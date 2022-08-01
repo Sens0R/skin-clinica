@@ -6,19 +6,6 @@ import { runBurger } from './modules/burger.js';
 const { sm, md, lg, xl } = breakpoint;
 headroom.init();
 
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY === 0) {
-    header.classList.remove('headroom-slideDown');
-  }
-  if (
-    window.scrollY + window.innerHeight >=
-    document.documentElement.scrollHeight - 50
-  ) {
-    header.classList.remove('headroom-slideUp');
-  }
-});
-
 runBurger({ backdrop: '_active', focusElement: '.nav-menu__shop-link' });
 
 runBurger({
