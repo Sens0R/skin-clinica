@@ -14,8 +14,8 @@ let headerOptions = {
     notBottom: 'not-bottom',
   },
   tolerance: {
-    up: 0,
-    down: 0,
+    up: 3,
+    down: 3,
   },
 };
 
