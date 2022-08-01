@@ -17,6 +17,7 @@ const defaultOptions = {
   breakpoint: lg,
   backdrop: false,
   scrollBlock: true,
+  transition: true,
   focusElement: false,
   animationOpen: false,
   animationClose: false,
@@ -28,8 +29,9 @@ const defaultOptions = {
 export function runBurger(userOptions) {
   let htmlDataOptions = '';
   let options = defaultOptions;
-
   let mainElement = '';
+  let transitionDuration = '';
+
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
   } else mainElement = document.querySelector(defaultOptions.mainClass);
@@ -59,22 +61,29 @@ export function runBurger(userOptions) {
     breakpoint,
     backdrop,
     scrollBlock,
+    transition,
     focusElement,
     animationOpen,
     animationClose,
     animationSpeed,
   } = options;
 
+  if (transition) {
+    transitionDuration = getComputedStyle(mainElement).getPropertyValue(
+      'transition-duration'
+    );
+    transitionDuration = Number(transitionDuration.replace('s', '')) * 1000;
+  }
+
   document.querySelector(openBtn).addEventListener('click', function () {
     if (headroom) headroom.destroy();
-    transitionDuration();
     mainElement.classList.add('_active');
     if (scrollBlock) document.body.style.overflow = 'hidden';
     if (focusElement) document.querySelector(focusElement).focus();
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
     setTimeout(function () {
       addAnimation(closeBtn, 'heartBeat', animationSpeed);
-    }, 300);
+    }, 300); // TEST ANIMATION
 
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
@@ -98,22 +107,24 @@ export function runBurger(userOptions) {
 
   /*  ---------------------- HELPERS -------------------------- */
 
-  function transitionDuration() {
-    mainElement.classList.add('is-changing');
-    let transitionDuration = getComputedStyle(mainElement).getPropertyValue(
-      'transition-duration'
-    );
-    transitionDuration = Number(transitionDuration.replace('s', '')) * 1000;
-    setTimeout(function () {
-      mainElement.classList.remove('is-changing');
-    }, transitionDuration);
-  }
-
   function closeElement() {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
-    if (headroom) headroom.init();
-    transitionDuration();
+    if (headroom) {
+      if (transition) {
+        setTimeout(function () {
+          headroom.init();
+        }, transitionDuration);
+      } else headroom.init();
+    }
+
+    if (transition) {
+      mainElement.classList.add('is-changing');
+      setTimeout(function () {
+        mainElement.classList.remove('is-changing');
+      }, transitionDuration);
+    }
+
     mainElement.classList.remove('_active');
   }
 }
