@@ -1,11 +1,11 @@
+import { throttle } from 'lodash';
+
 export const breakpoint = {
   sm: 576,
   md: 768,
   lg: 992,
   xl: 1200,
 };
-
-
 
 /*  ============================= BACKDROP ========================= */
 
@@ -25,18 +25,24 @@ export function removeBackdrop() {
   if (removeBackdrop) removeBackdrop.remove();
 }
 
-/*  ======================== CLOSE ON RESIZE ======================= */
+/*  ======================== RESIZE ======================= */
 
-export function closeOnResize(width, targetElement, closingFunction) {
-  addEventListener('resize', () => {
-    if (
-      window.innerWidth >= width &&
-      targetElement.classList.contains('_active')
-    ) {
-      closingFunction();
-    }
-  });
-}
+  export function resize(width, targetElement, closingFunction) {
+  window.addEventListener(
+    'resize',
+    throttle(() => {
+      if (
+        window.innerWidth >= width &&
+        targetElement.classList.contains('_active')
+      ) {
+        closingFunction();
+        console.log('closed')
+      }
+      
+    }),
+    250
+  );
+} 
 
 /*  ============================= ANIMATIONS ========================= */
 

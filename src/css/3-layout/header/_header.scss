@@ -7,21 +7,26 @@
   user-select: none;
   background-color: $color-light;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
- 
 }
 
 .nav-belt {
   > * {
     @include flex(flex, center, center);
-    @include margin-top($spacer);
-    @include margin-bottom($spacer);
+    @include margin-top($spacer-sm);
+    @include margin-bottom($spacer-sm);
   }
-  align-items: center;
 }
 
-.logo-icon {
-  @include rfs(5rem, max-height);
-  @include rfs(13.75rem, max-width);
+.logo-header {
+  @include box(5.5rem, 2rem);
+
+  @include media-breakpoint-up(sm) {
+    @include box(8.25rem, 3rem);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include box(11rem, 4rem);
+  }
 }
 
 /* ====================   SEARCH   ==================== */
@@ -123,6 +128,7 @@
       background-color: transparent;
       border-radius: 0;
     }
+
     &:last-child {
       margin-right: 0;
     }

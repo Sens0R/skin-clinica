@@ -17,14 +17,23 @@
   }
 
   &__link {
+    margin: -0.4rem;
+    padding: 0.4rem;
     font-size: $fs-sm;
     font-weight: bold;
     color: $color-accent;
 
+    &:focus {
+      outline: none;
+      transition: 0.3s ease-in-out;
+      border-radius: $border-radius-pill;
+      box-shadow: $color-primary 0px 0px 0px 0.25rem;
+    }
+
     &:hover {
       color: $color-accent;
     }
-    
+
     @include icon-wobble-horizontal();
   }
 }

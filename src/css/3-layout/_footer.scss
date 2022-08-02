@@ -1,6 +1,8 @@
+
 .footer-bg {
   @include absolute(top 0 left 0);
   @include image-cover(100%);
+  
 }
 
 .footer {
@@ -13,11 +15,12 @@
     font-size: 0.75rem;
     text-align: center;
   }
+}
 
-  &-logo {
-    @include margin-top($spacer);
-    @include margin-bottom($spacer);
-  }
+.logo-footer {
+  @include box(11rem, 4rem);
+  @include margin-top($spacer);
+  @include margin-bottom($spacer);
 }
 
 .footer-inner {
@@ -32,7 +35,10 @@
 .footer-nav {
   border-top: 1px solid $color-white-transparent;
   @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
+  @include media-breakpoint-up(sm) {
+    @include padding-bottom($spacer-xl);
+  }
+
   display: grid;
   grid-template-columns: 1fr;
 

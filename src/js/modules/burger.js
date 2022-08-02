@@ -2,10 +2,10 @@ import {
   addBackdrop,
   removeBackdrop,
   addAnimation,
-  closeOnResize,
+  resize,
   breakpoint,
 } from './functions.js';
-import { headroom } from './headroom.js';
+//import { headroom } from './headroom.js';
 
 const { sm, md, lg, xl } = breakpoint;
 
@@ -17,8 +17,8 @@ const defaultOptions = {
   breakpoint: lg,
   backdrop: false,
   scrollBlock: true,
-  transition: true,
   focusElement: false,
+  headroom: false,
   animationOpen: false,
   animationClose: false,
   animationSpeed: false,
@@ -30,12 +30,19 @@ export function runBurger(userOptions) {
   let htmlDataOptions = '';
   let options = defaultOptions;
   let mainElement = '';
-  let transitionDuration = '';
+  let transition = 0;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
   } else mainElement = document.querySelector(defaultOptions.mainClass);
 
+  let transitionDuration = getComputedStyle(mainElement).getPropertyValue(
+    'transition-duration'
+  );
+    console.log(transitionDuration)
+  if (transitionDuration)
+    transition = Number(transitionDuration.replace('s', '')) * 1000;
+    console.log(transition)
   const mainElementDataJSON = mainElement.getAttribute('data-burger');
   if (mainElementDataJSON) htmlDataOptions = JSON.parse(mainElementDataJSON);
 
@@ -61,19 +68,12 @@ export function runBurger(userOptions) {
     breakpoint,
     backdrop,
     scrollBlock,
-    transition,
     focusElement,
+    headroom,
     animationOpen,
     animationClose,
     animationSpeed,
   } = options;
-
-  if (transition) {
-    transitionDuration = getComputedStyle(mainElement).getPropertyValue(
-      'transition-duration'
-    );
-    transitionDuration = Number(transitionDuration.replace('s', '')) * 1000;
-  }
 
   document.querySelector(openBtn).addEventListener('click', function () {
     if (headroom) headroom.destroy();
@@ -102,7 +102,7 @@ export function runBurger(userOptions) {
   });
 
   if (breakpoint) {
-    closeOnResize(breakpoint, mainElement, closeElement);
+    resize(breakpoint, mainElement, closeElement);
   }
 
   /*  ---------------------- HELPERS -------------------------- */
@@ -110,19 +110,17 @@ export function runBurger(userOptions) {
   function closeElement() {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
-    if (headroom) {
-      if (transition) {
-        setTimeout(function () {
-          headroom.init();
-        }, transitionDuration);
-      } else headroom.init();
+    if (headroom && transition > 0) {
+      setTimeout(function () {
+        headroom.init();
+      }, transition);
     }
 
-    if (transition) {
+    if (transition > 0) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');
-      }, transitionDuration);
+      }, transition);
     }
 
     mainElement.classList.remove('_active');

@@ -25,6 +25,16 @@
   }
 }
 
+.nav-mobile-socials {
+  .icon-social {
+    fill: $color-accent;
+  }
+
+  .social-icons__link {
+    background-color: $color-primary;
+  }
+}
+
 /* ====================   MOBILE   ==================== */
 
 .navigation._active {
@@ -85,10 +95,6 @@
       @include margin-bottom($spacer-lg);
     }
   }
-
-  .nav-mobile-socials .social-icons {
-    margin-top: 0;
-  }
 }
 
 /* ====================   DESKTOP   ==================== */
@@ -101,6 +107,8 @@
   .nav-menu {
     @include flex(flex, center, center);
     font-size: $font-size-sm;
+    @include margin-top($spacer-sm);
+    @include margin-bottom($spacer-sm);
   }
 
   .nav-menu--main {

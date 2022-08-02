@@ -1,8 +1,6 @@
 .headroom {
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
-
-
 
 .headroom.slide-up {
   transform: translateY(-100%);
@@ -13,13 +11,12 @@
   transform: translateY(0);
 }
 
-
 /* 
 initial: .headroom
-pinned: .headroom--slide-down
-unpinned: .headroom--slide-up
-top: .headroom--top
-notTop: .headroom--not-top
-bottom : .headroom--bottom
-notBottom : .headroom--not-bottom
+pinned: .slide-down
+unpinned: .slide-up
+top: .top
+notTop: .not-top
+bottom : .bottom
+notBottom : .not-bottom
 */
