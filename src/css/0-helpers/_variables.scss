@@ -1,5 +1,5 @@
 /* ====================   COLORS   ==================== */
-
+// Выставить хедер оффсет для разных брейкпоинтов
 //Вернуть социал иконки в бургере на яркие
 //Добавить немного отступа сверху для пагинации
 //Кнопка поиска на мобильной клаве не работает
@@ -24,6 +24,7 @@
 // resize breakpoints for headroom header maybe
 //  проверить purgeCss и build
 // очистить консоль логи
+// Сделать весь блог пост кликабельным
 
 $color-pink: hsl(336, 95%, 84%);
 $color-black: hsl(0, 0%, 0%);
@@ -68,7 +69,6 @@ $headings-fs: null;
 $headings-fw: bold;
 $headings-lh: 1.2;
 
-$header-offset: 8rem; // отступ от контента  
 $headings-fs: $fs-base * 1;
 $fs-h1: $headings-fs * 2.5; // 48px
 $fs-h2: $headings-fs * 1.625; // 26px
@@ -107,7 +107,7 @@ $shadow-inset: inset 0 1px 2px rgba($color-black, 0.075);
 
 // z-index map
 $z-index: (
-  burger-menu: 100,
+  nav-menu: 100,
   header: 50,
 );
 

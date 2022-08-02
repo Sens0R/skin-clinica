@@ -2,28 +2,34 @@
   color: $color-accent;
 }
 
+.nav-toggler {
+  border-radius: $border-radius;
+  &:focus,
+  &:hover {
+    outline: none;
+    fill: $color-light;
+    background-color: $color-accent;
+  }
+}
+
 .nav-tools__link {
   @include media-breakpoint-down(lg) {
     &:focus,
     &:hover {
-      svg {
-        transition: 0.3s ease-in-out;
-        fill: $color-white;
-      }
       background-color: $color-accent;
       outline: none;
+      svg {
+        fill: $color-white;
+      }
     }
   }
 
   @include media-breakpoint-up(lg) {
     &:focus,
     &:hover {
-      p {
+      > * {
         transition: 0.3s ease-in-out;
         color: $color-accent;
-      }
-      svg {
-        transition: 0.3s ease-in-out;
         fill: $color-accent;
       }
     }
@@ -47,7 +53,6 @@
   &:hover {
     svg {
       fill: $color-accent;
-      transition: 0.4s;
     }
   }
 }
@@ -56,3 +61,13 @@
   color: $color-primary;
 }
 
+.social-icons__link {
+  &:focus,
+  &:hover {
+    outline: none;
+    background: $color-accent;
+    .icon-social {
+      fill: $color-light;
+    }
+  }
+}

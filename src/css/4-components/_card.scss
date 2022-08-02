@@ -25,7 +25,6 @@
 
     &:focus {
       outline: none;
-      transition: 0.3s ease-in-out;
       border-radius: $border-radius-pill;
       box-shadow: $color-primary 0px 0px 0px 0.25rem;
     }

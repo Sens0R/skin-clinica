@@ -18,18 +18,9 @@
   }
 
   &__link {
-    transition: 0.2s ease-in-out;
     padding: 0.7rem;
     @include flex(flex, center, center);
     background: $color-secondary;
     border-radius: 100%;
-    &:focus,
-    &:hover {
-      outline: none;
-      background: $color-accent;
-      .icon-social {
-        fill: $color-light;
-      }
-    }
   }
 }

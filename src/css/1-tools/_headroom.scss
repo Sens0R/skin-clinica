@@ -11,6 +11,10 @@
   transform: translateY(0);
 }
 
+.slide-up:focus-within {
+  transform: translateY(0) !important;
+}
+
 /* 
 initial: .headroom
 pinned: .slide-down

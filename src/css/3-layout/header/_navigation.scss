@@ -10,7 +10,7 @@
   }
 }
 
-.burger-toggler {
+.nav-toggler {
   @include flex(flex, flex-end, center);
   @include link-space(72px);
 
@@ -20,8 +20,7 @@
   }
 
   svg {
-    @include rfs(3rem, width);
-    @include rfs(3rem, height);
+   @include box(2rem, 2rem);
   }
 }
 
@@ -49,7 +48,7 @@
 
   .navigation {
     @include fixed(top 0 right 0 bottom 0);
-    @include z-index(burger-menu);
+    @include z-index(nav-menu);
     display: block;
     transition: transform 0.3s ease-in-out;
     max-width: 100%;

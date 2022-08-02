@@ -17324,6 +17324,10 @@ button.swiper-pagination-bullet {
   transform: translateY(0);
 }
 
+.slide-up:focus-within {
+  transform: translateY(0) !important;
+}
+
 /* 
 initial: .headroom
 pinned: .slide-down
@@ -17428,12 +17432,6 @@ body {
   flex-direction: column;
 }
 
-@media (min-width: 992px) {
-  main {
-    padding-top: 8rem;
-  }
-}
-
 main > *:not(:first-child) {
   padding-top: calc(1.5rem + 3vw);
   padding-bottom: calc(1.5rem + 3vw);
@@ -17447,6 +17445,11 @@ main > *:not(:first-child) {
   main > *:not(:first-child) {
     padding-bottom: 3.75rem;
   }
+}
+
+::selection {
+  background-color: #db065b;
+  color: hsl(0deg, 0%, 100%);
 }
 
 h1,
@@ -17544,12 +17547,16 @@ a:before {
   transform: translate(-50%, -50%);
 }
 
+:hover {
+  transition: 0.3s ease-in-out;
+}
+
 a:hover {
-  transition: 0.3s ease;
   color: inherit;
 }
 
 :focus {
+  transition: none !important;
   outline: 2px solid #db065b;
   border-radius: 0.2rem;
 }
@@ -17679,13 +17686,13 @@ input {
   font-weight: bold;
 }
 
-.burger-toggler {
+.nav-toggler {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   position: relative;
 }
-.burger-toggler:before {
+.nav-toggler:before {
   content: "";
   display: block;
   width: 100%;
@@ -17697,23 +17704,13 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.burger-toggler--close {
+.nav-toggler--close {
   fill: hsl(0deg, 0%, 12%);
   min-height: 2.5rem;
 }
-.burger-toggler svg {
-  width: calc(1.425rem + 2.1vw);
-  height: calc(1.425rem + 2.1vw);
-}
-@media (min-width: 1200px) {
-  .burger-toggler svg {
-    width: 3rem;
-  }
-}
-@media (min-width: 1200px) {
-  .burger-toggler svg {
-    height: 3rem;
-  }
+.nav-toggler svg {
+  width: 2rem;
+  height: 2rem;
 }
 
 .nav-mobile-socials .icon-social {
@@ -18186,7 +18183,6 @@ input {
 }
 .card__link:focus {
   outline: none;
-  transition: 0.3s ease-in-out;
   border-radius: 50rem;
   box-shadow: hsl(336deg, 95%, 84%) 0px 0px 0px 0.25rem;
 }
@@ -18448,23 +18444,28 @@ input {
   color: #db065b;
 }
 
+.nav-toggler {
+  border-radius: 0.4rem;
+}
+.nav-toggler:focus, .nav-toggler:hover {
+  outline: none;
+  fill: hsl(0deg, 0%, 100%);
+  background-color: #db065b;
+}
+
 @media (max-width: 991.98px) {
   .nav-tools__link:focus, .nav-tools__link:hover {
     background-color: #db065b;
     outline: none;
   }
   .nav-tools__link:focus svg, .nav-tools__link:hover svg {
-    transition: 0.3s ease-in-out;
     fill: hsl(0deg, 0%, 100%);
   }
 }
 @media (min-width: 992px) {
-  .nav-tools__link:focus p, .nav-tools__link:hover p {
+  .nav-tools__link:focus > *, .nav-tools__link:hover > * {
     transition: 0.3s ease-in-out;
     color: #db065b;
-  }
-  .nav-tools__link:focus svg, .nav-tools__link:hover svg {
-    transition: 0.3s ease-in-out;
     fill: #db065b;
   }
 }
@@ -18479,11 +18480,18 @@ input {
 
 .nav-search-buttons__search:focus svg, .nav-search-buttons__search:hover svg {
   fill: #db065b;
-  transition: 0.4s;
 }
 
 .footer-nav-body__link:hover {
   color: hsl(336deg, 95%, 84%);
+}
+
+.social-icons__link:focus, .social-icons__link:hover {
+  outline: none;
+  background: #db065b;
+}
+.social-icons__link:focus .icon-social, .social-icons__link:hover .icon-social {
+  fill: hsl(0deg, 0%, 100%);
 }
 
 .icon-social {
@@ -18506,20 +18514,12 @@ input {
   margin-right: 0.6rem;
 }
 .social-icons__link {
-  transition: 0.2s ease-in-out;
   padding: 0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background: hsl(0deg, 0%, 12%);
   border-radius: 100%;
-}
-.social-icons__link:focus, .social-icons__link:hover {
-  outline: none;
-  background: #db065b;
-}
-.social-icons__link:focus .icon-social, .social-icons__link:hover .icon-social {
-  fill: hsl(0deg, 0%, 100%);
 }
 
 .backdrop {

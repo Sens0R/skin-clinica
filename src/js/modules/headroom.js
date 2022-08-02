@@ -1,8 +1,32 @@
 import Headroom from 'headroom.js';
 
+let headroom = '';
+
 export function headroomHeader(width) {
+  if (!width) return headroomCreate();
+
+  const mql = window.matchMedia(`(max-width: ${width}px)`);
+  console.log(mql.matches);
+  if (!mql.matches) {
+    headroomCreate();
+  }
+
+  mql.onchange = (e) => {
+    if (e.matches) {
+      if (headroom) headroom.destroy();
+      console.log(`Less than ${width}px wide. DESTROYED`);
+    }
+
+    if (!e.matches) {
+      !headroom ? headroomCreate() : headroom.init();
+      console.log(`More than ${width}px wide. STARTED`);
+    }
+  };
+}
+
+function headroomCreate() {
   const header = document.querySelector('header');
-  const headroom = new Headroom(header, {
+  headroom = new Headroom(header, {
     offset: 140,
     classes: {
       initial: 'headroom',
@@ -14,12 +38,6 @@ export function headroomHeader(width) {
       notBottom: 'not-bottom',
     },
   });
-
-
-  if (window.innerWidth >= width) {
-    headroom.init();
-    console.log('starting');
-  }
-
-
+  headroom.init();
+  console.log('Headroom oject created');
 }

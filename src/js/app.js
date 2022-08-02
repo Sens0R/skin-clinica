@@ -1,15 +1,18 @@
 import './modules/swiper.js';
 import { headroomHeader } from './modules/headroom.js';
-import { breakpoint } from './modules/functions.js';
-import { runBurger } from './modules/burger.js';
+import { runNavigation } from './modules/navigation.js';
+import { headerHeight } from './modules/on-resize.js';
+import { md, lg } from './modules/breakpoints.js';
 
-const { sm, md, lg, xl } = breakpoint;
+/* ========================================================================================================================== */
+
+headerHeight();
 
 headroomHeader(lg);
 
-runBurger({ backdrop: '_active', focusElement: '.nav-menu__shop-link' });
+runNavigation({ backdrop: '_active', focusElement: '.nav-menu__shop-link' });
 
-runBurger({
+runNavigation({
   mainClass: '.mobile-search',
   openBtn: '.nav-search-buttons__open',
   closeBtn: '.nav-search-buttons__close',
@@ -17,16 +20,3 @@ runBurger({
   scrollBlock: false,
   focusElement: '.nav-search-input',
 });
-
-/*  
-  mainClass: // Main element class
-  openBtn: // Class that will open main element
-  closeBtn: // Class that will close main element
-  breakpoint: // media closing breakpoint - sm, md, lg, xl variables
-  backdrop: // true == backdrop default style (transparent), class if you want different backdrop style
-  scrollBlock: // body scroll block
-  focusElement: // opening animation
-  animationOpen: // closing animation
-  animationClose: // animation speed
-  animationSpeed: // focus on element when you open main element 
-  */
