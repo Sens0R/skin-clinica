@@ -76,10 +76,10 @@ export function runNavigation(userOptions) {
     mainElement.classList.add('_active');
     if (scrollBlock) document.body.style.overflow = 'hidden';
     if (focusElement) document.querySelector(focusElement).focus();
-/*     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
+     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
     setTimeout(function () {
       addAnimation(closeBtn, 'heartBeat', animationSpeed);
-    }, 300); // TEST ANIMATION */
+    }, 300); // TEST ANIMATION 
 
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
@@ -98,7 +98,7 @@ export function runNavigation(userOptions) {
   });
 
   if (breakpoint) {
-    resize(breakpoint, mainElement, closeElement);
+    resize(breakpoint, closeElement, mainElement);
   }
 
   /*  ---------------------- HELPERS -------------------------- */
@@ -107,13 +107,13 @@ export function runNavigation(userOptions) {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
   
-    if (transition > 0) {
+ /*    if (transition > 0) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');
       }, transition);
     }
-
+ */
     mainElement.classList.remove('_active');
   }
 }

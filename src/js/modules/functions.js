@@ -1,3 +1,20 @@
+/* ====================   RESPONSIVE HEADER HEIGHT   ==================== */
+
+export function headerHeight() {
+  let headerHeight = 0;
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      if (entry.contentBoxSize) {
+        headerHeight = entry.contentBoxSize[0].blockSize;
+        main.style.marginTop = `${headerHeight}px`;
+      }
+    }
+  });
+
+  const main = document.querySelector('main');
+  resizeObserver.observe(document.querySelector('.header'));
+}
+
 /*  ============================= BACKDROP ========================= */
 
 export let backdropEl = '';
@@ -18,15 +35,12 @@ export function removeBackdrop() {
 
 /*  ======================== RESIZE ======================= */
 
-export function resize(width, targetElement, closingFunction) {
-  window.addEventListener('resize', () => {
-    if (
-      window.innerWidth >= width &&
-      targetElement.classList.contains('_active')
-    ) {
+export function resize(width, closingFunction, targetElement) {
+  const mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
+  mediaQueryList.onchange = (e) => {
+    if (!e.matches && targetElement.classList.contains('_active'))
       closingFunction();
-    }
-  });
+  };
 }
 
 /*  ============================= ANIMATIONS ========================= */

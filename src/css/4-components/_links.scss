@@ -1,15 +1,6 @@
 .nav-menu__link:hover {
   color: $color-accent;
-}
-
-.nav-toggler {
-  border-radius: $border-radius;
-  &:focus,
-  &:hover {
-    outline: none;
-    fill: $color-light;
-    background-color: $color-accent;
-  }
+  transition: 0.3s ease-in-out;
 }
 
 .nav-tools__link {
@@ -52,18 +43,21 @@
   &:focus,
   &:hover {
     svg {
+      transition: 0.3s ease-in-out;
       fill: $color-accent;
     }
   }
 }
 
-.footer-nav-body__link:hover {
+.footer-nav__link:hover {
+  transition: 0.3s ease-in-out;
   color: $color-primary;
 }
 
 .social-icons__link {
   &:focus,
   &:hover {
+    transition: 0.3s ease-in-out;
     outline: none;
     background: $color-accent;
     .icon-social {

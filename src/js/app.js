@@ -1,7 +1,7 @@
 import './modules/swiper.js';
 import { headroomHeader } from './modules/headroom.js';
 import { runNavigation } from './modules/navigation.js';
-import { headerHeight } from './modules/on-resize.js';
+import { headerHeight } from './modules/functions.js';
 import { md, lg } from './modules/breakpoints.js';
 
 /* ========================================================================================================================== */
@@ -10,7 +10,7 @@ headerHeight();
 
 headroomHeader(lg);
 
-runNavigation({ backdrop: '_active', focusElement: '.nav-menu__shop-link' });
+runNavigation({ backdrop: '_active' });
 
 runNavigation({
   mainClass: '.mobile-search',

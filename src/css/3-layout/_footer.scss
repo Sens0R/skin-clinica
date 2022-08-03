@@ -1,8 +1,6 @@
-
 .footer-bg {
   @include absolute(top 0 left 0);
   @include image-cover(100%);
-  
 }
 
 .footer {
@@ -10,11 +8,12 @@
   margin-top: auto;
   position: relative;
   color: $font-color-light;
-  &-copyright {
-    color: $color-white-muted;
-    font-size: 0.75rem;
-    text-align: center;
-  }
+}
+
+.copyright {
+  color: $color-white-muted;
+  font-size: 0.75rem;
+  text-align: center;
 }
 
 .logo-footer {
@@ -32,25 +31,26 @@
   @include padding-bottom($spacer-xl);
 }
 
-.footer-nav {
+.footer-nav-main {
   border-top: 1px solid $color-white-transparent;
   @include padding-top($spacer-xl);
   @include media-breakpoint-up(sm) {
     @include padding-bottom($spacer-xl);
   }
-
   display: grid;
   grid-template-columns: 1fr;
+}
 
+.footer-nav-main {
   @include media-breakpoint-up(lg) {
     grid-template-columns: 1fr 2.5fr;
-    &-body {
+    .footer-nav {
       grid-row: span 3;
     }
   }
 }
 
-.footer-nav-body {
+.footer-nav {
   white-space: nowrap;
   @include media-breakpoint-up(lg) {
     @include margin-left($spacer-xl);

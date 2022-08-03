@@ -79,6 +79,7 @@ body {
   flex-direction: column;
 }
 
+
 main > *:not(:first-child) {
   @include padding-top($spacer-xl);
   @include padding-bottom($spacer-xl);
@@ -161,7 +162,7 @@ a:visited {
 }
 
 :hover {
-  transition: 0.3s ease-in-out;
+ 
 }
 
 a:hover {

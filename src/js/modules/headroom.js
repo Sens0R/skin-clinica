@@ -5,13 +5,13 @@ let headroom = '';
 export function headroomHeader(width) {
   if (!width) return headroomCreate();
 
-  const mql = window.matchMedia(`(max-width: ${width}px)`);
-  console.log(mql.matches);
-  if (!mql.matches) {
+  const mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
+  console.log(mediaQueryList.matches);
+  if (!mediaQueryList.matches) {
     headroomCreate();
   }
 
-  mql.onchange = (e) => {
+  mediaQueryList.onchange = (e) => {
     if (e.matches) {
       if (headroom) headroom.destroy();
       console.log(`Less than ${width}px wide. DESTROYED`);
