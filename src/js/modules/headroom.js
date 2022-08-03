@@ -24,7 +24,7 @@ export function headroomHeader(width) {
 function headroomCreate() {
   const header = document.querySelector('header');
   headroom = new Headroom(header, {
-    offset: 130,
+    offset: 500,
     classes: {
       initial: 'headroom',
       pinned: 'slide-down',

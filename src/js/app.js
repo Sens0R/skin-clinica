@@ -5,6 +5,11 @@ import { headerHeight } from './modules/functions.js';
 import { md, lg } from './modules/breakpoints.js';
 
 /* ========================================================================================================================== */
+history.scrollRestoration = "manual";
+window.onbeforeunload = function () {
+  window.scrollTo(0,0);
+};
+
 
 headerHeight();
 
@@ -21,5 +26,3 @@ runNavigation({
   focusElement: '.nav-search-input',
 });
 
-
- 

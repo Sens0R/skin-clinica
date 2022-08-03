@@ -1,33 +1,32 @@
-.header {
-  transition: transform 0.3s ease-in-out;
-}
-
 .headroom {
 
+  
 }
 
 .headroom.top {
-  transition: none;
   transform: translateY(0);
 }
+
 .headroom.not-top {
-  transition: transform 0.3s ease-in-out;
-  position: fixed;
+  transition: transform 0.4s ease-in-out;
+  @include fixed(top 0 left 0);
   transform: translateY(-100%);
 }
-.headroom.slide-down.not-top {
-  transition: transform 0.3s ease-in-out;
+.headroom.slide-down.not-top.not-bottom {
+  transition: transform 0.4s ease-in-out;
   transform: translateY(0);
 }
+
 .headroom.slide-down.top {
-  transition: transform 0.3s ease-in-out;
-  position: fixed;
+  transition: transform 0.4s ease-in-out;
+  @include fixed(top 0 left 0);
 }
-.headroom.slide-up.not-top {
-  transition: transform 0.3s ease-in-out;
-  transform: translateY(-100%);
+.headroom.slide-down.bottom {
+  transition: transform 0.4s ease-in-out;
+  @include fixed(top 0 left 0);
 }
-.headroom.slide-up.top {
+
+.headroom.slide-up.not-top.not-bottom {
+  transition: transform 0.4s ease-in-out;
   transform: translateY(-100%);
-  position: fixed;
 }
