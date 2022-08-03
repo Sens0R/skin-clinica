@@ -1,7 +1,6 @@
 @import 'navigation';
 
 .header {
-  @include fixed(top 0 left 0);
   width: 100%;
   @include z-index(header);
   user-select: none;

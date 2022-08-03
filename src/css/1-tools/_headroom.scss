@@ -1,26 +1,33 @@
-.headroom {
+.header {
   transition: transform 0.3s ease-in-out;
 }
 
-.headroom.slide-up {
-  transform: translateY(-100%);
+.headroom {
+
 }
 
-.headroom.slide-down,
-.headroom.bottom {
+.headroom.top {
+  transition: none;
   transform: translateY(0);
 }
-
-.slide-up:focus-within {
-  transform: translateY(0) !important;
+.headroom.not-top {
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  transform: translateY(-100%);
 }
-
-/* 
-initial: .headroom
-pinned: .slide-down
-unpinned: .slide-up
-top: .top
-notTop: .not-top
-bottom : .bottom
-notBottom : .not-bottom
-*/
+.headroom.slide-down.not-top {
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+}
+.headroom.slide-down.top {
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+}
+.headroom.slide-up.not-top {
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%);
+}
+.headroom.slide-up.top {
+  transform: translateY(-100%);
+  position: fixed;
+}

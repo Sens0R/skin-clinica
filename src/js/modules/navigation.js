@@ -107,13 +107,13 @@ export function runNavigation(userOptions) {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
   
- /*    if (transition > 0) {
+     if (transition > 0) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');
       }, transition);
     }
- */
+ 
     mainElement.classList.remove('_active');
   }
 }

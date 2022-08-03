@@ -1,6 +1,6 @@
 .nav-menu__link:hover {
   color: $color-accent;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .nav-tools__link {
@@ -19,7 +19,7 @@
     &:focus,
     &:hover {
       > * {
-        transition: 0.3s ease-in-out;
+        transition: 0.2s ease-in-out;
         color: $color-accent;
         fill: $color-accent;
       }
@@ -43,14 +43,14 @@
   &:focus,
   &:hover {
     svg {
-      transition: 0.3s ease-in-out;
+      transition: 0.2s ease-in-out;
       fill: $color-accent;
     }
   }
 }
 
 .footer-nav__link:hover {
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
   color: $color-primary;
 }
 
