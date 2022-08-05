@@ -4,10 +4,10 @@ import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 /* ========================================================================================================================== */
- history.scrollRestoration = 'manual';
+/*  history.scrollRestoration = 'manual';
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
-}; 
+};  */
 
 fixedHeader();
 //customHeader(lg);

@@ -15,6 +15,9 @@ const headerHeightObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => {
     headerHeight = `${Math.floor(entry.contentBoxSize[0].blockSize)}px`;
     console.log('HEADER HEIGHT: ' + headerHeight);
+    if (window.scrollY > 0) {
+      main.style.marginTop = headerHeight;
+    }
   });
 });
 
