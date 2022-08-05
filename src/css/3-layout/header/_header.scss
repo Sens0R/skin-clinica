@@ -18,10 +18,10 @@
 }
 .header {
   transition: box-shadow 0.5s ease-in-out;
-  width: 90%;
+  width: 100%;
   @include z-index(header);
   user-select: none;
-  background-color: grey;
+  background-color: $color-light;
   box-shadow: 0;
 }
 

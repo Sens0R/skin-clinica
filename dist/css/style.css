@@ -17850,10 +17850,10 @@ input {
 
 .header {
   transition: box-shadow 0.5s ease-in-out;
-  width: 90%;
+  width: 100%;
   z-index: 50;
   user-select: none;
-  background-color: grey;
+  background-color: hsl(0deg, 0%, 100%);
   box-shadow: 0;
 }
 
