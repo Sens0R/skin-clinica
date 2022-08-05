@@ -64,8 +64,9 @@ export function fixedHeader(width) {
     (entries) =>
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          header.classList.add('_sticky-header');
           main.style.marginTop = headerHeight;
+          header.classList.add('_sticky-header');
+         
         }
       }),
     headerIntersectionObserverOptions
@@ -82,8 +83,9 @@ export function fixedHeader(width) {
     (entries) =>
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          header.classList.remove('_sticky-header');
           main.style.marginTop = null;
+          header.classList.remove('_sticky-header');
+         
         }
       }),
     notificationObserverOptions
