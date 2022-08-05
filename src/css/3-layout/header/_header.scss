@@ -1,12 +1,28 @@
 @import 'navigation';
 
+.notification {
+  background: $color-secondary;
+  margin: 0;
+  color: $color-light;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: $fs-sm;
+  &__link {
+    vertical-align: middle;
+    color: $color-primary;
+    text-transform: uppercase;
+    white-space: nowrap;
+   
+  }
+}
 .header {
-  width: 100%;
+  transition: box-shadow 0.5s ease-in-out;
+  width: 90%;
   @include z-index(header);
   user-select: none;
-  background-color: $color-light;
-  transition: none;
-  //box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
+  background-color: grey;
+  box-shadow: 0;
 }
 
 .nav-belt {

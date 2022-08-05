@@ -1,3 +1,9 @@
+.notification__link{
+  &:focus,
+  &:hover {
+    color: $color-primary;
+  }
+}
 .nav-menu__link:hover {
   color: $color-accent;
   transition: 0.2s ease-in-out;

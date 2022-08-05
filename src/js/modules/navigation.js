@@ -25,10 +25,10 @@ const defaultOptions = {
 /*  ---------------------- RUN  -------------------------- */
 
 export function runNavigation(userOptions) {
-  let htmlDataOptions = '';
+  let htmlDataOptions;
   let options = defaultOptions;
-  let mainElement = '';
-  let transition = 0;
+  let mainElement;
+  let transition;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -55,7 +55,7 @@ export function runNavigation(userOptions) {
   if (!userOptions && mainElementDataJSON) {
     options = { ...defaultOptions, ...htmlDataOptions };
   }
-  console.log(options);
+  //console.log(options);
 
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 

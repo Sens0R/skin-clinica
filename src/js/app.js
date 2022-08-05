@@ -1,19 +1,16 @@
 import './modules/swiper.js';
-import { headroomHeader } from './modules/headroom.js';
+import { customHeader, fixedHeader } from './modules/headers.js';
 import { runNavigation } from './modules/navigation.js';
-import { headerHeight } from './modules/functions.js';
-import { md, lg } from './modules/breakpoints.js';
+import { md, lg, sm } from './modules/breakpoints.js';
 
 /* ========================================================================================================================== */
-history.scrollRestoration = "manual";
+ history.scrollRestoration = 'manual';
 window.onbeforeunload = function () {
-  window.scrollTo(0,0);
-};
+  window.scrollTo(0, 0);
+}; 
 
-
-headerHeight();
-
-headroomHeader(lg);
+fixedHeader();
+//customHeader(lg);
 
 runNavigation({ backdrop: '_active' });
 
@@ -25,4 +22,3 @@ runNavigation({
   scrollBlock: false,
   focusElement: '.nav-search-input',
 });
-

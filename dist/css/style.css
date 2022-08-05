@@ -17311,7 +17311,15 @@ button.swiper-pagination-bullet {
   animation-name: slideOutUp;
 }
 
+._sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
+}
+
 .headroom.top {
+  transition: none;
   transform: translateY(0);
 }
 
@@ -17321,6 +17329,7 @@ button.swiper-pagination-bullet {
   left: 0;
   position: fixed;
   transform: translateY(-100%);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
 }
 
 .headroom.slide-down.not-top.not-bottom {
@@ -17329,7 +17338,7 @@ button.swiper-pagination-bullet {
 }
 
 .headroom.slide-down.top {
-  transition: transform 0.4s ease-in-out;
+  transition: none;
   top: 0;
   left: 0;
   position: fixed;
@@ -17823,12 +17832,29 @@ input {
     margin-left: 1rem;
   }
 }
+.notification {
+  background: hsl(0deg, 0%, 12%);
+  margin: 0;
+  color: hsl(0deg, 0%, 100%);
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+.notification__link {
+  vertical-align: middle;
+  color: hsl(336deg, 95%, 84%);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .header {
-  width: 100%;
+  transition: box-shadow 0.5s ease-in-out;
+  width: 90%;
   z-index: 50;
   user-select: none;
-  background-color: hsl(0deg, 0%, 100%);
-  transition: none;
+  background-color: grey;
+  box-shadow: 0;
 }
 
 .nav-belt > * {
@@ -18443,6 +18469,10 @@ input {
   .spacer-m-r-lg {
     margin-right: 1.875rem;
   }
+}
+
+.notification__link:focus, .notification__link:hover {
+  color: hsl(336deg, 95%, 84%);
 }
 
 .nav-menu__link:hover {
