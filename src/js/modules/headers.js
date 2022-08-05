@@ -44,12 +44,17 @@ function createHeaderWrapper() {
 /* ====================   STICKY HEADER ON SCROLL   ==================== */
 
 export function fixedHeader(width) {
+  let headerSpace = document.createElement('div');
+  header.after(headerSpace);
+  headerSpace.classList.add('header-space');
+  console.log(headerSpace);
+
   const headerHeightObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
       headerHeight = `${Math.floor(entry.contentBoxSize[0].blockSize)}px`;
       console.log('HEADER HEIGHT: ' + headerHeight);
       if (window.scrollY > 0) {
-        main.style.marginTop = headerHeight;
+        headerSpace.style.height = headerHeight;
       }
     });
   });
@@ -63,7 +68,7 @@ export function fixedHeader(width) {
     (entries) =>
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          main.style.marginTop = headerHeight;
+          headerSpace.style.height = headerHeight;
           header.classList.add('_sticky-header');
         }
       }),
@@ -79,13 +84,14 @@ export function fixedHeader(width) {
     (entries) =>
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          main.style.marginTop = null;
           header.classList.remove('_sticky-header');
+          headerSpace.style.height = null;
+         
         }
       }),
     notificationObserverOptions
   );
-  
+
   headerHeightObserver.observe(header);
   headerIntersectionObserver.observe(header);
   notificationObserver.observe(notification);
