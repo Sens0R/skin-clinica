@@ -21,6 +21,38 @@ const headerHeightObserver = new ResizeObserver((entries) => {
   });
 });
 
+const headerIntersectionObserverOptions = {
+  rootMargin: '0px',
+  threshold: 1,
+};
+
+const headerIntersectionObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        main.style.marginTop = headerHeight;
+        header.classList.add('_sticky-header');
+      }
+    }),
+  headerIntersectionObserverOptions
+);
+
+const notificationObserverOptions = {
+  rootMargin: '0px',
+  threshold: 0,
+};
+
+const notificationObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        main.style.marginTop = null;
+        header.classList.remove('_sticky-header');
+      }
+    }),
+  notificationObserverOptions
+);
+
 function fixedHeaderOnScroll() {
   if (window.scrollY > 0) {
     header.classList.add('_sticky-header');
@@ -55,42 +87,7 @@ function createHeaderWrapper() {
 
 export function fixedHeader(width) {
   headerHeightObserver.observe(header);
-  const headerIntersectionObserverOptions = {
-    rootMargin: '0px',
-    threshold: 1,
-  };
-
-  const headerIntersectionObserver = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          main.style.marginTop = headerHeight;
-          header.classList.add('_sticky-header');
-         
-        }
-      }),
-    headerIntersectionObserverOptions
-  );
-
   headerIntersectionObserver.observe(header);
-
-  const notificationObserverOptions = {
-    rootMargin: '0px',
-    threshold: 0,
-  };
-
-  const notificationObserver = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          main.style.marginTop = null;
-          header.classList.remove('_sticky-header');
-         
-        }
-      }),
-    notificationObserverOptions
-  );
-
   notificationObserver.observe(notification);
 }
 
