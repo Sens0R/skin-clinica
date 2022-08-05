@@ -11,48 +11,6 @@ let headerHeight;
 let stickyWrapper;
 let mediaQueryList;
 
-const headerHeightObserver = new ResizeObserver((entries) => {
-  entries.forEach((entry) => {
-    headerHeight = `${Math.floor(entry.contentBoxSize[0].blockSize)}px`;
-    console.log('HEADER HEIGHT: ' + headerHeight);
-    if (window.scrollY > 0) {
-      main.style.marginTop = headerHeight;
-    }
-  });
-});
-
-const headerIntersectionObserverOptions = {
-  rootMargin: '0px',
-  threshold: 1,
-};
-
-const headerIntersectionObserver = new IntersectionObserver(
-  (entries) =>
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        main.style.marginTop = headerHeight;
-        header.classList.add('_sticky-header');
-      }
-    }),
-  headerIntersectionObserverOptions
-);
-
-const notificationObserverOptions = {
-  rootMargin: '0px',
-  threshold: 0,
-};
-
-const notificationObserver = new IntersectionObserver(
-  (entries) =>
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        main.style.marginTop = null;
-        header.classList.remove('_sticky-header');
-      }
-    }),
-  notificationObserverOptions
-);
-
 function fixedHeaderOnScroll() {
   if (window.scrollY > 0) {
     header.classList.add('_sticky-header');
@@ -86,6 +44,48 @@ function createHeaderWrapper() {
 /* ====================   STICKY HEADER ON SCROLL   ==================== */
 
 export function fixedHeader(width) {
+  const headerHeightObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => {
+      headerHeight = `${Math.floor(entry.contentBoxSize[0].blockSize)}px`;
+      console.log('HEADER HEIGHT: ' + headerHeight);
+      if (window.scrollY > 0) {
+        main.style.marginTop = headerHeight;
+      }
+    });
+  });
+
+  const headerIntersectionObserverOptions = {
+    rootMargin: '0px',
+    threshold: 1,
+  };
+
+  const headerIntersectionObserver = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          main.style.marginTop = headerHeight;
+          header.classList.add('_sticky-header');
+        }
+      }),
+    headerIntersectionObserverOptions
+  );
+
+  const notificationObserverOptions = {
+    rootMargin: '0px',
+    threshold: 0,
+  };
+
+  const notificationObserver = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          main.style.marginTop = null;
+          header.classList.remove('_sticky-header');
+        }
+      }),
+    notificationObserverOptions
+  );
+  
   headerHeightObserver.observe(header);
   headerIntersectionObserver.observe(header);
   notificationObserver.observe(notification);
