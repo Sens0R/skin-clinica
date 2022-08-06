@@ -1,20 +1,20 @@
 import Headroom from 'headroom.js';
 
 const header = document.querySelector('header');
-const main = document.querySelector('main');
 const notification = document.querySelector('.notification');
-
-//const page = document.querySelector('html');
 
 let headroom;
 let headerHeight;
-let stickyWrapper;
+let headerSpace = document.createElement('div');
 let mediaQueryList;
+let isFixed = false;
 
 function fixedHeaderOnScroll() {
   if (window.scrollY > 0) {
+    headerSpace.style.height = headerHeight;
     header.classList.add('_sticky-header');
   } else {
+    headerSpace.style.height = null;
     header.classList.remove('_sticky-header');
   }
 }
@@ -35,72 +35,153 @@ function headroomCreate() {
   headroom.init();
 }
 
-function createHeaderWrapper() {
-  header.innerHTML =
-    '<div class="sticky-wrapper">' + header.innerHTML + '</div>';
-  stickyWrapper = document.querySelector('.sticky-wrapper');
+function createHeaderSpace() {
+  header.after(headerSpace);
+  headerSpace.classList.add('header-space');
 }
+
+function removeHeaderSpace() {
+  if (headerSpace) headerSpace.remove();
+}
+
+/* ====================   OBSERVERS   ==================== */
+
+const headerHeightObserver = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    headerHeight = `${Math.ceil(entry.contentBoxSize[0].blockSize)}px`;
+    console.log('HEADER HEIGHT: ' + headerHeight);
+    if (window.scrollY > 0) {
+      headerSpace.style.height = headerHeight;
+    }
+  });
+});
+
+const headerIntersectionObserverOptions = {
+  rootMargin: '0px',
+  threshold: 1,
+};
+
+const headerIntersectionObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        headerSpace.style.height = headerHeight;
+        header.classList.add('_sticky-header');
+      }
+    }),
+  headerIntersectionObserverOptions
+);
+
+const notificationObserverOptions = {
+  rootMargin: '0px',
+  threshold: 0,
+};
+
+const notificationObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        header.classList.remove('_sticky-header');
+        headerSpace.style.height = null;
+      }
+    }),
+  notificationObserverOptions
+);
 
 /* ====================   STICKY HEADER ON SCROLL   ==================== */
 
 export function fixedHeader(width) {
-  let headerSpace = document.createElement('div');
-  header.after(headerSpace);
-  headerSpace.classList.add('header-space');
-  console.log(headerSpace);
+  if (!width) {
+    createHeaderSpace();
+    headerHeightObserver.observe(header);
+    if (!notification) {
+      addEventListener('scroll', fixedHeaderOnScroll);
+    }
+    if (notification) {
+      notificationObserver.observe(notification);
+      headerIntersectionObserver.observe(header);
+    }
+    return;
+  }
 
-  const headerHeightObserver = new ResizeObserver((entries) => {
-    entries.forEach((entry) => {
-      headerHeight = `${Math.floor(entry.contentBoxSize[0].blockSize)}px`;
-      console.log('HEADER HEIGHT: ' + headerHeight);
-      if (window.scrollY > 0) {
-        headerSpace.style.height = headerHeight;
+  mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
+
+  if (mediaQueryList.matches) {
+    isFixed = true;
+    console.log('IS FIXED: ' + isFixed);
+    createHeaderSpace();
+    console.log('HEADER SPACE CREATED ...');
+
+    if (!notification) {
+      addEventListener('scroll', fixedHeaderOnScroll);
+      console.log(
+        'PAGE LOAD - <<< WIDTH <<< - FIXED HEADER ON SCROLL LISTENER IS RUNNING ...'
+      );
+    }
+
+    headerHeightObserver.observe(header);
+
+    if (notification) {
+      notificationObserver.observe(notification);
+      headerIntersectionObserver.observe(header);
+      console.log('PAGE LOAD - <<< WIDTH <<< - HEADER WITH NOTIFICATION ...');
+    }
+  } else {
+    isFixed = false;
+    console.log('IS FIXED: ' + isFixed);
+  }
+
+  mediaQueryList.onchange = (e) => {
+    if (e.matches && !isFixed) {
+      isFixed = true;
+      console.log('IS FIXED: ' + isFixed);
+      createHeaderSpace();
+      headerHeightObserver.observe(header);
+      console.log('RESIZED - <<< WIDTH <<< - SPACE WAS CREATED ...');
+      if (!notification) {
+        addEventListener('scroll', fixedHeaderOnScroll);
+        console.log(
+          'RESIZED - <<< WIDTH <<< - FIXED HEADER ON SCROLL LISTENER IS RUNNING ...'
+        );
       }
-    });
-  });
 
-  const headerIntersectionObserverOptions = {
-    rootMargin: '0px',
-    threshold: 1,
+      if (notification) {
+        console.log('RESIZED - <<< WIDTH <<< - HEADER WITH NOTIFICATION...');
+
+        notificationObserver.observe(notification);
+        headerIntersectionObserver.observe(header);
+        console.log('RESIZED - <<< WIDTH <<< - ALL OBSERVERS ENABLED ...');
+      }
+    }
+
+    if (!e.matches && isFixed) {
+      isFixed = false;
+      console.log('IS FIXED: ' + isFixed);
+      removeHeaderSpace();
+      headerHeightObserver.unobserve(header);
+      console.log('RESIZED - >>> WIDTH >>> - SPACE WAS REMOVED ...');
+      if (!notification) {
+        removeEventListener('scroll', fixedHeaderOnScroll);
+        console.log(
+          'RESIZED - >>> WIDTH >>> - FIXED HEADER ON SCROLL LISTENER IS REMOVED ...'
+        );
+      }
+      if (notification) {
+        console.log(
+          'RESIZED - >>> WIDTH >>> - HEADER WITH NOTIFICATION NOT FIXED ...'
+        );
+
+        notificationObserver.unobserve(notification);
+        headerIntersectionObserver.unobserve(header);
+        console.log('RESIZED - >>> WIDTH >>> - ALL OBSERVERS REMOVED ...');
+      }
+    }
   };
-
-  const headerIntersectionObserver = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          headerSpace.style.height = headerHeight;
-          header.classList.add('_sticky-header');
-        }
-      }),
-    headerIntersectionObserverOptions
-  );
-
-  const notificationObserverOptions = {
-    rootMargin: '0px',
-    threshold: 0,
-  };
-
-  const notificationObserver = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          header.classList.remove('_sticky-header');
-          headerSpace.style.height = null;
-         
-        }
-      }),
-    notificationObserverOptions
-  );
-
-  headerHeightObserver.observe(header);
-  headerIntersectionObserver.observe(header);
-  notificationObserver.observe(notification);
 }
 
 /* ====================   HEADROOM    ==================== */
 
 export function customHeader(width) {
-  createHeaderWrapper();
   if (width) {
     mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
   }

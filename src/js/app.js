@@ -5,7 +5,8 @@ import { md, lg, sm } from './modules/breakpoints.js';
 
 /* ========================================================================================================================== */
 
-fixedHeader();
+//notificationHeader()
+fixedHeader(lg);
 //customHeader(lg);
 
 runNavigation({ backdrop: '_active' });
