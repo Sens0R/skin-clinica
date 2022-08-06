@@ -16,9 +16,12 @@
    
   }
 }
+.header-space {
+  //background: red;
+}
 .header {
-   //transition: box-shadow 0.5s ease-in-out;
-   
+   //transition: box-shadow 0.2s ease-in-out;
+  //opacity: 0.5;
   width: 100%;
   @include z-index(header);
   user-select: none;

@@ -1,16 +1,25 @@
 import Headroom from 'headroom.js';
 
 const header = document.querySelector('header');
-const notification = document.querySelector('.notification');
 
 let headroom;
 let headerHeight;
-let headerSpace = document.createElement('div');
+let headerAnchor = document.createElement('div');
 let mediaQueryList;
 let isFixed = false;
 
-function fixedHeaderOnScroll() {
+/* function fixedHeaderOnScroll() {
   if (window.scrollY > 0) {
+    headerSpace.style.height = headerHeight;
+    header.classList.add('_sticky-header');
+  } else {
+    headerSpace.style.height = null;
+    header.classList.remove('_sticky-header');
+  }
+} */
+
+function fixedHeaderOnScroll() {
+  if ((window.scrollY = 0)) {
     headerSpace.style.height = headerHeight;
     header.classList.add('_sticky-header');
   } else {
@@ -34,25 +43,25 @@ function headroomCreate() {
   });
   headroom.init();
 }
-
-function createHeaderSpace() {
-  header.after(headerSpace);
-  headerSpace.classList.add('header-space');
-}
-
+/* 
 function removeHeaderSpace() {
-  if (headerSpace) headerSpace.remove();
+  if (headerAnchor) headerAnchor.remove();
+} */
+
+function createHeaderAnchor() {
+  header.before(headerAnchor);
+  headerAnchor.classList.add('header-space');
 }
 
 /* ====================   OBSERVERS   ==================== */
 
 const headerHeightObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => {
-    headerHeight = `${Math.ceil(entry.contentBoxSize[0].blockSize)}px`;
+    headerHeight = `${entry.contentBoxSize[0].blockSize}px`;
     console.log('HEADER HEIGHT: ' + headerHeight);
-    if (window.scrollY > 0) {
+    /*  if (window.scrollY > 0) {
       headerSpace.style.height = headerHeight;
-    }
+    } */
   });
 });
 
@@ -91,7 +100,55 @@ const notificationObserver = new IntersectionObserver(
 /* ====================   STICKY HEADER ON SCROLL   ==================== */
 
 export function fixedHeader(width) {
-  if (!width) {
+  createHeaderAnchor();
+  headerHeightObserver.observe(header);
+
+  const headerIntersectionObserverOptions = {
+    rootMargin: '0px',
+    threshold: 1,
+  };
+
+  const headerIntersectionObserver = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(entry.isIntersecting);
+          headerAnchor.style.height = null;
+          header.classList.remove('_sticky-header');
+        }
+
+        if (!entry.isIntersecting) {
+          console.log(entry.isIntersecting);
+          headerAnchor.style.height = headerHeight;
+          header.classList.add('_sticky-header');
+        }
+      }),
+    headerIntersectionObserverOptions
+  );
+
+  headerIntersectionObserver.observe(headerAnchor);
+
+  /*   addEventListener(
+    'scroll',
+    function () {
+      if (isInViewport(header)) {
+        header.classList.remove('_sticky-header');
+        headerSpace.style.height = null;
+        console.log('The box is VISIBLE in the viewport');
+      }
+      if (!isInViewport(header)) {
+        console.log('The box is NOT visible in the viewport');
+
+        headerSpace.style.height = headerHeight;
+        header.classList.add('_sticky-header');
+      }
+    },
+    {
+      passive: true,
+    }
+  ); */
+
+  /*   if (!width) {
     createHeaderSpace();
     headerHeightObserver.observe(header);
     if (!notification) {
@@ -102,7 +159,7 @@ export function fixedHeader(width) {
       headerIntersectionObserver.observe(header);
     }
     return;
-  }
+  } 
 
   mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
 
@@ -174,7 +231,7 @@ export function fixedHeader(width) {
         console.log('RESIZED - >>> WIDTH >>> - ALL OBSERVERS REMOVED ...');
       }
     }
-  };
+  }; */
 }
 
 /* ====================   HEADROOM    ==================== */
