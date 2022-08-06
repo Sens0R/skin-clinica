@@ -147,7 +147,6 @@ export function fixedHeader(width) {
 
       if (notification) {
         console.log('RESIZED - <<< WIDTH <<< - HEADER WITH NOTIFICATION...');
-
         notificationObserver.observe(notification);
         headerIntersectionObserver.observe(header);
         console.log('RESIZED - <<< WIDTH <<< - ALL OBSERVERS ENABLED ...');
@@ -170,7 +169,6 @@ export function fixedHeader(width) {
         console.log(
           'RESIZED - >>> WIDTH >>> - HEADER WITH NOTIFICATION NOT FIXED ...'
         );
-
         notificationObserver.unobserve(notification);
         headerIntersectionObserver.unobserve(header);
         console.log('RESIZED - >>> WIDTH >>> - ALL OBSERVERS REMOVED ...');
