@@ -3,6 +3,7 @@
 
 ._sticky-header {
   @include fixed(top 0 left 0);
+  z-index: 9999;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
 }
 

@@ -1,11 +1,32 @@
 import Headroom from 'headroom.js';
-
 const header = document.querySelector('header');
-
-let headroom;
+const headerAnchor = document.createElement('div');
 let headerHeight;
-let headerAnchor = document.createElement('div');
-let mediaQueryList;
+let headroom;
+
+const headerHeightObserver = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    headerHeight = `${entry.borderBoxSize[0].blockSize}px`;
+    console.log('HEADER HEIGHT: ' + headerHeight);
+    if (window.scrollY > 0) headerAnchor.style.height = headerHeight;
+  });
+});
+
+const headerIntersectionObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        headerAnchor.style.height = null;
+        header.classList.remove('_sticky-header');
+      }
+
+      if (!entry.isIntersecting) {
+        headerAnchor.style.height = headerHeight;
+        header.classList.add('_sticky-header');
+      }
+    }),
+  { threshold: 1 }
+);
 
 function headroomCreate() {
   header.classList.add('slide-down');
@@ -23,42 +44,11 @@ function headroomCreate() {
   headroom.init();
 }
 
-/* ====================   OBSERVERS   ==================== */
-
-const headerHeightObserver = new ResizeObserver((entries) => {
-  entries.forEach((entry) => {
-    headerHeight = `${entry.contentBoxSize[0].blockSize}px`;
-    console.log('HEADER HEIGHT: ' + headerHeight);
-    if (window.scrollY > 0) headerAnchor.style.height = headerHeight;
-  });
-});
-
-const headerIntersectionObserverOptions = {
-  rootMargin: '0px',
-  threshold: 1,
-};
-
-const headerIntersectionObserver = new IntersectionObserver(
-  (entries) =>
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        headerAnchor.style.height = null;
-        header.classList.remove('_sticky-header');
-      }
-
-      if (!entry.isIntersecting) {
-        headerAnchor.style.height = headerHeight;
-        header.classList.add('_sticky-header');
-      }
-    }),
-  headerIntersectionObserverOptions
-);
-
 /* ====================   STICKY HEADER ON SCROLL   ==================== */
 
 export function fixedHeader(width) {
   header.before(headerAnchor);
-  headerAnchor.classList.add('header-anchor');
+  headerAnchor.classList.add('_header-anchor');
 
   if (!width) {
     headerHeightObserver.observe(header);
@@ -66,7 +56,7 @@ export function fixedHeader(width) {
     return;
   }
 
-  mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
+  const mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
 
   if (mediaQueryList.matches) {
     headerHeightObserver.observe(header);
@@ -88,26 +78,17 @@ export function fixedHeader(width) {
 
 /* ====================   HEADROOM    ==================== */
 
-export function customHeader(width) {
-  if (width) {
+export function headroomHeader(width) {
+
+
+  /*   if (width) {
     mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
   }
 
-  const headerHeightObserver2 = new ResizeObserver((entries) => {
-    entries.forEach((entry) => {
-      headerHeight = `${Math.floor(entry.contentBoxSize[0].blockSize)}px`;
-      console.log('HEADER HEIGHT: ' + headerHeight);
-      //console.log(mediaQueryList);
-      if (stickyWrapper && mediaQueryList && !mediaQueryList.matches)
-        stickyWrapper.style.height = headerHeight;
-    });
-  });
+  console.log('HEADER HEIGHT OBSERVER CREATED ...'); */
 
-  headerHeightObserver2.observe(header);
-  console.log('HEADER HEIGHT OBSERVER CREATED ...');
-
-  if (!width) {
-    headroomCreate();
+  /* if (!width) {
+    
     console.log('HEADER WRAPPER CREATED ...');
     console.log('PAGE LOAD HEADROOM CREATED AND INITIALIZED ...');
     return;
@@ -118,7 +99,6 @@ export function customHeader(width) {
     console.log('HEADER WRAPPER CREATED ...');
     console.log('PAGE LOAD - DESKTOP - HEADROOM CREATED AND INITIALIZED ...');
   } else {
-    window.addEventListener('scroll', fixedHeaderOnScroll);
     console.log(
       'PAGE LOAD - MOBILE - FIXED HEADER CREATED - ONSCROLL LISTENER IS RUNNING ...'
     );
@@ -129,10 +109,9 @@ export function customHeader(width) {
       if (headroom) {
         headroom.destroy();
 
-        stickyWrapper.style.height = null;
         console.log('HEADER WRAPPER SHOULD BE REMOVED HERE ... ');
         console.log('RESIZED - MOBILE - HEADROOM DESTROYED ... ');
-        window.addEventListener('scroll', fixedHeaderOnScroll);
+
         console.log(
           'RESIZED - MOBILE - FIXED HEADER CREATED - ONSCROLL LISTENER IS RUNNING ...'
         );
@@ -150,5 +129,5 @@ export function customHeader(width) {
         console.log('RESIZED - DESKTOP - HEADROOM INITIALIZED ...');
       }
     }
-  };
+  }; */
 }

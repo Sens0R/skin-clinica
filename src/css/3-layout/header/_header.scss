@@ -13,27 +13,21 @@
     color: $color-primary;
     text-transform: uppercase;
     white-space: nowrap;
-   
   }
 }
-.header-space {
-  //background: red;
-}
+
 .header {
-   //transition: box-shadow 0.2s ease-in-out;
-  //opacity: 0.5;
   width: 100%;
   @include z-index(header);
   user-select: none;
   background-color: $color-light;
-  //box-shadow: 0;
 }
 
 .nav-belt {
   > * {
     @include flex(flex, center, center);
-    @include margin-top($spacer-sm);
-    @include margin-bottom($spacer-sm);
+    @include padding-top($spacer-sm);
+    @include padding-bottom($spacer-sm);
   }
 }
 

@@ -11,16 +11,32 @@
 }
 
 .nav-toggler {
-  @include flex(flex, flex-end, center);
-  @include link-space(72px);
+  @include flex(flex, center, center);
+  flex-direction: column;
+  padding-left: 0.625rem;
 
   &--close {
     fill: $color-secondary;
     min-height: 2.5rem;
   }
 
+  &__text {
+    margin-top: .3125rem;
+    font-weight: bold;
+    font-size: 0.75rem;
+    @include media-breakpoint-up(sm) {
+      margin-top: 0.5rem;
+      font-size: $fs-sm;
+    }
+    line-height: 0.75;
+    text-transform: uppercase;
+  }
+
   svg {
-   @include box(2rem, 2rem);
+    @include box(2.125rem, 1.0625rem);
+    @include media-breakpoint-up(sm) {
+      @include box(2.5rem, 1.25rem);
+    }
   }
 }
 
@@ -43,7 +59,7 @@
 
 @include media-breakpoint-down(lg) {
   .nav-body {
-    width: 300px;
+    width: 18.75rem;
   }
 
   .navigation {

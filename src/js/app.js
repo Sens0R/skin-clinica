@@ -1,14 +1,11 @@
 import './modules/swiper.js';
-import { customHeader, fixedHeader } from './modules/headers.js';
+import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 /* ========================================================================================================================== */
-
-//notificationHeader()
-fixedHeader(lg);
-//customHeader(lg);
-
+//fixedHeader();
+fixedHeader(lg)
 runNavigation({ backdrop: '_active' });
 
 runNavigation({
@@ -19,4 +16,3 @@ runNavigation({
   scrollBlock: false,
   focusElement: '.nav-search-input',
 });
-
