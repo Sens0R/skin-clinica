@@ -1,0 +1,14 @@
+@mixin focus(
+  $radius: $border-radius-sm,
+  $color: $color-secondary,
+  $offset: 2px,
+  $width: 2px,
+  $style: solid
+) {
+  &:focus {
+    transition: none !important;
+    outline: $width $style $color;
+    outline-offset: $offset;
+    border-radius: $radius;
+  }
+}

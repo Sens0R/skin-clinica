@@ -152,33 +152,25 @@ a {
   user-select: none;
 }
 
-a:link {
-}
-
-a:visited {
-}
-
-:hover {
-}
-
 a:hover {
   color: inherit;
 }
 
 :focus {
   transition: none !important;
-  outline: 2px solid $color-accent;
+  animation: none !important;
+  outline: 2px solid $color-secondary;
+  outline-offset: 2px;
   border-radius: $border-radius-sm;
+}
+
+:focus * {
+  transition: none !important;
+  animation: none !important;
 }
 
 :focus:not(:focus-visible) {
   outline: 0;
-}
-
-a:focus {
-}
-
-a:active {
 }
 
 input {

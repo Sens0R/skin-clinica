@@ -17560,8 +17560,15 @@ a:hover {
 
 :focus {
   transition: none !important;
-  outline: 2px solid #db065b;
+  animation: none !important;
+  outline: 2px solid hsl(0deg, 0%, 12%);
+  outline-offset: 2px;
   border-radius: 0.2rem;
+}
+
+:focus * {
+  transition: none !important;
+  animation: none !important;
 }
 
 :focus:not(:focus-visible) {
@@ -17724,13 +17731,6 @@ input {
   }
 }
 
-.nav-mobile-socials .icon-social {
-  fill: #db065b;
-}
-.nav-mobile-socials .social-icons__link {
-  background-color: hsl(336deg, 95%, 84%);
-}
-
 /* ====================   MOBILE   ==================== */
 .navigation._active {
   transform: none;
@@ -17859,18 +17859,18 @@ input {
   padding-bottom: 0.625rem;
 }
 
-.logo-header {
+.logo-header-icon {
   width: 5.5rem;
   height: 2rem;
 }
 @media (min-width: 576px) {
-  .logo-header {
+  .logo-header-icon {
     width: 8.25rem;
     height: 3rem;
   }
 }
 @media (min-width: 992px) {
-  .logo-header {
+  .logo-header-icon {
     width: 11rem;
     height: 4rem;
   }
@@ -18005,7 +18005,7 @@ input {
 .nav-tools__icon {
   width: 0.75rem;
   height: 0.75rem;
-  fill: #db065b;
+  fill: hsl(0deg, 0%, 12%);
 }
 @media (min-width: 576px) {
   .nav-tools__icon {
@@ -18043,7 +18043,7 @@ input {
   text-align: center;
 }
 
-.logo-footer {
+.logo-footer-icon {
   width: 11rem;
   height: 4rem;
   margin-top: 1.25rem;
@@ -18193,8 +18193,7 @@ input {
   font-size: 0.875rem;
 }
 .card__link {
-  margin: -0.4rem;
-  padding: 0.4rem;
+  position: relative;
   font-size: 0.875rem;
   font-weight: bold;
   color: #db065b;
@@ -18206,10 +18205,17 @@ input {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.card__link:focus {
-  outline: none;
-  border-radius: 50rem;
-  box-shadow: hsl(336deg, 95%, 84%) 0px 0px 0px 0.25rem;
+.card__link:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 48px;
+  min-height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .card__link:hover {
   color: #db065b;
@@ -18465,30 +18471,55 @@ input {
   }
 }
 
-.notification__link:focus, .notification__link:hover {
+.logo-header:focus {
+  transition: none !important;
+  outline: 2px solid hsl(0deg, 0%, 12%);
+  outline-offset: 4px;
+  border-radius: 50rem;
+}
+
+.notification__link:focus {
+  transition: none !important;
+  outline: 2px solid hsl(0deg, 0%, 12%);
+  outline-offset: 2px;
+  border-radius: hsl(0deg, 0%, 100%);
+}
+.notification__link:hover {
   color: hsl(336deg, 95%, 84%);
 }
 
-.nav-menu__link:hover {
-  color: #db065b;
-  transition: 0.2s ease-in-out;
-}
-
 @media (max-width: 991.98px) {
-  .nav-tools__link:focus, .nav-tools__link:hover {
-    background-color: #db065b;
-    outline: none;
+  .nav-tools__link:focus {
+    transition: none !important;
+    outline: 2px solid hsl(0deg, 0%, 12%);
+    outline-offset: 0;
+    border-radius: 50rem;
   }
-  .nav-tools__link:focus svg, .nav-tools__link:hover svg {
+  .nav-tools__link:hover {
+    background-color: hsl(0deg, 0%, 12%);
+  }
+  .nav-tools__link:hover svg {
     fill: hsl(0deg, 0%, 100%);
   }
 }
 @media (min-width: 992px) {
-  .nav-tools__link:focus > *, .nav-tools__link:hover > * {
+  .nav-tools__link:focus {
+    transition: none !important;
+    outline: 2px solid hsl(0deg, 0%, 12%);
+    outline-offset: 2px;
+    border-radius: 0.2rem;
+  }
+  .nav-tools__link:hover svg {
     transition: 0.2s ease-in-out;
-    color: #db065b;
     fill: #db065b;
   }
+}
+
+.nav-toggler:focus {
+  transition: none !important;
+  outline: 2px solid hsl(0deg, 0%, 12%);
+  outline-offset: -5px;
+  border-radius: 0.6rem;
 }
 
 .nav-search-input:focus, .nav-search-input:hover, .nav-search-input:active {
@@ -18502,6 +18533,13 @@ input {
 .nav-search-buttons__search:focus svg, .nav-search-buttons__search:hover svg {
   transition: 0.2s ease-in-out;
   fill: #db065b;
+}
+
+.footer *:focus {
+  transition: none !important;
+  outline: 2px solid hsl(0deg, 0%, 100%);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
 }
 
 .footer-nav__link:hover {
@@ -18518,10 +18556,15 @@ input {
   fill: hsl(0deg, 0%, 100%);
 }
 
+.nav-menu__link:hover {
+  color: #db065b;
+  transition: 0.2s ease-in-out;
+}
+
 .icon-social {
   width: 1rem;
   height: 1rem;
-  fill: hsl(336deg, 95%, 84%);
+  fill: hsl(0deg, 0%, 12%);
 }
 
 .social-icons {
@@ -18541,7 +18584,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: hsl(0deg, 0%, 12%);
+  background: hsl(336deg, 95%, 84%);
   border-radius: 100%;
 }
 

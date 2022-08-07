@@ -1,6 +1,6 @@
 .icon-social {
   @include box(1rem, 1rem);
-  fill: $color-primary;
+  fill: $color-secondary;
 }
 
 .social-icons {
@@ -19,7 +19,7 @@
   &__link {
     padding: 0.7rem;
     @include flex(flex, center, center);
-    background: $color-secondary;
+    background: $color-primary;
     border-radius: 100%;
   }
 }

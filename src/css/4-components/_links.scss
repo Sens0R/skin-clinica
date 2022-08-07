@@ -1,20 +1,19 @@
-.notification__link{
-  &:focus,
+.logo-header {
+  @include focus($radius: $border-radius-pill, $offset: 4px);
+}
+
+.notification__link {
+  @include focus($color-light);
   &:hover {
     color: $color-primary;
   }
 }
-.nav-menu__link:hover {
-  color: $color-accent;
-  transition: 0.2s ease-in-out;
-}
 
 .nav-tools__link {
   @include media-breakpoint-down(lg) {
-    &:focus,
+    @include focus($offset: 0, $radius: $border-radius-pill);
     &:hover {
-      background-color: $color-accent;
-      outline: none;
+      background-color: $color-secondary;
       svg {
         fill: $color-white;
       }
@@ -22,15 +21,18 @@
   }
 
   @include media-breakpoint-up(lg) {
-    &:focus,
+    @include focus();
     &:hover {
-      > * {
+      svg {
         transition: 0.2s ease-in-out;
-        color: $color-accent;
         fill: $color-accent;
       }
     }
   }
+}
+
+.nav-toggler {
+  @include focus($offset: -5px, $radius: $border-radius-lg);
 }
 
 .nav-search-input {
@@ -55,6 +57,10 @@
   }
 }
 
+.footer * {
+  @include focus($color: $color-light);
+}
+
 .footer-nav__link:hover {
   transition: 0.2s ease-in-out;
   color: $color-primary;
@@ -70,4 +76,9 @@
       fill: $color-light;
     }
   }
+}
+
+.nav-menu__link:hover {
+  color: $color-accent;
+  transition: 0.2s ease-in-out;
 }

@@ -31,7 +31,7 @@
   }
 }
 
-.logo-header {
+.logo-header-icon {
   @include box(5.5rem, 2rem);
 
   @include media-breakpoint-up(sm) {
@@ -159,7 +159,7 @@
 
   &__icon {
     @include box(0.75rem);
-    fill: $color-accent;
+    fill: $color-secondary;
     @include media-breakpoint-up(sm) {
       @include box(1rem);
     }
