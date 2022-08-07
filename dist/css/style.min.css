@@ -18470,27 +18470,49 @@ input {
   }
 }
 
-.logo-header:focus {
-  transition: none !important;
-  outline: 2px solid hsl(0deg, 0%, 12%);
-  outline-offset: 4px;
-  border-radius: 50rem;
-}
-
+/* ====================   HEADER   ==================== */
 .notification__link:focus {
   transition: none !important;
-  outline: 2px solid hsl(0deg, 0%, 100%);
+  outline-color: hsl(0deg, 0%, 100%);
+  outline-style: solid;
+  outline-width: 2px;
   outline-offset: 2px;
   border-radius: 0.2rem;
 }
-.notification__link:hover {
-  color: hsl(336deg, 95%, 84%);
+@media (hover: hover) and (pointer: fine) {
+  .notification__link:hover {
+    color: hsl(336deg, 95%, 84%);
+  }
+}
+
+.logo-header:focus {
+  transition: none !important;
+  outline-color: hsl(0deg, 0%, 12%);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 0.25rem;
+  border-radius: 50rem;
+}
+
+.nav-search-buttons__search:focus {
+  transition: none !important;
+  outline-color: hsl(0deg, 0%, 12%);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 0;
+  border-radius: 0.2rem;
+}
+.nav-search-buttons__search:hover svg {
+  transition: 0.2s ease-in-out;
+  fill: #db065b;
 }
 
 @media (max-width: 991.98px) {
   .nav-tools__link:focus {
     transition: none !important;
-    outline: 2px solid hsl(0deg, 0%, 12%);
+    outline-color: hsl(0deg, 0%, 12%);
+    outline-style: solid;
+    outline-width: 2px;
     outline-offset: 0;
     border-radius: 50rem;
   }
@@ -18506,10 +18528,14 @@ input {
 @media (min-width: 992px) {
   .nav-tools__link:focus {
     transition: none !important;
-    outline: 2px solid hsl(0deg, 0%, 12%);
+    outline-color: hsl(0deg, 0%, 12%);
+    outline-style: solid;
+    outline-width: 2px;
     outline-offset: 2px;
     border-radius: 0.2rem;
   }
+}
+@media (min-width: 992px) and (hover: hover) and (pointer: fine) {
   .nav-tools__link:hover svg {
     transition: 0.2s ease-in-out;
     fill: #db065b;
@@ -18518,39 +18544,49 @@ input {
 
 .nav-toggler:focus {
   transition: none !important;
-  outline: 2px solid hsl(0deg, 0%, 12%);
-  outline-offset: -5px;
+  outline-color: hsl(0deg, 0%, 12%);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: -0.3125rem;
   border-radius: 0.6rem;
 }
 
 .nav-search-input:focus, .nav-search-input:hover, .nav-search-input:active {
-  border: 1px solid transparent;
-  outline: 1px solid hsl(0deg, 0%, 12%);
+  border: 0.0625rem solid transparent;
+  outline: 0.0625rem solid hsl(0deg, 0%, 12%);
 }
 .nav-search-input:focus::placeholder, .nav-search-input:hover::placeholder, .nav-search-input:active::placeholder {
   color: hsl(0deg, 0%, 45%);
 }
 
-.nav-search-buttons__search:focus svg, .nav-search-buttons__search:hover svg {
-  transition: 0.2s ease-in-out;
-  fill: #db065b;
-}
-
-.footer *:focus {
+/* ====================   MAIN   ==================== */
+/* ====================   FOOTER   ==================== */
+.logo-footer:focus {
   transition: none !important;
-  outline: 2px solid hsl(0deg, 0%, 100%);
-  outline-offset: 2px;
-  border-radius: 0.2rem;
+  outline-color: hsl(0deg, 0%, 12%);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 4px;
+  border-radius: 50rem;
 }
 
-.footer-nav__link:hover {
-  transition: 0.2s ease-in-out;
-  color: hsl(336deg, 95%, 84%);
+@media (hover: hover) and (pointer: fine) {
+  .footer-nav__link:hover {
+    transition: 0.2s ease-in-out;
+    color: hsl(336deg, 95%, 84%);
+  }
 }
 
+.social-icons__link:focus {
+  transition: none !important;
+  outline-color: hsl(0deg, 0%, 12%);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 0;
+  border-radius: 50rem;
+}
 .social-icons__link:focus, .social-icons__link:hover {
   transition: 0.3s ease-in-out;
-  outline: none;
   background: #db065b;
 }
 .social-icons__link:focus .icon-social, .social-icons__link:hover .icon-social {
@@ -18560,6 +18596,10 @@ input {
 .nav-menu__link:hover {
   color: #db065b;
   transition: 0.2s ease-in-out;
+}
+
+.footer * :focus {
+  outline-color: hsl(0deg, 0%, 100%);
 }
 
 .icon-social {
@@ -18631,7 +18671,6 @@ input {
   transition: 0.3s ease-in-out;
 }
 .btn:focus, .btn:hover {
-  outline: none;
   color: hsl(0deg, 0%, 100%);
   background-color: #db065b;
 }
@@ -18640,8 +18679,12 @@ input {
   background-color: #db065b;
 }
 .btn--light:focus {
-  transition: none;
-  outline: 2px solid hsl(0deg, 0%, 100%);
+  transition: none !important;
+  outline-color: hsl(0deg, 0%, 100%);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 0;
+  border-radius: 0.2rem;
 }
 .btn--light:hover {
   background-color: #f91a73;

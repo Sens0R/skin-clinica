@@ -1,11 +1,22 @@
-.logo-header {
-  @include focus($radius: $border-radius-pill, $offset: 4px);
-}
-
+/* ====================   HEADER   ==================== */
 .notification__link {
   @include focus($color-light);
-  &:hover {
+  @include hover {
     color: $color-primary;
+  }
+}
+
+.logo-header {
+  @include focus($radius: $border-radius-pill, $offset: 0.25rem);
+}
+
+.nav-search-buttons__search {
+  @include focus($offset: 0);
+  &:hover {
+    svg {
+      transition: 0.2s ease-in-out;
+      fill: $color-accent;
+    }
   }
 }
 
@@ -22,7 +33,7 @@
 
   @include media-breakpoint-up(lg) {
     @include focus();
-    &:hover {
+    @include hover {
       svg {
         transition: 0.2s ease-in-out;
         fill: $color-accent;
@@ -30,47 +41,41 @@
     }
   }
 }
-
 .nav-toggler {
-  @include focus($offset: -5px, $radius: $border-radius-lg);
+  @include focus($offset: -0.3125rem, $radius: $border-radius-lg);
 }
 
 .nav-search-input {
   &:focus,
   &:hover,
   &:active {
-    border: 1px solid transparent;
-    outline: 1px solid $color-secondary;
+    border: 0.0625rem solid transparent;
+    outline: 0.0625rem solid $color-secondary;
     &::placeholder {
       color: $color-gray;
     }
   }
 }
+/* ====================   MAIN   ==================== */
 
-.nav-search-buttons__search {
-  &:focus,
-  &:hover {
-    svg {
-      transition: 0.2s ease-in-out;
-      fill: $color-accent;
-    }
+/* ====================   FOOTER   ==================== */
+
+.logo-footer {
+  @include focus($offset: 4px, $radius: $border-radius-pill);
+}
+
+.footer-nav__link {
+  @include hover {
+    transition: 0.2s ease-in-out;
+    color: $color-primary;
   }
 }
 
-.footer * {
-  @include focus($color: $color-light);
-}
-
-.footer-nav__link:hover {
-  transition: 0.2s ease-in-out;
-  color: $color-primary;
-}
-
 .social-icons__link {
+  @include focus($radius: $border-radius-pill, $offset: 0);
   &:focus,
   &:hover {
     transition: 0.3s ease-in-out;
-    outline: none;
     background: $color-accent;
     .icon-social {
       fill: $color-light;
@@ -81,4 +86,8 @@
 .nav-menu__link:hover {
   color: $color-accent;
   transition: 0.2s ease-in-out;
+}
+
+.footer * :focus {
+  outline-color: $color-light;
 }

@@ -12,17 +12,13 @@
 
   &:focus,
   &:hover {
-    outline: none;
     color: $color-light;
     background-color: $color-accent;
   }
 }
 
 .btn--light {
-  &:focus {
-    transition: none;
-    outline: 2px solid $color-light;
-  }
+  @include focus($offset: 0, $color: $color-light);
 
   &:hover {
     background-color: lighten($color-accent, 10%);

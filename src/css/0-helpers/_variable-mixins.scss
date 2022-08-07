@@ -3,12 +3,16 @@
   $radius: $border-radius-sm,
   $offset: 2px,
   $width: 2px,
-  $style: solid
+  $style: solid,
+  $bg: null
 ) {
   &:focus {
     transition: none !important;
-    outline: $width $style $color;
+    outline-color: $color;
+    outline-style: $style;
+    outline-width: $width;
     outline-offset: $offset;
     border-radius: $radius;
+    background-color: $bg;
   }
 }
