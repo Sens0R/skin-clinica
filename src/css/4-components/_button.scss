@@ -19,7 +19,7 @@
 
 .btn--light {
   @include focus($offset: 0, $color: $color-light);
-
+  &:focus,
   &:hover {
     background-color: lighten($color-accent, 10%);
   }

@@ -5,6 +5,7 @@
   .card-img {
     @include image-cover(auto);
     aspect-ratio: 16 / 9;
+    @include depth();
   }
 
   &__content {

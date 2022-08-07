@@ -31,6 +31,16 @@
   }
 }
 
+@media screen and (max-width: 359px) {
+  .logo {
+    display: none;
+  }
+
+  .tools {
+    margin-right: 3.75rem;
+  }
+}
+
 .logo-header-icon {
   @include box(5.5rem, 2rem);
 
@@ -126,21 +136,17 @@
 
   &__link {
     @include flex($justify-content: center, $align-items: center);
-    padding: 0.6rem;
-    margin-right: 0.3rem;
-    background-color: $color-primary-light;
-    border-radius: 100%;
-
-    @include media-breakpoint-up(sm) {
+    margin-right: 0.5rem;
+    padding: 0;
+    @include media-breakpoint-down(sm) {
       padding: 0.8rem;
-      margin-right: 0.5rem;
     }
 
-    @include media-breakpoint-up(lg) {
-      margin-right: 1rem;
-      padding: 0;
-      background-color: transparent;
-      border-radius: 0;
+    @include media-breakpoint-down(lg) {
+      padding: 0.7rem;
+      @include depth();
+      background-color: $color-primary-light;
+      border-radius: 100%;
     }
 
     &:last-child {
@@ -158,11 +164,8 @@
   }
 
   &__icon {
-    @include box(0.75rem);
-    fill: $color-secondary;
-    @include media-breakpoint-up(sm) {
-      @include box(1rem);
-    }
+    @include box(1rem);
+    fill: $color-accent;
 
     @include media-breakpoint-up(lg) {
       margin-right: 0.15rem;
