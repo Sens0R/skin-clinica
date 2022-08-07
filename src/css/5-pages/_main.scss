@@ -48,7 +48,7 @@
 /* ====================   BLOG   ==================== */
 
 .blog {
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
   flex-direction: column;
 }
 
@@ -61,7 +61,7 @@
 
 .testimonials {
   position: relative;
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
   flex-direction: column;
   text-align: center;
   user-select: none;
@@ -84,7 +84,7 @@
   }
 
   &__person {
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
     flex-direction: column;
   }
 }

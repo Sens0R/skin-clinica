@@ -18175,7 +18175,6 @@ input {
 .card {
   display: flex;
   justify-content: center;
-  align-items: left;
   flex-direction: column;
 }
 .card .card-img {
@@ -18480,9 +18479,9 @@ input {
 
 .notification__link:focus {
   transition: none !important;
-  outline: 2px solid hsl(0deg, 0%, 12%);
+  outline: 2px solid hsl(0deg, 0%, 100%);
   outline-offset: 2px;
-  border-radius: hsl(0deg, 0%, 100%);
+  border-radius: 0.2rem;
 }
 .notification__link:hover {
   color: hsl(336deg, 95%, 84%);
@@ -18495,6 +18494,8 @@ input {
     outline-offset: 0;
     border-radius: 50rem;
   }
+}
+@media (max-width: 991.98px) and (hover: hover) and (pointer: fine) {
   .nav-tools__link:hover {
     background-color: hsl(0deg, 0%, 12%);
   }

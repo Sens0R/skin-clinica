@@ -4,8 +4,7 @@
 }
 
 .social-icons {
-  display: flex;
-  align-items: center;
+  @include flex($align-items: center);
   @include media-breakpoint-down(sm) {
     flex-wrap: wrap;
   }
@@ -18,7 +17,7 @@
 
   &__link {
     padding: 0.7rem;
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
     background: $color-primary;
     border-radius: 100%;
   }

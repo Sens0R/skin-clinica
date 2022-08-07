@@ -1,7 +1,7 @@
 .card {
-  @include flex(flex, center, left);
-  flex-direction: column;
-
+  @include flex($justify-content: center, $align-items: null, $flex-direction: column);
+  
+  
   .card-img {
     @include image-cover(auto);
     aspect-ratio: 16 / 9;

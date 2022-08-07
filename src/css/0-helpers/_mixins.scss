@@ -1,7 +1,16 @@
-@mixin flex($flex: flex, $justify-content: center, $align-items: center) {
-  display: $flex;
+@mixin flex($justify-content: null, $align-items: null, $flex-direction: null) {
+  display: flex;
   justify-content: $justify-content;
   align-items: $align-items;
+  flex-direction: $flex-direction;
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+      &:hover {
+          @content;
+      }
+  }
 }
 
 @mixin link-space($size: 48px) {

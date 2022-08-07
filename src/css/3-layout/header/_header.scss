@@ -25,7 +25,7 @@
 
 .nav-belt {
   > * {
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
     @include padding-top($spacer-sm);
     @include padding-bottom($spacer-sm);
   }
@@ -47,7 +47,7 @@
 
 .input-wrapper {
   position: relative;
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
   width: 100%;
   max-width: 35rem;
 }
@@ -96,7 +96,7 @@
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
     @include fixed(top 0 left 0);
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
     z-index: 1;
     height: 7rem;
     background: $color-white;
@@ -114,7 +114,7 @@
   }
 
   .nav-search {
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
     width: 100%;
   }
 }
@@ -122,10 +122,10 @@
 /* ====================   TOOLS   ==================== */
 
 .nav-tools {
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
 
   &__link {
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
     padding: 0.6rem;
     margin-right: 0.3rem;
     background-color: $color-primary-light;

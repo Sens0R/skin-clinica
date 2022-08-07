@@ -72,10 +72,10 @@
 }
 
 .mailing-form {
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
 
   &__item {
-    @include flex(flex, center, center);
+    @include flex($justify-content: center, $align-items: center);
 
     &:first-child {
       margin-bottom: $spacer-sm;

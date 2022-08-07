@@ -12,7 +12,7 @@
 .nav-tools__link {
   @include media-breakpoint-down(lg) {
     @include focus($offset: 0, $radius: $border-radius-pill);
-    &:hover {
+    @include hover {
       background-color: $color-secondary;
       svg {
         fill: $color-white;

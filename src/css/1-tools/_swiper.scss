@@ -10,7 +10,7 @@
 }
 
 .swiper-pagination {
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
   user-select: none;
   z-index: -1;
 }
@@ -33,7 +33,7 @@
   @include box(5rem, 5rem);
   z-index: 15;
   @include icon-grow();
-  @include flex(flex, center, center);
+  @include flex($justify-content: center, $align-items: center);
   @include center(vertical);
 
   svg {
