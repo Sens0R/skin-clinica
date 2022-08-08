@@ -17,6 +17,7 @@
 }
 
 .header {
+  font-size: $fs-sm;
   width: 100%;
   @include z-index(header);
   user-select: none;
@@ -33,6 +34,9 @@
 
 .logo-header {
   @include flex($justify-content: center, $align-items: center);
+  @include media-breakpoint-up(sm) {
+    padding-right: 1rem;
+  }
 }
 
 .logo-text {
@@ -135,6 +139,7 @@
 /* ====================   TOOLS   ==================== */
 
 .nav-tools {
+  
   @include flex($justify-content: center, $align-items: center);
 
   &__link {
@@ -143,7 +148,7 @@
     padding: 0;
 
     @include media-breakpoint-down(lg) {
-      margin-right: .75rem;
+      margin-right: 0.75rem;
       padding: 0.75rem;
       background-color: $color-primary-light;
       border-radius: 100%;

@@ -17031,16 +17031,13 @@ svg {
   }
 }
 /* ====================   RESET ENDS HERE   ==================== */
-* {
+html,
+body {
   font-family: DMSans, Arial, sans-serif;
   line-height: 1.6;
   font-size: 1rem;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html,
-body {
   background-color: hsl(0deg, 0%, 100%);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .page-wrapper {
@@ -17138,6 +17135,8 @@ hr {
 }
 
 button {
+  font-family: inherit;
+  font-size: inherit;
   border-radius: 0;
   border-width: 0;
   background-color: transparent;
@@ -17395,7 +17394,6 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.875rem;
     margin-top: 0.625rem;
     margin-bottom: 0.625rem;
   }
@@ -17429,6 +17427,7 @@ input {
 }
 
 .header {
+  font-size: 0.875rem;
   width: 100%;
   z-index: 50;
   user-select: none;
@@ -17447,6 +17446,11 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (min-width: 576px) {
+  .logo-header {
+    padding-right: 1rem;
+  }
 }
 
 .logo-text {
@@ -18177,14 +18181,10 @@ input {
   transform: translate(-50%, -50%);
 }
 .notification__link:focus-visible {
-  outline-color: hsl(0deg, 0%, 100%);
+  outline-color: hsl(336deg, 95%, 84%);
+  outline-offset: 1px;
+  border-radius: 0.2rem;
 }
-@media (hover: hover) and (pointer: fine) {
-  .notification__link:hover {
-    color: hsl(336deg, 95%, 84%);
-  }
-}
-
 .logo-header {
   position: relative;
 }
@@ -18200,24 +18200,32 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.logo-header:focus-visible {
+  outline-style: none;
+  background-color: hsl(336deg, 95%, 84%);
+}
 @media (max-width: 575.98px) {
   .logo-header:focus-visible {
     outline-color: #db065b;
   }
 }
 
-.nav-search-buttons__search:focus-visible {
-  outline-style: none;
-}
-.nav-search-buttons__search:focus-visible svg, .nav-search-buttons__search:hover svg {
-  transition: 0.2s ease-in-out;
-  fill: #db065b;
-}
-
 .nav-search-input:focus-visible {
   outline-color: hsl(0deg, 0%, 12%);
   outline-width: 1px;
   outline-offset: 0;
+}
+.nav-search-buttons__search:focus-visible {
+  outline-style: none;
+}
+.nav-search-buttons__search:focus-visible svg {
+  fill: #db065b;
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-search-buttons__search:hover svg {
+    transition: 0.2s ease-in-out;
+    fill: #db065b;
+  }
 }
 
 .nav-tools__link {
@@ -18237,16 +18245,25 @@ input {
 }
 @media (max-width: 991.98px) {
   .nav-tools__link:focus-visible {
-    outline-color: hsl(336deg, 95%, 84%);
-    outline-width: 4px;
+    outline-color: #db065b;
     outline-offset: 0;
   }
-  .nav-tools__link:focus-visible, .nav-tools__link:hover {
+}
+@media (max-width: 991.98px) and (hover: hover) and (pointer: fine) {
+  .nav-tools__link:hover {
     transition: 0.5s ease-in-out;
     background-color: hsl(0deg, 0%, 12%);
   }
-  .nav-tools__link:focus-visible svg, .nav-tools__link:hover svg {
+  .nav-tools__link:hover svg {
     fill: hsl(0deg, 0%, 100%);
+  }
+}
+@media (min-width: 992px) {
+  .nav-tools__link:focus-visible {
+    outline-color: #db065b;
+  }
+  .nav-tools__link:focus-visible svg {
+    fill: #db065b;
   }
 }
 @media (min-width: 992px) and (hover: hover) and (pointer: fine) {
@@ -18257,10 +18274,10 @@ input {
 }
 
 .nav-toggler:focus-visible {
-  outline-offset: -5px;
-  border-radius: 2px;
+  outline-style: none;
+  border-radius: 0.2rem;
+  background-color: hsl(336deg, 95%, 84%);
 }
-
 .nav-menu__link {
   position: relative;
 }
@@ -18323,17 +18340,14 @@ input {
 .card__link:focus-visible {
   outline-color: #db065b;
 }
-@media (hover: hover) and (pointer: fine) {
-  .card__link:hover {
-    color: #db065b;
-  }
-}
-
 /* ====================   FOOTER   ==================== */
 .mailing-form__input:focus-visible {
-  outline-offset: 2px;
+  outline-offset: 0;
 }
-
+.logo-footer:focus-visible {
+  outline-style: none;
+  background-color: #db065b;
+}
 .footer-nav__link {
   position: relative;
 }
@@ -18385,7 +18399,6 @@ input {
 .footer *:focus-visible {
   outline-color: hsl(0deg, 0%, 100%);
 }
-
 .section-header {
   align-self: flex-start;
 }

@@ -4,7 +4,8 @@
   $offset: null,
   $size: null,
   $bg: null,
-  $style: null
+  $style: null,
+  $fill: null
 ) {
   &:focus-visible {
     outline-color: $color;
@@ -13,6 +14,9 @@
     outline-offset: $offset;
     border-radius: $radius;
     background-color: $bg;
+    svg {
+      fill: $fill;
+    }
   }
 }
 

@@ -106,7 +106,6 @@
 
   .nav-menu {
     @include flex($justify-content: center, $align-items: center);
-    font-size: $font-size-sm;
     @include margin-top($spacer-sm);
     @include margin-bottom($spacer-sm);
   }

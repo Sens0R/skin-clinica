@@ -58,16 +58,14 @@ svg {
 }
 
 /* ====================   RESET ENDS HERE   ==================== */
-* {
-  font-family: $ff-primary;
-  line-height: $lh-base;
-  font-size: $fs-base;
-  -webkit-tap-highlight-color: transparent;
-}
 
 html,
 body {
+  font-family: $ff-primary;
+  line-height: $lh-base;
+  font-size: $fs-base;
   background-color: $color-light;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .page-wrapper {
@@ -134,6 +132,8 @@ hr {
 }
 
 button {
+  font-family: inherit;
+  font-size: inherit;
   border-radius: 0;
   border-width: 0;
   background-color: transparent;
