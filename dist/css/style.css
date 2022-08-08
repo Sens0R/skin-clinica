@@ -73,7 +73,7 @@
   --bs-body-bg: #fff;
   --bs-border-width: 1px;
   --bs-border-style: solid;
-  --bs-border-color: #e6e6e6;
+  --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0.4rem;
   --bs-border-radius-sm: 0.2rem;
@@ -17829,8 +17829,8 @@ input {
   font-size: 0.875rem;
 }
 .notification__link {
-  vertical-align: middle;
   color: hsl(336deg, 95%, 84%);
+  vertical-align: middle;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -17909,8 +17909,8 @@ input {
   width: 100%;
   height: 2.5rem;
   padding: 0.25rem;
-  border: 1px solid #e6e6e6;
-  border-radius: 0.2rem;
+  outline: 1px solid hsl(336deg, 95%, 84%);
+  border-radius: 50rem;
   padding-left: 3rem;
 }
 .nav-search-input::placeholder {
@@ -17989,19 +17989,20 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
+  margin-right: 1.25rem;
   padding: 0;
-}
-@media (max-width: 575.98px) {
-  .nav-tools__link {
-    padding: 0.8rem;
-  }
 }
 @media (max-width: 991.98px) {
   .nav-tools__link {
+    margin-right: 0.75rem;
     padding: 0.75rem;
     background-color: #fecde1;
     border-radius: 100%;
+  }
+}
+@media (max-width: 359.98px) {
+  .nav-tools__link {
+    margin-right: 0.5rem;
   }
 }
 .nav-tools__link:last-child {
@@ -18024,7 +18025,7 @@ input {
 }
 @media (min-width: 992px) {
   .nav-tools__icon {
-    margin-right: 0.15rem;
+    margin-right: 3px;
     fill: hsl(336deg, 95%, 84%);
   }
 }
@@ -18051,7 +18052,7 @@ input {
 }
 
 .copyright {
-  color: rgba(255, 255, 255, 0.5);
+  color: #999999;
   font-size: 0.75rem;
   text-align: center;
 }
@@ -18064,7 +18065,7 @@ input {
 }
 
 .logo-footer-text {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   margin-left: 0.5em;
   white-space: nowrap;
@@ -18109,7 +18110,7 @@ input {
 }
 
 .footer-nav-main {
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid #999999;
   padding-top: calc(1.5rem + 3vw);
   display: grid;
   grid-template-columns: 1fr;
@@ -18636,11 +18637,18 @@ input {
   border-radius: 0.6rem;
 }
 
-.nav-search-input:focus, .nav-search-input:hover, .nav-search-input:active {
-  border: 0.0625rem solid transparent;
-  outline: 0.0625rem solid hsl(0deg, 0%, 12%);
+.nav-search-input:focus-visible {
+  transition: none !important;
+  outline-color: #db065b;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: -2px;
+  border-radius: 50rem;
 }
-.nav-search-input:focus::placeholder, .nav-search-input:hover::placeholder, .nav-search-input:active::placeholder {
+.nav-search-input:hover {
+  outline-color: #db065b;
+}
+.nav-search-input:hover::placeholder {
   color: hsl(0deg, 0%, 45%);
 }
 

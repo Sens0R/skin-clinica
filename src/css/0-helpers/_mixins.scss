@@ -7,9 +7,9 @@
 
 @mixin hover {
   @media (hover: hover) and (pointer: fine) {
-      &:hover {
-          @content;
-      }
+    &:hover {
+      @content;
+    }
   }
 }
 
@@ -36,7 +36,7 @@
   } @else if $depth > 5 {
     @warn "Invalid $depth `#{$depth}` for mixin `card`.";
   } @else {
-    box-shadow: bottom-shadow($depth), top-shadow($depth);  
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
   }
 }
 
@@ -127,4 +127,10 @@
 
 @mixin z-index($key) {
   z-index: z-index($key);
+}
+
+@mixin media-xs {
+  @media (max-width: 359.98px) {
+    @content;
+  }
 }

@@ -7,7 +7,7 @@
   user-select: none;
   margin-top: auto;
   position: relative;
-  color: $font-color-light;
+  color: $color-light;
   &-logo {
     @include margin-top($spacer);
     @include margin-bottom($spacer);
@@ -15,7 +15,7 @@
 }
 
 .copyright {
-  color: $color-white-muted;
+  color: darken($color-light, 40%);
   font-size: 0.75rem;
   text-align: center;
 }
@@ -26,7 +26,7 @@
 }
 
 .logo-footer-text {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   margin-left: 0.5em;
   white-space: nowrap;
@@ -48,7 +48,7 @@
 }
 
 .footer-nav-main {
-  border-top: 1px solid $color-white-transparent;
+  border-top: 1px solid darken($color-light, 40%);
   @include padding-top($spacer-xl);
   @include media-breakpoint-up(sm) {
     @include padding-bottom($spacer-xl);

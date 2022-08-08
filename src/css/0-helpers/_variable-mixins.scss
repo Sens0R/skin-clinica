@@ -2,18 +2,16 @@
   $color: $color-secondary,
   $radius: $border-radius-sm,
   $offset: 2px,
-  $width: 2px,
-  $style: solid,
-  $bg: null
+  $size: 2px,
+  $style: solid
 ) {
   &:focus-visible {
     transition: none !important;
     outline-color: $color;
     outline-style: $style;
-    outline-width: $width;
+    outline-width: $size;
     outline-offset: $offset;
     border-radius: $radius;
-    background-color: $bg;
   }
 }
 

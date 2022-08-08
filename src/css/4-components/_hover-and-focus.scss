@@ -50,11 +50,9 @@
 }
 
 .nav-search-input {
-  &:focus,
-  &:hover,
-  &:active {
-    border: 0.0625rem solid transparent;
-    outline: 0.0625rem solid $color-secondary;
+  @include focus($offset: -2px, $radius: $border-radius-pill, $size: 2px, $color: $color-accent);
+  &:hover {
+    outline-color: $color-accent;
     &::placeholder {
       color: $color-gray;
     }
