@@ -39,15 +39,12 @@
   @include media-breakpoint-down(sm) {
     display: none;
   }
+  font-size: 1.25rem;
   color: $color-secondary;
   text-transform: uppercase;
   @include underline();
   margin-left: 0.5em;
   white-space: nowrap;
-  &--light {
-    color: $color-light;
-    @include underline($color-light);
-  }
 }
 
 .logo-header-icon {

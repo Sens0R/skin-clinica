@@ -21,6 +21,15 @@
   max-width: 14rem;
 }
 
+.logo-footer-text {
+  font-size: 1.375rem;
+  text-transform: uppercase;
+  margin-left: 0.5em;
+  white-space: nowrap;
+  color: $color-light;
+  @include underline($color-light);
+}
+
 .logo-footer-icon {
   @include box(5rem, 5rem);
   @include margin-top($spacer);

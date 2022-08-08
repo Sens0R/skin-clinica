@@ -17874,6 +17874,7 @@ input {
 }
 
 .logo-text {
+  font-size: 1.25rem;
   color: hsl(0deg, 0%, 12%);
   text-transform: uppercase;
   position: relative;
@@ -17895,22 +17896,6 @@ input {
   width: 100%;
   height: 1px;
   background-color: hsl(0deg, 0%, 0%);
-  border-radius: 2px;
-}
-.logo-text--light {
-  color: hsl(0deg, 0%, 100%);
-  position: relative;
-  text-decoration: none;
-}
-.logo-text--light:after {
-  content: "";
-  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 1px;
-  background-color: hsl(0deg, 0%, 100%);
   border-radius: 2px;
 }
 
@@ -18089,6 +18074,27 @@ input {
   justify-content: flex-start;
   align-items: center;
   max-width: 14rem;
+}
+
+.logo-footer-text {
+  font-size: 1.375rem;
+  text-transform: uppercase;
+  margin-left: 0.5em;
+  white-space: nowrap;
+  color: hsl(0deg, 0%, 100%);
+  position: relative;
+  text-decoration: none;
+}
+.logo-footer-text:after {
+  content: "";
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 2px;
 }
 
 .logo-footer-icon {
