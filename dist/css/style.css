@@ -18698,11 +18698,11 @@ input {
   outline-offset: 0;
   border-radius: 50rem;
 }
-.social-icons__link:focus, .social-icons__link:hover {
+.social-icons__link:focus-visible, .social-icons__link:hover {
   transition: 0.3s ease-in-out;
   background: #db065b;
 }
-.social-icons__link:focus .icon-social, .social-icons__link:hover .icon-social {
+.social-icons__link:focus-visible .icon-social, .social-icons__link:hover .icon-social {
   fill: hsl(0deg, 0%, 100%);
 }
 
@@ -18728,7 +18728,7 @@ input {
   }
 }
 
-.footer * :focus {
+.footer * :focus-visible {
   outline-color: hsl(0deg, 0%, 100%);
 }
 
@@ -18801,7 +18801,7 @@ input {
   box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
   transition: 0.3s ease-in-out;
 }
-.btn:focus, .btn:hover {
+.btn:focus-visible, .btn:hover {
   color: hsl(0deg, 0%, 100%);
   background-color: #db065b;
 }
@@ -18817,7 +18817,7 @@ input {
   outline-offset: 0;
   border-radius: 0.2rem;
 }
-.btn--light:focus, .btn--light:hover {
+.btn--light:focus-visible, .btn--light:hover {
   background-color: #f91a73;
 }
 

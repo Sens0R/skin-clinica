@@ -79,7 +79,7 @@
 .social-icons__link {
   @include link-space();
   @include focus($radius: $border-radius-pill, $offset: 0);
-  &:focus,
+  &:focus-visible,
   &:hover {
     transition: 0.3s ease-in-out;
     background: $color-accent;
@@ -97,6 +97,6 @@
   }
 }
 
-.footer * :focus {
+.footer * :focus-visible {
   outline-color: $color-light;
 }

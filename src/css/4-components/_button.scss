@@ -10,7 +10,7 @@
   box-shadow: $shadow-sm;
   transition: 0.3s ease-in-out;
 
-  &:focus,
+  &:focus-visible,
   &:hover {
     color: $color-light;
     background-color: $color-accent;
@@ -19,7 +19,7 @@
 
 .btn--light {
   @include focus($offset: 0, $color: $color-light);
-  &:focus,
+  &:focus-visible,
   &:hover {
     background-color: lighten($color-accent, 10%);
   }
