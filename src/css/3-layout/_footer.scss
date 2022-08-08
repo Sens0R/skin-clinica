@@ -120,10 +120,7 @@
     width: 255px;
     padding: 0.625rem 0 0.625rem 1rem;
     border-radius: $border-radius-sm;
-    &:focus {
-      outline: 2px solid $color-light;
-    }
-
+    
     &::placeholder {
       color: $color-gray;
       font-size: $fs-sm;

@@ -18,7 +18,7 @@
 }
 
 .btn--light {
-  @include focus($offset: 0, $color: $color-light);
+  @include focus($offset: 2px, $color: $color-light, $radius: $border-radius-sm);
   &:focus-visible,
   &:hover {
     background-color: lighten($color-accent, 10%);

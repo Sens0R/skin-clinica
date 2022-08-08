@@ -1,17 +1,18 @@
 @mixin focus(
-  $color: $color-secondary,
-  $radius: $border-radius-sm,
-  $offset: 2px,
-  $size: 2px,
-  $style: solid
+  $color: null,
+  $radius: null,
+  $offset: null,
+  $size: null,
+  $bg: null,
+  $style: null
 ) {
   &:focus-visible {
-    transition: none !important;
     outline-color: $color;
     outline-style: $style;
     outline-width: $size;
     outline-offset: $offset;
     border-radius: $radius;
+    background-color: $bg;
   }
 }
 

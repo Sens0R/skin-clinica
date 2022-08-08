@@ -140,7 +140,6 @@ hr {
 
 button {
   background-color: transparent;
-  color: inherit;
   border-width: 0;
   cursor: pointer;
   user-select: none;
@@ -152,16 +151,12 @@ a {
   user-select: none;
 }
 
-a:hover {
-  color: inherit;
-}
-
 :focus-visible {
   transition: none !important;
   animation: none !important;
   outline: 2px solid $color-secondary;
-  outline-offset: 2px;
-  border-radius: $border-radius-sm;
+  outline-offset: 5px;
+  border-radius: $border-radius-pill;
 }
 
 :focus-visible * {
@@ -173,3 +168,4 @@ input {
   outline: none;
   border: none;
 }
+

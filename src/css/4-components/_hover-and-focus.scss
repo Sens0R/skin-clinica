@@ -8,12 +8,15 @@
 }
 
 .logo-header {
-  @include focus($radius: $border-radius-pill, $offset: 4px);
   @include link-space();
+  @include media-breakpoint-down(sm) {
+    @include focus($color: $color-accent);
+  }
 }
 
 .nav-search-buttons__search {
-  @include focus($offset: 0);
+  @include focus($offset: -2px, $color: $color-accent);
+  &:focus-visible,
   &:hover {
     svg {
       transition: 0.2s ease-in-out;
@@ -25,8 +28,10 @@
 .nav-tools__link {
   @include link-space();
   @include media-breakpoint-down(lg) {
-    @include focus($offset: 0, $radius: $border-radius-pill);
-    @include hover {
+    @include focus($color: $color-primary, $offset: 0, $size: 4px);
+    &:focus-visible,
+    &:hover {
+      transition: 0.5s ease-in-out;
       background-color: $color-secondary;
       svg {
         fill: $color-white;
@@ -35,7 +40,6 @@
   }
 
   @include media-breakpoint-up(lg) {
-    @include focus();
     @include hover {
       svg {
         transition: 0.2s ease-in-out;
@@ -46,11 +50,17 @@
 }
 
 .nav-toggler {
-  @include focus($offset: -0.3125rem, $radius: $border-radius-lg);
+  @include focus($offset: -5px, $radius: 2px);
 }
 
 .nav-search-input {
-  @include focus($offset: -2px, $radius: $border-radius-pill, $size: 2px, $color: $color-accent);
+  @include focus(
+    $offset: -2px,
+    $radius: $border-radius-pill,
+    $size: 2px,
+    $color: $color-accent
+  );
+
   &:hover {
     outline-color: $color-accent;
     &::placeholder {
@@ -58,12 +68,20 @@
     }
   }
 }
+
 /* ====================   MAIN   ==================== */
+.card__link {
+  @include link-space();
+  @include icon-wobble-horizontal();
+  @include focus($color: $color-accent);
+  &:hover {
+    color: $color-accent;
+  }
+}
 
 /* ====================   FOOTER   ==================== */
-
-.logo-footer {
-  @include focus($offset: 4px, $radius: $border-radius-pill);
+.mailing-form__input {
+  @include focus($offset: 2px);
 }
 
 .footer-nav__link {
@@ -76,7 +94,7 @@
 
 .social-icons__link {
   @include link-space();
-  @include focus($radius: $border-radius-pill, $offset: 0);
+  @include focus($offset: 0);
   &:focus-visible,
   &:hover {
     transition: 0.3s ease-in-out;
@@ -95,6 +113,6 @@
   }
 }
 
-.footer * :focus-visible {
-  outline-color: $color-light;
+.footer * {
+  @include focus($color-light);
 }

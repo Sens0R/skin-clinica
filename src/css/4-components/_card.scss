@@ -1,7 +1,6 @@
 .card {
-  @include flex($justify-content: center, $align-items: null, $flex-direction: column);
-  
-  
+  @include flex($justify-content: center, $flex-direction: column);
+
   .card-img {
     @include image-cover(auto);
     aspect-ratio: 16 / 9;
@@ -18,16 +17,9 @@
   }
 
   &__link {
-    @include link-space();
     font-size: $fs-sm;
     font-weight: bold;
     color: $color-accent;
-
-    &:hover {
-      color: $color-accent;
-    }
-
-    @include icon-wobble-horizontal();
   }
 }
 
