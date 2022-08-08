@@ -15,7 +15,7 @@
 }
 
 .nav-search-buttons__search {
-  @include focus($offset: -2px, $color: $color-accent);
+  @include focus($style: none);
   &:focus-visible,
   &:hover {
     svg {
@@ -23,6 +23,11 @@
       fill: $color-accent;
     }
   }
+}
+
+.nav-search-input {
+  @include focus($offset: 0, $size: 1px, $color: $color-secondary);
+ 
 }
 
 .nav-tools__link {
@@ -49,28 +54,11 @@
   }
 }
 
-.nav-search-input {
-  @include focus(
-    $offset: -2px,
-    $radius: $border-radius-pill,
-    $size: 2px,
-    $color: $color-accent
-  );
-
-  &:hover {
-    outline-color: $color-accent;
-    &::placeholder {
-      color: $color-gray;
-    }
-  }
-}
-
 .nav-toggler {
   @include focus($offset: -5px, $radius: 2px);
 }
 
 .nav-menu__link {
-  
   @include link-space();
   @include hover {
     color: $color-accent;
@@ -79,6 +67,7 @@
 }
 
 /* ====================   MAIN   ==================== */
+
 .card__link {
   @include link-space();
   @include icon-wobble-horizontal();

@@ -58,14 +58,16 @@ svg {
 }
 
 /* ====================   RESET ENDS HERE   ==================== */
+* {
+  font-family: $ff-primary;
+  line-height: $lh-base;
+  font-size: $fs-base;
+  -webkit-tap-highlight-color: transparent;
+}
 
 html,
 body {
-  font-size: $fs-base;
-  font-family: $ff-primary;
-  line-height: $lh-base;
   background-color: $color-light;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .page-wrapper {
@@ -90,8 +92,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $headings-ff;
-  color: $headings-color;
   font-weight: $headings-fw;
   line-height: $headings-lh;
 }

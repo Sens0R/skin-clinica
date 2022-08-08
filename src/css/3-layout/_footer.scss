@@ -92,7 +92,7 @@
 
   &__item {
     @include flex($justify-content: center, $align-items: center);
-
+    
     &:first-child {
       margin-bottom: $spacer-sm;
       @include media-breakpoint-up(sm) {
@@ -117,7 +117,8 @@
 
   &__input {
     height: 2.25rem;
-    width: 255px;
+    width: 16rem;
+    height: 2.625rem;
     padding: 0.625rem 0 0.625rem 1rem;
     border-radius: $border-radius-sm;
     

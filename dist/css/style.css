@@ -17031,13 +17031,16 @@ svg {
   }
 }
 /* ====================   RESET ENDS HERE   ==================== */
-html,
-body {
-  font-size: 1rem;
+* {
   font-family: DMSans, Arial, sans-serif;
   line-height: 1.6;
-  background-color: hsl(0deg, 0%, 100%);
+  font-size: 1rem;
   -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .page-wrapper {
@@ -17073,7 +17076,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: DMSans, Arial, sans-serif;
   font-weight: bold;
   line-height: 1.2;
 }
@@ -17790,7 +17792,8 @@ input {
 }
 .mailing-form__input {
   height: 2.25rem;
-  width: 255px;
+  width: 16rem;
+  height: 2.625rem;
   padding: 0.625rem 0 0.625rem 1rem;
   border-radius: 0.2rem;
 }
@@ -17895,8 +17898,8 @@ input {
   background-color: hsl(0deg, 0%, 12%);
   color: hsl(0deg, 0%, 100%);
   border-radius: 0.2rem;
-  line-height: 1.25;
   font-weight: bold;
+  min-height: 2.625rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
@@ -18195,12 +18198,17 @@ input {
 }
 
 .nav-search-buttons__search:focus-visible {
-  outline-color: #db065b;
-  outline-offset: -2px;
+  outline-style: none;
 }
 .nav-search-buttons__search:focus-visible svg, .nav-search-buttons__search:hover svg {
   transition: 0.2s ease-in-out;
   fill: #db065b;
+}
+
+.nav-search-input:focus-visible {
+  outline-color: hsl(0deg, 0%, 12%);
+  outline-width: 1px;
+  outline-offset: 0;
 }
 
 .nav-tools__link {
@@ -18237,19 +18245,6 @@ input {
     transition: 0.2s ease-in-out;
     fill: #db065b;
   }
-}
-
-.nav-search-input:focus-visible {
-  outline-color: #db065b;
-  outline-width: 2px;
-  outline-offset: -2px;
-  border-radius: 50rem;
-}
-.nav-search-input:hover {
-  outline-color: #db065b;
-}
-.nav-search-input:hover::placeholder {
-  color: hsl(0deg, 0%, 45%);
 }
 
 .nav-toggler:focus-visible {
