@@ -6,7 +6,7 @@
   $style: solid,
   $bg: null
 ) {
-  &:focus {
+  &:focus-visible {
     transition: none !important;
     outline-color: $color;
     outline-style: $style;

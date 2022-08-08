@@ -152,7 +152,7 @@ export const thumbnail = () => {
             width: 160,
             format: 'jpeg',
             rename: { suffix: '-thumbnail' },
-            jpegOptions: { quality: 50, progressive: true },
+            jpegOptions: { quality: 80, progressive: true },
           },
 
           // webp
@@ -160,7 +160,7 @@ export const thumbnail = () => {
             width: 160,
             format: 'webp',
             rename: { suffix: '-thumbnail' },
-            webpOptions: { quality: 70, progressive: true },
+            webpOptions: { quality: 80, progressive: true },
           },
 
           // avif
@@ -168,7 +168,7 @@ export const thumbnail = () => {
             width: 160,
             format: 'avif',
             rename: { suffix: '-thumbnail' },
-            avifOptions: { quality: 50, progressive: true },
+            avifOptions: { quality: 80, progressive: true },
           },
         ],
       })

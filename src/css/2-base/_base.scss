@@ -156,7 +156,7 @@ a:hover {
   color: inherit;
 }
 
-:focus {
+:focus-visible {
   transition: none !important;
   animation: none !important;
   outline: 2px solid $color-secondary;
@@ -164,14 +164,11 @@ a:hover {
   border-radius: $border-radius-sm;
 }
 
-:focus * {
+:focus-visible * {
   transition: none !important;
   animation: none !important;
 }
 
-:focus:not(:focus-visible) {
-  outline: 0;
-}
 
 input {
   outline: none;

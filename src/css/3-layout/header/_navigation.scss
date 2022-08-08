@@ -11,9 +11,11 @@
 }
 
 .nav-toggler {
-  @include flex($justify-content: center, $align-items: center, $flex-direction: column);
- 
-  padding-left: 0.625rem;
+  @include flex(
+    $justify-content: center,
+    $align-items: center,
+    $flex-direction: column
+  );
 
   &--close {
     fill: $color-secondary;
@@ -21,22 +23,15 @@
   }
 
   &__text {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     font-weight: bold;
     font-size: 0.75rem;
-    @include media-breakpoint-up(sm) {
-      margin-top: 0.5rem;
-      font-size: $fs-sm;
-    }
     line-height: 0.75;
     text-transform: uppercase;
   }
 
   svg {
     @include box(2.125rem, 1.0625rem);
-    @include media-breakpoint-up(sm) {
-      @include box(2.5rem, 1.25rem);
-    }
   }
 }
 

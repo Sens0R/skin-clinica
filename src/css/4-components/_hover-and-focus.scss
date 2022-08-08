@@ -1,5 +1,6 @@
 /* ====================   HEADER   ==================== */
 .notification__link {
+  @include link-space();
   @include focus($color-light);
   @include hover {
     color: $color-primary;
@@ -7,7 +8,8 @@
 }
 
 .logo-header {
-  @include focus($radius: $border-radius-pill, $offset: 0.25rem);
+  @include focus($radius: $border-radius-pill, $offset: 4px);
+  @include link-space();
 }
 
 .nav-search-buttons__search {
@@ -21,6 +23,7 @@
 }
 
 .nav-tools__link {
+  @include link-space();
   @include media-breakpoint-down(lg) {
     @include focus($offset: 0, $radius: $border-radius-pill);
     @include hover {
@@ -41,6 +44,7 @@
     }
   }
 }
+
 .nav-toggler {
   @include focus($offset: -0.3125rem, $radius: $border-radius-lg);
 }
@@ -65,6 +69,7 @@
 }
 
 .footer-nav__link {
+  @include link-space();
   @include hover {
     transition: 0.2s ease-in-out;
     color: $color-primary;
@@ -72,6 +77,7 @@
 }
 
 .social-icons__link {
+  @include link-space();
   @include focus($radius: $border-radius-pill, $offset: 0);
   &:focus,
   &:hover {
@@ -83,9 +89,12 @@
   }
 }
 
-.nav-menu__link:hover {
-  color: $color-accent;
-  transition: 0.2s ease-in-out;
+.nav-menu__link {
+  @include link-space();
+  @include hover {
+    color: $color-accent;
+    transition: 0.2s ease-in-out;
+  }
 }
 
 .footer * :focus {
