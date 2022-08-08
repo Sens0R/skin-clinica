@@ -18045,6 +18045,10 @@ input {
   position: relative;
   color: hsl(0deg, 0%, 100%);
 }
+.footer-logo {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 
 .copyright {
   color: rgba(255, 255, 255, 0.5);
@@ -18083,8 +18087,6 @@ input {
 .logo-footer-icon {
   width: 5rem;
   height: 5rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
 }
 
 .footer-inner {

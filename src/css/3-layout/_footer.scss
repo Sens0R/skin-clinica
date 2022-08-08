@@ -8,6 +8,10 @@
   margin-top: auto;
   position: relative;
   color: $font-color-light;
+  &-logo {
+    @include margin-top($spacer);
+    @include margin-bottom($spacer);
+  }
 }
 
 .copyright {
@@ -32,8 +36,6 @@
 
 .logo-footer-icon {
   @include box(5rem, 5rem);
-  @include margin-top($spacer);
-  @include margin-bottom($spacer);
 }
 
 .footer-inner {
