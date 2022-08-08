@@ -17584,6 +17584,14 @@ input {
   user-select: none !important;
 }
 
+.color-light {
+  color: hsl(0deg, 0%, 100%) !important;
+}
+
+.color-dark {
+  color: hsl(0deg, 0%, 0%) !important;
+}
+
 .color-primary {
   color: hsl(336deg, 95%, 84%) !important;
 }
@@ -17859,27 +17867,62 @@ input {
   padding-bottom: 0.625rem;
 }
 
-@media screen and (max-width: 359px) {
-  .logo {
+.logo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-text {
+  color: hsl(0deg, 0%, 12%);
+  text-transform: uppercase;
+  position: relative;
+  text-decoration: none;
+  margin-left: 0.5em;
+  white-space: nowrap;
+}
+@media (max-width: 575.98px) {
+  .logo-text {
     display: none;
   }
-  .tools {
-    margin-right: 3.75rem;
-  }
 }
+.logo-text:after {
+  content: "";
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background-color: hsl(0deg, 0%, 0%);
+  border-radius: 2px;
+}
+.logo-text--light {
+  color: hsl(0deg, 0%, 100%);
+  position: relative;
+  text-decoration: none;
+}
+.logo-text--light:after {
+  content: "";
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 2px;
+}
+
 .logo-header-icon {
-  width: 5.5rem;
-  height: 2rem;
-}
-@media (min-width: 576px) {
-  .logo-header-icon {
-    width: 8.25rem;
-    height: 3rem;
-  }
+  border-radius: 100%;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  width: 2.5rem;
+  height: 2.5rem;
 }
 @media (min-width: 992px) {
   .logo-header-icon {
-    width: 11rem;
+    width: 4rem;
     height: 4rem;
   }
 }
@@ -17988,8 +18031,7 @@ input {
 }
 @media (max-width: 991.98px) {
   .nav-tools__link {
-    padding: 0.7rem;
-    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+    padding: 0.75rem;
     background-color: #fecde1;
     border-radius: 100%;
   }
@@ -18042,9 +18084,16 @@ input {
   text-align: center;
 }
 
+.logo-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 14rem;
+}
+
 .logo-footer-icon {
-  width: 11rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }

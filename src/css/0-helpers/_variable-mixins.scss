@@ -16,3 +16,29 @@
     background-color: $bg;
   }
 }
+
+@mixin underline(
+  $color: $color-dark,
+  $thickness: 1px,
+  $offset: 1px,
+  $round-cap: true
+) {
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    content: '';
+    @include depth();
+    position: absolute;
+    left: 0;
+    bottom: -#{$offset};
+    width: 100%;
+    @if not $round-cap {
+      border-bottom: $thickness solid $color;
+    } @else {
+      height: $thickness;
+      background-color: $color;
+      border-radius: $thickness * 2;
+    }
+  }
+}

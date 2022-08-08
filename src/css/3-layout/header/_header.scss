@@ -31,25 +31,31 @@
   }
 }
 
-@media screen and (max-width: 359px) {
-  .logo {
+.logo-header {
+  @include flex($justify-content: center, $align-items: center);
+}
+
+.logo-text {
+  @include media-breakpoint-down(sm) {
     display: none;
   }
-
-  .tools {
-    margin-right: 3.75rem;
+  color: $color-secondary;
+  text-transform: uppercase;
+  @include underline();
+  margin-left: 0.5em;
+  white-space: nowrap;
+  &--light {
+    color: $color-light;
+    @include underline($color-light);
   }
 }
 
 .logo-header-icon {
-  @include box(5.5rem, 2rem);
-
-  @include media-breakpoint-up(sm) {
-    @include box(8.25rem, 3rem);
-  }
-
+  border-radius: 100%;
+  @include depth();
+  @include box(2.5rem, 2.5rem);
   @include media-breakpoint-up(lg) {
-    @include box(11rem, 4rem);
+    @include box(4rem, 4rem);
   }
 }
 
@@ -143,8 +149,7 @@
     }
 
     @include media-breakpoint-down(lg) {
-      padding: 0.7rem;
-      @include depth();
+      padding: 0.75rem;
       background-color: $color-primary-light;
       border-radius: 100%;
     }

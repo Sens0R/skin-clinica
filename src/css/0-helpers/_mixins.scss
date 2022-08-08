@@ -125,31 +125,6 @@
   position: $pos;
 }
 
-@mixin underline(
-  $color: $underline-color,
-  $thickness: $underline-thickness,
-  $offset: $underline-offset,
-  $round-cap: $underline-round-cap
-) {
-  position: relative;
-  text-decoration: none;
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -#{$offset};
-    width: 100%;
-    @if not $round-cap {
-      border-bottom: $thickness solid $color;
-    } @else {
-      height: $thickness;
-      background-color: $color;
-      border-radius: $thickness * 2;
-    }
-  }
-}
-
 @mixin z-index($key) {
   z-index: z-index($key);
 }

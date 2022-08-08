@@ -16,8 +16,13 @@
   text-align: center;
 }
 
+.logo-footer {
+  @include flex($justify-content: flex-start, $align-items: center);
+  max-width: 14rem;
+}
+
 .logo-footer-icon {
-  @include box(11rem, 4rem);
+  @include box(5rem, 5rem);
   @include margin-top($spacer);
   @include margin-bottom($spacer);
 }
