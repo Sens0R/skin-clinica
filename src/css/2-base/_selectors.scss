@@ -1,82 +1,76 @@
 .disable-select {
-  user-select: none !important;
+  user-select: none;
 }
 
 .color-light {
-  color: $color-light !important;
+  color: $color-light;
 }
 
 .color-dark {
-  color: $color-dark !important;
+  color: $color-dark;
 }
 
 .color-primary {
-  color: $color-primary !important;
+  color: $color-primary;
 }
 
 .color-accent {
-  color: $color-accent !important;
+  color: $color-accent;
 }
 
 .color-secondary {
-  color: $color-secondary !important;
+  color: $color-secondary;
 }
 
 .text-sm {
-  font-size: $fs-sm !important;
+  font-size: $fs-sm;
 }
 
 .text-lg {
-  font-size: $fs-lg !important;
+  font-size: $fs-lg;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-uppercase {
-  text-transform: uppercase !important;
+  text-transform: uppercase;
 }
 
 .text-lowercase {
-  text-transform: lowercase !important;
+  text-transform: lowercase;
 }
 
 .text-capitalize {
-  text-transform: capitalize !important;
+  text-transform: capitalize;
 }
 
 .text-italic {
-  font-style: italic !important;
+  font-style: italic;
 }
 
 .text-bold {
-  font-weight: bold !important;
+  font-weight: bold;
 }
 
 .text-normal {
-  font-weight: normal !important;
+  font-weight: normal;
 }
 
 .text-light {
-  font-weight: light !important;
+  font-weight: light;
 }
 
-.no-wrap {
-  white-space: nowrap !important;
+.nowrap {
+  white-space: nowrap;
 }
 
 .link-space {
   @include link-space();
-
-  &-sm {
-    @include link-space(24px);
-  }
-
-  &-lg {
-    @include link-space(72px);
-  }
 
   &-none {
     position: auto;
     content: none;
   }
 }
-
-
