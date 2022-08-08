@@ -1,19 +1,14 @@
-/* RESET */
-
-/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul,
 ol,
 dl {
@@ -21,24 +16,20 @@ dl {
   list-style: none;
 }
 
-/* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* Set core body defaults */
 body {
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   line-height: 1.7;
 }
 
-/* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-/* Make images easier to work with */
 img,
 picture {
   max-width: 100%;
@@ -46,7 +37,11 @@ picture {
   user-select: none;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+img,
+svg {
+  vertical-align: middle;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -62,7 +57,7 @@ picture {
   }
 }
 
-/* RESET ENDS HERE */
+/* ====================   RESET ENDS HERE   ==================== */
 
 html,
 body {
@@ -70,13 +65,13 @@ body {
   font-family: $ff-primary;
   line-height: $lh-base;
   background-color: $color-light;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .page-wrapper {
   overflow: hidden;
   min-height: 100%;
   @include flex($flex-direction: column);
- 
 }
 
 main > *:not(:first-child) {
@@ -139,8 +134,9 @@ hr {
 }
 
 button {
-  background-color: transparent;
+  border-radius: 0;
   border-width: 0;
+  background-color: transparent;
   cursor: pointer;
   user-select: none;
 }
@@ -168,4 +164,3 @@ input {
   outline: none;
   border: none;
 }
-

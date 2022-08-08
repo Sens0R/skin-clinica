@@ -49,10 +49,6 @@
   }
 }
 
-.nav-toggler {
-  @include focus($offset: -5px, $radius: 2px);
-}
-
 .nav-search-input {
   @include focus(
     $offset: -2px,
@@ -69,12 +65,25 @@
   }
 }
 
+.nav-toggler {
+  @include focus($offset: -5px, $radius: 2px);
+}
+
+.nav-menu__link {
+  
+  @include link-space();
+  @include hover {
+    color: $color-accent;
+    transition: 0.2s ease-in-out;
+  }
+}
+
 /* ====================   MAIN   ==================== */
 .card__link {
   @include link-space();
   @include icon-wobble-horizontal();
   @include focus($color: $color-accent);
-  &:hover {
+  @include hover {
     color: $color-accent;
   }
 }
@@ -102,14 +111,6 @@
     .icon-social {
       fill: $color-light;
     }
-  }
-}
-
-.nav-menu__link {
-  @include link-space();
-  @include hover {
-    color: $color-accent;
-    transition: 0.2s ease-in-out;
   }
 }
 
