@@ -17902,12 +17902,16 @@ input {
   min-height: 2.625rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
-  transition: 0.3s ease-in-out;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease-in-out;
 }
-.btn:focus-visible, .btn:hover {
-  color: hsl(0deg, 0%, 100%);
+.btn:focus-visible {
   background-color: #db065b;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background-color: #db065b;
+  }
 }
 
 .btn--light {
@@ -17918,8 +17922,13 @@ input {
   outline-offset: 2px;
   border-radius: 0.2rem;
 }
-.btn--light:focus-visible, .btn--light:hover {
+.btn--light:focus-visible {
   background-color: #f91a73;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn--light:hover {
+    background-color: #f91a73;
+  }
 }
 
 .spacer-p {

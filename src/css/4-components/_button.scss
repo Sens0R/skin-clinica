@@ -7,23 +7,31 @@
   min-height: 2.625rem;
   @include margin-top($spacer);
   @include margin-bottom($spacer);
-  box-shadow: $shadow-sm;
-  transition: 0.3s ease-in-out;
+  @include depth();
+  transition: 0.2s ease-in-out;
 
-  &:focus-visible,
-  &:hover {
-    color: $color-light;
+  &:focus-visible {
+    background-color: $color-accent;
+  }
+
+  @include hover {
     background-color: $color-accent;
   }
 }
 
 .btn--light {
-  @include focus($offset: 2px, $color: $color-light, $radius: $border-radius-sm);
-  &:focus-visible,
-  &:hover {
+  background-color: $color-accent;
+  @include focus(
+    $offset: 2px,
+    $color: $color-light,
+    $radius: $border-radius-sm
+  );
+
+  &:focus-visible {
     background-color: lighten($color-accent, 10%);
   }
 
-  background-color: $color-accent;
+  @include hover {
+    background-color: lighten($color-accent, 10%);
+  }
 }
-
