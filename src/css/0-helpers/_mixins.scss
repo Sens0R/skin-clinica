@@ -30,15 +30,7 @@
   }
 }
 
-@mixin depth($depth: 1) {
-  @if $depth < 1 {
-    box-shadow: none;
-  } @else if $depth > 5 {
-    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
-  } @else {
-    box-shadow: bottom-shadow($depth), top-shadow($depth);
-  }
-}
+
 
 @mixin image-cover($height) {
   width: 100%;
@@ -125,9 +117,7 @@
   position: $pos;
 }
 
-@mixin z-index($key) {
-  z-index: z-index($key);
-}
+
 
 @mixin media-xs {
   @media (max-width: 359.98px) {

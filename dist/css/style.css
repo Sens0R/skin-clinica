@@ -13113,7 +13113,7 @@ input {
   .nav-tools__link {
     margin-right: 0.75rem;
     padding: 0.75rem;
-    background-color: #fecde1;
+    background-color: hsl(336deg, 95%, 84%);
     border-radius: 100%;
   }
 }
@@ -13915,7 +13915,7 @@ input {
 
 .about-us-tabs {
   height: 100%;
-  background-color: #fecde1;
+  background-color: hsl(336deg, 95%, 84%);
 }
 
 .logo-regular-icon {
