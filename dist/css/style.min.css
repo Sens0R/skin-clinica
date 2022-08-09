@@ -13265,12 +13265,12 @@ input {
   text-transform: uppercase;
   font-weight: bold;
 }
-.footer-nav__list {
-  margin-left: -0.625rem;
-}
 .footer-nav__link {
-  display: inline-block;
-  padding: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 0.625rem 0;
   font-size: 0.875rem;
   color: hsl(0deg, 0%, 100%);
 }

@@ -76,12 +76,14 @@
     text-transform: uppercase;
     font-weight: bold;
   }
+
   &__list {
-    margin-left: -$spacer-sm;
+   
   }
+
   &__link {
-    display: inline-block;
-    padding: $spacer-sm;
+    @include flex($justify-content: center, $align-items: left, $flex-direction: column);
+    padding: $spacer-sm 0;
     font-size: $fs-sm;
     color: $color-light;
   }
