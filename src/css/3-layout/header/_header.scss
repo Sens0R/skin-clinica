@@ -147,6 +147,7 @@
 
   &__link {
     @include flex($justify-content: center, $align-items: center);
+    @include depth();
     margin-right: 1.25rem;
     padding: 0;
 
@@ -177,7 +178,7 @@
 
   &__icon {
     @include box(1rem);
-    fill: $color-accent;
+    fill: $color-secondary;
 
     @include media-breakpoint-up(lg) {
       margin-right: 3px;
