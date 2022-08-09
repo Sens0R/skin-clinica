@@ -12589,6 +12589,14 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+select,
+textarea,
+input,
+button {
+  font-family: DMSans, Arial, sans-serif;
+  font-size: 1rem;
+}
+
 .page-wrapper {
   overflow: hidden;
   min-height: 100%;
@@ -12684,8 +12692,6 @@ hr {
 }
 
 button {
-  font-family: inherit;
-  font-size: inherit;
   border-radius: 0;
   border-width: 0;
   background-color: transparent;
@@ -12702,7 +12708,7 @@ a {
 :focus-visible {
   transition: none !important;
   animation: none !important;
-  outline: 2px solid hsl(0deg, 0%, 12%);
+  outline: 2px solid #db065b;
   outline-offset: 5px;
   border-radius: 50rem;
 }
@@ -12838,37 +12844,25 @@ input {
 }
 
 /* ====================   MOBILE   ==================== */
-.navigation._active {
-  transform: none;
-  visibility: visible;
-}
-
 @media (max-width: 991.98px) {
-  .nav-body {
-    width: 18.75rem;
-  }
   .navigation {
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 60;
+    left: 0;
     position: fixed;
     z-index: 100;
     display: block;
-    transition: transform 0.3s ease-in-out;
-    max-width: 100%;
+    width: 100%;
     margin: 0;
     overflow: hidden auto;
     background: hsl(0deg, 0%, 100%);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
     visibility: hidden;
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
   .navigation._active {
     transform: none;
   }
   .navigation.is-changing, .navigation._active {
     visibility: visible;
-    transition: transform 0.3s ease-in-out;
   }
   .nav-mobile-header {
     z-index: 1;
@@ -12955,6 +12949,10 @@ input {
   z-index: 50;
   user-select: none;
   background-color: hsl(0deg, 0%, 100%);
+}
+
+.header-wrapper {
+  position: relative;
 }
 
 .nav-belt > * {
@@ -13072,25 +13070,22 @@ input {
 @media (max-width: 991.98px) {
   .mobile-search {
     visibility: hidden;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
     top: 0;
     left: 0;
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
-    height: 7rem;
+    height: 60px;
     background: hsl(0deg, 0%, 100%);
-    box-shadow: 0 0.225rem 0.35rem rgba(0, 0, 0, 0.075);
   }
   .mobile-search._active {
     transform: none;
   }
   .mobile-search.is-changing, .mobile-search._active {
     visibility: visible;
-    transition: transform 0.3s ease-in-out;
   }
   .nav-search {
     display: flex;
@@ -13421,6 +13416,9 @@ input {
   }
 }
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.5rem 1.875rem;
   background-color: hsl(0deg, 0%, 12%);
   color: hsl(0deg, 0%, 100%);
@@ -13433,6 +13431,7 @@ input {
   transition: 0.2s ease-in-out;
 }
 .btn:focus-visible {
+  outline-style: none;
   background-color: #db065b;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -13450,6 +13449,7 @@ input {
   border-radius: 0.2rem;
 }
 .btn--light:focus-visible {
+  outline-style: solid;
   background-color: #f91a73;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -13729,7 +13729,8 @@ input {
 }
 @media (max-width: 575.98px) {
   .logo-header:focus-visible {
-    outline-color: #db065b;
+    outline-style: solid;
+    outline-width: 3px;
   }
 }
 
@@ -13768,7 +13769,6 @@ input {
 }
 @media (max-width: 991.98px) {
   .nav-tools__link:focus-visible {
-    outline-color: #db065b;
     outline-offset: 0;
   }
 }
@@ -13782,9 +13782,6 @@ input {
   }
 }
 @media (min-width: 992px) {
-  .nav-tools__link:focus-visible {
-    outline-color: #db065b;
-  }
   .nav-tools__link:focus-visible svg {
     fill: #db065b;
   }
@@ -13860,9 +13857,7 @@ input {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-.card__link:focus-visible {
-  outline-color: #db065b;
-}
+
 /* ====================   FOOTER   ==================== */
 .mailing-form__input:focus-visible {
   outline-offset: 0;
@@ -13909,14 +13904,21 @@ input {
   transform: translate(-50%, -50%);
 }
 .social-icons__link:focus-visible {
+  outline-color: hsl(0deg, 0%, 100%);
   outline-offset: 0;
+  background-color: #db065b;
 }
-.social-icons__link:focus-visible, .social-icons__link:hover {
-  transition: 0.3s ease-in-out;
-  background: #db065b;
-}
-.social-icons__link:focus-visible .icon-social, .social-icons__link:hover .icon-social {
+.social-icons__link:focus-visible svg {
   fill: hsl(0deg, 0%, 100%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .social-icons__link:hover {
+    transition: 0.3s ease-in-out;
+    background: #db065b;
+  }
+  .social-icons__link:hover .icon-social {
+    fill: hsl(0deg, 0%, 100%);
+  }
 }
 
 .footer *:focus-visible {

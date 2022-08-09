@@ -40,124 +40,128 @@
   <a href="#" class="notification__link">Shop now</a>
 </p>
 <header class="header">
-  <nav class="container-fluid container-lg">
-    <div class="row nav-belt">
-      <!-- ====================   LOGO   ==================== -->
+  <div class="header-wrapper">
+    <nav class="container-fluid container-lg">
+      <div class="row nav-belt">
+        <!-- ====================   LOGO   ==================== -->
 
-      <div class="logo col pe-0 justify-content-start">
-        <a class="logo-header" href="index.html" aria-label="Skin clinica">
-          <svg class="logo-header-icon hvr-icon">
-            <use href="images/icons/sprite-multi.svg#logo-header"></use>
-          </svg>
-          <div class="logo-text">skin clinica</div>
-        </a>
-      </div>
+        <div class="logo col pe-0 justify-content-start">
+          <a class="logo-header" href="index.html" aria-label="Skin clinica">
+            <svg class="logo-header-icon hvr-icon">
+              <use href="images/icons/sprite-multi.svg#logo-header"></use>
+            </svg>
+            <div class="logo-text">skin clinica</div>
+          </a>
+        </div>
 
-      <!-- ====================   SEARCH   ==================== -->
+        <!-- ====================   SEARCH   ==================== -->
 
-      <div class="col gx-0">
-        <div
-          class="container-fluid mobile-search"
-          aria-labelledby="Active search"
-        >
-          <div class="nav-search">
-            <div class="input-wrapper">
-              <input
-                type="search"
-                class="nav-search-input text-sm"
-                placeholder="Search"
-              />
-              <div class="nav-search-buttons">
-                <button class="nav-search-buttons__search" aria-label="Search">
-                  <svg class="nav-search-buttons__search-icon hvr-icon">
-                    <use href="images/icons/sprite-mono.svg#search"></use>
-                  </svg>
-                </button>
+        <div class="col gx-0">
+          <div
+            class="container-fluid mobile-search"
+            aria-labelledby="Active search"
+          >
+            <div class="nav-search">
+              <div class="input-wrapper">
+                <input
+                  type="search"
+                  class="nav-search-input text-sm"
+                  placeholder="Search"
+                />
+                <div class="nav-search-buttons">
+                  <button
+                    class="nav-search-buttons__search"
+                    aria-label="Search"
+                  >
+                    <svg class="nav-search-buttons__search-icon hvr-icon">
+                      <use href="images/icons/sprite-mono.svg#search"></use>
+                    </svg>
+                  </button>
 
-                <button
-                  class="d-lg-none nav-search-buttons__close"
-                  type="button"
-                  aria-label="Close search"
-                >
-                  <svg class="nav-search-buttons__close-icon hvr-icon">
-                    <use
-                      href="images/icons/sprite-mono.svg#toggler-closed"
-                    ></use>
-                  </svg>
-                </button>
+                  <button
+                    class="d-lg-none nav-search-buttons__close"
+                    type="button"
+                    aria-label="Close search"
+                  >
+                    <svg class="nav-search-buttons__close-icon hvr-icon">
+                      <use
+                        href="images/icons/sprite-mono.svg#toggler-closed"
+                      ></use>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ====================   TOOLS   ==================== -->
+        <!-- ====================   TOOLS   ==================== -->
 
-      <div class="col d-flex justify-content-end tools">
-        <div class="nav-tools">
-          <button
-            class="nav-tools__link d-lg-none nav-search-buttons__open"
-            type="button"
-            aria-labelledby="Search"
-          >
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#search"></use>
-            </svg>
-          </button>
+        <div class="col d-flex justify-content-end tools">
+          <div class="nav-tools">
+            <button
+              class="nav-tools__link d-lg-none nav-search-buttons__open"
+              type="button"
+              aria-labelledby="Search"
+            >
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#search"></use>
+              </svg>
+            </button>
 
-          <a href="#" class="nav-tools__link" aria-label="Account">
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#account"></use>
-            </svg>
-            <p class="nav-tools__name">Account</p>
-          </a>
+            <a href="#" class="nav-tools__link" aria-label="Account">
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#account"></use>
+              </svg>
+              <p class="nav-tools__name">Account</p>
+            </a>
 
-          <a href="#" class="nav-tools__link" aria-label="Wishlist">
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#wishlist"></use>
-            </svg>
-            <p class="nav-tools__name">Wishlist</p>
-          </a>
+            <a href="#" class="nav-tools__link" aria-label="Wishlist">
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#wishlist"></use>
+              </svg>
+              <p class="nav-tools__name">Wishlist</p>
+            </a>
 
-          <a href="#" class="nav-tools__link" aria-label="Shopping cart">
-            <svg class="nav-tools__icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#cart"></use>
-            </svg>
-            <p class="nav-tools__name">Cart (0)</p>
-          </a>
+            <a href="#" class="nav-tools__link" aria-label="Shopping cart">
+              <svg class="nav-tools__icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#cart"></use>
+              </svg>
+              <p class="nav-tools__name">Cart (0)</p>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- ====================   NAV-TOGGLER   ==================== -->
+        <!-- ====================   NAV-TOGGLER   ==================== -->
 
-      <button
-        class="nav-toggler nav-toggler--open col-auto ps-sm-lg d-lg-none"
-        type="button"
-        aria-label="Open navigation menu"
-      >
-        <svg class="nav-toggler-icon hvr-icon">
-          <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-        </svg>
-        <div class="nav-toggler__text">menu</div>
-      </button>
-    </div>
-
-    <!-- ====================   NAVIGATION   ==================== -->
-
-    <div class="row navigation" aria-labelledby="Primary navigation">
-      <div class="col-12 nav-mobile-header align-self-start d-lg-none">
         <button
-          class="nav-toggler nav-toggler--close"
+          class="nav-toggler nav-toggler--open col-auto ps-sm-lg d-lg-none"
           type="button"
-          aria-label="Close navigation menu"
+          aria-label="Open navigation menu"
         >
           <svg class="nav-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+            <use href="images/icons/sprite-mono.svg#toggler-open"></use>
           </svg>
+          <div class="nav-toggler__text">menu</div>
         </button>
       </div>
 
-      <div class="col nav-body d-lg-flex"><ul class="nav-menu nav-menu--main">
+      <!-- ====================   NAVIGATION   ==================== -->
+
+      <div class="row navigation" aria-labelledby="Primary navigation">
+        <div class="col-12 nav-mobile-header align-self-start d-lg-none">
+          <button
+            class="nav-toggler nav-toggler--close"
+            type="button"
+            aria-label="Close navigation menu"
+          >
+            <svg class="nav-toggler-icon hvr-icon">
+              <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="col nav-body d-lg-flex"><ul class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link nav-menu__shop-link">Shop</a>
   </li>
@@ -170,6 +174,53 @@
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Brands</a>
   </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link nav-menu__shop-link">Shop</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Intelligence</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Care Packages</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Brands</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link nav-menu__shop-link">Shop</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Intelligence</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Care Packages</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Brands</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Intelligence</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Care Packages</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Brands</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link nav-menu__shop-link">Shop</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Intelligence</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Skin Care Packages</a>
+  </li>
+  <li class="nav-menu__item">
+    <a href="#" class="nav-menu__link">Brands</a>
+  </li>
+  
+  
 </ul>
 <hr class="d-lg-none my-lg" />
 <ul class="nav-menu nav-menu--secondary">
@@ -189,8 +240,8 @@
 <hr class="d-lg-none my-lg" />
 </div>
 
-      <div class="col-12 nav-mobile-socials d-lg-none">
-        <ul class="social-icons">
+        <div class="col-12 nav-mobile-socials d-lg-none">
+          <ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="social-icons__link" aria-label="Facebook">
       <svg class="icon-social hvr-icon">
@@ -235,9 +286,10 @@
   </li>
 </ul>
 
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
 
       <main><div class="banner">
@@ -285,7 +337,32 @@
     />
   </picture>
 </div>
-
+<div id='tabs' style='max-width: 800px;'>
+  <div>
+      <div>Tab 1</div>
+      <div>Tab 2</div>
+  </div>
+  <div>
+      <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet
+          ornare dolor, tincidunt posuere ante. Sed sed lacinia lorem. In gravida
+          tempus erat vel auctor. Quisque pharetra, metus nec congue rutrum, ligula
+          nibh euismod nisl, at semper tortor magna a velit. Sed ut elit hendrerit,
+          mollis velit ac, maximus justo. Aliquam erat volutpat. Duis quis dolor ultricies,
+          laoreet dolor a, lacinia enim. Aliquam convallis sit amet urna vitae vestibulum.
+      </div>
+      <div>
+          Praesent non pellentesque nunc. Nam imperdiet odio ut enim molestie elementum.
+          Proin aliquet, eros in aliquet condimentum, diam quam mollis sem, ullamcorper
+          dapibus diam lorem at eros. Duis at ligula at sem elementum cursus. Curabitur
+          cursus quis sapien sit amet vestibulum. Proin quis mattis elit. Ut laoreet lorem
+          ac elit scelerisque efficitur. Praesent quis nunc quis eros bibendum lacinia.
+          Suspendisse mattis scelerisque tellus at venenatis. Duis lobortis dui laoreet,
+          faucibus sapien vel, pharetra lorem. Ut id libero quis arcu congue pulvinar. Donec
+          felis nibh, imperdiet eget erat ac, pretium egestas eros.
+      </div>
+  </div>
+</div>
 <!-- ====================   ABOUT-US   ==================== -->
 <div class="container-fluid container-md about-us">
   <div class="row align-items-center">

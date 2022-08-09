@@ -24,6 +24,10 @@
   background-color: $color-light;
 }
 
+.header-wrapper {
+  position: relative;
+}
+
 .nav-belt {
   > * {
     @include flex($justify-content: center, $align-items: center);
@@ -110,23 +114,25 @@
 @include media-breakpoint-down(lg) {
   .mobile-search {
     visibility: hidden;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-    @include fixed(top 0 left 0);
+    
+    transform: translateX(-100%);
+    @include absolute(top 0 left 0);
+    
     @include flex($justify-content: center, $align-items: center);
     z-index: 1;
-    height: 7rem;
+    height: 60px;
     background: $color-white;
-    box-shadow: $shadow-sm;
 
     &._active {
       transform: none;
+      
     }
 
     &.is-changing,
     &._active {
       visibility: visible;
-      transition: transform 0.3s ease-in-out;
+      
+      
     }
   }
 
@@ -139,7 +145,6 @@
 /* ====================   TOOLS   ==================== */
 
 .nav-tools {
-  
   @include flex($justify-content: center, $align-items: center);
 
   &__link {

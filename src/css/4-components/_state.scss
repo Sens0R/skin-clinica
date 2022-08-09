@@ -8,7 +8,7 @@
   @include link-space();
   @include focus($bg: $color-primary, $style: none);
   @include media-breakpoint-down(sm) {
-    @include focus($color: $color-accent);
+    @include focus($style: solid, $size: 3px);
   }
 }
 
@@ -29,7 +29,7 @@
 .nav-tools__link {
   @include link-space();
   @include media-breakpoint-down(lg) {
-    @include focus($color: $color-accent, $offset: 0);
+    @include focus($offset: 0);
     @include hover {
       transition: 0.5s ease-in-out;
       background-color: $color-secondary;
@@ -40,7 +40,7 @@
   }
 
   @include media-breakpoint-up(lg) {
-    @include focus($fill: $color-accent, $color: $color-accent);
+    @include focus($fill: $color-accent);
     @include hover {
       svg {
         transition: 0.2s ease-in-out;
@@ -67,7 +67,6 @@
 .card__link {
   @include link-space();
   @include icon-wobble-horizontal();
-  @include focus($color: $color-accent);
 }
 
 /* ====================   FOOTER   ==================== */
@@ -90,9 +89,8 @@
 
 .social-icons__link {
   @include link-space();
-  @include focus($offset: 0);
-  &:focus-visible,
-  &:hover {
+  @include focus($offset: 0, $bg: $color-accent, $fill: $color-light, $color: $color-light);
+  @include hover {
     transition: 0.3s ease-in-out;
     background: $color-accent;
     .icon-social {

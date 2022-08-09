@@ -7,7 +7,6 @@ import {
 
 import { lg } from './breakpoints.js';
 
-
 // Default options
 const defaultOptions = {
   mainClass: '.navigation',
@@ -76,25 +75,22 @@ export function runNavigation(userOptions) {
     mainElement.classList.add('_active');
     if (scrollBlock) document.body.style.overflow = 'hidden';
     if (focusElement) document.querySelector(focusElement).focus();
-     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
-    setTimeout(function () {
+    if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
+/*     setTimeout(function () {
       addAnimation(closeBtn, 'heartBeat', animationSpeed);
-    }, 300); // TEST ANIMATION 
+    }, 300); // TEST ANIMATION */
 
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
       const backdropClose = document.querySelector("[data-backdrop='close']");
       backdropClose.addEventListener('click', function () {
         closeElement();
-        if (animationClose)
-          addAnimation(mainClass, animationClose, animationSpeed);
       });
     }
   });
 
   document.querySelector(closeBtn).addEventListener('click', function () {
     closeElement();
-    if (animationClose) addAnimation(mainClass, animationClose, animationSpeed);
   });
 
   if (breakpoint) {
@@ -106,14 +102,16 @@ export function runNavigation(userOptions) {
   function closeElement() {
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
-  
-     if (transition > 0) {
+
+    if (transition > 0 || animationClose) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');
       }, transition);
     }
- 
+
+    //if (animationClose) addAnimation('.is-changing', animationClose, animationSpeed);
+
     mainElement.classList.remove('_active');
   }
 }

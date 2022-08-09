@@ -37,28 +37,20 @@
 
 /* ====================   MOBILE   ==================== */
 
-.navigation._active {
-  transform: none;
-  visibility: visible;
-}
+
 
 @include media-breakpoint-down(lg) {
-  .nav-body {
-    width: 18.75rem;
-  }
-
-  .navigation {
-    @include fixed(top 0 right 0 bottom 0);
+    .navigation {
+    @include fixed(top 60 left 0);
     @include z-index(nav-menu);
     display: block;
-    transition: transform 0.3s ease-in-out;
-    max-width: 100%;
+    //transition: transform 0.3s ease-in-out;
+    width: 100%;
     margin: 0;
     overflow: hidden auto;
     background: $color-light;
-    box-shadow: $shadow-lg; // shadow for backdrop
     visibility: hidden;
-    transform: translateX(100%);
+    transform: translateX(-100%);
 
     &._active {
       transform: none;
@@ -67,7 +59,7 @@
     &.is-changing,
     &._active {
       visibility: visible;
-      transition: transform 0.3s ease-in-out;
+      //transition: transform 0.3s ease-in-out;
     }
   }
 

@@ -68,6 +68,14 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+select,
+textarea,
+input,
+button {
+  font-family: $ff-primary;
+  font-size: $fs-base;
+}
+
 .page-wrapper {
   overflow: hidden;
   min-height: 100%;
@@ -132,8 +140,6 @@ hr {
 }
 
 button {
-  font-family: inherit;
-  font-size: inherit;
   border-radius: 0;
   border-width: 0;
   background-color: transparent;
@@ -150,7 +156,7 @@ a {
 :focus-visible {
   transition: none !important;
   animation: none !important;
-  outline: 2px solid $color-secondary;
+  outline: 2px solid $color-accent;
   outline-offset: 5px;
   border-radius: $border-radius-pill;
 }

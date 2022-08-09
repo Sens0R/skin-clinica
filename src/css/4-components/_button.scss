@@ -1,4 +1,5 @@
 .btn {
+  @include flex($justify-content: center, $align-items: center);
   padding: 0.5rem 1.875rem;
   background-color: $color-secondary;
   color: $color-light;
@@ -10,10 +11,7 @@
   @include depth();
   transition: 0.2s ease-in-out;
 
-  &:focus-visible {
-    background-color: $color-accent;
-  }
-
+  @include focus($bg: $color-accent, $style: none);
   @include hover {
     background-color: $color-accent;
   }
@@ -27,10 +25,7 @@
     $radius: $border-radius-sm
   );
 
-  &:focus-visible {
-    background-color: lighten($color-accent, 10%);
-  }
-
+  @include focus($bg: lighten($color-accent, 10%), $style: solid);
   @include hover {
     background-color: lighten($color-accent, 10%);
   }
