@@ -22,7 +22,6 @@
 
 .logo-footer {
   @include flex($justify-content: flex-start, $align-items: center);
-  max-width: 14rem;
 }
 
 .logo-footer-text {
@@ -67,9 +66,9 @@
 }
 
 .footer-nav {
-  white-space: nowrap;
+  
   @include media-breakpoint-up(lg) {
-    @include margin-left($spacer-xl);
+    margin-left: 4rem;
   }
 
   &__header {
@@ -77,12 +76,13 @@
     font-weight: bold;
   }
 
-  &__list {
-   
-  }
-
   &__link {
-    @include flex($justify-content: center, $align-items: left, $flex-direction: column);
+    @include flex(
+      $justify-content: center,
+      $align-items: left,
+      $flex-direction: column
+    );
+
     padding: $spacer-sm 0;
     font-size: $fs-sm;
     color: $color-light;

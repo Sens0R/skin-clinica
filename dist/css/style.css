@@ -13169,7 +13169,6 @@ input {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 14rem;
 }
 
 .logo-footer-text {
@@ -13248,17 +13247,9 @@ input {
   }
 }
 
-.footer-nav {
-  white-space: nowrap;
-}
 @media (min-width: 992px) {
   .footer-nav {
-    margin-left: calc(1.5rem + 3vw);
-  }
-}
-@media (min-width: 992px) and (min-width: 1200px) {
-  .footer-nav {
-    margin-left: 3.75rem;
+    margin-left: 4rem;
   }
 }
 .footer-nav__header {
@@ -13848,7 +13839,6 @@ input {
 }
 @media (hover: hover) and (pointer: fine) {
   .footer-nav__link:hover {
-    transition: 0.2s ease-in-out;
     color: hsl(336deg, 95%, 84%);
   }
 }

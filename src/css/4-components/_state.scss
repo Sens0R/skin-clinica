@@ -80,7 +80,6 @@
 
 .footer-nav__link {
   @include hover {
-    transition: 0.2s ease-in-out;
     color: $color-primary;
   }
 }
