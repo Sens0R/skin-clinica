@@ -41,7 +41,7 @@
 
 @include media-breakpoint-down(lg) {
     .navigation {
-    @include fixed(top 60 left 0);
+    @include absolute(top 60 left 0);
     @include z-index(nav-menu);
     display: block;
     //transition: transform 0.3s ease-in-out;

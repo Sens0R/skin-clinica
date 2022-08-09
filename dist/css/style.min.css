@@ -12848,7 +12848,7 @@ input {
   .navigation {
     top: 60;
     left: 0;
-    position: fixed;
+    position: absolute;
     z-index: 100;
     display: block;
     width: 100%;
