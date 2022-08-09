@@ -55,7 +55,6 @@
 }
 
 .nav-menu__link {
-  @include link-space();
   @include hover {
     color: $color-accent;
     transition: 0.2s ease-in-out;
@@ -89,7 +88,12 @@
 
 .social-icons__link {
   @include link-space();
-  @include focus($offset: 0, $bg: $color-accent, $fill: $color-light, $color: $color-light);
+  @include focus(
+    $offset: 0,
+    $bg: $color-accent,
+    $fill: $color-light,
+    $color: $color-light
+  );
   @include hover {
     transition: 0.3s ease-in-out;
     background: $color-accent;

@@ -1,25 +1,22 @@
-.nav-menu {
-  &__link {
-    color: $color-secondary;
-  }
+.nav-toggler._active {
+  display: block;
+}
 
-  white-space: nowrap;
-
-  &--main {
-    font-weight: bold;
-  }
+.nav-toggler-group {
+  @include flex($justify-content: center, $align-items: center);
+  min-width: 3.75rem;
+  max-width: 3.75rem;
 }
 
 .nav-toggler {
-  @include flex(
-    $justify-content: center,
-    $align-items: center,
-    $flex-direction: column
-  );
+  display: none;
 
-  &--close {
-    fill: $color-secondary;
-    min-height: 2.5rem;
+  &--open > .nav-toggler-icon {
+    @include box(2.125rem, 1.0625rem);
+  }
+
+  &--close > .nav-toggler-icon {
+    @include box(2.5rem, 2.5rem);
   }
 
   &__text {
@@ -29,30 +26,56 @@
     line-height: 0.75;
     text-transform: uppercase;
   }
+}
 
-  svg {
-    @include box(2.125rem, 1.0625rem);
+.navigation {
+  min-height: 100vh;
+}
+
+.nav-menu {
+  margin: 0;
+  @include flex(
+    $justify-content: center,
+    $align-items: flex-start,
+    $flex-direction: column
+  );
+
+  white-space: nowrap;
+
+  &--main {
+    font-weight: bold;
   }
 }
 
-/* ====================   MOBILE   ==================== */
+.nav-body {
+  padding: 0;
+}
 
+.nav-menu__link {
+  display: inline-block;
+  padding: $spacer-sm;
+}
 
+@include media-breakpoint-down(md) {
+  .navigation {
+    @include padding-top($spacer);
+    @include padding-bottom($spacer);
+  }
+  .nav-menu {
+    font-size: 1.25rem;
+  }
+}
 
 @include media-breakpoint-down(lg) {
-    .navigation {
-    @include absolute(top 60 left 0);
+  .navigation {
+    @include absolute(top 60px left 0);
     @include z-index(nav-menu);
-    display: block;
-    //transition: transform 0.3s ease-in-out;
-    width: 100%;
-    margin: 0;
+    transform: translateX(100%);
+    transition: transform 0.2s ease-in-out;
     overflow-y: auto;
-    background: $color-light;
     visibility: hidden;
-    transform: translateX(-100%);
-    z-index: 999;
-    
+    background: $color-light;
+
     &._active {
       transform: none;
     }
@@ -60,60 +83,38 @@
     &.is-changing,
     &._active {
       visibility: visible;
-      //transition: transform 0.3s ease-in-out;
-    }
-  }
-
-/*   .nav-mobile-header {
-    z-index: 1;
-    @include sticky(top 0);
-    @include flex($justify-content: flex-end, $align-items: center);
-    @include padding-top($spacer);
-    @include padding-bottom($spacer);
-    background: $color-light;
-  } */
-
-  .nav-menu {
-    font-size: 1.25rem;
-    &--secondary {
-      margin-top: 0;
-    }
-  }
-
-  .nav-menu__item {
-    &:not(:first-child) {
-      @include margin-top($spacer-lg);
-    }
-    &:not(:last-child) {
-      @include margin-bottom($spacer-lg);
     }
   }
 }
 
-/* ====================   DESKTOP   ==================== */
-
+// desktop
 @include media-breakpoint-up(lg) {
+  .nav-mobile-socials {
+    display: none;
+  }
+
+  .nav-toggler-group {
+    display: none !important;
+  }
+
+  .navigation {
+    padding: 0;
+    min-height: auto;
+  }
+
   .nav-body {
-    @include flex($justify-content: space-between, $align-items: center);
+    @include flex(
+      $justify-content: space-between,
+      $align-items: center,
+      $flex-direction: row
+    );
   }
 
   .nav-menu {
-    @include flex($justify-content: center, $align-items: center);
-    @include margin-top($spacer-sm);
-    @include margin-bottom($spacer-sm);
-  }
-
-  .nav-menu--main {
-    justify-content: left;
-    .nav-menu__item {
-      margin-right: 1rem;
-    }
-  }
-
-  .nav-menu--secondary {
-    justify-content: right;
-    .nav-menu__item {
-      margin-left: 1rem;
-    }
+    @include flex(
+      $justify-content: center,
+      $align-items: center,
+      $flex-direction: row
+    );
   }
 }

@@ -54,6 +54,7 @@ export function runNavigation(userOptions) {
   if (!userOptions && mainElementDataJSON) {
     options = { ...defaultOptions, ...htmlDataOptions };
   }
+  
   //console.log(options);
 
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
@@ -71,12 +72,17 @@ export function runNavigation(userOptions) {
     animationSpeed,
   } = options;
 
-  document.querySelector(openBtn).addEventListener('click', function () {
+  const openBtnEl = document.querySelector(openBtn);
+  const closeBtnEl = document.querySelector(closeBtn);
+
+  openBtnEl.addEventListener('click', function () {
     mainElement.classList.add('_active');
+    closeBtnEl.classList.add('_active');
+    openBtnEl.classList.remove('_active');
     if (scrollBlock) document.body.style.overflow = 'hidden';
     if (focusElement) document.querySelector(focusElement).focus();
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
-/*     setTimeout(function () {
+    /*     setTimeout(function () {
       addAnimation(closeBtn, 'heartBeat', animationSpeed);
     }, 300); // TEST ANIMATION */
 
@@ -89,7 +95,7 @@ export function runNavigation(userOptions) {
     }
   });
 
-  document.querySelector(closeBtn).addEventListener('click', function () {
+  closeBtnEl.addEventListener('click', function () {
     closeElement();
   });
 
@@ -100,10 +106,12 @@ export function runNavigation(userOptions) {
   /*  ---------------------- HELPERS -------------------------- */
 
   function closeElement() {
+    closeBtnEl.classList.remove('_active');
+    openBtnEl.classList.add('_active');
     if (scrollBlock) document.body.style.removeProperty('overflow');
     if (backdrop) removeBackdrop();
 
-    if (transition > 0 || animationClose) {
+    if (transition > 0) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');

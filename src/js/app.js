@@ -5,13 +5,12 @@ import { md, lg, sm } from './modules/breakpoints.js';
 
 //fixedHeader();
 fixedHeader(lg);
-runNavigation({ animationOpen: 'fadeIn', animationSpeed: 'faster' });
+runNavigation({scrollBlock: true});
 
 runNavigation({
   mainClass: '.mobile-search',
   openBtn: '.nav-search-buttons__open',
   closeBtn: '.nav-search-buttons__close',
-  scrollBlock: true,
   focusElement: '.nav-search-input',
   animationOpen: 'fadeIn',
   animationSpeed: 'faster',

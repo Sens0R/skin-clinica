@@ -6,6 +6,7 @@
   <div class="header-wrapper">
     <nav class="container-fluid container-lg">
       <div class="row nav-belt">
+
         <!-- ====================   LOGO   ==================== -->
 
         <div class="logo col pe-0 justify-content-start">
@@ -96,23 +97,17 @@
         </div>
 
         <!-- ====================   NAV-TOGGLER   ==================== -->
-
-        <button
-          class="nav-toggler nav-toggler--open col-auto ps-sm-lg d-lg-none"
-          type="button"
-          aria-label="Open navigation menu"
-        >
-          <svg class="nav-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-          </svg>
-          <div class="nav-toggler__text">menu</div>
-        </button>
-      </div>
-
-      <!-- ====================   NAVIGATION   ==================== -->
-
-      <div class="row navigation" aria-labelledby="Primary navigation">
-        <div class="col-12 nav-mobile-header align-self-start d-lg-none">
+        <div class="nav-toggler-group col-auto">
+          <button
+            class="nav-toggler nav-toggler--open _active"
+            type="button"
+            aria-label="Open navigation menu"
+          >
+            <svg class="nav-toggler-icon hvr-icon">
+              <use href="images/icons/sprite-mono.svg#toggler-open"></use>
+            </svg>
+            <div class="nav-toggler__text">menu</div>
+          </button>
           <button
             class="nav-toggler nav-toggler--close"
             type="button"
@@ -123,11 +118,17 @@
             </svg>
           </button>
         </div>
+      </div>
 
-        <div class="col nav-body d-lg-flex">@@include('nav-menu.html',{})</div>
-
-        <div class="col-12 nav-mobile-socials d-lg-none">
-          @@include('../components/social.html',{})
+      <!-- ====================   NAVIGATION   ==================== -->
+      <div class="navigation container-fluid">
+        <div class="row">
+          <div class="col nav-body">
+            @@include('nav-menu.html',{})
+          </div>
+          <div class="col-12 nav-mobile-socials">
+            @@include('../components/social.html',{})
+          </div>
         </div>
       </div>
     </nav>

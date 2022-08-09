@@ -12700,6 +12700,7 @@ button {
 }
 
 a {
+  color: inherit;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
@@ -12811,25 +12812,28 @@ input {
   content: none;
 }
 
-.nav-menu {
-  white-space: nowrap;
-}
-.nav-menu__link {
-  color: hsl(0deg, 0%, 12%);
-}
-.nav-menu--main {
-  font-weight: bold;
+.nav-toggler._active {
+  display: block;
 }
 
-.nav-toggler {
+.nav-toggler-group {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  min-width: 3.75rem;
+  max-width: 3.75rem;
 }
-.nav-toggler--close {
-  fill: hsl(0deg, 0%, 12%);
-  min-height: 2.5rem;
+
+.nav-toggler {
+  display: none;
+}
+.nav-toggler--open > .nav-toggler-icon {
+  width: 2.125rem;
+  height: 1.0625rem;
+}
+.nav-toggler--close > .nav-toggler-icon {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .nav-toggler__text {
   margin-top: 0.5rem;
@@ -12838,26 +12842,52 @@ input {
   line-height: 0.75;
   text-transform: uppercase;
 }
-.nav-toggler svg {
-  width: 2.125rem;
-  height: 1.0625rem;
+
+.navigation {
+  min-height: 100vh;
 }
 
-/* ====================   MOBILE   ==================== */
+.nav-menu {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  white-space: nowrap;
+}
+.nav-menu--main {
+  font-weight: bold;
+}
+
+.nav-body {
+  padding: 0;
+}
+
+.nav-menu__link {
+  display: inline-block;
+  padding: 0.625rem;
+}
+
+@media (max-width: 767.98px) {
+  .navigation {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .nav-menu {
+    font-size: 1.25rem;
+  }
+}
 @media (max-width: 991.98px) {
   .navigation {
-    top: 60;
+    top: 60px;
     left: 0;
     position: absolute;
     z-index: 100;
-    display: block;
-    width: 100%;
-    margin: 0;
+    transform: translateX(100%);
+    transition: transform 0.2s ease-in-out;
     overflow-y: auto;
-    background: hsl(0deg, 0%, 100%);
     visibility: hidden;
-    transform: translateX(-100%);
-    z-index: 999;
+    background: hsl(0deg, 0%, 100%);
   }
   .navigation._active {
     transform: none;
@@ -12865,64 +12895,29 @@ input {
   .navigation.is-changing, .navigation._active {
     visibility: visible;
   }
-  /*   .nav-mobile-header {
-      z-index: 1;
-      @include sticky(top 0);
-      @include flex($justify-content: flex-end, $align-items: center);
-      @include padding-top($spacer);
-      @include padding-bottom($spacer);
-      background: $color-light;
-    } */
-  .nav-menu {
-    font-size: 1.25rem;
-  }
-  .nav-menu--secondary {
-    margin-top: 0;
-  }
-  .nav-menu__item:not(:first-child) {
-    margin-top: calc(1.3125rem + 0.75vw);
-  }
 }
-@media (max-width: 991.98px) and (min-width: 1200px) {
-  .nav-menu__item:not(:first-child) {
-    margin-top: 1.875rem;
-  }
-}
-@media (max-width: 991.98px) {
-  .nav-menu__item:not(:last-child) {
-    margin-bottom: calc(1.3125rem + 0.75vw);
-  }
-}
-@media (max-width: 991.98px) and (min-width: 1200px) {
-  .nav-menu__item:not(:last-child) {
-    margin-bottom: 1.875rem;
-  }
-}
-/* ====================   DESKTOP   ==================== */
 @media (min-width: 992px) {
+  .nav-mobile-socials {
+    display: none;
+  }
+  .nav-toggler-group {
+    display: none !important;
+  }
+  .navigation {
+    padding: 0;
+    min-height: auto;
+  }
   .nav-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
   }
   .nav-menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0.625rem;
-    margin-bottom: 0.625rem;
-  }
-  .nav-menu--main {
-    justify-content: left;
-  }
-  .nav-menu--main .nav-menu__item {
-    margin-right: 1rem;
-  }
-  .nav-menu--secondary {
-    justify-content: right;
-  }
-  .nav-menu--secondary .nav-menu__item {
-    margin-left: 1rem;
+    flex-direction: row;
   }
 }
 .notification {
@@ -13795,21 +13790,6 @@ input {
   outline-style: none;
   border-radius: 0.2rem;
   background-color: hsl(336deg, 95%, 84%);
-}
-.nav-menu__link {
-  position: relative;
-}
-.nav-menu__link:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-width: 48px;
-  min-height: 48px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 @media (hover: hover) and (pointer: fine) {
   .nav-menu__link:hover {
