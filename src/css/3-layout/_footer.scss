@@ -76,12 +76,12 @@
     text-transform: uppercase;
     font-weight: bold;
   }
-
-  &__list > li:not(:last-child) {
-    margin-bottom: 0.75em;
+  &__list {
+    margin-left: -$spacer-sm;
   }
-
   &__link {
+    display: inline-block;
+    padding: $spacer-sm;
     font-size: $fs-sm;
     color: $color-light;
   }
@@ -92,7 +92,7 @@
 
   &__item {
     @include flex($justify-content: center, $align-items: center);
-    
+
     &:first-child {
       margin-bottom: $spacer-sm;
       @include media-breakpoint-up(sm) {
@@ -121,7 +121,7 @@
     height: 2.625rem;
     padding: 0.625rem 0 0.625rem 1rem;
     border-radius: $border-radius-sm;
-    
+
     &::placeholder {
       color: $color-gray;
       font-size: $fs-sm;
