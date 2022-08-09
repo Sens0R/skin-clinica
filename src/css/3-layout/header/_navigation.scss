@@ -51,6 +51,12 @@
   padding: 0;
 }
 
+.nav-body > hr {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  @include depth();
+}
+
 .nav-menu__link {
   display: inline-block;
   padding: $spacer-sm;

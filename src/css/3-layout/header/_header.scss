@@ -82,6 +82,7 @@
   padding-left: 3rem;
 
   &::placeholder {
+    color: $color-secondary;
     padding-left: 0.5em;
   }
 }

@@ -12863,6 +12863,12 @@ input {
   padding: 0;
 }
 
+.nav-body > hr {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+}
+
 .nav-menu__link {
   display: inline-block;
   padding: 0.625rem;
@@ -13025,6 +13031,7 @@ input {
   padding-left: 3rem;
 }
 .nav-search-input::placeholder {
+  color: hsl(0deg, 0%, 12%);
   padding-left: 0.5em;
 }
 
