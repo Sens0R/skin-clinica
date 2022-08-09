@@ -47,11 +47,12 @@
     //transition: transform 0.3s ease-in-out;
     width: 100%;
     margin: 0;
-    overflow: hidden auto;
+    overflow-y: auto;
     background: $color-light;
     visibility: hidden;
     transform: translateX(-100%);
-
+    z-index: 999;
+    
     &._active {
       transform: none;
     }
@@ -63,14 +64,14 @@
     }
   }
 
-  .nav-mobile-header {
+/*   .nav-mobile-header {
     z-index: 1;
     @include sticky(top 0);
     @include flex($justify-content: flex-end, $align-items: center);
     @include padding-top($spacer);
     @include padding-bottom($spacer);
     background: $color-light;
-  }
+  } */
 
   .nav-menu {
     font-size: 1.25rem;

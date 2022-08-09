@@ -14,7 +14,7 @@ const defaultOptions = {
   closeBtn: '.nav-toggler--close',
   breakpoint: lg,
   backdrop: false,
-  scrollBlock: true,
+  scrollBlock: false,
   focusElement: false,
   animationOpen: false,
   animationClose: false,

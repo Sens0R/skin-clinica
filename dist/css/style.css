@@ -12853,10 +12853,11 @@ input {
     display: block;
     width: 100%;
     margin: 0;
-    overflow: hidden auto;
+    overflow-y: auto;
     background: hsl(0deg, 0%, 100%);
     visibility: hidden;
     transform: translateX(-100%);
+    z-index: 999;
   }
   .navigation._active {
     transform: none;
@@ -12864,17 +12865,14 @@ input {
   .navigation.is-changing, .navigation._active {
     visibility: visible;
   }
-  .nav-mobile-header {
-    z-index: 1;
-    top: 0;
-    position: sticky;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    background: hsl(0deg, 0%, 100%);
-  }
+  /*   .nav-mobile-header {
+      z-index: 1;
+      @include sticky(top 0);
+      @include flex($justify-content: flex-end, $align-items: center);
+      @include padding-top($spacer);
+      @include padding-bottom($spacer);
+      background: $color-light;
+    } */
   .nav-menu {
     font-size: 1.25rem;
   }
