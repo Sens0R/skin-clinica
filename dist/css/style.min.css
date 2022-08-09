@@ -12868,7 +12868,6 @@ input {
   border: 1px solid #b8b8b8;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
-  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 }
 
 .nav-menu__link {
@@ -13106,12 +13105,12 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   margin-right: 1.25rem;
   padding: 0;
 }
 @media (max-width: 991.98px) {
   .nav-tools__link {
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
     margin-right: 0.75rem;
     padding: 0.75rem;
     background-color: hsl(336deg, 95%, 84%);

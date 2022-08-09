@@ -52,10 +52,9 @@
 }
 
 .nav-body > hr {
-  border: 1px solid lighten($color-secondary, 60%);
+  border: 1px solid $color-secondary;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
-  @include depth();
 }
 
 .nav-menu__link {

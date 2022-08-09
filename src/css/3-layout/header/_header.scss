@@ -147,11 +147,12 @@
 
   &__link {
     @include flex($justify-content: center, $align-items: center);
-    @include depth();
+    
     margin-right: 1.25rem;
     padding: 0;
 
     @include media-breakpoint-down(lg) {
+      @include depth();
       margin-right: 0.75rem;
       padding: 0.75rem;
       background-color: $color-primary;
