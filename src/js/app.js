@@ -2,6 +2,7 @@ import './modules/swiper.js';
 import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
+import { useElementSize } from './modules/functions.js';
 
 //fixedHeader();
 fixedHeader(lg);
@@ -14,5 +15,7 @@ runNavigation({
   focusElement: '.nav-search-input',
   animationOpen: 'fadeIn',
   animationSpeed: 'faster',
-  mobileScrollBlock: false
+  mobileScrollBlock: false,
+  copySize: 'header',
 });
+

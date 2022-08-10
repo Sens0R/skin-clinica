@@ -62,17 +62,6 @@
 
 /* ====================   MEDIA SECTION   ==================== */
 
-@include media-breakpoint-down(md) {
-  .navigation {
-    min-height: 100vh;
-  }
-}
-
-@media (max-height: 575.98px) {
-  .navigation._active {
-    min-height: 100vh;
-  }
-}
 
 @include media-breakpoint-up(md) {
 }

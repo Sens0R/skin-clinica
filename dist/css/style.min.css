@@ -12879,16 +12879,6 @@ input {
 }
 
 /* ====================   MEDIA SECTION   ==================== */
-@media (max-width: 767.98px) {
-  .navigation {
-    min-height: 100vh;
-  }
-}
-@media (max-height: 575.98px) {
-  .navigation._active {
-    min-height: 100vh;
-  }
-}
 @media (min-width: 576px) and (max-width: 991.98px) {
   .navigation {
     height: auto;
@@ -13124,7 +13114,6 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
     background: hsl(0deg, 0%, 100%);
   }
   .mobile-search._active {

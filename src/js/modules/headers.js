@@ -1,13 +1,15 @@
 import Headroom from 'headroom.js';
+
 const header = document.querySelector('header');
 const headerAnchor = document.createElement('div');
-let headerHeight;
 let headroom;
+
+let headerHeight;
 
 const headerHeightObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => {
     headerHeight = `${entry.borderBoxSize[0].blockSize}px`;
-    //console.log('HEADER HEIGHT: ' + headerHeight);
+    console.log('HEADER HEIGHT: ' + headerHeight);
     if (window.scrollY > 0) headerAnchor.style.height = headerHeight;
   });
 });
@@ -79,14 +81,11 @@ export function fixedHeader(width) {
 /* ====================   HEADROOM    ==================== */
 
 export function headroomHeader(width) {
-
-
   /*   if (width) {
     mediaQueryList = window.matchMedia(`(max-width: ${width}px)`);
   }
 
   console.log('HEADER HEIGHT OBSERVER CREATED ...'); */
-
   /* if (!width) {
     
     console.log('HEADER WRAPPER CREATED ...');

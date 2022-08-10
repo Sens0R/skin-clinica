@@ -116,13 +116,9 @@
 @include media-breakpoint-down(lg) {
   .mobile-search {
     visibility: hidden;
-
     transform: translateX(-100%);
     @include absolute(top 0 left 0);
-
     @include flex($justify-content: center, $align-items: center);
-
-    height: 60px;
     background: $color-white;
 
     &._active {

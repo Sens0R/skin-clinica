@@ -1,4 +1,10 @@
-import { addBackdrop, removeBackdrop, addAnimation } from './functions.js';
+import {
+  addBackdrop,
+  removeBackdrop,
+  addAnimation,
+  useElementSize,
+  elementSizeObserver,
+} from './functions.js';
 
 import { lg } from './breakpoints.js';
 
@@ -12,6 +18,7 @@ const defaultOptions = {
   mobileScrollBlock: true,
   bodyScrollBlock: false,
   focusElement: false,
+  copySize: false,
   animationOpen: false,
   animationClose: false,
   animationSpeed: false,
@@ -24,6 +31,7 @@ export function runNavigation(userOptions) {
   let options = defaultOptions;
   let mainElement;
   let transition;
+  let copySizeEl;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -67,6 +75,7 @@ export function runNavigation(userOptions) {
     animationOpen,
     animationClose,
     animationSpeed,
+    copySize,
   } = options;
 
   const openBtnEl = document.querySelector(openBtn);
@@ -91,6 +100,8 @@ export function runNavigation(userOptions) {
           document.body.style.overflow = null;
         }
       }
+
+      
     })
   );
 
@@ -100,6 +111,11 @@ export function runNavigation(userOptions) {
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
+
+    if (copySize) {
+      copySizeEl = document.querySelector(copySize);
+      useElementSize(mainElement, copySizeEl);
+    }
 
     if (bodyScrollBlock) {
       document.body.style.overflow = 'hidden';
@@ -127,6 +143,12 @@ export function runNavigation(userOptions) {
   /*  ---------------------- HELPERS -------------------------- */
 
   function closeElement() {
+    if (copySize) {
+      elementSizeObserver.unobserve(copySizeEl);
+      mainElement.style.height = null;
+      mainElement.style.width = null;
+    }
+
     navResizeObs.unobserve(mainElement);
     console.log('NAVIGATION CLOSED, NOT OBSERVING');
     closeBtnEl.classList.remove('_active');
