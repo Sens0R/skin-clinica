@@ -25,29 +25,6 @@ export function removeBackdrop() {
   if (removeBackdrop) removeBackdrop.remove();
 }
 
-/*  ======================== RESIZE ======================= */
-
-/* export function resize(width, closingFunction, targetElement) {
-  window.matchMedia(`(max-width: ${width}px)`).onchange = (e) => {
-    if (!e.matches && targetElement.classList.contains('_active')) {
-      closingFunction();
-      console.log(width);
-      console.log(!e.matches);
-      console.log('RESIZER TRIGGERED');
-    }
-  };
-}
- */
-/* export function resize(width, closingFunction, targetElement) {
-  addEventListener('resize', () => {
-    if (innerWidth > width && targetElement.classList.contains('_active')) {
-      console.log(width);
-      console.log('RESIZER TRIGGERED');
-      closingFunction();
-    }
-  });
-} */
-
 /*  ============================= ANIMATIONS ========================= */
 
 export function addAnimation(targetElement, style, speed) {

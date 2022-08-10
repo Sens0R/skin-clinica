@@ -120,7 +120,7 @@
     @include absolute(top 0 left 0);
 
     @include flex($justify-content: center, $align-items: center);
-    z-index: 1;
+
     height: 60px;
     background: $color-white;
 
@@ -131,6 +131,7 @@
     &.is-changing,
     &._active {
       visibility: visible;
+      @include z-index(nav-search);
     }
   }
 
@@ -147,7 +148,7 @@
 
   &__link {
     @include flex($justify-content: center, $align-items: center);
-    
+
     margin-right: 1.25rem;
     padding: 0;
 

@@ -1,9 +1,4 @@
-import {
-  addBackdrop,
-  removeBackdrop,
-  addAnimation,
-  resize,
-} from './functions.js';
+import { addBackdrop, removeBackdrop, addAnimation } from './functions.js';
 
 import { lg } from './breakpoints.js';
 
@@ -14,7 +9,8 @@ const defaultOptions = {
   closeBtn: '.nav-toggler--close',
   breakpoint: lg,
   backdrop: false,
-  scrollBlock: false,
+  mobileScrollBlock: false,
+  bodyScrollBlock: false,
   focusElement: false,
   animationOpen: false,
   animationClose: false,
@@ -59,13 +55,14 @@ export function runNavigation(userOptions) {
 
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 
-  const {
+  let {
     mainClass,
     openBtn,
     closeBtn,
     breakpoint,
     backdrop,
-    scrollBlock,
+    mobileScrollBlock,
+    bodyScrollBlock,
     focusElement,
     animationOpen,
     animationClose,
@@ -75,11 +72,24 @@ export function runNavigation(userOptions) {
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
+  if (bodyScrollBlock) mobileScrollBlock = false;
+  if (mobileScrollBlock) bodyScrollBlock = false;
+
   const navResizeObs = new ResizeObserver((entries) =>
     entries.forEach((entry) => {
       if (window.innerWidth >= breakpoint) {
         closeElement();
         mainElement.classList.remove('is-changing');
+      }
+
+      if (mobileScrollBlock) {
+        if (window.innerWidth < 768 || window.innerHeight < 576) {
+          document.body.style.overflow = 'hidden';
+        }
+
+        if (window.innerWidth >= 768 && window.innerHeight >= 576) {
+          document.body.style.overflow = null;
+        }
       }
     })
   );
@@ -90,7 +100,11 @@ export function runNavigation(userOptions) {
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
-    if (scrollBlock) document.body.style.overflow = 'hidden';
+
+    if (bodyScrollBlock) {
+      document.body.style.overflow = 'hidden';
+    }
+
     if (focusElement) document.querySelector(focusElement).focus();
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
     /*     setTimeout(function () {
@@ -117,7 +131,7 @@ export function runNavigation(userOptions) {
     console.log('NAVIGATION CLOSED, NOT OBSERVING');
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
-    if (scrollBlock) document.body.style.removeProperty('overflow');
+    if (document.body.style.overflow) document.body.style.overflow = null;
     if (backdrop) removeBackdrop();
 
     if (transition > 0) {
