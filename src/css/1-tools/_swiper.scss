@@ -33,7 +33,7 @@
   @include box(5rem, 5rem);
   fill: $color-gray;
   z-index: 9999;
-  @include icon-grow();
+
   @include flex($justify-content: center, $align-items: center);
   @include center(vertical);
   @include media-breakpoint-down(xl) {
@@ -44,21 +44,21 @@
     @include box(1.5rem, 1.5rem);
   }
 
-  @include focus($style: none, $bg: $color-primary);
-  &:focus-visible,
-  &:hover {
+  @include focus($fill: $color-accent, $style: none, $bg: $color-primary);
+  @include hover {
     fill: $color-accent;
   }
+  @include icon-grow();
 }
 
 @include media-breakpoint-up(lg) {
   .swiper-btn--left {
     left: 20%;
-    top: 25%;
+    top: 35%;
   }
 
   .swiper-btn--right {
     right: 20%;
-    top: 25%;
+    top: 35%;
   }
 }

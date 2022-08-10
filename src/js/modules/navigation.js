@@ -9,7 +9,7 @@ const defaultOptions = {
   closeBtn: '.nav-toggler--close',
   breakpoint: lg,
   backdrop: false,
-  mobileScrollBlock: false,
+  mobileScrollBlock: true,
   bodyScrollBlock: false,
   focusElement: false,
   animationOpen: false,

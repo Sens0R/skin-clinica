@@ -5,7 +5,7 @@ import { md, lg, sm } from './modules/breakpoints.js';
 
 //fixedHeader();
 fixedHeader(lg);
-runNavigation({mobileScrollBlock: true});
+runNavigation();
 
 runNavigation({
   mainClass: '.mobile-search',
@@ -14,4 +14,5 @@ runNavigation({
   focusElement: '.nav-search-input',
   animationOpen: 'fadeIn',
   animationSpeed: 'faster',
+  mobileScrollBlock: false
 });

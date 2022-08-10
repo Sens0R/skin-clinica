@@ -6,7 +6,6 @@
   <div class="header-wrapper">
     <nav class="container-fluid container-lg">
       <div class="row nav-belt">
-
         <!-- ====================   LOGO   ==================== -->
 
         <div class="logo col pe-0 justify-content-start">
@@ -21,10 +20,7 @@
         <!-- ====================   SEARCH   ==================== -->
 
         <div class="col gx-0">
-          <div
-            class="container-fluid mobile-search"
-            aria-labelledby="Active search"
-          >
+          <div class="container-fluid mobile-search">
             <div class="nav-search">
               <div class="input-wrapper">
                 <input
@@ -66,7 +62,7 @@
             <button
               class="nav-tools__link d-lg-none nav-search-buttons__open"
               type="button"
-              aria-labelledby="Search"
+              aria-label="Search"
             >
               <svg class="nav-tools__icon hvr-icon">
                 <use href="images/icons/sprite-mono.svg#search"></use>
@@ -123,9 +119,7 @@
       <!-- ====================   NAVIGATION   ==================== -->
       <div class="navigation container-fluid">
         <div class="row">
-          <div class="col nav-body">
-            @@include('nav-menu.html',{})
-          </div>
+          <div class="col nav-body">@@include('nav-menu.html',{})</div>
           <div class="col-12 nav-mobile-socials">
             @@include('../components/social.html',{})
           </div>
