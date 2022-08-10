@@ -54,7 +54,7 @@ export function runNavigation(userOptions) {
   if (!userOptions && mainElementDataJSON) {
     options = { ...defaultOptions, ...htmlDataOptions };
   }
-  
+
   //console.log(options);
 
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
@@ -75,7 +75,18 @@ export function runNavigation(userOptions) {
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
+  const navResizeObs = new ResizeObserver((entries) =>
+    entries.forEach((entry) => {
+      if (window.innerWidth >= breakpoint) {
+        closeElement();
+        mainElement.classList.remove('is-changing');
+      }
+    })
+  );
+
   openBtnEl.addEventListener('click', function () {
+    navResizeObs.observe(mainElement);
+    console.log('NAVIGATION OPENED, OBSERVING');
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
@@ -99,13 +110,11 @@ export function runNavigation(userOptions) {
     closeElement();
   });
 
-  if (breakpoint) {
-    resize(breakpoint, closeElement, mainElement);
-  }
-
   /*  ---------------------- HELPERS -------------------------- */
 
   function closeElement() {
+    navResizeObs.unobserve(mainElement);
+    console.log('NAVIGATION CLOSED, NOT OBSERVING');
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
     if (scrollBlock) document.body.style.removeProperty('overflow');
