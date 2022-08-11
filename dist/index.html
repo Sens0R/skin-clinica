@@ -35,128 +35,129 @@
 
   <body>
     <div class="page-wrapper">
-      <p class="notification">
-  Free Shipping On All Us Orders Over $50 + 2 Free Samples🎁
-  <a href="#" class="notification__link">Shop now</a>
-</p>
-<header class="header">
-  <div class="header-wrapper">
-    <nav class="container-fluid container-lg">
-      <div class="row nav-belt">
-        <!-- ====================   LOGO   ==================== -->
+      <div class="header-wrapper">
+  <p class="notification">
+    Free Shipping On All Us Orders Over $50 + 2 Free Samples🎁
+    <a href="#" class="notification__link">Shop now</a>
+  </p>
+  <header class="header">
+    <div class="header-wrapper">
+      <nav class="container-fluid container-lg">
+        <div class="row nav-belt">
+          <!-- ====================   LOGO   ==================== -->
 
-        <div class="logo col pe-0 justify-content-start">
-          <a class="logo-header" href="index.html" aria-label="Skin clinica">
-            <svg class="logo-header-icon hvr-icon">
-              <use href="images/icons/sprite-multi.svg#logo-header"></use>
-            </svg>
-            <div class="logo-text">skin clinica</div>
-          </a>
-        </div>
+          <div class="logo col pe-0 justify-content-start">
+            <a class="logo-header" href="index.html" aria-label="Skin clinica">
+              <svg class="logo-header-icon hvr-icon">
+                <use href="images/icons/sprite-multi.svg#logo-header"></use>
+              </svg>
+              <div class="logo-text">skin clinica</div>
+            </a>
+          </div>
 
-        <!-- ====================   SEARCH   ==================== -->
+          <!-- ====================   SEARCH   ==================== -->
 
-        <div class="col gx-0">
-          <div class="container-fluid mobile-search">
-            <div class="nav-search">
-              <div class="input-wrapper">
-                <input
-                  type="search"
-                  class="nav-search-input text-sm"
-                  placeholder="Search"
-                />
-                <div class="nav-search-buttons">
-                  <button
-                    class="nav-search-buttons__search"
-                    aria-label="Search"
-                  >
-                    <svg class="nav-search-buttons__search-icon hvr-icon">
-                      <use href="images/icons/sprite-mono.svg#search"></use>
-                    </svg>
-                  </button>
+          <div class="col gx-0">
+            <div class="container-fluid mobile-search">
+              <div class="nav-search">
+                <div class="input-wrapper">
+                  <input
+                    type="search"
+                    class="nav-search-input text-sm"
+                    placeholder="Search"
+                  />
+                  <div class="nav-search-buttons">
+                    <button
+                      class="nav-search-buttons__search"
+                      aria-label="Search"
+                    >
+                      <svg class="nav-search-buttons__search-icon hvr-icon">
+                        <use href="images/icons/sprite-mono.svg#search"></use>
+                      </svg>
+                    </button>
 
-                  <button
-                    class="d-lg-none nav-search-buttons__close"
-                    type="button"
-                    aria-label="Close search"
-                  >
-                    <svg class="nav-search-buttons__close-icon hvr-icon">
-                      <use
-                        href="images/icons/sprite-mono.svg#toggler-closed"
-                      ></use>
-                    </svg>
-                  </button>
+                    <button
+                      class="d-lg-none nav-search-buttons__close"
+                      type="button"
+                      aria-label="Close search"
+                    >
+                      <svg class="nav-search-buttons__close-icon hvr-icon">
+                        <use
+                          href="images/icons/sprite-mono.svg#toggler-closed"
+                        ></use>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ====================   TOOLS   ==================== -->
+          <!-- ====================   TOOLS   ==================== -->
 
-        <div class="col d-flex justify-content-end tools">
-          <div class="nav-tools">
+          <div class="col d-flex justify-content-end tools">
+            <div class="nav-tools">
+              <button
+                class="nav-tools__link d-lg-none nav-search-buttons__open"
+                type="button"
+                aria-label="Search"
+              >
+                <svg class="nav-tools__icon hvr-icon">
+                  <use href="images/icons/sprite-mono.svg#search"></use>
+                </svg>
+              </button>
+
+              <a href="#" class="nav-tools__link" aria-label="Account">
+                <svg class="nav-tools__icon hvr-icon">
+                  <use href="images/icons/sprite-mono.svg#account"></use>
+                </svg>
+                <p class="nav-tools__name">Account</p>
+              </a>
+
+              <a href="#" class="nav-tools__link" aria-label="Wishlist">
+                <svg class="nav-tools__icon hvr-icon">
+                  <use href="images/icons/sprite-mono.svg#wishlist"></use>
+                </svg>
+                <p class="nav-tools__name">Wishlist</p>
+              </a>
+
+              <a href="#" class="nav-tools__link" aria-label="Shopping cart">
+                <svg class="nav-tools__icon hvr-icon">
+                  <use href="images/icons/sprite-mono.svg#cart"></use>
+                </svg>
+                <p class="nav-tools__name">Cart (0)</p>
+              </a>
+            </div>
+          </div>
+
+          <!-- ====================   NAV-TOGGLER   ==================== -->
+          <div class="nav-toggler-group col-auto">
             <button
-              class="nav-tools__link d-lg-none nav-search-buttons__open"
+              class="nav-toggler nav-toggler--open _active"
               type="button"
-              aria-label="Search"
+              aria-label="Open navigation menu"
             >
-              <svg class="nav-tools__icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#search"></use>
+              <svg class="nav-toggler-icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#toggler-open"></use>
+              </svg>
+              <div class="nav-toggler__text">menu</div>
+            </button>
+            <button
+              class="nav-toggler nav-toggler--close"
+              type="button"
+              aria-label="Close navigation menu"
+            >
+              <svg class="nav-toggler-icon hvr-icon">
+                <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
               </svg>
             </button>
-
-            <a href="#" class="nav-tools__link" aria-label="Account">
-              <svg class="nav-tools__icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#account"></use>
-              </svg>
-              <p class="nav-tools__name">Account</p>
-            </a>
-
-            <a href="#" class="nav-tools__link" aria-label="Wishlist">
-              <svg class="nav-tools__icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#wishlist"></use>
-              </svg>
-              <p class="nav-tools__name">Wishlist</p>
-            </a>
-
-            <a href="#" class="nav-tools__link" aria-label="Shopping cart">
-              <svg class="nav-tools__icon hvr-icon">
-                <use href="images/icons/sprite-mono.svg#cart"></use>
-              </svg>
-              <p class="nav-tools__name">Cart (0)</p>
-            </a>
           </div>
         </div>
 
-        <!-- ====================   NAV-TOGGLER   ==================== -->
-        <div class="nav-toggler-group col-auto">
-          <button
-            class="nav-toggler nav-toggler--open _active"
-            type="button"
-            aria-label="Open navigation menu"
-          >
-            <svg class="nav-toggler-icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-            </svg>
-            <div class="nav-toggler__text">menu</div>
-          </button>
-          <button
-            class="nav-toggler nav-toggler--close"
-            type="button"
-            aria-label="Close navigation menu"
-          >
-            <svg class="nav-toggler-icon hvr-icon">
-              <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- ====================   NAVIGATION   ==================== -->
-      <div class="navigation container-fluid">
-        <div class="row">
-          <div class="col nav-body"><ul class="nav-menu nav-menu--main">
+        <!-- ====================   NAVIGATION   ==================== -->
+        <div class="navigation container-fluid">
+          <div class="row">
+            <div class="col nav-body"><ul class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Shop</a>
   </li>
@@ -187,8 +188,8 @@
 </ul>
 <hr class="d-lg-none my-lg" />
 </div>
-          <div class="col-12 nav-mobile-socials">
-            <ul class="social-icons">
+            <div class="col-12 nav-mobile-socials">
+              <ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="social-icons__link" aria-label="Facebook">
       <svg class="icon-social hvr-icon">
@@ -233,12 +234,13 @@
   </li>
 </ul>
 
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </div>
-</header>
+      </nav>
+    </div>
+  </header>
+</div>
 
       <main><div class="banner">
   <picture>
