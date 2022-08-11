@@ -4,7 +4,7 @@ const header = document.querySelector('header');
 const headerAnchor = document.createElement('div');
 let headroom;
 
-let headerHeight;
+export let headerHeight;
 
 const headerHeightObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => {

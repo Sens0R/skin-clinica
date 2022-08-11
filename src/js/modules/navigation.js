@@ -4,8 +4,9 @@ import {
   addAnimation,
   useElementSize,
   elementSizeObserver,
+  elementHeight,
 } from './functions.js';
-
+import { headerHeight } from './headers.js';
 import { lg } from './breakpoints.js';
 
 // Default options
@@ -32,6 +33,7 @@ export function runNavigation(userOptions) {
   let mainElement;
   let transition;
   let copySizeEl;
+  let headerWrapperObserver;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -100,24 +102,45 @@ export function runNavigation(userOptions) {
           document.body.style.overflow = null;
         }
       }
+
+      headerWrapperObserver.unobserve(
+        document.querySelector('.header-wrapper')
+      );
+
+      headerWrapperObserver.observe(document.querySelector('.header-wrapper'));
+      console.log('OBSERVING HEADER WRAPPER');
     })
   );
 
   openBtnEl.addEventListener('click', function () {
     navResizeObs.observe(mainElement);
 
-/*     const headerWrapperObserver = new ResizeObserver((entries) => {
-      let elementHeight;
+    headerWrapperObserver = new IntersectionObserver((entries) => {
+      let wrapperHeight;
       entries.forEach((entry) => {
-        elementHeight = entry.borderBoxSize[0].blockSize;
-        console.log('Window height: ' + window.innerHeight);
-        console.log('Wrapper height: ' + elementHeight);
-        console.log(100 / window.innerHeight);
-        //if (window.innerHeight > elementHeight) console.log('true');
-        mainElement.style.height = window.innerHeight - elementHeight + 'px';
-      });
+        wrapperHeight = entry.intersectionRect.height;
+        let scrollHeight =
+          window.innerHeight - wrapperHeight - parseInt(headerHeight, 10);
+        function contentSizeCheck() {
+          let navContentHeight =
+            elementHeight + wrapperHeight + parseInt(headerHeight, 10);
+          console.log(navContentHeight);
+
+          if (
+            window.innerHeight - navContentHeight < 0 &&
+            mainElement.classList.contains('_active')
+          ) {
+            mainElement.style.height = scrollHeight + 'px';
+            console.log('CONTENT DOESNT FIT, NEED SCROLL');
+          }
+        }
+        useElementSize(
+          document.querySelector('.navigation-content'),
+          contentSizeCheck
+        );
+      }),
+        { threshold: 1 };
     });
-    headerWrapperObserver.observe(document.querySelector('.header-wrapper')); */
 
     console.log('NAVIGATION OPENED, OBSERVING');
     mainElement.classList.add('_active');
@@ -125,8 +148,13 @@ export function runNavigation(userOptions) {
     openBtnEl.classList.remove('_active');
 
     if (copySize) {
+      function addStyles() {
+        mainElement.style.height = elementHeight;
+        mainElement.style.width = elementWidth;
+      }
+
       copySizeEl = document.querySelector(copySize);
-      useElementSize(copySizeEl, mainElement);
+      useElementSize(copySizeEl, addStyles);
     }
 
     if (bodyScrollBlock) {
@@ -155,11 +183,13 @@ export function runNavigation(userOptions) {
   /*  ---------------------- HELPERS -------------------------- */
 
   function closeElement() {
+    mainElement.classList.remove('_active');
     if (copySize) {
       elementSizeObserver.unobserve(copySizeEl);
       mainElement.style.height = null;
       mainElement.style.width = null;
     }
+    headerWrapperObserver.unobserve(document.querySelector('.header-wrapper'));
 
     navResizeObs.unobserve(mainElement);
     console.log('NAVIGATION CLOSED, NOT OBSERVING');
@@ -176,7 +206,5 @@ export function runNavigation(userOptions) {
     }
 
     //if (animationClose) addAnimation('.is-changing', animationClose, animationSpeed);
-
-    mainElement.classList.remove('_active');
   }
 }

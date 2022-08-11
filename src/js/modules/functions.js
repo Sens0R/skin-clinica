@@ -7,30 +7,25 @@ export function refreshSiteOnTOp() {
   };
 }
 
-/* ====================   HEADER HEIGHT OBSERVER   ==================== */
+/* ====================   ELEMENT SIZE OBSERVER   ==================== */
 
 export let elementSizeObserver;
-
-export function useElementSize(observeElement, mainElement) {
+export let elementHeight;
+export let elementWidth;
+export function useElementSize(observeElement, callback) {
   console.log(observeElement);
-  let elementHeight;
-  let elementWidth;
+
   elementSizeObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
-      elementHeight = `${entry.borderBoxSize[0].blockSize}px`;
-      elementWidth = `${entry.borderBoxSize[0].inlineSize}px`;
+      elementHeight = entry.borderBoxSize[0].blockSize;
+      elementWidth = entry.borderBoxSize[0].inlineSize;
       console.log('Height: ' + elementHeight + ' Width: ' + elementWidth);
-      if (mainElement) {
-        mainElement.style.height = elementHeight;
-        mainElement.style.width = elementWidth;
-      }
+      callback();
     });
   });
 
   elementSizeObserver.observe(observeElement);
 }
-
-
 
 /*  ============================= BACKDROP ========================= */
 
