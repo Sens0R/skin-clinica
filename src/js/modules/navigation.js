@@ -100,13 +100,25 @@ export function runNavigation(userOptions) {
           document.body.style.overflow = null;
         }
       }
-
-      
     })
   );
 
   openBtnEl.addEventListener('click', function () {
     navResizeObs.observe(mainElement);
+
+/*     const headerWrapperObserver = new ResizeObserver((entries) => {
+      let elementHeight;
+      entries.forEach((entry) => {
+        elementHeight = entry.borderBoxSize[0].blockSize;
+        console.log('Window height: ' + window.innerHeight);
+        console.log('Wrapper height: ' + elementHeight);
+        console.log(100 / window.innerHeight);
+        //if (window.innerHeight > elementHeight) console.log('true');
+        mainElement.style.height = window.innerHeight - elementHeight + 'px';
+      });
+    });
+    headerWrapperObserver.observe(document.querySelector('.header-wrapper')); */
+
     console.log('NAVIGATION OPENED, OBSERVING');
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
@@ -114,7 +126,7 @@ export function runNavigation(userOptions) {
 
     if (copySize) {
       copySizeEl = document.querySelector(copySize);
-      useElementSize(mainElement, copySizeEl);
+      useElementSize(copySizeEl, mainElement);
     }
 
     if (bodyScrollBlock) {

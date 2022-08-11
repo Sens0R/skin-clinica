@@ -29,7 +29,6 @@
 }
 
 .nav-menu {
-  margin: 0;
   @include flex(
     $justify-content: center,
     $align-items: flex-start,
@@ -47,12 +46,14 @@
 
 .nav-body > hr {
   width: 100%;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
 }
 
 .nav-menu__item:not(:last-child) {
   margin-right: $spacer;
+}
+
+.nav-mobile-socials .social-icons__item {
+  padding: $spacer-sm 0;
 }
 
 .nav-menu__link {
@@ -60,10 +61,10 @@
   padding: $spacer-sm 0;
 }
 
-/* ====================   MEDIA SECTION   ==================== */
-
-@include media-breakpoint-up(md) {
+.navigation {
 }
+
+/* ====================   MEDIA SECTION   ==================== */
 
 @include media-breakpoint-between(sm, lg) {
   .navigation {
@@ -76,6 +77,10 @@
       $align-items: center,
       $flex-direction: column
     );
+
+    hr {
+      margin: 0;
+    }
   }
 
   .nav-menu {
@@ -97,14 +102,14 @@
 
 @include media-breakpoint-down(lg) {
   .navigation {
-    @include padding-top($spacer);
-    @include padding-bottom($spacer);
+    width: 100%;
     @include absolute(left 0);
     transform: translateX(100%);
     transition: transform 0.2s ease-in-out;
-    overflow-y: scroll;
     visibility: hidden;
     background: $color-light;
+    overflow-y: auto;
+    height: calc(1576.33px - 844px);
 
     &._active {
       transform: none;
@@ -132,7 +137,7 @@
     display: none !important;
   }
 
-  .navigation {
+  .navigation-content {
     padding: 0;
   }
 
@@ -145,6 +150,7 @@
   }
 
   .nav-menu {
+    margin: 0;
     @include flex(
       $justify-content: center,
       $align-items: center,

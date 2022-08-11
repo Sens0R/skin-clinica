@@ -21,11 +21,10 @@
   width: 100%;
   @include z-index(header);
   user-select: none;
-  
   background-color: $color-light;
 }
 
-.header-wrapper {
+.header-relative {
   position: relative;
 }
 
