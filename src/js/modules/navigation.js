@@ -130,7 +130,7 @@ export function runNavigation(userOptions) {
             headerHeight,
             10
           )} =
-            ${navContentMaxAllowedViewportHeight}`
+            ${navContentMaxAllowedViewportHeight})`
         );
 
         if (window.innerHeight - combinedNavContentHeight < 0) {
