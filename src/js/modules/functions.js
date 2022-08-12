@@ -40,16 +40,14 @@ export let backdropEl;
 
 export function addBackdrop(targetElement, backdropClass) {
   const createBackdrop = document.createElement('div');
-  createBackdrop.classList.add('backdrop');
+  createBackdrop.classList.add('nav-backdrop');
   targetElement.after(createBackdrop);
-  backdropEl = document.querySelector('.backdrop');
+  backdropEl = document.querySelector('.nav-backdrop');
   backdropEl.classList.add(backdropClass);
-  backdropEl.setAttribute('data-backdrop', 'close');
 }
 
 export function removeBackdrop() {
-  const removeBackdrop = document.querySelector('.backdrop');
-  if (removeBackdrop) removeBackdrop.remove();
+  if (backdropEl) backdropEl.remove();
 }
 
 /*  ============================= ANIMATIONS ========================= */

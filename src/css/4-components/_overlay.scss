@@ -1,9 +1,9 @@
-.backdrop {
-  @include fixed(top 0 left 0);
-  @include box(100vw, 100vh);
+.nav-backdrop {
+  @include fixed(top 0 left 0 bottom 0);
+  @include box(100%, 100%);
   background-color: #000;
-
   opacity: 0;
+  z-index: 1;
 }
 
 .overlay {
@@ -13,7 +13,7 @@
   @include box(100%, 100%);
 }
 
-.backdrop._active {
+.nav-backdrop._active {
   animation: opacity-03 0.3s forwards;
 }
 

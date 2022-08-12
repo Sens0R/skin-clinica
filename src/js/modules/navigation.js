@@ -1,6 +1,7 @@
 import {
   addBackdrop,
   removeBackdrop,
+  backdropEl,
   addAnimation,
   useElementSize,
   elementSizeObserver,
@@ -16,6 +17,7 @@ const defaultOptions = {
   closeBtn: '.nav-toggler--close',
   breakpoint: lg,
   backdrop: false,
+  responsiveBackdrop: true,
   bodyScrollBlock: false,
   focusElement: false,
   copySize: false,
@@ -70,6 +72,7 @@ export function runNavigation(userOptions) {
     closeBtn,
     breakpoint,
     backdrop,
+    responsiveBackdrop,
     bodyScrollBlock,
     focusElement,
     animationOpen,
@@ -133,20 +136,45 @@ export function runNavigation(userOptions) {
             ${navContentMaxAllowedViewportHeight})`
         );
 
+        console.log(
+          'DIFFERENCE = ' + (window.innerHeight - combinedNavContentHeight)
+        );
+
         if (window.innerHeight - combinedNavContentHeight < 0) {
           mainElement.style.height = navContentMaxAllowedViewportHeight + 'px';
           document.body.style.overflow = 'hidden';
+
           console.log(
             'CONTENT DOES NOT FIT VIEWPORT, ADDING HEIGHT, MAKING IT SCROLLABLE, BLOCKING BODY SCROLL'
           );
-        } else {
-          mainElement.style.height = null;
-          document.body.style.overflow = null;
-          console.log(
-            'NAVIGATION CONTENT HAS VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
-          );
+
+          return;
         }
-        navResizeObs.unobserve(mainElement);
+
+        if (
+          window.innerHeight - combinedNavContentHeight <
+          window.innerHeight / 3
+        ) {
+          mainElement.style.height = null;
+          document.body.style.overflow = 'hidden';
+          if (responsiveBackdrop) {
+            console.log(
+              'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP AND LOCKING BODY SCROLL'
+            );
+            addBackdrop(document.querySelector('header'), '_active');
+            backdropEl.addEventListener('click', function () {
+              closeElement();
+            });
+          }
+
+          return;
+        }
+
+        mainElement.style.height = null;
+        document.body.style.overflow = null;
+        console.log(
+          'NAVIGATION CONTENT HAS ENOUGH VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
+        );
       }),
     { threshold: 1 }
   );
@@ -185,8 +213,8 @@ export function runNavigation(userOptions) {
 
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
-      const backdropClose = document.querySelector("[data-backdrop='close']");
-      backdropClose.addEventListener('click', function () {
+
+      backdropEl.addEventListener('click', function () {
         closeElement();
       });
     }
@@ -196,11 +224,24 @@ export function runNavigation(userOptions) {
     closeElement();
   });
 
+  if (breakpoint) {
+    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
+
+    mql.onchange = (e) => {
+      if (e.matches) {
+        console.log(
+          `This is a narrow screen — less than ${breakpoint}px wide.`
+        );
+      } else {
+        console.log(`This is a wide screen — more than ${breakpoint}px wide.`);
+        if (mainElement.classList.contains('_active')) closeElement();
+      }
+    };
+  }
+
   /*  ---------------------- HELPERS -------------------------- */
 
   function closeElement() {
-    mainElement.classList.remove('_active');
-
     if (copySize) {
       elementSizeObserver.unobserve(copySizeEl);
       mainElement.style.height = null;
@@ -209,14 +250,13 @@ export function runNavigation(userOptions) {
 
     intersectionObs.unobserve(aboveHeaderContent);
     elementSizeObserver.unobserve(navigationContent);
-
     navResizeObs.unobserve(mainElement);
 
     console.log('NAVIGATION CLOSED, REMOVING ALL OBSERVERS');
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
     if (document.body.style.overflow) document.body.style.overflow = null;
-    if (backdrop) removeBackdrop();
+    if (backdrop || responsiveBackdrop) removeBackdrop();
 
     if (transitionDuration > 0) {
       mainElement.classList.add('is-changing');
@@ -224,5 +264,6 @@ export function runNavigation(userOptions) {
         mainElement.classList.remove('is-changing');
       }, transitionDuration);
     }
+    mainElement.classList.remove('_active');
   }
 }

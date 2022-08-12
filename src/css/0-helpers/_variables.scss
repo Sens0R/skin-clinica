@@ -1,5 +1,5 @@
 /* ====================   COLORS   ==================== */
-// full size burger if > 60% vh
+// full size burger if > 60% vh option to pick %
 // добавить текст -> close menu, close search
 //Critical css
 //bootstrap colours and other shit remove
@@ -99,6 +99,7 @@ $z-index: (
   nav-search: 150,
   nav-menu: 100,
   header: 50,
+  above-header-content-wrapper: 25,
 );
 
 $border-1: 1px;

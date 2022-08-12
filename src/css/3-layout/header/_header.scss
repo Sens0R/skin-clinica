@@ -1,5 +1,9 @@
 @import 'navigation';
 
+.above-header-content-wrapper {
+  @include z-index(above-header-content-wrapper);
+}
+
 .notification {
   background: $color-secondary;
   margin: 0;
