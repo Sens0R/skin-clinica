@@ -33,7 +33,7 @@ export function runNavigation(userOptions) {
   let mainElement;
   let transition;
   let copySizeEl;
-  let headerWrapperObserver;
+  let wrapperHeight;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -103,49 +103,52 @@ export function runNavigation(userOptions) {
         }
       }
 
-      headerWrapperObserver.unobserve(
-        document.querySelector('.header-wrapper')
-      );
-
       headerWrapperObserver.observe(document.querySelector('.header-wrapper'));
-      console.log('OBSERVING HEADER WRAPPER');
     })
   );
+
+  const headerWrapperObserver = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        console.log('OBSERVING HEADER WRAPPER');
+        wrapperHeight = entry.intersectionRect.height;
+        console.log('HEADER WRAPPER HEIGHT: ' + wrapperHeight);
+        let navContentHeight =
+          elementHeight + wrapperHeight + parseInt(headerHeight, 10);
+        console.log('NAV CONTENT HEIGHT: ' + navContentHeight);
+        let scrollHeight =
+          window.innerHeight - wrapperHeight - parseInt(headerHeight, 10);
+        console.log('SCROLL HEIGHT:' + scrollHeight);
+        if (
+          window.innerHeight - navContentHeight <
+          0 /* &&
+          mainElement.classList.contains('_active') */
+        ) {
+          console.log('CONTENT DOES NOT FIT, NEED SCROLL');
+          mainElement.style.height = scrollHeight + 'px';
+        }
+        navResizeObs.unobserve(mainElement);
+      }),
+    { threshold: 1 }
+  );
+
+  function contentSizeCheck() {
+    console.log('CHECKING CONTENT SIZE CALLBACK FUNCTION STARTED');
+    headerWrapperObserver.unobserve(document.querySelector('.header-wrapper'));
+    headerWrapperObserver.observe(document.querySelector('.header-wrapper'));
+  }
 
   openBtnEl.addEventListener('click', function () {
     navResizeObs.observe(mainElement);
 
-    headerWrapperObserver = new IntersectionObserver((entries) => {
-      let wrapperHeight;
-      entries.forEach((entry) => {
-        wrapperHeight = entry.intersectionRect.height;
-        let scrollHeight =
-          window.innerHeight - wrapperHeight - parseInt(headerHeight, 10);
-        function contentSizeCheck() {
-          let navContentHeight =
-            elementHeight + wrapperHeight + parseInt(headerHeight, 10);
-          console.log(navContentHeight);
-
-          if (
-            window.innerHeight - navContentHeight < 0 &&
-            mainElement.classList.contains('_active')
-          ) {
-            mainElement.style.height = scrollHeight + 'px';
-            console.log('CONTENT DOESNT FIT, NEED SCROLL');
-          }
-        }
-        useElementSize(
-          document.querySelector('.navigation-content'),
-          contentSizeCheck
-        );
-      }),
-        { threshold: 1 };
-    });
-
-    console.log('NAVIGATION OPENED, OBSERVING');
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
+
+    useElementSize(
+      document.querySelector('.navigation-content'),
+      contentSizeCheck
+    );
 
     if (copySize) {
       function addStyles() {
@@ -190,7 +193,9 @@ export function runNavigation(userOptions) {
       mainElement.style.width = null;
     }
     headerWrapperObserver.unobserve(document.querySelector('.header-wrapper'));
-
+    elementSizeObserver.unobserve(
+      document.querySelector('.navigation-content')
+    );
     navResizeObs.unobserve(mainElement);
     console.log('NAVIGATION CLOSED, NOT OBSERVING');
     closeBtnEl.classList.remove('_active');

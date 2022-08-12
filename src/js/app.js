@@ -8,7 +8,7 @@ import { useElementSize } from './modules/functions.js';
 fixedHeader(lg);
 runNavigation();
 
-/* runNavigation({
+/*  runNavigation({
   mainClass: '.mobile-search',
   openBtn: '.nav-search-buttons__open',
   closeBtn: '.nav-search-buttons__close',
@@ -17,5 +17,5 @@ runNavigation();
   animationSpeed: 'faster',
   mobileScrollBlock: false,
   copySize: 'header',
-}); */
+});  */
 

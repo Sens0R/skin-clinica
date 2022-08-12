@@ -16,11 +16,12 @@ export function useElementSize(observeElement, callback) {
   console.log(observeElement);
 
   elementSizeObserver = new ResizeObserver((entries) => {
+    console.log('CONTENT HEIGHT OBSERVER FROM FUNCTIONS STARTED');
     entries.forEach((entry) => {
       elementHeight = entry.borderBoxSize[0].blockSize;
       elementWidth = entry.borderBoxSize[0].inlineSize;
       console.log('Height: ' + elementHeight + ' Width: ' + elementWidth);
-      callback();
+      if (callback) callback();
     });
   });
 
