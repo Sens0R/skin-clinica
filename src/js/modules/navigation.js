@@ -1,7 +1,4 @@
 import {
-  addBackdrop,
-  removeBackdrop,
-  backdropEl,
   addAnimation,
   useElementSize,
   elementSizeObserver,
@@ -13,12 +10,16 @@ import { lg } from './breakpoints.js';
 // Default options
 const defaultOptions = {
   mainClass: '.navigation',
+  navContent: '.navigation-content',
   openBtn: '.nav-toggler--open',
   closeBtn: '.nav-toggler--close',
+  aboveHeaderContentWrapper: '.above-header-content-wrapper',
   breakpoint: lg,
-  backdrop: false,
-  responsiveBackdrop: true,
-  bodyScrollBlock: false,
+  alwaysBackdrop: false,
+  smartBackdrop: false,
+  alwaysFullscreen: false,
+  smartFullscreen: true,
+  alwaysScrollBlock: false,
   focusElement: false,
   copySize: false,
   animationOpen: false,
@@ -34,6 +35,8 @@ export function runNavigation(userOptions) {
   let mainElement;
   let transitionDuration;
   let copySizeEl;
+  let backdropEl;
+  let aboveHeaderContentVisibleHeight;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -68,12 +71,16 @@ export function runNavigation(userOptions) {
 
   let {
     mainClass,
+    navContent,
+    aboveHeaderContentWrapper,
     openBtn,
     closeBtn,
     breakpoint,
-    backdrop,
-    responsiveBackdrop,
-    bodyScrollBlock,
+    alwaysBackdrop,
+    smartBackdrop,
+    smartFullscreen,
+    alwaysFullscreen,
+    alwaysScrollBlock,
     focusElement,
     animationOpen,
     animationClose,
@@ -81,6 +88,8 @@ export function runNavigation(userOptions) {
     copySize,
   } = options;
 
+  const navigationContent = document.querySelector(navContent);
+  const aboveHeaderContent = document.querySelector(aboveHeaderContentWrapper);
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
@@ -95,15 +104,10 @@ export function runNavigation(userOptions) {
     })
   );
 
-  const aboveHeaderContent = document.querySelector(
-    '.above-header-content-wrapper'
-  );
-  let aboveHeaderContentVisibleHeight;
-  const navigationContent = document.querySelector('.navigation-content');
-
   const intersectionObs = new IntersectionObserver(
     (entries) =>
       entries.forEach((entry) => {
+        if (alwaysBackdrop || smartBackdrop) removeBackdrop();
         console.log('VIEWPORT HEIGHT: ' + window.innerHeight);
         aboveHeaderContentVisibleHeight = entry.intersectionRect.height;
         console.log(
@@ -140,6 +144,12 @@ export function runNavigation(userOptions) {
           'DIFFERENCE = ' + (window.innerHeight - combinedNavContentHeight)
         );
 
+        if (alwaysFullscreen) {
+          mainElement.style.height = navContentMaxAllowedViewportHeight + 'px';
+          document.body.style.overflow = 'hidden';
+          return;
+        }
+
         if (window.innerHeight - combinedNavContentHeight < 0) {
           mainElement.style.height = navContentMaxAllowedViewportHeight + 'px';
           document.body.style.overflow = 'hidden';
@@ -157,11 +167,16 @@ export function runNavigation(userOptions) {
         ) {
           mainElement.style.height = null;
           document.body.style.overflow = 'hidden';
-          if (responsiveBackdrop) {
+          if (smartFullscreen) {
+            mainElement.style.height =
+              navContentMaxAllowedViewportHeight + 'px';
+          }
+
+          if (smartBackdrop) {
             console.log(
               'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP AND LOCKING BODY SCROLL'
             );
-            addBackdrop(document.querySelector('header'), '_active');
+            addBackdrop(smartBackdrop);
             backdropEl.addEventListener('click', function () {
               closeElement();
             });
@@ -171,7 +186,13 @@ export function runNavigation(userOptions) {
         }
 
         mainElement.style.height = null;
-        document.body.style.overflow = null;
+        if (!alwaysScrollBlock) document.body.style.overflow = null;
+        if (alwaysBackdrop) {
+          addBackdrop(alwaysBackdrop);
+          backdropEl.addEventListener('click', function () {
+            closeElement();
+          });
+        }
         console.log(
           'NAVIGATION CONTENT HAS ENOUGH VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
         );
@@ -204,20 +225,12 @@ export function runNavigation(userOptions) {
       useElementSize(copySizeEl, addStyles);
     }
 
-    if (bodyScrollBlock) {
+    if (alwaysScrollBlock) {
       document.body.style.overflow = 'hidden';
     }
 
     if (focusElement) document.querySelector(focusElement).focus();
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
-
-    if (backdrop) {
-      addBackdrop(mainElement, backdrop);
-
-      backdropEl.addEventListener('click', function () {
-        closeElement();
-      });
-    }
   });
 
   closeBtnEl.addEventListener('click', function () {
@@ -234,7 +247,10 @@ export function runNavigation(userOptions) {
         );
       } else {
         console.log(`This is a wide screen — more than ${breakpoint}px wide.`);
-        if (mainElement.classList.contains('_active')) closeElement();
+        if (mainElement.classList.contains('_active')) {
+          mainElement.style.height = null;
+          closeElement();
+        }
       }
     };
   }
@@ -255,8 +271,8 @@ export function runNavigation(userOptions) {
     console.log('NAVIGATION CLOSED, REMOVING ALL OBSERVERS');
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
-    if (document.body.style.overflow) document.body.style.overflow = null;
-    if (backdrop || responsiveBackdrop) removeBackdrop();
+    document.body.style.overflow = null;
+    if (alwaysBackdrop || smartBackdrop) removeBackdrop();
 
     if (transitionDuration > 0) {
       mainElement.classList.add('is-changing');
@@ -265,5 +281,20 @@ export function runNavigation(userOptions) {
       }, transitionDuration);
     }
     mainElement.classList.remove('_active');
+  }
+
+  /*  ============================= BACKDROP ========================= */
+
+  function addBackdrop(backdropClass) {
+    document.body.style.overflow = 'hidden';
+    const createBackdrop = document.createElement('div');
+    createBackdrop.classList.add('nav-backdrop');
+    document.querySelector('header').after(createBackdrop);
+    backdropEl = document.querySelector('.nav-backdrop');
+    backdropEl.classList.add(backdropClass);
+  }
+
+  function removeBackdrop() {
+    if (backdropEl) backdropEl.remove();
   }
 }

@@ -34,21 +34,7 @@ export function useElementSize(observeElement, callback) {
   elementSizeObserver.observe(observeElement);
 }
 
-/*  ============================= BACKDROP ========================= */
 
-export let backdropEl;
-
-export function addBackdrop(targetElement, backdropClass) {
-  const createBackdrop = document.createElement('div');
-  createBackdrop.classList.add('nav-backdrop');
-  targetElement.after(createBackdrop);
-  backdropEl = document.querySelector('.nav-backdrop');
-  backdropEl.classList.add(backdropClass);
-}
-
-export function removeBackdrop() {
-  if (backdropEl) backdropEl.remove();
-}
 
 /*  ============================= ANIMATIONS ========================= */
 
