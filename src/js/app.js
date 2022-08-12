@@ -15,7 +15,6 @@ runNavigation();
   focusElement: '.nav-search-input',
   animationOpen: 'fadeIn',
   animationSpeed: 'faster',
-  mobileScrollBlock: false,
   copySize: 'header',
 });  */
 

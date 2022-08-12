@@ -16,7 +16,6 @@ const defaultOptions = {
   closeBtn: '.nav-toggler--close',
   breakpoint: lg,
   backdrop: false,
-  mobileScrollBlock: true,
   bodyScrollBlock: false,
   focusElement: false,
   copySize: false,
@@ -31,20 +30,20 @@ export function runNavigation(userOptions) {
   let htmlDataOptions;
   let options = defaultOptions;
   let mainElement;
-  let transition;
+  let transitionDuration;
   let copySizeEl;
-  let wrapperHeight;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
   } else mainElement = document.querySelector(defaultOptions.mainClass);
 
-  let transitionDuration = getComputedStyle(mainElement).getPropertyValue(
-    'transition-duration'
-  );
+  let transitionDurationComputed = getComputedStyle(
+    mainElement
+  ).getPropertyValue('transition-duration');
 
-  if (transitionDuration)
-    transition = Number(transitionDuration.replace('s', '')) * 1000;
+  if (transitionDurationComputed)
+    transitionDuration =
+      Number(transitionDurationComputed.replace('s', '')) * 1000;
 
   const mainElementDataJSON = mainElement.getAttribute('data-navigation');
   if (mainElementDataJSON) htmlDataOptions = JSON.parse(mainElementDataJSON);
@@ -71,7 +70,6 @@ export function runNavigation(userOptions) {
     closeBtn,
     breakpoint,
     backdrop,
-    mobileScrollBlock,
     bodyScrollBlock,
     focusElement,
     animationOpen,
@@ -83,9 +81,6 @@ export function runNavigation(userOptions) {
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
-  if (bodyScrollBlock) mobileScrollBlock = false;
-  if (mobileScrollBlock) bodyScrollBlock = false;
-
   const navResizeObs = new ResizeObserver((entries) =>
     entries.forEach((entry) => {
       if (window.innerWidth >= breakpoint) {
@@ -93,49 +88,73 @@ export function runNavigation(userOptions) {
         mainElement.classList.remove('is-changing');
       }
 
-      if (mobileScrollBlock) {
-        if (window.innerWidth < 768 || window.innerHeight < 576) {
-          document.body.style.overflow = 'hidden';
-        }
-
-        if (window.innerWidth >= 768 && window.innerHeight >= 576) {
-          document.body.style.overflow = null;
-        }
-      }
-
-      headerWrapperObserver.observe(document.querySelector('.header-wrapper'));
+      intersectionObs.observe(aboveHeaderContent);
     })
   );
 
-  const headerWrapperObserver = new IntersectionObserver(
+  const aboveHeaderContent = document.querySelector(
+    '.above-header-content-wrapper'
+  );
+  let aboveHeaderContentVisibleHeight;
+  const navigationContent = document.querySelector('.navigation-content');
+
+  const intersectionObs = new IntersectionObserver(
     (entries) =>
       entries.forEach((entry) => {
-        console.log('OBSERVING HEADER WRAPPER');
-        wrapperHeight = entry.intersectionRect.height;
-        console.log('HEADER WRAPPER HEIGHT: ' + wrapperHeight);
-        let navContentHeight =
-          elementHeight + wrapperHeight + parseInt(headerHeight, 10);
-        console.log('NAV CONTENT HEIGHT: ' + navContentHeight);
-        let scrollHeight =
-          window.innerHeight - wrapperHeight - parseInt(headerHeight, 10);
-        console.log('SCROLL HEIGHT:' + scrollHeight);
-        if (
-          window.innerHeight - navContentHeight <
-          0 /* &&
-          mainElement.classList.contains('_active') */
-        ) {
-          console.log('CONTENT DOES NOT FIT, NEED SCROLL');
-          mainElement.style.height = scrollHeight + 'px';
+        console.log('VIEWPORT HEIGHT: ' + window.innerHeight);
+        aboveHeaderContentVisibleHeight = entry.intersectionRect.height;
+        console.log(
+          'ABOVE HEADER CONTENT VISIBLE HEIGHT: ' +
+            aboveHeaderContentVisibleHeight
+        );
+
+        let combinedNavContentHeight =
+          elementHeight +
+          aboveHeaderContentVisibleHeight +
+          parseInt(headerHeight, 10);
+        console.log(
+          `COMBINED NAVIGATION CONTENT HEIGHT (CONTENT HEIGHT: ${elementHeight} + HEADER HEIGHT: ${parseInt(
+            headerHeight,
+            10
+          )} + ABOVE HEADER VISIBLE CONTENT HEIGHT: ${aboveHeaderContentVisibleHeight}): ${combinedNavContentHeight}`
+        );
+
+        let navContentMaxAllowedViewportHeight =
+          window.innerHeight -
+          aboveHeaderContentVisibleHeight -
+          parseInt(headerHeight, 10);
+        console.log(
+          `MAXIMUM ALLOWED VIEWPORT HEIGHT FOR NAVIGATION CONTENT (VIEWPORT HEIGHT: ${
+            window.innerHeight
+          }  - ABOVE HEADER  CONTENT VISIBLE HEIGHT: ${aboveHeaderContentVisibleHeight} - HEADER HEIGHT: ${parseInt(
+            headerHeight,
+            10
+          )} =
+            ${navContentMaxAllowedViewportHeight}`
+        );
+
+        if (window.innerHeight - combinedNavContentHeight < 0) {
+          mainElement.style.height = navContentMaxAllowedViewportHeight + 'px';
+          document.body.style.overflow = 'hidden';
+          console.log(
+            'CONTENT DOES NOT FIT VIEWPORT, ADDING HEIGHT, MAKING IT SCROLLABLE, BLOCKING BODY SCROLL'
+          );
+        } else {
+          mainElement.style.height = null;
+          document.body.style.overflow = null;
+          console.log(
+            'NAVIGATION CONTENT HAS VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
+          );
         }
         navResizeObs.unobserve(mainElement);
       }),
     { threshold: 1 }
   );
 
-  function contentSizeCheck() {
-    console.log('CHECKING CONTENT SIZE CALLBACK FUNCTION STARTED');
-    headerWrapperObserver.unobserve(document.querySelector('.header-wrapper'));
-    headerWrapperObserver.observe(document.querySelector('.header-wrapper'));
+  function intersectionObsStart() {
+    console.log('INTERSECTION OBSERVER STARTED');
+    intersectionObs.unobserve(aboveHeaderContent);
+    intersectionObs.observe(aboveHeaderContent);
   }
 
   openBtnEl.addEventListener('click', function () {
@@ -145,10 +164,7 @@ export function runNavigation(userOptions) {
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
 
-    useElementSize(
-      document.querySelector('.navigation-content'),
-      contentSizeCheck
-    );
+    useElementSize(navigationContent, intersectionObsStart);
 
     if (copySize) {
       function addStyles() {
@@ -166,9 +182,6 @@ export function runNavigation(userOptions) {
 
     if (focusElement) document.querySelector(focusElement).focus();
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
-    /*     setTimeout(function () {
-      addAnimation(closeBtn, 'heartBeat', animationSpeed);
-    }, 300); // TEST ANIMATION */
 
     if (backdrop) {
       addBackdrop(mainElement, backdrop);
@@ -187,29 +200,29 @@ export function runNavigation(userOptions) {
 
   function closeElement() {
     mainElement.classList.remove('_active');
+
     if (copySize) {
       elementSizeObserver.unobserve(copySizeEl);
       mainElement.style.height = null;
       mainElement.style.width = null;
     }
-    headerWrapperObserver.unobserve(document.querySelector('.header-wrapper'));
-    elementSizeObserver.unobserve(
-      document.querySelector('.navigation-content')
-    );
+
+    intersectionObs.unobserve(aboveHeaderContent);
+    elementSizeObserver.unobserve(navigationContent);
+
     navResizeObs.unobserve(mainElement);
-    console.log('NAVIGATION CLOSED, NOT OBSERVING');
+
+    console.log('NAVIGATION CLOSED, REMOVING ALL OBSERVERS');
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
     if (document.body.style.overflow) document.body.style.overflow = null;
     if (backdrop) removeBackdrop();
 
-    if (transition > 0) {
+    if (transitionDuration > 0) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');
-      }, transition);
+      }, transitionDuration);
     }
-
-    //if (animationClose) addAnimation('.is-changing', animationClose, animationSpeed);
   }
 }

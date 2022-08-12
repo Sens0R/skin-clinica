@@ -12977,7 +12977,7 @@ input {
   background-color: hsl(0deg, 0%, 100%);
 }
 
-.header-relative {
+.header-relative-wrapper {
   position: relative;
 }
 

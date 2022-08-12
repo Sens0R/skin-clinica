@@ -12,15 +12,21 @@ export function refreshSiteOnTOp() {
 export let elementSizeObserver;
 export let elementHeight;
 export let elementWidth;
-export function useElementSize(observeElement, callback) {
-  console.log(observeElement);
 
+export function useElementSize(observeElement, callback) {
   elementSizeObserver = new ResizeObserver((entries) => {
-    console.log('CONTENT HEIGHT OBSERVER FROM FUNCTIONS STARTED');
+    console.log('OBSERVING ELEMENT SIZE:');
+    console.log(observeElement);
     entries.forEach((entry) => {
       elementHeight = entry.borderBoxSize[0].blockSize;
       elementWidth = entry.borderBoxSize[0].inlineSize;
-      console.log('Height: ' + elementHeight + ' Width: ' + elementWidth);
+      console.log(
+        'ELEMENT HEIGHT: ' +
+          elementHeight +
+          '  ' +
+          'ELEMENT WIDTH: ' +
+          elementWidth
+      );
       if (callback) callback();
     });
   });
