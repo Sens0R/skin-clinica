@@ -3,7 +3,7 @@
 .notification__link {
   @include link-space();
   @include hover {
-    text-decoration: underline solid $color-primary 2px;
+    text-decoration: underline solid $color-primary 1px;
   }
 
   &:focus-visible {

@@ -12461,14 +12461,6 @@ button.swiper-pagination-bullet {
   animation-name: slideOutUp;
 }
 
-._sticky-header {
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 9999;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
-}
-
 .headroom.top {
   transition: none;
   transform: translateY(0);
@@ -12586,6 +12578,7 @@ svg {
 /* ====================   RESET ENDS HERE   ==================== */
 html,
 body {
+  color: hsl(0deg, 0%, 12%);
   font-family: DMSans, Arial, sans-serif;
   line-height: 1.6;
   font-size: 1rem;
@@ -12972,12 +12965,20 @@ input {
   white-space: nowrap;
 }
 
+.header._sticky-header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
+}
+
 .header {
   font-size: 0.875rem;
   width: 100%;
   z-index: 50;
   user-select: none;
   background-color: hsl(0deg, 0%, 100%);
+  will-change: left, top;
 }
 
 .header-relative-wrapper {
@@ -13400,10 +13401,10 @@ input {
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 }
 
-.rounded-icon__link {
+.rounded-icon {
   position: relative;
 }
-.rounded-icon__link:before {
+.rounded-icon:before {
   content: "";
   display: block;
   width: 100%;
@@ -13415,20 +13416,20 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.rounded-icon__link:focus-visible {
+.rounded-icon:focus-visible {
   outline-offset: 0;
   background-color: #db065b;
   outline-color: hsl(0deg, 0%, 100%);
 }
-.rounded-icon__link:focus-visible svg {
+.rounded-icon:focus-visible svg {
   fill: hsl(0deg, 0%, 100%);
 }
 @media (hover: hover) and (pointer: fine) {
-  .rounded-icon__link:hover {
+  .rounded-icon:hover {
     transition: 0.3s ease-in-out;
     background: #db065b;
   }
-  .rounded-icon__link:hover .icon-rounded {
+  .rounded-icon:hover .icon-rounded {
     fill: hsl(0deg, 0%, 100%);
   }
 }
@@ -13752,7 +13753,7 @@ input {
 }
 @media (hover: hover) and (pointer: fine) {
   .notification__link:hover {
-    text-decoration: underline solid hsl(336deg, 95%, 84%) 2px;
+    text-decoration: underline solid hsl(336deg, 95%, 84%) 1px;
   }
 }
 .notification__link:focus-visible {

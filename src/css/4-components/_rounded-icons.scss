@@ -11,7 +11,7 @@
   @include depth();
 }
 
-.rounded-icon__link {
+.rounded-icon{
   @include link-space();
   &:focus-visible {
     outline-offset: 0;
