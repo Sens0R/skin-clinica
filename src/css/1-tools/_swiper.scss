@@ -44,10 +44,16 @@
     @include box(1.5rem, 1.5rem);
   }
 
-  @include focus($fill: $color-accent, $style: none, $bg: $color-primary);
+  &:focus-visible {
+    fill: $color-accent;
+    outline-style: none;
+    background-color: $color-primary;
+  }
+
   @include hover {
     fill: $color-accent;
   }
+
   @include icon-grow();
 }
 

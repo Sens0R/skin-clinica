@@ -1,23 +1,46 @@
 /* ====================   HEADER   ==================== */
+
 .notification__link {
   @include link-space();
-  @include focus($color-primary, $offset: 1px, $radius: $border-radius-sm);
+  @include hover {
+    text-decoration: underline solid $color-primary 2px;
+  }
+
+  &:focus-visible {
+    outline: none;
+    text-decoration: underline solid $color-primary 2px;
+  }
 }
 
 .logo-header {
   @include link-space();
-  @include focus($bg: $color-primary, $style: none);
+  &:focus-visible {
+    background-color: $color-primary;
+    outline-style: none;
+  }
+
   @include media-breakpoint-down(sm) {
-    @include focus($style: solid, $size: 3px);
+    &:focus-visible {
+      outline-style: solid;
+      outline-width: 3px;
+    }
   }
 }
 
-.nav-search-input {
-  @include focus($offset: 0, $size: 1px, $color: $color-secondary);
+.nav-search-input:focus-visible {
+  outline-offset: 0;
+  outline-width: 1px;
+  outline-color: $color-secondary;
 }
 
 .nav-search-buttons__search {
-  @include focus($style: none, $fill: $color-accent);
+  &:focus-visible {
+    outline-style: none;
+    svg {
+      fill: $color-accent;
+    }
+  }
+
   @include hover {
     svg {
       transition: 0.2s ease-in-out;
@@ -26,41 +49,55 @@
   }
 }
 
-.nav-tools__link {
-  @include link-space();
-  @include media-breakpoint-down(lg) {
-    @include focus($offset: 0);
-    @include hover {
-      transition: 0.5s ease-in-out;
-      background-color: $color-secondary;
-      svg {
-        fill: $color-white;
-      }
-    }
-  }
-
+.tools {
   @include media-breakpoint-up(lg) {
-    @include focus($fill: $color-accent);
-    @include hover {
-      svg {
-        transition: 0.2s ease-in-out;
-        fill: $color-accent;
+    a,
+    button {
+      &:focus-visible {
+        svg {
+          fill: $color-accent !important;
+        }
+        @include underline($bottom: 1rem, $color: $color-accent, $size: 3px);
+      }
+
+      @include hover {
+        svg {
+          fill: $color-accent !important;
+        }
+
+        @include underline($bottom: 1rem, $color: $color-accent);
       }
     }
   }
 }
 
-.nav-toggler {
-  @include focus($style: none, $bg: $color-primary, $radius: $border-radius-sm);
+.nav-toggler:focus-visible {
+  border-radius: inherit;
 }
 
 .nav-menu__link {
+  &:focus-visible {
+    outline-style: none;
+    color: $color-accent;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+  }
+
   @include hover {
     color: $color-accent;
+    text-decoration: underline;
   }
 }
 
 /* ====================   MAIN   ==================== */
+
+.section-header-link {
+  @include forward();
+  &:focus-visible {
+    outline-offset: 0.5rem;
+    outline-width: 3px;
+  }
+}
 
 .card__link {
   @include link-space();
@@ -69,37 +106,25 @@
 
 /* ====================   FOOTER   ==================== */
 
-.mailing-form__input {
-  @include focus($offset: 0);
+.mailing-form__input:focus-visible {
+  outline-offset: 0;
+  outline-color: $color-light;
 }
 
-.logo-footer {
-  @include focus($bg: $color-accent, $style: none);
+.logo-footer:focus-visible {
+  background-color: $color-accent;
+  outline-style: none;
 }
 
 .footer-nav__link {
   @include hover {
     color: $color-primary;
+    text-decoration: underline;
   }
-}
 
-.social-icons__link {
-  @include link-space();
-  @include focus(
-    $offset: 0,
-    $bg: $color-accent,
-    $fill: $color-light,
-    $color: $color-light
-  );
-  @include hover {
-    transition: 0.3s ease-in-out;
-    background: $color-accent;
-    .icon-social {
-      fill: $color-light;
-    }
+  &:focus-visible {
+    color: $color-primary;
+    outline: none;
+    text-decoration: underline;
   }
-}
-
-.footer * {
-  @include focus($color-light);
 }

@@ -6,7 +6,7 @@ import { useElementSize } from './modules/functions.js';
 
 //fixedHeader();
 fixedHeader(lg);
-runNavigation();
+runNavigation(/* {  aboveHeaderContentWrapper: false} */);
 
 /*  runNavigation({
   mainClass: '.mobile-search',

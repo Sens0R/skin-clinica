@@ -22,6 +22,7 @@
 
 .logo-footer {
   @include flex($justify-content: flex-start, $align-items: center);
+  max-width: 15rem;
 }
 
 .logo-footer-text {
@@ -30,7 +31,8 @@
   margin-left: 0.5em;
   white-space: nowrap;
   color: $color-light;
-  @include underline($color-light);
+  text-decoration: underline solid $color-light 1px;
+  text-underline-offset: 30%;
 }
 
 .logo-footer-icon {
@@ -66,7 +68,6 @@
 }
 
 .footer-nav {
-  
   @include media-breakpoint-up(lg) {
     margin-left: 4rem;
   }
@@ -77,12 +78,7 @@
   }
 
   &__link {
-    @include flex(
-      $justify-content: center,
-      $align-items: left,
-      $flex-direction: column
-    );
-
+    @include flex($justify-content: center, $flex-direction: column);
     padding: $spacer-sm 0;
     font-size: $fs-sm;
     color: $color-light;
@@ -128,6 +124,19 @@
       color: $color-gray;
       font-size: $fs-sm;
       padding-left: 0.5em;
+    }
+  }
+}
+
+.social-icons {
+  @include flex($align-items: center);
+  @include media-breakpoint-down(sm) {
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 0.7rem;
     }
   }
 }

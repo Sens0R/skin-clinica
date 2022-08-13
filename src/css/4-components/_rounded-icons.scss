@@ -1,0 +1,32 @@
+.icon-rounded {
+  @include box(1rem, 1rem);
+  fill: $color-secondary;
+}
+
+.rounded-icon {
+  padding: 0.75rem;
+  @include flex($justify-content: center, $align-items: center);
+  background: $color-primary;
+  border-radius: 100%;
+  @include depth();
+}
+
+.rounded-icon__link {
+  @include link-space();
+  &:focus-visible {
+    outline-offset: 0;
+    background-color: $color-accent;
+    outline-color: $color-light;
+    svg {
+      fill: $color-light;
+    }
+  }
+
+  @include hover {
+    transition: 0.3s ease-in-out;
+    background: $color-accent;
+    .icon-rounded {
+      fill: $color-light;
+    }
+  }
+}

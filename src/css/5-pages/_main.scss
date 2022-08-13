@@ -2,6 +2,12 @@
   align-self: flex-start;
 }
 
+.section-header-link {
+  &__accent {
+    color: $color-accent;
+  }
+}
+
 /* ====================   ABOUT-US   ==================== */
 
 .about-us {
@@ -84,9 +90,11 @@
   }
 
   &__person {
-    @include flex($justify-content: center, $align-items: center);
-    flex-direction: column;
-    
+    @include flex(
+      $justify-content: center,
+      $align-items: center,
+      $flex-direction: column
+    );
   }
 }
 
@@ -103,6 +111,6 @@
   color: $color-accent;
   text-transform: uppercase;
   font-size: $fs-sm;
-  letter-spacing: 0.1rem;
-  font-weight: bold;
+  letter-spacing: 1px;
+  //font-weight: bold;
 }

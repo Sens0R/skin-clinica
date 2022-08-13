@@ -1,9 +1,4 @@
-import {
-  addAnimation,
-  useElementSize,
-  elementSizeObserver,
-  elementHeight,
-} from './functions.js';
+import { addAnimation } from './functions.js';
 import { headerHeight } from './headers.js';
 import { lg } from './breakpoints.js';
 
@@ -37,6 +32,9 @@ export function runNavigation(userOptions) {
   let copySizeEl;
   let backdropEl;
   let aboveHeaderContentVisibleHeight;
+  let elementSizeObserver;
+  let elementHeight;
+  let navResizeObs;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -93,16 +91,9 @@ export function runNavigation(userOptions) {
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
-  const navResizeObs = new ResizeObserver((entries) =>
-    entries.forEach((entry) => {
-      if (window.innerWidth >= breakpoint) {
-        closeElement();
-        mainElement.classList.remove('is-changing');
-      }
-
-      intersectionObs.observe(aboveHeaderContent);
-    })
-  );
+  function mainFunction() {
+    //move entersection obsever here
+  }
 
   const intersectionObs = new IntersectionObserver(
     (entries) =>
@@ -147,6 +138,7 @@ export function runNavigation(userOptions) {
         if (alwaysFullscreen) {
           mainElement.style.height = navContentMaxAllowedViewportHeight + 'px';
           document.body.style.overflow = 'hidden';
+
           return;
         }
 
@@ -200,11 +192,7 @@ export function runNavigation(userOptions) {
     { threshold: 1 }
   );
 
-  function intersectionObsStart() {
-    console.log('INTERSECTION OBSERVER STARTED');
-    intersectionObs.unobserve(aboveHeaderContent);
-    intersectionObs.observe(aboveHeaderContent);
-  }
+  /* ====================   OPEN NAVIGATION   ==================== */
 
   openBtnEl.addEventListener('click', function () {
     navResizeObs.observe(mainElement);
@@ -215,6 +203,7 @@ export function runNavigation(userOptions) {
 
     useElementSize(navigationContent, intersectionObsStart);
 
+    // navigation options section
     if (copySize) {
       function addStyles() {
         mainElement.style.height = elementHeight;
@@ -224,14 +213,14 @@ export function runNavigation(userOptions) {
       copySizeEl = document.querySelector(copySize);
       useElementSize(copySizeEl, addStyles);
     }
-
     if (alwaysScrollBlock) {
       document.body.style.overflow = 'hidden';
     }
-
     if (focusElement) document.querySelector(focusElement).focus();
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
   });
+
+  /* ====================   CLOSE NAVIGATION   ==================== */
 
   closeBtnEl.addEventListener('click', function () {
     closeElement();
@@ -255,7 +244,7 @@ export function runNavigation(userOptions) {
     };
   }
 
-  /*  ---------------------- HELPERS -------------------------- */
+  /* ====================   HELPERS   ==================== */
 
   function closeElement() {
     if (copySize) {
@@ -283,7 +272,11 @@ export function runNavigation(userOptions) {
     mainElement.classList.remove('_active');
   }
 
-  /*  ============================= BACKDROP ========================= */
+  function intersectionObsStart() {
+    console.log('INTERSECTION OBSERVER STARTED');
+    intersectionObs.unobserve(aboveHeaderContent);
+    intersectionObs.observe(aboveHeaderContent);
+  }
 
   function addBackdrop(backdropClass) {
     document.body.style.overflow = 'hidden';
@@ -296,5 +289,31 @@ export function runNavigation(userOptions) {
 
   function removeBackdrop() {
     if (backdropEl) backdropEl.remove();
+  }
+
+  navResizeObs = new ResizeObserver((entries) =>
+    entries.forEach((entry) => {
+      if (window.innerWidth >= breakpoint) {
+        closeElement();
+        mainElement.classList.remove('is-changing');
+      }
+
+      intersectionObs.observe(aboveHeaderContent);
+    })
+  );
+
+  function useElementSize(observeElement, callback) {
+    elementSizeObserver = new ResizeObserver((entries) => {
+      console.log('OBSERVING ELEMENT SIZE:');
+      console.log(observeElement);
+      entries.forEach((entry) => {
+        elementHeight = entry.borderBoxSize[0].blockSize;
+
+        console.log('ELEMENT HEIGHT: ' + elementHeight);
+        if (callback) callback();
+      });
+    });
+
+    elementSizeObserver.observe(observeElement);
   }
 }

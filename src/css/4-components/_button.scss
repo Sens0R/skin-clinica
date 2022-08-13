@@ -11,7 +11,10 @@
   @include depth();
   transition: 0.2s ease-in-out;
 
-  @include focus($bg: $color-accent, $style: none);
+  &:focus-visible {
+    background-color: $color-accent;
+    outline-style: none;
+  }
   @include hover {
     background-color: $color-accent;
   }
@@ -19,13 +22,15 @@
 
 .btn--light {
   background-color: $color-accent;
-  @include focus(
-    $offset: 2px,
-    $color: $color-light,
-    $radius: $border-radius-sm
-  );
 
-  @include focus($bg: lighten($color-accent, 10%), $style: solid);
+  &:focus-visible {
+    background-color: lighten($color-accent, 10%);
+    outline-style: solid;
+    outline-offset: 2px;
+    outline-color: $color-light;
+    border-radius: $border-radius-sm;
+  }
+
   @include hover {
     background-color: lighten($color-accent, 10%);
   }

@@ -10,7 +10,7 @@ const headerHeightObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => {
     headerHeight = `${entry.borderBoxSize[0].blockSize}px`;
     console.log('HEADER HEIGHT: ' + headerHeight);
-    if (window.scrollY > 0) headerAnchor.style.height = headerHeight;
+    //if (window.scrollY > 0) headerAnchor.style.height = headerHeight;
   });
 });
 

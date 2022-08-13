@@ -51,10 +51,11 @@
   @include media-breakpoint-down(sm) {
     display: none;
   }
+
   font-size: 1.25rem;
   color: $color-secondary;
   text-transform: uppercase;
-  @include underline();
+  @include underline($depth: true);
   margin-left: 0.5em;
   white-space: nowrap;
 }
@@ -144,48 +145,44 @@
 
 /* ====================   TOOLS   ==================== */
 
+.tools {
+  justify-content: flex-end;
+  @include media-xs {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 .nav-tools {
   @include flex($justify-content: center, $align-items: center);
 
-  &__link {
-    @include flex($justify-content: center, $align-items: center);
-
-    margin-right: 1.25rem;
-    padding: 0;
-
-    @include media-breakpoint-down(lg) {
-      @include depth();
-      margin-right: 0.75rem;
-      padding: 0.75rem;
-      background-color: $color-primary;
-      border-radius: 100%;
-    }
-
-    @include media-xs {
-      margin-right: 0.5rem;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+  > * {
+    margin-right: 0.75rem;
   }
 
-  &__name {
-    margin: 0;
+  :last-child {
+    margin-right: 0 !important;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .nav-tools__name {
     display: none;
-    color: $color-secondary;
-    @include media-breakpoint-up(lg) {
-      display: inline-block;
-    }
   }
+}
 
-  &__icon {
-    @include box(1rem);
-    fill: $color-secondary;
+@include media-breakpoint-up(lg) {
+  .tools {
+    .rounded-icon {
+      padding: 0 !important;
+      background: none !important;
+      box-shadow: none !important;
+      margin-right: 1.25rem;
+    }
 
-    @include media-breakpoint-up(lg) {
-      margin-right: 3px;
-      fill: $color-primary;
+    .icon-rounded {
+      margin-right: 3px !important;
+      fill: $color-primary !important;
     }
   }
 }

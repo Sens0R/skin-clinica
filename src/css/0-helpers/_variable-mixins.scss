@@ -1,47 +1,32 @@
-@mixin focus(
-  $color: null,
-  $radius: null,
-  $offset: null,
-  $size: null,
-  $bg: null,
-  $style: null,
-  $fill: null
-) {
-  &:focus-visible {
-    outline-color: $color;
-    outline-style: $style;
-    outline-width: $size;
-    outline-offset: $offset;
-    border-radius: $radius;
-    background-color: $bg;
-    svg {
-      fill: $fill;
-    }
-  }
-}
-
 @mixin underline(
   $color: $color-dark,
-  $thickness: 1px,
-  $offset: 1px,
-  $round-cap: true
+  $size: 1px,
+  $bottom: 0,
+  $top: null,
+  $round-cap: true,
+  $depth: false
 ) {
   position: relative;
   text-decoration: none;
 
   &:after {
     content: '';
-    @include depth();
     position: absolute;
     left: 0;
-    bottom: -#{$offset};
+    top: $top;
+    bottom: $bottom;
     width: 100%;
+
+    @if $depth {
+      @include depth();
+    }
+
     @if not $round-cap {
-      border-bottom: $thickness solid $color;
+      border-bottom: $size solid $color;
     } @else {
-      height: $thickness;
+      height: $size;
       background-color: $color;
-      border-radius: $thickness * 2;
+      border-radius: $size * 2;
     }
   }
 }
