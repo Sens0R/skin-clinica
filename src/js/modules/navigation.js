@@ -255,14 +255,15 @@ export function runNavigation(userOptions) {
 
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
-    mainElement.style.height = null;
+
     document.body.style.overflow = null;
     if (alwaysBackdrop || smartBackdrop) removeBackdrop();
 
-    if (transitionDuration > 0) {
+    if (transitionDuration) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
         mainElement.classList.remove('is-changing');
+        mainElement.style.height = null;
       }, transitionDuration);
     }
     mainElement.classList.remove('_active');
@@ -294,5 +295,5 @@ export function runNavigation(userOptions) {
       open();
       console.log('HEIGHT CHANGED');
     }
-  }, 50);
+  }, 100);
 }
