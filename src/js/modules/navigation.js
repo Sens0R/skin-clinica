@@ -294,5 +294,5 @@ export function runNavigation(userOptions) {
       open();
       console.log('HEIGHT CHANGED');
     }
-  }, 250);
+  }, 50);
 }
