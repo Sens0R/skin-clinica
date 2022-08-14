@@ -252,6 +252,7 @@ export function runNavigation(userOptions) {
 
     navContentHeightObserver.unobserve(visibleContent);
     console.log('NAVIGATION CLOSED, REMOVING NAVIGATION HEIGHT');
+    window.visualViewport.removeEventListener('resize', resizeHandler);
 
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
@@ -296,5 +297,5 @@ export function runNavigation(userOptions) {
       open();
       console.log('HEIGHT CHANGED');
     }
-  }, 100);
+  }, 250);
 }
