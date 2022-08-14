@@ -31,7 +31,6 @@
   @include z-index(header);
   user-select: none;
   background-color: $color-light;
-  will-change: left, top;  
 }
 
 .header-relative-wrapper {

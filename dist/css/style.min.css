@@ -8696,7 +8696,7 @@ button.swiper-pagination-bullet {
 .swiper-btn {
   width: 5rem;
   height: 5rem;
-  fill: hsl(0deg, 0%, 45%);
+  fill: hsl(0deg, 0%, 40%);
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -12720,6 +12720,7 @@ a {
 input {
   outline: none;
   border: none;
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .disable-select {
@@ -12978,7 +12979,6 @@ input {
   z-index: 50;
   user-select: none;
   background-color: hsl(0deg, 0%, 100%);
-  will-change: left, top;
 }
 
 .header-relative-wrapper {
@@ -13334,7 +13334,7 @@ input {
   border-radius: 0.2rem;
 }
 .mailing-form__input::placeholder {
-  color: hsl(0deg, 0%, 45%);
+  color: hsl(0deg, 0%, 40%);
   font-size: 0.875rem;
   padding-left: 0.5em;
 }
@@ -13369,7 +13369,7 @@ input {
   padding: 1.25rem;
 }
 .card__text {
-  color: hsl(0deg, 0%, 45%);
+  color: hsl(0deg, 0%, 40%);
   font-size: 0.875rem;
 }
 .card__link {
@@ -13966,7 +13966,7 @@ input {
 }
 
 .about-us p {
-  color: hsl(0deg, 0%, 45%);
+  color: hsl(0deg, 0%, 40%);
 }
 
 .about-us-text-content {
@@ -14055,7 +14055,7 @@ input {
   position: relative;
   font-style: italic;
   font-size: 1.125rem;
-  color: hsl(0deg, 0%, 45%);
+  color: hsl(0deg, 0%, 40%);
 }
 .testimonials__person {
   display: flex;
