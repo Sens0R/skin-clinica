@@ -1,18 +1,18 @@
 import { addAnimation } from './functions.js';
 import { headerHeight } from './headers.js';
 import { lg } from './breakpoints.js';
+import debounce from 'lodash/debounce.js';
 
 // Default options
 const defaultOptions = {
   mainClass: '.navigation',
-  content: '.navigation-content',
   openBtn: '.nav-toggler--open',
   closeBtn: '.nav-toggler--close',
   aboveHeaderContent: '.above-header-content-wrapper',
   breakpoint: lg,
   alwaysBackdrop: false,
   smartBackdrop: false,
-  alwaysFullscreen: true,
+  alwaysFullscreen: false,
   smartFullscreen: false,
   alwaysScrollBlock: false,
   focusElement: false,
@@ -31,9 +31,9 @@ export function runNavigation(userOptions) {
   let transitionDuration;
   let copySizeEl;
   let backdropEl;
-  let aboveHeaderContentVisibleHeight;
+  let aboveHeaderContentVisibleHeight = 0;
   let aboveHeaderContentWrapper;
-  let visibleContent;
+
   let contentHeight;
   let availableViewportHeight;
 
@@ -70,7 +70,6 @@ export function runNavigation(userOptions) {
 
   let {
     mainClass,
-    content,
     aboveHeaderContent,
     openBtn,
     closeBtn,
@@ -87,24 +86,15 @@ export function runNavigation(userOptions) {
     copySize,
   } = options;
 
+  const content = mainElement.innerHTML;
+  let visibleContent = '<div class="navigation-content">' + content + '</div>';
+  mainElement.innerHTML = visibleContent;
+  visibleContent = document.querySelector('.navigation-content');
+
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
   if (aboveHeaderContent)
     aboveHeaderContentWrapper = document.querySelector(aboveHeaderContent);
-  if (content) visibleContent = document.querySelector(content);
-
-  /*   function buildThresholdList() {
-    let thresholds = [];
-    let numSteps = 20;
-
-    for (let i = 1.0; i <= numSteps; i++) {
-      let ratio = i / numSteps;
-      thresholds.push(ratio);
-    }
-
-    thresholds.push(0);
-    return thresholds;
-  } */
 
   const intersectionObs = new IntersectionObserver((entries) =>
     entries.forEach((entry) => {
@@ -122,7 +112,10 @@ export function runNavigation(userOptions) {
     entries.forEach((entry) => {
       contentHeight = entry.borderBoxSize[0].blockSize;
       console.log('NAVIGATION CONTENT HEIGHT: ' + contentHeight);
-      intersectionObs.observe(aboveHeaderContentWrapper);
+      aboveHeaderContentWrapper
+        ? intersectionObs.observe(aboveHeaderContentWrapper)
+        : open();
+
       console.log('ABOVE HEADER CONTENT HEIGHT INTERSECTION OBSERVER STARTED');
     });
   });
@@ -136,6 +129,8 @@ export function runNavigation(userOptions) {
 
     navContentHeightObserver.observe(visibleContent);
     console.log('NAVIGATION CONTENT HEIGHT RESIZE OBSERVER STARTED');
+
+    window.visualViewport.addEventListener('resize', resizeHandler);
 
     // navigation options section
     //if (alwaysBackdrop || smartBackdrop) removeBackdrop();
@@ -155,23 +150,6 @@ export function runNavigation(userOptions) {
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
   });
 
-  /* ====================   ORIENTATION CHANGE  ==================== */
-
-  /*   const orientation = window.matchMedia(`(orientation: landscape)`);
-  orientation.onchange = (e) => {
-    if (mainElement.classList.contains('_active')) {
-      if (e.matches) {
-        intersectionObsRestart();
-        open();
-        console.log(`Orientation: landscape.`);
-      } else {
-        intersectionObsRestart();
-        open();
-        console.log(`Orientation: portrait.`);
-      }
-    }
-  }; */
-
   /* ====================   CLOSE NAVIGATION   ==================== */
 
   closeBtnEl.addEventListener('click', function () {
@@ -189,6 +167,7 @@ export function runNavigation(userOptions) {
       } else {
         console.log(`This is a wide screen — more than ${breakpoint}px wide.`);
         if (mainElement.classList.contains('_active')) {
+          window.visualViewport.removeEventListener('resize', resizeHandler);
           mainElement.classList.remove('is-changing');
           close();
         }
@@ -307,4 +286,13 @@ export function runNavigation(userOptions) {
     intersectionObs.unobserve(aboveHeaderContentWrapper);
     intersectionObs.observe(aboveHeaderContentWrapper);
   }
+  let prevHeight = window.innerHeight;
+  const resizeHandler = debounce((ev) => {
+    if (breakpoint && window.innerWidth > breakpoint) return;
+    if (window.innerHeight !== prevHeight) {
+      prevHeight = window.innerHeight;
+      open();
+      console.log('HEIGHT CHANGED');
+    }
+  }, 250);
 }

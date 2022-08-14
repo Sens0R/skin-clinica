@@ -12929,9 +12929,6 @@ input {
   .nav-toggler-group {
     display: none !important;
   }
-  .navigation-content {
-    padding: 0;
-  }
   .nav-body {
     display: flex;
     justify-content: space-between;
