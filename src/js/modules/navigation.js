@@ -262,10 +262,11 @@ export function runNavigation(userOptions) {
     if (transitionDuration) {
       mainElement.classList.add('is-changing');
       setTimeout(function () {
-        mainElement.classList.remove('is-changing');
         mainElement.style.height = null;
+        mainElement.classList.remove('is-changing');
       }, transitionDuration);
-    }
+    } else mainElement.style.height = null;
+
     mainElement.classList.remove('_active');
   }
 
