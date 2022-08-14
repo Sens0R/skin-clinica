@@ -13,7 +13,7 @@ export let elementSizeObserver;
 export let elementHeight;
 export let elementWidth;
 
-export function useElementSize(observeElement, callback) {
+export function getElementSize(observeElement, callback) {
   elementSizeObserver = new ResizeObserver((entries) => {
     console.log('OBSERVING ELEMENT SIZE:');
     console.log(observeElement);

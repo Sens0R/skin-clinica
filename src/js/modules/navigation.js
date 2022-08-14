@@ -10,11 +10,12 @@ const defaultOptions = {
   closeBtn: '.nav-toggler--close',
   aboveHeaderContent: '.above-header-content-wrapper',
   breakpoint: lg,
-  alwaysBackdrop: false,
+  backdrop: false,
   smartBackdrop: false,
+  closeOnBackdropClick: false,
   alwaysFullscreen: false,
   smartFullscreen: false,
-  alwaysScrollBlock: false,
+  scrollBlock: false,
   focusElement: false,
   copySize: false,
   animationOpen: false,
@@ -33,9 +34,9 @@ export function runNavigation(userOptions) {
   let backdropEl;
   let aboveHeaderContentVisibleHeight = 0;
   let aboveHeaderContentWrapper;
-
   let contentHeight;
   let availableViewportHeight;
+  let visibleContent;
 
   if (userOptions && 'mainClass' in userOptions) {
     mainElement = document.querySelector(userOptions.mainClass);
@@ -74,11 +75,12 @@ export function runNavigation(userOptions) {
     openBtn,
     closeBtn,
     breakpoint,
-    alwaysBackdrop,
+    backdrop,
     smartBackdrop,
+    closeOnBackdropClick,
     smartFullscreen,
     alwaysFullscreen,
-    alwaysScrollBlock,
+    scrollBlock,
     focusElement,
     animationOpen,
     animationClose,
@@ -86,15 +88,33 @@ export function runNavigation(userOptions) {
     copySize,
   } = options;
 
-  const content = mainElement.innerHTML;
-  let visibleContent = '<div class="navigation-content">' + content + '</div>';
-  mainElement.innerHTML = visibleContent;
-  visibleContent = document.querySelector('.navigation-content');
+  if (!copySize) {
+    const content = mainElement.innerHTML;
+    visibleContent = '<div class="navigation-content">' + content + '</div>';
+    mainElement.innerHTML = visibleContent;
+    visibleContent = document.querySelector('.navigation-content');
+    if (aboveHeaderContent)
+      aboveHeaderContentWrapper = document.querySelector(aboveHeaderContent);
+  }
 
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
-  if (aboveHeaderContent)
-    aboveHeaderContentWrapper = document.querySelector(aboveHeaderContent);
+
+  if (copySize) copySizeEl = document.querySelector(copySize);
+
+  let elementHeight;
+  let elementWidth;
+  const copySizeObserver = new ResizeObserver((entries) => {
+    console.log('OBSERVING ELEMENT SIZE:');
+    entries.forEach((entry) => {
+      elementHeight = entry.borderBoxSize[0].blockSize;
+      elementWidth = entry.borderBoxSize[0].inlineSize;
+      console.log(elementHeight + ' ' + elementWidth);
+      console.log(mainElement);
+      mainElement.style.height = `${elementHeight}px`;
+      mainElement.style.width = `${elementWidth}px`;
+    });
+  });
 
   const intersectionObs = new IntersectionObserver((entries) =>
     entries.forEach((entry) => {
@@ -127,23 +147,21 @@ export function runNavigation(userOptions) {
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
 
-    navContentHeightObserver.observe(visibleContent);
+    if (!copySize) navContentHeightObserver.observe(visibleContent);
     console.log('NAVIGATION CONTENT HEIGHT RESIZE OBSERVER STARTED');
 
-    window.visualViewport.addEventListener('resize', resizeHandler);
+    if (!copySize)
+      window.visualViewport.addEventListener('resize', resizeHandler);
 
     // navigation options section
-    //if (alwaysBackdrop || smartBackdrop) removeBackdrop();
-    if (copySize) {
-      function addStyles() {
-        mainElement.style.height = elementHeight;
-        mainElement.style.width = elementWidth;
-      }
-
-      copySizeEl = document.querySelector(copySize);
-      useElementSize(copySizeEl, addStyles);
+    if (backdrop) addBackdrop(backdrop);
+    if (closeOnBackdropClick) {
+      backdropEl.addEventListener('click', close);
     }
-    if (alwaysScrollBlock) {
+    if (copySize) {
+      copySizeObserver.observe(copySizeEl);
+    }
+    if (scrollBlock) {
       document.body.style.overflow = 'hidden';
     }
     if (focusElement) document.querySelector(focusElement).focus();
@@ -160,12 +178,7 @@ export function runNavigation(userOptions) {
     const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
 
     mql.onchange = (e) => {
-      if (e.matches) {
-        console.log(
-          `This is a narrow screen — less than ${breakpoint}px wide.`
-        );
-      } else {
-        console.log(`This is a wide screen — more than ${breakpoint}px wide.`);
+      if (!e.matches) {
         if (mainElement.classList.contains('_active')) {
           window.visualViewport.removeEventListener('resize', resizeHandler);
           mainElement.classList.remove('is-changing');
@@ -210,7 +223,7 @@ export function runNavigation(userOptions) {
       return;
     }
 
-    if (availableViewportHeight - contentHeight < availableViewportHeight / 3) {
+    if (availableViewportHeight - contentHeight < availableViewportHeight / 2) {
       mainElement.style.height = null;
       document.body.style.overflow = 'hidden';
       if (smartFullscreen) {
@@ -218,26 +231,19 @@ export function runNavigation(userOptions) {
       }
 
       if (smartBackdrop) {
-        console.log(
-          'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP AND LOCKING BODY SCROLL'
-        );
+        removeBackdrop();
         addBackdrop(smartBackdrop);
-        backdropEl.addEventListener('click', function () {
-          close();
-        });
+        backdropEl.addEventListener('click', close);
       }
-
+      console.log(
+        'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP/FULLSCREEN AND LOCKING BODY SCROLL'
+      );
       return;
     }
 
     mainElement.style.height = null;
-    if (!alwaysScrollBlock) document.body.style.overflow = null;
-    if (alwaysBackdrop) {
-      addBackdrop(alwaysBackdrop);
-      backdropEl.addEventListener('click', function () {
-        close();
-      });
-    }
+    if (!scrollBlock) document.body.style.overflow = null;
+
     console.log(
       'NAVIGATION CONTENT HAS ENOUGH VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
     );
@@ -245,20 +251,20 @@ export function runNavigation(userOptions) {
 
   function close() {
     if (copySize) {
-      elementSizeObserver.unobserve(copySizeEl);
-      mainElement.style.height = null;
+      copySizeObserver.unobserve(copySizeEl);
       mainElement.style.width = null;
     }
 
-    navContentHeightObserver.unobserve(visibleContent);
-    console.log('NAVIGATION CLOSED, REMOVING NAVIGATION HEIGHT');
-    window.visualViewport.removeEventListener('resize', resizeHandler);
+    if (!copySize) {
+      navContentHeightObserver.unobserve(visibleContent);
+      window.visualViewport.removeEventListener('resize', resizeHandler);
+    }
 
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
 
     document.body.style.overflow = null;
-    if (alwaysBackdrop || smartBackdrop) removeBackdrop();
+    if (backdrop || smartBackdrop) removeBackdrop();
 
     if (transitionDuration) {
       mainElement.classList.add('is-changing');
@@ -269,13 +275,14 @@ export function runNavigation(userOptions) {
     } else mainElement.style.height = null;
 
     mainElement.classList.remove('_active');
+
+    console.log('NAVIGATION CLOSED');
   }
 
   function addBackdrop(backdropClass) {
-    document.body.style.overflow = 'hidden';
     const createBackdrop = document.createElement('div');
     createBackdrop.classList.add('nav-backdrop');
-    document.querySelector('header').after(createBackdrop);
+    document.querySelector('.page-wrapper').after(createBackdrop);
     backdropEl = document.querySelector('.nav-backdrop');
     backdropEl.classList.add(backdropClass);
   }
@@ -284,11 +291,6 @@ export function runNavigation(userOptions) {
     if (backdropEl) backdropEl.remove();
   }
 
-  function intersectionObsRestart() {
-    console.log('INTERSECTION OBSERVER RESTARTED');
-    intersectionObs.unobserve(aboveHeaderContentWrapper);
-    intersectionObs.observe(aboveHeaderContentWrapper);
-  }
   let prevHeight = window.innerHeight;
   const resizeHandler = debounce((ev) => {
     if (breakpoint && window.innerWidth > breakpoint) return;
