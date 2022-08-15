@@ -126,12 +126,10 @@ export function runNavigation(userOptions) {
   const navContentHeightObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
       contentHeight = entry.borderBoxSize[0].blockSize;
-      console.log('NAVIGATION CONTENT HEIGHT: ' + contentHeight);
+      console.log('CONTENT HEIGHT: ' + contentHeight);
       aboveHeaderContentWrapper
         ? intersectionObs.observe(aboveHeaderContentWrapper)
         : open();
-
-      console.log('ABOVE HEADER CONTENT HEIGHT INTERSECTION OBSERVER STARTED');
     });
   });
 
@@ -142,18 +140,16 @@ export function runNavigation(userOptions) {
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
 
-    if (!copySize) navContentHeightObserver.observe(visibleContent);
-    console.log('NAVIGATION CONTENT HEIGHT RESIZE OBSERVER STARTED');
+    if (copySize) copySizeObserver.observe(copySizeEl);
 
-    if (!copySize)
+    if (!copySize) {
+      navContentHeightObserver.observe(visibleContent);
       window.visualViewport.addEventListener('resize', resizeHandler);
+    }
 
-    // navigation options section
     if (backdrop) addBackdrop(backdrop);
 
     if (closeOnBackdropClick) backdropEl.addEventListener('click', close);
-
-    if (copySize) copySizeObserver.observe(copySizeEl);
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
 
@@ -172,7 +168,6 @@ export function runNavigation(userOptions) {
     mql.onchange = (e) => {
       if (e.matches) return;
       if (mainElement.classList.contains('_active')) {
-        window.visualViewport.removeEventListener('resize', resizeHandler);
         mainElement.classList.remove('is-changing');
         close();
       }
@@ -186,17 +181,6 @@ export function runNavigation(userOptions) {
       window.innerHeight -
       aboveHeaderContentVisibleHeight -
       parseInt(headerHeight, 10);
-    console.log(
-      `AVAILABLE VIEWPORT HEIGHT FOR NAVIGATION CONTENT (VIEWPORT HEIGHT: ${
-        window.innerHeight
-      }  - ABOVE HEADER VISIBLE CONTENT HEIGHT: ${aboveHeaderContentVisibleHeight} - HEADER HEIGHT: ${parseInt(
-        headerHeight,
-        10
-      )} =
-        ${availableViewportHeight})`
-    );
-
-    console.log('DIFFERENCE = ' + (availableViewportHeight - contentHeight));
 
     if (alwaysFullscreen) {
       mainElement.style.height = availableViewportHeight + 'px';
@@ -243,6 +227,11 @@ export function runNavigation(userOptions) {
   }
 
   function close() {
+    mainElement.classList.remove('_active');
+    closeBtnEl.classList.remove('_active');
+    openBtnEl.classList.add('_active');
+    document.body.style.overflow = null;
+
     if (copySize) {
       copySizeObserver.unobserve(copySizeEl);
       mainElement.style.width = null;
@@ -253,26 +242,15 @@ export function runNavigation(userOptions) {
       window.visualViewport.removeEventListener('resize', resizeHandler);
     }
 
-    closeBtnEl.classList.remove('_active');
-    openBtnEl.classList.add('_active');
-
-    document.body.style.overflow = null;
-
     if (backdrop || smartBackdrop) removeBackdrop();
 
-    if (!transitionDuration) mainElement.style.height = null;
+    if (!transitionDuration) return (mainElement.style.height = null);
 
-    if (transitionDuration) {
-      mainElement.classList.add('is-changing');
-      setTimeout(() => {
-        mainElement.style.height = null;
-        mainElement.classList.remove('is-changing');
-      }, transitionDuration);
-    }
-
-    mainElement.classList.remove('_active');
-
-    console.log('NAVIGATION CLOSED');
+    mainElement.classList.add('is-changing');
+    setTimeout(() => {
+      mainElement.style.height = null;
+      mainElement.classList.remove('is-changing');
+    }, transitionDuration);
   }
 
   function addBackdrop(backdropClass) {
@@ -289,11 +267,9 @@ export function runNavigation(userOptions) {
 
   let prevHeight = window.innerHeight;
   const resizeHandler = debounce((ev) => {
-    if (breakpoint && window.innerWidth > breakpoint) return;
     if (window.innerHeight !== prevHeight) {
       prevHeight = window.innerHeight;
       open();
-      console.log('HEIGHT CHANGED');
     }
   }, 250);
 }
