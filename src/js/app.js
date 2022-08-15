@@ -6,7 +6,7 @@ import { useElementSize } from './modules/functions.js';
 
 //fixedHeader();
 fixedHeader(lg);
-runNavigation({smartFullscreen: true});
+runNavigation({ smartFullscreen: true });
 
 runNavigation({
   mainClass: '.mobile-search',

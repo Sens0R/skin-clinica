@@ -38,9 +38,9 @@ export function runNavigation(userOptions) {
   let availableViewportHeight;
   let visibleContent;
 
-  if (userOptions && 'mainClass' in userOptions) {
-    mainElement = document.querySelector(userOptions.mainClass);
-  } else mainElement = document.querySelector(defaultOptions.mainClass);
+  userOptions && 'mainClass' in userOptions
+    ? (mainElement = document.querySelector(userOptions.mainClass))
+    : (mainElement = document.querySelector(defaultOptions.mainClass));
 
   let transitionDurationComputed = getComputedStyle(
     mainElement
@@ -53,17 +53,14 @@ export function runNavigation(userOptions) {
   const mainElementDataJSON = mainElement.getAttribute('data-navigation');
   if (mainElementDataJSON) htmlDataOptions = JSON.parse(mainElementDataJSON);
 
-  if (userOptions && mainElementDataJSON) {
+  if (userOptions && mainElementDataJSON)
     options = { ...defaultOptions, ...userOptions, ...htmlDataOptions };
-  }
 
-  if (userOptions && !mainElementDataJSON) {
+  if (userOptions && !mainElementDataJSON)
     options = { ...defaultOptions, ...userOptions };
-  }
 
-  if (!userOptions && mainElementDataJSON) {
+  if (!userOptions && mainElementDataJSON)
     options = { ...defaultOptions, ...htmlDataOptions };
-  }
 
   //console.log(options);
 
@@ -109,8 +106,6 @@ export function runNavigation(userOptions) {
     entries.forEach((entry) => {
       elementHeight = entry.borderBoxSize[0].blockSize;
       elementWidth = entry.borderBoxSize[0].inlineSize;
-      console.log(elementHeight + ' ' + elementWidth);
-      console.log(mainElement);
       mainElement.style.height = `${elementHeight}px`;
       mainElement.style.width = `${elementWidth}px`;
     });
@@ -155,35 +150,31 @@ export function runNavigation(userOptions) {
 
     // navigation options section
     if (backdrop) addBackdrop(backdrop);
-    if (closeOnBackdropClick) {
-      backdropEl.addEventListener('click', close);
-    }
-    if (copySize) {
-      copySizeObserver.observe(copySizeEl);
-    }
-    if (scrollBlock) {
-      document.body.style.overflow = 'hidden';
-    }
+
+    if (closeOnBackdropClick) backdropEl.addEventListener('click', close);
+
+    if (copySize) copySizeObserver.observe(copySizeEl);
+
+    if (scrollBlock) document.body.style.overflow = 'hidden';
+
     if (focusElement) document.querySelector(focusElement).focus();
+
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
   });
 
   /* ====================   CLOSE NAVIGATION   ==================== */
 
-  closeBtnEl.addEventListener('click', function () {
-    close();
-  });
+  closeBtnEl.addEventListener('click', close);
 
   if (breakpoint) {
     const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
 
     mql.onchange = (e) => {
-      if (!e.matches) {
-        if (mainElement.classList.contains('_active')) {
-          window.visualViewport.removeEventListener('resize', resizeHandler);
-          mainElement.classList.remove('is-changing');
-          close();
-        }
+      if (e.matches) return;
+      if (mainElement.classList.contains('_active')) {
+        window.visualViewport.removeEventListener('resize', resizeHandler);
+        mainElement.classList.remove('is-changing');
+        close();
       }
     };
   }
@@ -226,18 +217,20 @@ export function runNavigation(userOptions) {
     if (availableViewportHeight - contentHeight < availableViewportHeight / 2) {
       mainElement.style.height = null;
       document.body.style.overflow = 'hidden';
-      if (smartFullscreen) {
+
+      if (smartFullscreen)
         mainElement.style.height = availableViewportHeight + 'px';
-      }
 
       if (smartBackdrop) {
         removeBackdrop();
         addBackdrop(smartBackdrop);
         backdropEl.addEventListener('click', close);
       }
+
       console.log(
         'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP/FULLSCREEN AND LOCKING BODY SCROLL'
       );
+
       return;
     }
 
@@ -264,15 +257,18 @@ export function runNavigation(userOptions) {
     openBtnEl.classList.add('_active');
 
     document.body.style.overflow = null;
+
     if (backdrop || smartBackdrop) removeBackdrop();
+
+    if (!transitionDuration) mainElement.style.height = null;
 
     if (transitionDuration) {
       mainElement.classList.add('is-changing');
-      setTimeout(function () {
+      setTimeout(() => {
         mainElement.style.height = null;
         mainElement.classList.remove('is-changing');
       }, transitionDuration);
-    } else mainElement.style.height = null;
+    }
 
     mainElement.classList.remove('_active');
 
@@ -287,9 +283,9 @@ export function runNavigation(userOptions) {
     backdropEl.classList.add(backdropClass);
   }
 
-  function removeBackdrop() {
+  const removeBackdrop = () => {
     if (backdropEl) backdropEl.remove();
-  }
+  };
 
   let prevHeight = window.innerHeight;
   const resizeHandler = debounce((ev) => {
