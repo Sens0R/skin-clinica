@@ -1,11 +1,11 @@
 .btn {
-  @include flex($justify-content: center, $align-items: center);
   padding: 0.5rem 1.875rem;
   background-color: $color-secondary;
   color: $color-light;
   border-radius: $border-radius-sm;
   font-weight: bold;
   min-height: 2.625rem;
+  text-align: center;
   @include margin-top($spacer);
   @include margin-bottom($spacer);
   @include depth();

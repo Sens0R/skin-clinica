@@ -30,10 +30,8 @@
   }
 }
 
-
-
-@mixin image-cover($height) {
-  width: 100%;
+@mixin image-cover($height: 100%, $width: 100%) {
+  width: $width;
   height: $height;
   object-fit: cover;
   object-position: center;
@@ -116,8 +114,6 @@
   display: $display;
   position: $pos;
 }
-
-
 
 @mixin media-xs {
   @media (max-width: 359.98px) {

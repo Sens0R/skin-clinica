@@ -1,5 +1,5 @@
 /* ====================   COLORS   ==================== */
-// full size burger if > 60% vh option to pick %
+// full size link cards
 // добавить текст -> close menu, close search
 //Critical css
 //bootstrap colours and other shit remove
@@ -32,7 +32,8 @@ $color-white-100: darken($color-white, 10%);
 
 $color-primary: $color-pink;
 $color-secondary: $color-black-100;
-$color-accent: darken($color-primary, 40%);
+$color-accent: darken($color-primary, 38%);
+$color-accent-light: darken($color-primary, 18%);
 
 $color-light: $color-white;
 $color-dark: $color-black;

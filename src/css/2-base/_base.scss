@@ -84,10 +84,7 @@ button {
   @include flex($flex-direction: column);
 }
 
-main > *:not(:first-child) {
-  @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
-}
+
 
 ::selection {
   background-color: $color-accent;
