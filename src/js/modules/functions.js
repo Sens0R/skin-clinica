@@ -38,9 +38,10 @@ export function getElementSize(observeElement, callback) {
 
 /*  ============================= ANIMATIONS ========================= */
 
-export function addAnimation(targetElement, style, speed) {
+export function addAnimation(targetElement, style, speed, delay) {
   animateCSS(targetElement, style);
   if (speed) animateCSS(targetElement, speed);
+  if (delay) animateCSS(targetElement, delay);
 }
 
 const animateCSS = (element, animation, prefix = 'animate__') =>

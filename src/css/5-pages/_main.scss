@@ -38,7 +38,7 @@ main > *:not(:first-child) {
 //lighten($color-accent, 3%) - header text
 .about-us {
   .row {
-    @include flex($justify-content: center, $align-items: center);
+    @include flex($justify-content: space-between, $align-items: center);
   }
 }
 
@@ -58,6 +58,19 @@ main > *:not(:first-child) {
 
 [data-tab-content] {
   display: none;
+  @include media-breakpoint-up(sm) {
+    &:before {
+      content: '';
+      @include absolute(top 0);
+      @include box(100%, 100%);
+      background-image: linear-gradient(
+        90deg,
+        rgb(0, 0, 0, 1) 0%,
+        rgb(0, 0, 0, 0.5) 25%,
+        rgb(0, 0, 0, 0) 100%
+      );
+    }
+  }
 }
 
 ._active[data-tab-content] {
@@ -85,7 +98,7 @@ main > *:not(:first-child) {
 
 .tab-arrow-right-icon {
   display: none;
-  margin-left: 0.5rem;
+  margin-right: 0.375rem;
   @include box(1rem, 1rem);
   fill: $color-secondary;
 }
@@ -101,11 +114,11 @@ main > *:not(:first-child) {
 .tab-nav-list__link {
   padding: 0.75rem 0;
   font-size: 1.25rem;
-
   @include flex($align-items: center);
 }
 
 .tab-cards {
+  background-color: black;
   padding: 0;
   margin: 15% 0;
 }
@@ -123,15 +136,15 @@ main > *:not(:first-child) {
     margin: 0;
   }
 
+  .tab-nav-list__item {
+    color: darken($color-light, 25%);
+  }
+
   .tab-nav-list__item._active {
     color: $color-light;
     .tab-arrow-right-icon {
       display: inline-block;
     }
-  }
-
-  .tab-nav-list__item {
-    color: darken($color-light, 25%);
   }
 
   .tab-nav-list__link {
@@ -142,13 +155,6 @@ main > *:not(:first-child) {
 
   .tab-cards {
     transform: translate(20%);
-    &:before {
-      content: '';
-      @include absolute(top 0);
-      @include box(100%, 100%);
-      z-index: 1;
-      @include gradient(rgba(0, 0, 0, 0.75), transparent, horizontal);
-    }
   }
 
   .tab-arrow-right-icon {
@@ -159,8 +165,8 @@ main > *:not(:first-child) {
 
 @include media-breakpoint-up(lg) {
   .tab-arrow-right-icon {
-    margin-left: 1rem;
-    @include box(1.5rem, 1.5rem);
+    margin-right: 0.75rem;
+    @include box(1.75rem, 1.75rem);
   }
 }
 
@@ -225,5 +231,4 @@ main > *:not(:first-child) {
   text-transform: uppercase;
   font-size: $fs-sm;
   letter-spacing: 1px;
-  //font-weight: bold;
 }

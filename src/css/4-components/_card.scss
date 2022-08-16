@@ -10,7 +10,7 @@
 
   .card-img {
     @include image-cover();
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     @include depth();
   }
 

@@ -12239,6 +12239,11 @@ button.swiper-pagination-bullet {
   animation-name: slideOutUp;
 }
 
+/* :root {
+  --animate-delay: 1s;
+  --animate-duration: 1s;
+  --animate-repeat: 1;
+} */
 .headroom.top {
   transition: none;
   transform: translateY(0);
@@ -12508,6 +12513,13 @@ input {
 
 .color-secondary {
   color: hsl(0deg, 0%, 12%);
+}
+
+.text-accent {
+  color: #e5065f;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 .text-sm {
@@ -13128,7 +13140,7 @@ input {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 }
 .card__header {
@@ -13771,7 +13783,7 @@ main > *:not(:first-child) {
 /* ====================   ABOUT-US   ==================== */
 .about-us .row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -13802,6 +13814,16 @@ main > *:not(:first-child) {
 [data-tab-content] {
   display: none;
 }
+@media (min-width: 576px) {
+  [data-tab-content]:before {
+    content: "";
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0) 100%);
+  }
+}
 
 ._active[data-tab-content] {
   display: block;
@@ -13830,7 +13852,7 @@ main > *:not(:first-child) {
 
 .tab-arrow-right-icon {
   display: none;
-  margin-left: 0.5rem;
+  margin-right: 0.375rem;
   width: 1rem;
   height: 1rem;
   fill: hsl(0deg, 0%, 12%);
@@ -13852,6 +13874,7 @@ main > *:not(:first-child) {
 }
 
 .tab-cards {
+  background-color: black;
   padding: 0;
   margin: 15% 0;
 }
@@ -13873,14 +13896,14 @@ main > *:not(:first-child) {
     left: 17.5%;
     margin: 0;
   }
+  .tab-nav-list__item {
+    color: #bfbfbf;
+  }
   .tab-nav-list__item._active {
     color: hsl(0deg, 0%, 100%);
   }
   .tab-nav-list__item._active .tab-arrow-right-icon {
     display: inline-block;
-  }
-  .tab-nav-list__item {
-    color: #bfbfbf;
   }
   .tab-nav-list__link {
     font-size: 1.75rem;
@@ -13890,16 +13913,6 @@ main > *:not(:first-child) {
   .tab-cards {
     transform: translate(20%);
   }
-  .tab-cards:before {
-    content: "";
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.75);
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.75), transparent);
-  }
   .tab-arrow-right-icon {
     width: 1.25rem;
     height: 1.25rem;
@@ -13908,9 +13921,9 @@ main > *:not(:first-child) {
 }
 @media (min-width: 992px) {
   .tab-arrow-right-icon {
-    margin-left: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    margin-right: 0.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }
 /* ====================   BLOG   ==================== */

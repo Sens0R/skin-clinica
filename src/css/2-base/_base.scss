@@ -84,8 +84,6 @@ button {
   @include flex($flex-direction: column);
 }
 
-
-
 ::selection {
   background-color: $color-accent;
   color: $color-light;
@@ -172,4 +170,5 @@ input {
   border: none;
   background-color: $color-light;
 }
+
 
