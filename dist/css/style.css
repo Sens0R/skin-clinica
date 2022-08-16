@@ -13781,6 +13781,9 @@ main > *:not(:first-child) {
 }
 
 /* ====================   ABOUT-US   ==================== */
+.about-us {
+  user-select: none;
+}
 .about-us .row {
   display: flex;
   justify-content: space-between;
@@ -13789,6 +13792,10 @@ main > *:not(:first-child) {
 
 .about-us h1 span {
   color: #fb5698;
+}
+
+.about-us-text-content {
+  user-select: text;
 }
 
 .about-us-text-content p {
@@ -13813,16 +13820,6 @@ main > *:not(:first-child) {
 
 [data-tab-content] {
   display: none;
-}
-@media (min-width: 576px) {
-  [data-tab-content]:before {
-    content: "";
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0) 100%);
-  }
 }
 
 ._active[data-tab-content] {
@@ -13889,6 +13886,14 @@ main > *:not(:first-child) {
 }
 
 @media (min-width: 576px) {
+  .tab-card:before {
+    content: "";
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0) 100%);
+  }
   .tab-nav {
     position: absolute;
     top: 50%;

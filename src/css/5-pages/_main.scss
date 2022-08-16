@@ -37,6 +37,7 @@ main > *:not(:first-child) {
 //lighten($color-primary, 7%) - background
 //lighten($color-accent, 3%) - header text
 .about-us {
+  user-select: none;
   .row {
     @include flex($justify-content: space-between, $align-items: center);
   }
@@ -44,6 +45,10 @@ main > *:not(:first-child) {
 
 .about-us h1 span {
   color: $color-accent-light;
+}
+
+.about-us-text-content {
+  user-select: text;
 }
 
 .about-us-text-content p {
@@ -58,19 +63,6 @@ main > *:not(:first-child) {
 
 [data-tab-content] {
   display: none;
-  @include media-breakpoint-up(sm) {
-    &:before {
-      content: '';
-      @include absolute(top 0);
-      @include box(100%, 100%);
-      background-image: linear-gradient(
-        90deg,
-        rgb(0, 0, 0, 1) 0%,
-        rgb(0, 0, 0, 0.5) 25%,
-        rgb(0, 0, 0, 0) 100%
-      );
-    }
-  }
 }
 
 ._active[data-tab-content] {
@@ -130,6 +122,18 @@ main > *:not(:first-child) {
 }
 
 @include media-breakpoint-up(sm) {
+  .tab-card:before {
+    content: '';
+    @include absolute(top 0);
+    @include box(100%, 100%);
+    background-image: linear-gradient(
+      90deg,
+      rgb(0, 0, 0, 1) 0%,
+      rgb(0, 0, 0, 0.5) 25%,
+      rgb(0, 0, 0, 0) 100%
+    );
+  }
+
   .tab-nav {
     @include center(vertical);
     left: 17.5%;
