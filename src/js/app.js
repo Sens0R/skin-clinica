@@ -17,3 +17,19 @@ runNavigation({
   animationSpeed: 'faster',
   copySize: '.header',
 });
+
+// tabs 
+
+const tabs = document.querySelectorAll('[data-tab-target');
+const tabContents = document.querySelectorAll('[data-tab-content]');
+const tabItems = document.querySelectorAll('.tab-nav-list__item');
+
+tabs.forEach((tab) => {
+  tab.addEventListener('mouseenter', () => {
+    const target = document.querySelector(tab.dataset.tabTarget);
+    tabContents.forEach((tabContent) => tabContent.classList.remove('_active'));
+    target.classList.add('_active');
+    tabItems.forEach((tabItem) => tabItem.classList.remove('_active'));
+    tab.classList.add('_active');
+  });
+});

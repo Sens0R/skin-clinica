@@ -28,11 +28,12 @@
     font-weight: bold;
     color: $color-accent;
     margin-top: auto;
+    @include flex($align-items: center);
   }
 }
 
 .link-arrow-right-icon {
   fill: $color-accent;
-  padding-left: 0.25rem;
-  @include box(0.75rem, 0.75rem);
+  margin-left: 0.5rem;
+  @include box(.75rem, .75rem);
 }

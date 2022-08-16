@@ -34,7 +34,8 @@ main > *:not(:first-child) {
 }
 
 /* ====================   ABOUT-US   ==================== */
-
+//lighten($color-primary, 7%) - background
+//lighten($color-accent, 3%) - header text
 .about-us {
   .row {
     @include flex($justify-content: center, $align-items: center);
@@ -55,19 +56,26 @@ main > *:not(:first-child) {
   @include rfs(5rem, width);
 }
 
-.tabs-content {
+[data-tab-content] {
+  display: none;
+}
+
+._active[data-tab-content] {
+  display: block;
+}
+
+.tabs {
   position: relative;
+  .row {
+    background: linear-gradient(to right, $color-accent-light, $color-light);
+  }
 }
 
-.tabs-content .row {
-  background-color: lighten($color-primary, 7%);
-}
-
-.about-us-tabs-list__title {
+.about-us-tabs-title {
   @include flex($justify-content: center, $align-items: center);
   font-size: 1.25rem;
   margin: 0;
-  color: lighten($color-accent, 3%);
+  color: $color-light;
   transform: rotate(-90deg);
   white-space: nowrap;
   font-weight: bold;
@@ -75,72 +83,84 @@ main > *:not(:first-child) {
   letter-spacing: 0.15em;
 }
 
-.about-us-tabs-list {
-  margin: 0;
-  @include padding-top($spacer-xl);
-  &__link {
-    padding: 0.75rem 0;
-    font-size: 1.25rem;
-    color: $color-secondary;
-    @include flex($align-items: center);
-  }
-}
-
-.arrow-right-icon-tabs {
+.tab-arrow-right-icon {
+  display: none;
   margin-left: 0.5rem;
   @include box(1rem, 1rem);
   fill: $color-secondary;
 }
 
-.tabs-cards {
-  padding: $spacer-xl 0;
+.tab-nav {
+  margin-top: $spacer-lg;
 }
 
-.tabs-cards__item {
-  transform: translate(5%);
+.tab-nav-list__item {
+  color: $color-secondary;
 }
 
-.tabs-cards__item img {
+.tab-nav-list__link {
+  padding: 0.75rem 0;
+  font-size: 1.25rem;
+
+  @include flex($align-items: center);
+}
+
+.tab-cards {
+  padding: 0;
+  margin: 15% 0;
+}
+
+.tab-img {
   @include image-cover();
   @include depth();
+  aspect-ratio: 1 / 1;
 }
 
 @include media-breakpoint-up(sm) {
-  .about-us-tabs__content {
+  .tab-nav {
     @include center(vertical);
     left: 17.5%;
+    margin: 0;
   }
 
-  .about-us-tabs-list {
-    padding-top: 0;
-  }
-
-  .about-us-tabs-list__link {
-    font-size: 2rem;
-    font-weight: bold;
+  .tab-nav-list__item._active {
     color: $color-light;
+    .tab-arrow-right-icon {
+      display: inline-block;
+    }
+  }
+
+  .tab-nav-list__item {
+    color: darken($color-light, 25%);
+  }
+
+  .tab-nav-list__link {
+    font-size: 1.75rem;
+    font-weight: bold;
     padding: 0;
   }
 
-  .tabs-cards__item {
+  .tab-cards {
     transform: translate(20%);
+    &:before {
+      content: '';
+      @include absolute(top 0);
+      @include box(100%, 100%);
+      z-index: 1;
+      @include gradient(rgba(0, 0, 0, 0.75), transparent, horizontal);
+    }
   }
 
-  .tabs-cards {
-    padding: 15% 0;
-  }
-
-  .arrow-right-icon-tabs {
-    margin-left: 0.5rem;
+  .tab-arrow-right-icon {
     @include box(1.25rem, 1.25rem);
     fill: $color-light;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .arrow-right-icon-tabs {
+  .tab-arrow-right-icon {
     margin-left: 1rem;
-    @include box(2rem, 2rem);
+    @include box(1.5rem, 1.5rem);
   }
 }
 

@@ -99,9 +99,9 @@
   }
 }
 
-.card__link {
-  @include link-space();
-  @include icon-wobble-horizontal();
+.card {
+  @include shrink(0.96);
+  @include icon-pulse-grow();
 }
 
 /* ====================   FOOTER   ==================== */
