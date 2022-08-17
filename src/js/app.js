@@ -23,17 +23,18 @@ runNavigation({
 const tabs = document.querySelectorAll('[data-tab-target');
 const tabContents = document.querySelectorAll('[data-tab-content]');
 const tabItems = document.querySelectorAll('.tab-nav-list__item');
-console.log(tabContents);
+
 tabs.forEach((tab) => {
-  tab.addEventListener('mouseenter', () => {
+  const tabNavigation = () => {
     const target = document.querySelector(tab.dataset.tabTarget);
-    if (target.classList.contains('_active')) return;
     tabContents.forEach((tabContent) => tabContent.classList.remove('_active'));
     target.classList.add('_active');
-    addAnimation(tab.dataset.tabTarget, 'fadeIn');
     tabItems.forEach((tabItem) => tabItem.classList.remove('_active'));
     tab.classList.add('_active');
-  });
+  };
+
+  tab.addEventListener('mouseenter', tabNavigation);
+  tab.addEventListener('focusin', tabNavigation);
 });
 
 const cards = document.querySelector('[data-tab-cards]');
@@ -63,4 +64,4 @@ cards.addEventListener('click', () => {
     tabContents[0].classList.add('_active');
     tabs[0].classList.add('_active');
   }
-})
+});

@@ -1,21 +1,19 @@
 .card {
   @include flex($justify-content: flex-start, $flex-direction: column);
-  @include margin-top($spacer);
-  @include margin-bottom($spacer);
-
-  & > *:not(:last-child) {
-    margin-top: 0;
-    margin-bottom: $spacer;
+  border-radius: $border-radius-lg;
+  & > * {
+    @include margin-top($spacer);
+    @include margin-bottom($spacer);
   }
 
-  .card-img {
+  p {
+    margin-top: 0;
+  }
+
+  &-img {
     @include image-cover();
     aspect-ratio: 4 / 3;
-    @include depth();
-  }
-
-  &__header {
-    @include margin-top($spacer !important);
+    border-radius: $border-radius-sm;
   }
 
   &__text {
@@ -27,7 +25,7 @@
     font-size: $fs-sm;
     font-weight: bold;
     color: $color-accent;
-    margin-top: auto;
+    margin-top: auto !important;
     @include flex($align-items: center);
   }
 }
@@ -35,5 +33,5 @@
 .link-arrow-right-icon {
   fill: $color-accent;
   margin-left: 0.5rem;
-  @include box(.75rem, .75rem);
+  @include box(0.75rem, 0.75rem);
 }

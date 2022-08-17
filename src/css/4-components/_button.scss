@@ -29,6 +29,7 @@
     outline-offset: 2px;
     outline-color: $color-light;
     border-radius: $border-radius-sm;
+    transition: none !important;
   }
 
   @include hover {

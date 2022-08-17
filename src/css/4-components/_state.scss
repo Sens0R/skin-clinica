@@ -99,9 +99,19 @@
   }
 }
 
+.tab-nav-list__link {
+  @include icon-pulse-shrink(0.35s);
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
 .card {
   @include shrink(0.96);
   @include icon-pulse-grow();
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 /* ====================   FOOTER   ==================== */

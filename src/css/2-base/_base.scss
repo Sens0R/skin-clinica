@@ -7,7 +7,7 @@
 * {
   margin: 0;
   padding: 0;
-  text-underline-offset: 30%;
+  text-underline-offset: 25%;
 }
 
 ul,
@@ -153,16 +153,9 @@ a {
 }
 
 :focus-visible {
-  transition: none !important;
-  animation: none !important;
   outline: 2px solid $color-accent;
   outline-offset: 5px;
   border-radius: $border-radius-pill;
-}
-
-:focus-visible * {
-  transition: none !important;
-  animation: none !important;
 }
 
 input {
@@ -170,5 +163,3 @@ input {
   border: none;
   background-color: $color-light;
 }
-
-

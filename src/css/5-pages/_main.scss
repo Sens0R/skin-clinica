@@ -14,11 +14,7 @@ main > *:not(:first-child) {
 }
 
 // mobile 100vw sections extra padding
-@include media-breakpoint-down(md) {
-  .about-us-text-content {
-    @include padding-bottom($spacer-xl);
-  }
-}
+
 
 /* ====================   BANNER   ==================== */
 .banner {
@@ -36,6 +32,12 @@ main > *:not(:first-child) {
 /* ====================   ABOUT-US   ==================== */
 //lighten($color-primary, 7%) - background
 //lighten($color-accent, 3%) - header text
+@include media-breakpoint-down(lg) {
+  .about-us-text-content {
+    @include padding-bottom($spacer-xl);
+  }
+}
+
 .about-us {
   user-select: none;
   .row {
@@ -73,6 +75,7 @@ main > *:not(:first-child) {
   position: relative;
   .row {
     background: linear-gradient(to right, $color-accent-light, $color-light);
+    border-radius: $border-radius-sm;
   }
 }
 
@@ -110,38 +113,55 @@ main > *:not(:first-child) {
 }
 
 .tab-cards {
-  background-color: black;
   padding: 0;
   margin: 15% 0;
 }
 
+.tab-card {
+  border-radius: $border-radius-pill;
+}
+
 .tab-img {
   @include image-cover();
-  @include depth();
   aspect-ratio: 1 / 1;
+  @include depth();
+  border-radius: $border-radius-sm;
 }
 
 @include media-breakpoint-up(sm) {
-  .tab-card:before {
+  .tab-cards:before {
     content: '';
     @include absolute(top 0);
     @include box(100%, 100%);
-    background-image: linear-gradient(
+    background: linear-gradient(
       90deg,
-      rgb(0, 0, 0, 1) 0%,
-      rgb(0, 0, 0, 0.5) 25%,
+      rgb(0, 0, 0, 0.75) 0%,
+      rgb(0, 0, 0, 0.65) 25%,
+      rgb(0, 0, 0, 0.35) 50%,
       rgb(0, 0, 0, 0) 100%
     );
   }
 
+  .tab-cards {
+    transform: translate(20%);
+  }
+
   .tab-nav {
     @include center(vertical);
-    left: 17.5%;
+    left: 17%;
     margin: 0;
+    padding-left: $spacer;
+    border-radius: $border-radius-sm;
+    background: linear-gradient(
+      90deg,
+      $color-secondary 0%,
+      $color-secondary 38%,
+      transparent 66%
+    );
   }
 
   .tab-nav-list__item {
-    color: darken($color-light, 25%);
+    color: darken($color-light, 30%);
   }
 
   .tab-nav-list__item._active {
@@ -155,10 +175,6 @@ main > *:not(:first-child) {
     font-size: 1.75rem;
     font-weight: bold;
     padding: 0;
-  }
-
-  .tab-cards {
-    transform: translate(20%);
   }
 
   .tab-arrow-right-icon {
