@@ -17,16 +17,21 @@
 .color-accent {
   color: $color-accent;
 }
+.color-accent-light {
+  color: $color-accent-light;
+}
 
 .color-secondary {
   color: $color-secondary;
 }
 
-.text-accent {
+.text-link {
   color: $color-accent;
   font-weight: bold;
   text-transform: uppercase;
-  text-decoration: underline;
+  @include hover {
+    text-decoration: underline;
+  }
 }
 
 .text-sm {

@@ -1,13 +1,12 @@
 .card {
-  @include flex($justify-content: flex-start, $flex-direction: column);
-  border-radius: $border-radius-lg;
-  & > * {
-    @include margin-top($spacer);
-    @include margin-bottom($spacer);
-  }
+  @include flex($flex-direction: column);
+  height: 100%;
 
-  p {
-    margin-top: 0;
+  @include padding-top($spacer);
+  @include padding-bottom($spacer);
+
+  &__img {
+    overflow: hidden;
   }
 
   &-img {
@@ -18,20 +17,65 @@
 
   &__text {
     color: $color-gray;
-    font-size: $fs-sm;
+    margin-top: 0;
   }
 
   &__link {
-    font-size: $fs-sm;
+    font-size: 0.75rem;
     font-weight: bold;
     color: $color-accent;
-    margin-top: auto !important;
+    text-transform: uppercase;
+    margin-top: auto;
     @include flex($align-items: center);
   }
 }
 
 .link-arrow-right-icon {
   fill: $color-accent;
-  margin-left: 0.5rem;
-  @include box(0.75rem, 0.75rem);
+  margin-left: 0.25rem;
+  @include box(0.625rem, 10px);
+}
+
+/* ====================   LINK AND FOCUS   ==================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .card {
+    .card-img {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @include icon-pulse-grow();
+    &:before {
+      content: '';
+      @include absolute(bottom 0);
+      position: absolute;
+      width: 0px;
+      height: 2px;
+      background: $color-accent;
+      transition: 300ms;
+    }
+
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+
+      .card-img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.card {
+  &:focus-visible {
+    outline: none;
+    .card-img {
+      transform: scale(1.1);
+    }
+
+    &:before {
+      width: 100%;
+    }
+  }
 }

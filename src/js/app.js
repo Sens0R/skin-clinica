@@ -65,3 +65,5 @@ cards.addEventListener('click', () => {
     tabs[0].classList.add('_active');
   }
 });
+
+// tabs mobile intersection 

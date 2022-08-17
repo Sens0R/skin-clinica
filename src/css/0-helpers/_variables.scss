@@ -1,5 +1,5 @@
 /* ====================   COLORS   ==================== */
-// button mixins
+
 // fix border radius for tab card
 // make indicator for clickable tab
 // reword tab code and make separate js file
@@ -24,6 +24,7 @@
 //  проверить purgeCss и build
 // очистить консоль логи
 // хедрум хедер
+// Make hover CSS local
 // css magic для хедера
 // mutation observer
 // усовершенствовать все миксины и снипеты
@@ -65,12 +66,12 @@ $headings-fw: bold;
 $headings-lh: 1.2;
 
 $headings-fs: $fs-base * 1;
-$fs-h1: $headings-fs * 3; 
-$fs-h2: $headings-fs * 2; 
-$fs-h3: $headings-fs * 1.25; 
-$fs-h4: $headings-fs * 1.375; 
-$fs-h5: $headings-fs * 1.125; 
-$fs-h6: $headings-fs * 0.875; 
+$fs-h1: $headings-fs * 3;
+$fs-h2: $headings-fs * 2;
+$fs-h3: $headings-fs * 1.25;
+$fs-h4: $headings-fs * 1.375;
+$fs-h5: $headings-fs * 1.125;
+$fs-h6: $headings-fs * 0.875;
 
 /* ====================   STRUCTURE   ==================== */
 
@@ -78,10 +79,10 @@ $fs-h6: $headings-fs * 0.875;
 $grid-gutter-width: 1.5rem;
 
 // Spacers
-$spacer: 1.25rem;
+$spacer: 1.5rem;
 $spacer-sm: $spacer * 0.5;
 $spacer-lg: $spacer * 1.5;
-$spacer-xl: $spacer * 3;
+$spacer-xl: $spacer * 2;
 $spacer-headings: $spacer * 1;
 
 // bootstrap spacer map

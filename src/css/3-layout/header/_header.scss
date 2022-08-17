@@ -67,7 +67,6 @@
 
 .logo-header-icon {
   border-radius: 100%;
-  @include depth();
   @include box(2.5rem, 2.5rem);
   @include media-breakpoint-up(lg) {
     @include box(4rem, 4rem);

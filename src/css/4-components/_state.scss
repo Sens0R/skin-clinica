@@ -79,8 +79,7 @@
   &:focus-visible {
     outline-style: none;
     color: $color-accent;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
+    text-decoration: underline 3px;
   }
 
   @include hover {
@@ -103,14 +102,6 @@
   @include icon-pulse-shrink(0.35s);
   &:focus-visible {
     outline: 0;
-  }
-}
-
-.card {
-  @include shrink(0.96);
-  @include icon-pulse-grow();
-  &:focus-visible {
-    outline: none;
   }
 }
 

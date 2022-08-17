@@ -1,4 +1,4 @@
-.btn {
+@mixin button {
   padding: 0.5rem 1.875rem;
   background-color: $color-secondary;
   color: $color-light;
@@ -15,12 +15,13 @@
     background-color: $color-accent;
     outline-style: none;
   }
+
   @include hover {
     background-color: $color-accent;
   }
 }
 
-.btn--light {
+@mixin button-light {
   background-color: $color-accent;
 
   &:focus-visible {
@@ -35,4 +36,12 @@
   @include hover {
     background-color: lighten($color-accent, 10%);
   }
+}
+
+.btn {
+  @include button();
+}
+
+.btn-light {
+  @include button-light();
 }
