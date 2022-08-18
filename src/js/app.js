@@ -66,22 +66,24 @@ cards.addEventListener('click', () => {
 });
 
 let tabsObserverOptions = {
-  rootMargin: '-20%',
-  threshold: 0.25,
+  rootMargin: '0px',
+  threshold: 0.75,
 };
 
 // tabs mobile intersection
+let timerId;
 const tabsIntersectionObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
-      //console.log(entry.target);
       if (entry.isIntersecting) {
-        cards.click();
+        timerId = setInterval(() => cards.click(), 2500);
+      } else {
+        setTimeout(() => {
+          clearInterval(timerId);
+        });
       }
     }),
   tabsObserverOptions
 );
 
-tabs.forEach((tab) => {
-  tabsIntersectionObserver.observe(tab);
-});
+tabsIntersectionObserver.observe(cards);
