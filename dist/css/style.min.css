@@ -14033,17 +14033,17 @@ main > *:not(:first-child) {
   opacity: 0;
 }
 
-._active[data-tab-content] {
-  visibility: visible;
-  z-index: 10;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
 ._static[data-tab-content] {
   position: static;
   visibility: visible;
   opacity: 1;
+}
+
+._active[data-tab-content] {
+  visibility: visible;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.75s ease-in-out;
 }
 
 .tab-cards-wrapper {

@@ -1,6 +1,6 @@
 .footer-bg {
   @include absolute(top 0 left 0);
-  @include image-cover(100%);
+  @include image-cover();
 }
 
 .footer {
@@ -139,4 +139,9 @@
       margin-right: 0.7rem;
     }
   }
+}
+
+
+@include media-breakpoint-up(sm) {
+  
 }

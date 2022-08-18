@@ -1,8 +1,9 @@
-@mixin flex($justify-content: null, $align-items: null, $flex-direction: null) {
+@mixin flex($justify-content: null, $align-items: null, $flex-direction: null, $flex-wrap: null) {
   display: flex;
   justify-content: $justify-content;
   align-items: $align-items;
   flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
 }
 
 @mixin hover {

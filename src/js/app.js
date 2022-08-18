@@ -3,6 +3,7 @@ import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 import { addAnimation } from './modules/functions.js';
+import { set } from 'lodash';
 
 //fixedHeader();
 fixedHeader(lg);
@@ -30,9 +31,16 @@ tabs.forEach((tab) => {
     const target = document.querySelector(tab.dataset.tabTarget);
     tabContents.forEach((tabContent) => tabContent.classList.remove('_active'));
     tabs.forEach((tab) => tab.classList.remove('_active'));
-
-    target.classList.add('_active');
     tab.classList.add('_active');
+
+    if (target.classList.contains('_static')) {
+      setTimeout(() => {
+        target.classList.add('_active');
+      }, 5);
+      return;
+    }
+    
+    target.classList.add('_active');
   };
 
   tab.addEventListener('mouseenter', tabNavigation);
@@ -68,33 +76,37 @@ cards.addEventListener('click', () => {
   }
 });
 
+function mutationObserver(targetEl) {
+  const targetElement = document.getElementById(targetEl);
+  let prevClassState = targetElement.classList.contains('_active');
+  const tabMutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName !== 'class') return;
+      const currentClassState = mutation.target.classList.contains('_active');
+      if (prevClassState !== currentClassState) {
+        prevClassState = currentClassState;
 
+        if (!currentClassState) {
+          tabContents.forEach((tabContent) =>
+            tabContent.classList.remove('_static')
+          );
 
-const tabMutationObserver = new MutationObserver((mutations) => {
-  //const tab1 = document.getElementById('tab-1');
-  //let prevClassState = tab1.classList.contains('_active');
-  console.log(mutations)
-  mutations.forEach((mutation) => {
-   
-   /*  if (mutation.attributeName !== 'class') return;
-    let currentClassState = mutation.target.classList.contains('_active');
-
-    if (prevClassState !== currentClassState) {
-      prevClassState = currentClassState;
-      if (currentClassState) console.log('class added!');
-      else console.log('class removed!');
-    } */
+          mutation.target.classList.add('_static');
+        }
+      }
+    });
   });
-});
 
+  tabMutationObserver.observe(targetElement, { attributes: true });
+}
 
-tabMutationObserver.observe(document.getElementById('tab-1'), { attributes: true });
-tabMutationObserver.observe(document.getElementById('tab-2'), { attributes: true });
-tabMutationObserver.observe(document.getElementById('tab-3'), { attributes: true });
-tabMutationObserver.observe(document.getElementById('tab-4'), { attributes: true });
+mutationObserver('tab-1');
+mutationObserver('tab-2');
+mutationObserver('tab-3');
+mutationObserver('tab-4');
+
 /* function tabsRender() {
   tabContents.forEach((contentTab) => {
-  
     tabMutationObserver.observe(contentTab, { attributes: true });
   });
 }
@@ -105,6 +117,8 @@ tabsRender(); */
   prevClassState = tabContent.classList.contains('_active');
   
 }); */
+
+/* ====================   INTERSECTION OBSERVER   ==================== */
 
 /* let tabsObserverOptions = {
   rootMargin: '0px',
