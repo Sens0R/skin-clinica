@@ -25,9 +25,12 @@ const tabContents = document.querySelectorAll('[data-tab-content]');
 
 tabs.forEach((tab) => {
   const tabNavigation = () => {
+    if (tab.classList.contains('_active')) return;
+
     const target = document.querySelector(tab.dataset.tabTarget);
     tabContents.forEach((tabContent) => tabContent.classList.remove('_active'));
     tabs.forEach((tab) => tab.classList.remove('_active'));
+
     target.classList.add('_active');
     tab.classList.add('_active');
   };
@@ -65,25 +68,80 @@ cards.addEventListener('click', () => {
   }
 });
 
-let tabsObserverOptions = {
+
+
+const tabMutationObserver = new MutationObserver((mutations) => {
+  //const tab1 = document.getElementById('tab-1');
+  //let prevClassState = tab1.classList.contains('_active');
+  console.log(mutations)
+  mutations.forEach((mutation) => {
+   
+   /*  if (mutation.attributeName !== 'class') return;
+    let currentClassState = mutation.target.classList.contains('_active');
+
+    if (prevClassState !== currentClassState) {
+      prevClassState = currentClassState;
+      if (currentClassState) console.log('class added!');
+      else console.log('class removed!');
+    } */
+  });
+});
+
+
+tabMutationObserver.observe(document.getElementById('tab-1'), { attributes: true });
+tabMutationObserver.observe(document.getElementById('tab-2'), { attributes: true });
+tabMutationObserver.observe(document.getElementById('tab-3'), { attributes: true });
+tabMutationObserver.observe(document.getElementById('tab-4'), { attributes: true });
+/* function tabsRender() {
+  tabContents.forEach((contentTab) => {
+  
+    tabMutationObserver.observe(contentTab, { attributes: true });
+  });
+}
+
+tabsRender(); */
+
+/* tabContents.forEach((tabContent) => {
+  prevClassState = tabContent.classList.contains('_active');
+  
+}); */
+
+/* let tabsObserverOptions = {
   rootMargin: '0px',
   threshold: 0.75,
 };
 
 // tabs mobile intersection
-let timerId;
+let cardChangeInterval;
+const tabNav = document.querySelector('.tab-nav');
+
+const tabNavStopInterval = (e) => {
+  console.log('timer stopped');
+  clearInterval(cardChangeInterval);
+  e.stopPropagation();
+};
+const tabNavResumeInterval = () => {
+  console.log('timer resumed');
+  cardChangeInterval = setInterval(() => cards.click(), 3000);
+};
+
 const tabsIntersectionObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        timerId = setInterval(() => cards.click(), 2500);
+        console.log(entry.isIntersecting);
+        cardChangeInterval = setInterval(() => cards.click(), 3000);
+        tabNav.addEventListener('mouseenter', tabNavStopInterval);
+        tabNav.addEventListener('mouseleave', tabNavResumeInterval);
       } else {
-        setTimeout(() => {
-          clearInterval(timerId);
-        });
+        console.log(entry.isIntersecting);
+        clearInterval(cardChangeInterval);
+        tabNav.removeEventListener('mouseenter', tabNavStopInterval);
+        tabNav.removeEventListener('mouseleave', tabNavResumeInterval);
       }
     }),
   tabsObserverOptions
 );
 
 tabsIntersectionObserver.observe(cards);
+ */

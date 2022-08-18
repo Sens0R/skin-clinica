@@ -62,11 +62,32 @@ main > *:not(:first-child) {
 }
 
 [data-tab-content] {
-  display: none;
+  @include absolute(top 0 left 0);
+  @include box(100%, 100%);
+  visibility: hidden;
+  opacity: 0;
 }
 
 ._active[data-tab-content] {
-  display: block;
+  visibility: visible;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+._static[data-tab-content] {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+}
+
+.tab-cards-wrapper {
+  padding: 0;
+  margin: 15% 0;
+}
+
+.tab-cards {
+  position: relative;
 }
 
 .tabs {
@@ -122,11 +143,6 @@ main > *:not(:first-child) {
   @include flex($align-items: center);
 }
 
-.tab-cards {
-  padding: 0;
-  margin: 15% 0;
-}
-
 .tab-card {
   border-radius: $border-radius-pill;
 }
@@ -142,7 +158,7 @@ main > *:not(:first-child) {
   .tab-btn {
     @include button-light();
   }
-
+  /* 
   .tab-cards:before {
     content: '';
     @include absolute(top 0);
@@ -154,15 +170,16 @@ main > *:not(:first-child) {
       rgb(0, 0, 0, 0.35) 50%,
       rgb(0, 0, 0, 0) 100%
     );
-  }
+  } */
 
-  .tab-cards {
+  .tab-cards-wrapper {
     transform: translate(20%);
   }
 
   .tab-nav {
     @include center(vertical);
     left: 17%;
+    z-index: 10;
     margin: 0;
     padding-left: $spacer;
     border-radius: $border-radius-sm;

@@ -14024,11 +14024,35 @@ main > *:not(:first-child) {
 }
 
 [data-tab-content] {
-  display: none;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
 }
 
 ._active[data-tab-content] {
-  display: block;
+  visibility: visible;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+._static[data-tab-content] {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+}
+
+.tab-cards-wrapper {
+  padding: 0;
+  margin: 15% 0;
+}
+
+.tab-cards {
+  position: relative;
 }
 
 .tabs {
@@ -14117,11 +14141,6 @@ main > *:not(:first-child) {
   align-items: center;
 }
 
-.tab-cards {
-  padding: 0;
-  margin: 15% 0;
-}
-
 .tab-card {
   border-radius: 50rem;
 }
@@ -14148,6 +14167,19 @@ main > *:not(:first-child) {
     border-radius: 0.2rem;
     transition: none !important;
   }
+  /* 
+  .tab-cards:before {
+    content: '';
+    @include absolute(top 0);
+    @include box(100%, 100%);
+    background: linear-gradient(
+      90deg,
+      rgb(0, 0, 0, 0.75) 0%,
+      rgb(0, 0, 0, 0.65) 25%,
+      rgb(0, 0, 0, 0.35) 50%,
+      rgb(0, 0, 0, 0) 100%
+    );
+  } */
 }
 @media (min-width: 576px) and (hover: hover) and (pointer: fine) {
   .tab-btn:hover {
@@ -14155,17 +14187,7 @@ main > *:not(:first-child) {
   }
 }
 @media (min-width: 576px) {
-  .tab-cards:before {
-    content: "";
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.65) 25%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0) 100%);
-  }
-}
-@media (min-width: 576px) {
-  .tab-cards {
+  .tab-cards-wrapper {
     transform: translate(20%);
   }
 }
@@ -14175,6 +14197,7 @@ main > *:not(:first-child) {
     top: 50%;
     transform: translateY(-50%);
     left: 17%;
+    z-index: 10;
     margin: 0;
     padding-left: 1.5rem;
     border-radius: 0.2rem;
