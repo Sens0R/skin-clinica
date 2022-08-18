@@ -67,14 +67,14 @@ cards.addEventListener('click', () => {
 
 let tabsObserverOptions = {
   rootMargin: '-20%',
-  threshold: 1,
+  threshold: 0.25,
 };
 
 // tabs mobile intersection
 const tabsIntersectionObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
-      console.log(entry.target);
+      //console.log(entry.target);
       if (entry.isIntersecting) {
         cards.click();
       }
