@@ -29,9 +29,7 @@
   color: $color-accent;
   font-weight: bold;
   text-transform: uppercase;
-  @include hover {
-    text-decoration: underline;
-  }
+  user-select: text;
 }
 
 .text-sm {

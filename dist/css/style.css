@@ -12510,7 +12510,7 @@ a {
 
 :focus-visible {
   outline: 2px solid #e5065f;
-  outline-offset: 5px;
+  outline-offset: 2px;
   border-radius: 50rem;
 }
 
@@ -12552,11 +12552,7 @@ input {
   color: #e5065f;
   font-weight: bold;
   text-transform: uppercase;
-}
-@media (hover: hover) and (pointer: fine) {
-  .text-link:hover {
-    text-decoration: underline;
-  }
+  user-select: text;
 }
 
 .text-sm {
@@ -13255,7 +13251,7 @@ input {
     width: 0px;
     height: 2px;
     background: #e5065f;
-    transition: 300ms;
+    transition: 0.3s ease-in-out;
   }
   .card:hover:before {
     width: 100%;
@@ -13855,6 +13851,16 @@ input {
 }
 
 /* ====================   MAIN   ==================== */
+.text-link:focus-visible {
+  outline: none;
+  text-decoration: underline 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .text-link:hover {
+    text-decoration: underline;
+  }
+}
+
 .section-header-link {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -13907,7 +13913,7 @@ input {
 }
 
 .logo-footer:focus-visible {
-  background-color: #e5065f;
+  background-color: hsl(336deg, 95%, 84%);
   outline-style: none;
 }
 
@@ -14216,6 +14222,15 @@ main > *:not(:first-child) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.blog .btn {
+  margin-top: calc(1.425rem + 2.1vw);
+}
+@media (min-width: 1200px) {
+  .blog .btn {
+    margin-top: 3rem;
+  }
 }
 
 /* ====================   TESTIMONIALS   ==================== */

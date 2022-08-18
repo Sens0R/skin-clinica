@@ -90,6 +90,16 @@
 
 /* ====================   MAIN   ==================== */
 
+.text-link {
+  &:focus-visible {
+    outline: none;
+    text-decoration: underline 3px;
+  }
+  @include hover {
+    text-decoration: underline;
+  }
+}
+
 .section-header-link {
   @include forward();
   &:focus-visible {
@@ -113,7 +123,7 @@
 }
 
 .logo-footer:focus-visible {
-  background-color: $color-accent;
+  background-color: $color-primary;
   outline-style: none;
 }
 

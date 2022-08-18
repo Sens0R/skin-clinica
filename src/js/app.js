@@ -22,14 +22,13 @@ runNavigation({
 
 const tabs = document.querySelectorAll('[data-tab-target');
 const tabContents = document.querySelectorAll('[data-tab-content]');
-const tabItems = document.querySelectorAll('.tab-nav-list__item');
 
 tabs.forEach((tab) => {
   const tabNavigation = () => {
     const target = document.querySelector(tab.dataset.tabTarget);
     tabContents.forEach((tabContent) => tabContent.classList.remove('_active'));
+    tabs.forEach((tab) => tab.classList.remove('_active'));
     target.classList.add('_active');
-    tabItems.forEach((tabItem) => tabItem.classList.remove('_active'));
     tab.classList.add('_active');
   };
 
@@ -66,4 +65,28 @@ cards.addEventListener('click', () => {
   }
 });
 
-// tabs mobile intersection 
+let tabsObserverOptions = {
+  rootMargin: '-20%',
+  threshold: 1,
+};
+
+// tabs mobile intersection
+const tabsIntersectionObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      console.log(entry.target);
+
+      if (entry.isIntersecting) {
+        tabs.forEach((tab) => {
+          tab.classList.remove('_active');
+        });
+
+        entry.target.classList.add('_active');
+      }
+    }),
+  tabsObserverOptions
+);
+
+tabs.forEach((tab) => {
+  tabsIntersectionObserver.observe(tab);
+});

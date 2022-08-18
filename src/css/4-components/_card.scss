@@ -52,9 +52,9 @@
       width: 0px;
       height: 2px;
       background: $color-accent;
-      transition: 300ms;
+      transition: 0.3s ease-in-out;
     }
-
+    
     &:hover {
       &:before {
         width: 100%;

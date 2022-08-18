@@ -212,6 +212,9 @@ main > *:not(:first-child) {
   flex-direction: column;
 }
 
+.blog .btn {
+  @include margin-top($spacer-xl);
+}
 /* ====================   TESTIMONIALS   ==================== */
 
 .testimonials-bg {
