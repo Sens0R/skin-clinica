@@ -75,13 +75,8 @@ const tabsIntersectionObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
       console.log(entry.target);
-
       if (entry.isIntersecting) {
-        tabs.forEach((tab) => {
-          tab.classList.remove('_active');
-        });
-
-        entry.target.classList.add('_active');
+        cards.click();
       }
     }),
   tabsObserverOptions
