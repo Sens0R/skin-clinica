@@ -121,10 +121,12 @@ const tabsCanvas = document.querySelector('.about-us-tabs');
 const stopAutoplay = (e) => {
   clearInterval(cardChangeInterval);
   tabsCanvas.removeEventListener('mouseenter', stopAutoplay);
+  tabsCanvas.removeEventListener('focusin', stopAutoplay);
   e.stopPropagation();
 };
 const resumeAutoplay = () => {
   tabsCanvas.addEventListener('mouseenter', stopAutoplay);
+  tabsCanvas.addEventListener('focusin', stopAutoplay);
   cardChangeInterval = setInterval(() => cards.click(), 3000);
 };
 
@@ -135,10 +137,14 @@ const tabsIntersectionObserver = new IntersectionObserver(
         cardChangeInterval = setInterval(() => cards.click(), 3000);
         tabsCanvas.addEventListener('mouseenter', stopAutoplay);
         tabsCanvas.addEventListener('mouseleave', resumeAutoplay);
+        tabsCanvas.addEventListener('focusin', stopAutoplay);
+        tabsCanvas.addEventListener('focusout', resumeAutoplay);
       } else {
         clearInterval(cardChangeInterval);
         tabsCanvas.removeEventListener('mouseenter', stopAutoplay);
         tabsCanvas.removeEventListener('mouseleave', resumeAutoplay);
+        tabsCanvas.removeEventListener('focusin', stopAutoplay);
+        tabsCanvas.removeEventListener('focusout', resumeAutoplay);
       }
     }),
   tabsObserverOptions
