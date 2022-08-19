@@ -2,8 +2,6 @@ import './modules/swiper.js';
 import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
-import { addAnimation } from './modules/functions.js';
-import { set } from 'lodash';
 
 //fixedHeader();
 fixedHeader(lg);
@@ -36,10 +34,10 @@ tabs.forEach((tab) => {
     if (target.classList.contains('_static')) {
       setTimeout(() => {
         target.classList.add('_active');
-      }, 5);
+      }, 25);
       return;
     }
-    
+
     target.classList.add('_active');
   };
 
@@ -62,17 +60,21 @@ cards.addEventListener('click', () => {
 
   if (nextLink && nextCard) {
     currentLink.classList.remove('_active');
-    nextLink.classList.add('_active');
     currentCard.classList.remove('_active');
-    nextCard.classList.add('_active');
+    setTimeout(() => {
+      nextLink.classList.add('_active');
+      nextCard.classList.add('_active');
+    }, 25);
     return;
   }
 
   if (!nextLink && !nextCard) {
     currentLink.classList.remove('_active');
     currentCard.classList.remove('_active');
-    tabContents[0].classList.add('_active');
-    tabs[0].classList.add('_active');
+    setTimeout(() => {
+      tabContents[0].classList.add('_active');
+      tabs[0].classList.add('_active');
+    }, 25);
   }
 });
 
@@ -105,37 +107,24 @@ mutationObserver('tab-2');
 mutationObserver('tab-3');
 mutationObserver('tab-4');
 
-/* function tabsRender() {
-  tabContents.forEach((contentTab) => {
-    tabMutationObserver.observe(contentTab, { attributes: true });
-  });
-}
-
-tabsRender(); */
-
-/* tabContents.forEach((tabContent) => {
-  prevClassState = tabContent.classList.contains('_active');
-  
-}); */
-
 /* ====================   INTERSECTION OBSERVER   ==================== */
 
-/* let tabsObserverOptions = {
+let tabsObserverOptions = {
   rootMargin: '0px',
   threshold: 0.75,
 };
 
 // tabs mobile intersection
 let cardChangeInterval;
-const tabNav = document.querySelector('.tab-nav');
+const tabsCanvas = document.querySelector('.about-us-tabs');
 
-const tabNavStopInterval = (e) => {
-  console.log('timer stopped');
+const stopAutoplay = (e) => {
   clearInterval(cardChangeInterval);
+  tabsCanvas.removeEventListener('mouseenter', stopAutoplay);
   e.stopPropagation();
 };
-const tabNavResumeInterval = () => {
-  console.log('timer resumed');
+const resumeAutoplay = () => {
+  tabsCanvas.addEventListener('mouseenter', stopAutoplay);
   cardChangeInterval = setInterval(() => cards.click(), 3000);
 };
 
@@ -143,19 +132,16 @@ const tabsIntersectionObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry.isIntersecting);
         cardChangeInterval = setInterval(() => cards.click(), 3000);
-        tabNav.addEventListener('mouseenter', tabNavStopInterval);
-        tabNav.addEventListener('mouseleave', tabNavResumeInterval);
+        tabsCanvas.addEventListener('mouseenter', stopAutoplay);
+        tabsCanvas.addEventListener('mouseleave', resumeAutoplay);
       } else {
-        console.log(entry.isIntersecting);
         clearInterval(cardChangeInterval);
-        tabNav.removeEventListener('mouseenter', tabNavStopInterval);
-        tabNav.removeEventListener('mouseleave', tabNavResumeInterval);
+        tabsCanvas.removeEventListener('mouseenter', stopAutoplay);
+        tabsCanvas.removeEventListener('mouseleave', resumeAutoplay);
       }
     }),
   tabsObserverOptions
 );
 
 tabsIntersectionObserver.observe(cards);
- */

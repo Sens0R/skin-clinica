@@ -78,7 +78,7 @@ main > *:not(:first-child) {
   visibility: visible;
   z-index: 10;
   opacity: 1;
-  transition: opacity 0.75s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 .tab-cards-wrapper {
@@ -88,6 +88,7 @@ main > *:not(:first-child) {
 
 .tab-cards {
   position: relative;
+  @include depth();
 }
 
 .tabs {
@@ -108,10 +109,6 @@ main > *:not(:first-child) {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-}
-
-.tab-btn {
-  @include button();
 }
 
 .tab-arrow-right-icon {
@@ -150,30 +147,27 @@ main > *:not(:first-child) {
 .tab-img {
   @include image-cover();
   aspect-ratio: 1 / 1;
-  @include depth();
+
   border-radius: $border-radius-sm;
 }
 
 @include media-breakpoint-up(sm) {
-  .tab-btn {
-    @include button-light();
-  }
-  /* 
   .tab-cards:before {
     content: '';
     @include absolute(top 0);
     @include box(100%, 100%);
+    z-index: 25;
     background: linear-gradient(
       90deg,
-      rgb(0, 0, 0, 0.75) 0%,
-      rgb(0, 0, 0, 0.65) 25%,
-      rgb(0, 0, 0, 0.35) 50%,
+      rgb(0, 0, 0, 0.7) 0%,
+      rgb(0, 0, 0, 0.5) 25%,
+      rgb(0, 0, 0, 0.3) 50%,
       rgb(0, 0, 0, 0) 100%
     );
-  } */
+  }
 
   .tab-cards-wrapper {
-    transform: translate(20%);
+    transform: translate(15%);
   }
 
   .tab-nav {
@@ -181,14 +175,6 @@ main > *:not(:first-child) {
     left: 17%;
     z-index: 10;
     margin: 0;
-    padding-left: $spacer;
-    border-radius: $border-radius-sm;
-    background: linear-gradient(
-      90deg,
-      $color-secondary 0%,
-      $color-secondary 38%,
-      transparent 66%
-    );
   }
 
   .tab-nav-list__item {

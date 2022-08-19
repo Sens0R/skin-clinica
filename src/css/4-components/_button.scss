@@ -5,7 +5,10 @@
   border-radius: $border-radius-sm;
   font-weight: bold;
   min-height: 2.625rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   @include margin-top($spacer);
   @include margin-bottom($spacer);
   @include depth();
