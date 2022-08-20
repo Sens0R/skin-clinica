@@ -46,6 +46,9 @@
 .swiper-btn {
   z-index: 15;
   @include box(4rem, 4rem);
+ @include media-breakpoint-down(md) {
+  @include box(3rem, 3rem);
+ }
 }
 
 /* ====================   SHOP   ==================== */

@@ -250,7 +250,7 @@
   border: 1px solid lighten($color-secondary, 75%);
   @include padding($spacer);
   &__header {
-    font-size: $fs-base;
+    font-size: 0.75rem;
     text-transform: uppercase;
     margin: $spacer-sm 0;
     margin: auto 0;
@@ -259,7 +259,19 @@
   &__price {
     margin: $spacer-sm 0;
     color: $color-secondary;
-    font-size: $fs-lg;
+    font-size: 0.75rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .shopping-card {
+    &__header {
+      font-size: $fs-base;
+    }
+
+    &__price {
+      font-size: $fs-lg;
+    }
   }
 }
 

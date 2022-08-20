@@ -25,8 +25,8 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
   breakpoints: {
     // when window width is >=  575.98px
     575.98: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
+      slidesPerView: 3,
+      slidesPerGroup: 3,
       spaceBetween: 15,
       speed: 1000,
     },
