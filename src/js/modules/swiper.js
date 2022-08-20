@@ -20,15 +20,15 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
 
   // Default parameters
   slidesPerView: 1,
-
+  spaceBetween: 10,
   // Responsive breakpoints
   breakpoints: {
     // when window width is >=  575.98px
     575.98: {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: 15,
-      speed: 1000,
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      spaceBetween: 10,
+      speed: 500,
     },
 
     // when window width is >= 767.98px

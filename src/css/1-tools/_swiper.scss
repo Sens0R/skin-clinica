@@ -45,17 +45,20 @@
 
 .swiper-btn {
   z-index: 15;
-  @include box(4rem, 4rem);
- @include media-breakpoint-down(md) {
-  @include box(3rem, 3rem);
- }
+  @include box(2.5rem, 2.5rem);
+  @include media-breakpoint-up(md) {
+    @include box(4rem, 4rem);
+  }
 }
 
 /* ====================   SHOP   ==================== */
 
 .arrow-icon-shop {
-  @include box(1rem, 1rem);
+  @include box(0.75rem, 0.75rem);
   fill: $color-secondary;
+  @include media-breakpoint-up(md) {
+    @include box(1rem, 1rem);
+  }
 }
 
 .swiper-shop-nav {
