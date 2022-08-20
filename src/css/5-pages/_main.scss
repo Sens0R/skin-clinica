@@ -23,7 +23,7 @@
   @include image-cover(auto);
   height: 50vh;
   @include media-breakpoint-up(md) {
-    height: 75vh;
+    height: 80vh;
   }
 }
 
@@ -237,7 +237,6 @@
 
 /* ====================   SHOP   ==================== */
 
-
 .swiper-shop {
   overflow-x: hidden;
   @include margin-top($spacer-xl);
@@ -259,9 +258,19 @@
 
   &__price {
     margin: $spacer-sm 0;
-    color: $color-gray;
-    font-size: $fs-sm;
+    color: $color-secondary;
+    font-size: $fs-lg;
   }
+}
+
+.price-new {
+  color: $color-accent;
+  font-weight: bold;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: lighten($color-secondary, 34%);
 }
 
 .shopping-card-img {

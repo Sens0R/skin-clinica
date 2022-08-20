@@ -1,12 +1,16 @@
 import Swiper, { Navigation, Pagination, Keyboard, Autoplay } from 'swiper';
 
 const swiperShop = new Swiper('.swiper.swiper-shop', {
-  modules: [Navigation, Pagination, Keyboard],
+  modules: [Navigation, Pagination, Keyboard, Autoplay],
   pagination: {
     el: '.swiper-pagination-shop',
     clickable: true,
   },
   loop: true,
+
+  autoplay: {
+    delay: 4000,
+  },
 
   // Navigation arrows
   navigation: {
@@ -21,18 +25,18 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
   breakpoints: {
     // when window width is >=  575.98px
     575.98: {
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      spaceBetween: 15,
+      speed: 1000,
     },
-    // when window width is >= 767.98px
-    767.98: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
+
     // when window width is >= 767.98px
     1199.98: {
       slidesPerView: 4,
-      spaceBetween: 40,
+      slidesPerGroup: 4,
+      spaceBetween: 30,
+      speed: 2000,
     },
   },
 
@@ -59,9 +63,9 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
   loop: true,
 
   autoplay: {
-    delay: 5000,
+    delay: 4000,
   },
-
+  speed: 1000,
   // If we need pagination
   pagination: {
     el: '.swiper-pagination-testimonials',

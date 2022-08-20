@@ -1,5 +1,4 @@
 @import 'swiper/swiper.scss';
-//@import 'swiper/modules/navigation/navigation.scss';
 
 /* ====================   GLOBAL STYLES   ==================== */
 
@@ -46,18 +45,7 @@
 
 .swiper-btn {
   z-index: 15;
-
-  &:focus-visible {
-    fill: $color-accent;
-    outline-style: none;
-    background-color: $color-primary;
-  }
-
-  @include hover {
-    fill: $color-accent;
-  }
-
-  @include icon-grow();
+  @include box(4rem, 4rem);
 }
 
 /* ====================   SHOP   ==================== */
@@ -65,7 +53,6 @@
 .arrow-icon-shop {
   @include box(1rem, 1rem);
   fill: $color-secondary;
- 
 }
 
 .swiper-shop-nav {
@@ -77,8 +64,6 @@
 .swiper-btn--right-shop {
   @include flex($justify-content: center, $align-items: center);
   background: $color-primary;
-  border-radius: 50%;
-  @include box(4rem, 4rem);
 }
 
 /* ====================   TESTIMONIALS   ==================== */
@@ -94,8 +79,8 @@
 
 .swiper-btn--left-testimonials,
 .swiper-btn--right-testimonials {
-  @include box(5rem, 5rem);
   display: none;
+  border-radius: 50%;
 }
 
 @include media-breakpoint-up(md) {

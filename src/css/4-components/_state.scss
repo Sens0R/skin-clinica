@@ -108,6 +108,7 @@
   }
 }
 
+// about-us
 .tab-nav-list__link {
   @include icon-pulse-shrink(0.35s);
   &:focus-visible {
@@ -115,9 +116,43 @@
   }
 }
 
+// shop
 .swiper-btn--left-shop,
 .swiper-btn--right-shop {
-  
+  transition: 0.4s ease-in-out;
+  svg {
+    transition: 0.4s ease-in-out;
+  }
+  @include hover {
+    background: $color-accent;
+    svg {
+      fill: $color-light;
+    }
+  }
+
+  &:focus-visible {
+    background: $color-accent;
+    svg {
+      fill: $color-light;
+    }
+    outline: none;
+    border-radius: 0;
+  }
+}
+
+//testimonials
+@media (hover: hover) and (pointer: fine) {
+  .swiper-btn--left-testimonials,
+  .swiper-btn--right-testimonials {
+    &:hover svg {
+      fill: $color-accent;
+    }
+  }
+}
+
+.swiper-btn--left-testimonials,
+.swiper-btn--right-testimonials {
+  @include icon-grow();
 }
 
 /* ====================   FOOTER   ==================== */
