@@ -17,7 +17,7 @@ runNavigation({
   copySize: '.header',
 });
 
-// tabs
+/* ====================   TABS   ==================== */
 
 const tabs = document.querySelectorAll('[data-tab-target');
 const tabContents = document.querySelectorAll('[data-tab-content]');
@@ -107,7 +107,7 @@ mutationObserver('tab-2');
 mutationObserver('tab-3');
 mutationObserver('tab-4');
 
-/* ====================   INTERSECTION OBSERVER   ==================== */
+/* ====================   TABS INTERSECTION OBSERVER   ==================== */
 
 let tabsObserverOptions = {
   rootMargin: '0px',

@@ -8,9 +8,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  @include margin-top($spacer);
-  @include margin-bottom($spacer);
   @include depth();
   transition: 0.2s ease-in-out;
 

@@ -1,10 +1,10 @@
 .card {
   @include flex($flex-direction: column);
   height: 100%;
-
-  @include padding-top($spacer);
-  @include padding-bottom($spacer);
-
+  &__header {
+    @include padding-top($spacer);
+    @include padding-bottom($spacer);
+  }
   &__img {
     overflow: hidden;
   }
@@ -27,6 +27,7 @@
     text-transform: uppercase;
     margin-top: auto;
     @include flex($align-items: center);
+    @include margin-bottom($spacer-sm);
   }
 }
 

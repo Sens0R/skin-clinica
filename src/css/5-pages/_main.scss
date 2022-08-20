@@ -1,5 +1,14 @@
+.section {
+  @include padding-top($spacer-xl);
+  @include padding-bottom($spacer-xl);
+}
+
 .section-header {
-  align-self: flex-start;
+  margin: 0;
+}
+
+.section-btn {
+  @include flex($justify-content: center, $align-items: center);
 }
 
 .section-header-link {
@@ -8,17 +17,7 @@
   }
 }
 
-main > *:not(:first-child) {
-  @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
-}
-
-// mobile 100vw sections extra padding
-
 /* ====================   BANNER   ==================== */
-.banner {
-  @include padding-bottom($spacer-xl);
-}
 
 .banner-bg {
   @include image-cover(auto);
@@ -30,16 +29,17 @@ main > *:not(:first-child) {
 
 /* ====================   ABOUT-US   ==================== */
 
-@include media-breakpoint-down(lg) {
-  .about-us-text-content {
-    @include padding-bottom($spacer-xl);
-  }
+.about-us-text-content,
+.about-us-tabs {
+  @include padding-bottom($spacer-xl);
+  @include padding-top($spacer-xl);
 }
 
 .about-us {
   user-select: none;
   .row {
-    @include flex($justify-content: space-between, $align-items: center);
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -83,7 +83,7 @@ main > *:not(:first-child) {
 
 .tab-cards-wrapper {
   padding: 0;
-  margin: 15% 0;
+  margin: 17% 0;
 }
 
 .tab-cards {
@@ -127,10 +127,12 @@ main > *:not(:first-child) {
 }
 
 .tab-nav {
-  margin-top: $spacer-lg;
+  @include padding-top($spacer);
+  @include padding-bottom($spacer);
 }
 
-.tab-nav-list__item {
+.tab-nav-list {
+  margin: 0;
   color: $color-secondary;
 }
 
@@ -149,6 +151,16 @@ main > *:not(:first-child) {
   aspect-ratio: 1 / 1;
 
   border-radius: $border-radius-sm;
+}
+
+.tab-btn {
+  @include margin-top($spacer);
+}
+
+@include media-breakpoint-down(sm) {
+  .tab-nav {
+    margin-left: -0.75rem;
+  }
 }
 
 @include media-breakpoint-up(sm) {
@@ -179,17 +191,16 @@ main > *:not(:first-child) {
     left: 17%;
     z-index: 10;
     margin: 0;
-    min-width: 60%;
-    padding-left: $spacer;
+    @include padding-left($spacer);
     border-radius: $border-radius-sm;
     background-image: linear-gradient(
       90deg,
       hsla(0deg, 0%, 12%, 1) 0%,
-      hsla(137deg, 0%, 12%, 1) 28%,
-      hsla(137deg, 0%, 12%, 0.8) 33%,
-      hsla(137deg, 0%, 12%, 0.6) 38%,
-      hsla(137deg, 0%, 12%, 0.35) 45%,
-      transparent 50%
+      hsla(137deg, 0%, 12%, 1) 38%,
+      hsla(137deg, 0%, 12%, 0.8) 46%,
+      hsla(137deg, 0%, 12%, 0.6) 56%,
+      hsla(137deg, 0%, 12%, 0.35) 66%,
+      transparent 76%
     );
   }
 
@@ -224,16 +235,62 @@ main > *:not(:first-child) {
   }
 }
 
+/* ====================   SHOP   ==================== */
+
+
+.swiper-shop {
+  overflow-x: hidden;
+  @include margin-top($spacer-xl);
+  @include margin-bottom($spacer-xl);
+}
+
+.shopping-card {
+  @include flex($flex-direction: column);
+  height: 100%;
+  border-radius: $border-radius-sm;
+  border: 1px solid lighten($color-secondary, 75%);
+  @include padding($spacer);
+  &__header {
+    font-size: $fs-base;
+    text-transform: uppercase;
+    margin: $spacer-sm 0;
+    margin: auto 0;
+  }
+
+  &__price {
+    margin: $spacer-sm 0;
+    color: $color-gray;
+    font-size: $fs-sm;
+  }
+}
+
+.shopping-card-img {
+  @include flex($justify-content: center, $align-items: center);
+  @include image-cover();
+  aspect-ratio: 1 / 1;
+}
+
+.shopping-card__ratings {
+  @include flex($align-items: center);
+  margin-bottom: $spacer-sm;
+}
+
+.star-icon {
+  @include box(1rem, 1rem);
+  fill: $color-gray;
+}
+
+.star-icon-empty {
+  fill: lighten($color-gray, 40%);
+}
+
 /* ====================   BLOG   ==================== */
 
-.blog {
-  @include flex($justify-content: center, $align-items: center);
-  flex-direction: column;
+.section .row .col-md {
+  @include margin-top($spacer-xl);
+  @include margin-bottom($spacer-xl);
 }
 
-.blog .btn {
-  @include margin-top($spacer-xl);
-}
 /* ====================   TESTIMONIALS   ==================== */
 
 .testimonials-bg {
@@ -248,20 +305,16 @@ main > *:not(:first-child) {
   text-align: center;
   user-select: none;
 
-  &__content {
-    max-width: 31.25rem;
-    @include center-block();
-  }
-
   &__header {
     z-index: 1;
+    @include margin-bottom($spacer);
   }
 
   &__body {
-    position: relative;
     font-style: italic;
     font-size: $fs-lg;
     color: $color-gray;
+    margin-bottom: auto;
   }
 
   &__person {
@@ -273,18 +326,29 @@ main > *:not(:first-child) {
   }
 }
 
+.testimonials-content {
+  max-width: 30rem;
+  height: 100%;
+  @include flex(
+    $justify-content: center,
+    $align-items: center,
+    $flex-direction: column
+  );
+  @include margin-auto(x);
+}
+
 .person-photo-thumbnail {
-  @include box(5rem, 5rem);
+  @include image-cover($height: 5rem, $width: 5rem);
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
   @include depth();
 }
 
 .person-name {
-  @include margin-bottom($spacer-xl);
+  margin-bottom: 0;
   color: $color-accent;
   text-transform: uppercase;
   font-size: $fs-sm;
   letter-spacing: 1px;
+  line-height: $lh-sm;
 }

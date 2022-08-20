@@ -1,48 +1,51 @@
 @import 'swiper/swiper.scss';
-@import 'swiper/modules/pagination/pagination.scss';
-@import 'swiper/modules/navigation/navigation.scss';
+//@import 'swiper/modules/navigation/navigation.scss';
+
+/* ====================   GLOBAL STYLES   ==================== */
 
 .swiper {
   @include box(100%, 100%);
 }
 
 .swiper-slide {
+  height: auto;
 }
+
+// pagination
 
 .swiper-pagination {
   @include flex($justify-content: center, $align-items: center);
-  user-select: none;
-  z-index: -1;
+
+  > * {
+    @include flex($justify-content: center, $align-items: center);
+    @include box(1.5rem, 1.5rem);
+  }
 }
 
 .swiper-pagination-bullet {
-  @include box(6px, 6px);
-  border-radius: 50%;
-  background: #000;
-  opacity: 0.2;
-  margin: 0.3rem !important;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    background: lighten($color-secondary, 70%);
+    border-radius: 50%;
+    @include box(0.5rem, 0.5rem);
+  }
 }
 
 .swiper-pagination-bullet-active {
-  @include box(12px, 12px);
-  opacity: 1;
-  background: $color-primary;
+  &:before {
+    content: '';
+    background: $color-primary;
+    border-radius: 50%;
+    @include box(0.75rem, 0.75rem);
+  }
 }
 
+// navigation buttons
+
 .swiper-btn {
-  @include box(5rem, 5rem);
-  fill: $color-gray;
-  z-index: 9999;
-
-  @include flex($justify-content: center, $align-items: center);
-  @include center(vertical);
-  @include media-breakpoint-down(xl) {
-    display: none;
-  }
-
-  svg {
-    @include box(1.5rem, 1.5rem);
-  }
+  z-index: 15;
 
   &:focus-visible {
     fill: $color-accent;
@@ -57,14 +60,74 @@
   @include icon-grow();
 }
 
-@include media-breakpoint-up(lg) {
-  .swiper-btn--left {
-    left: 20%;
-    top: 25%;
+/* ====================   SHOP   ==================== */
+
+.arrow-icon-shop {
+  @include box(1rem, 1rem);
+  fill: $color-secondary;
+ 
+}
+
+.swiper-shop-nav {
+  @include flex($justify-content: space-between, $align-items: center);
+  @include margin-top($spacer-sm);
+}
+
+.swiper-btn--left-shop,
+.swiper-btn--right-shop {
+  @include flex($justify-content: center, $align-items: center);
+  background: $color-primary;
+  border-radius: 50%;
+  @include box(4rem, 4rem);
+}
+
+/* ====================   TESTIMONIALS   ==================== */
+
+.arrow-icon-testimonials {
+  @include box(1.5rem, 1.5rem);
+  fill: $color-gray;
+}
+
+.swiper-testimonials .swiper-pagination {
+  @include margin-top($spacer-xl);
+}
+
+.swiper-btn--left-testimonials,
+.swiper-btn--right-testimonials {
+  @include box(5rem, 5rem);
+  display: none;
+}
+
+@include media-breakpoint-up(md) {
+  .swiper-btn--left-testimonials,
+  .swiper-btn--right-testimonials {
+    @include flex($justify-content: center, $align-items: center);
+    position: absolute;
   }
 
-  .swiper-btn--right {
+  .swiper-btn--left-testimonials {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .swiper-btn--right-testimonials {
+    @include flex($justify-content: center, $align-items: center);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .swiper-btn--left-testimonials {
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+
+  .swiper-btn--right-testimonials {
     right: 20%;
-    top: 25%;
+    transform: translate(20%, -50%);
   }
 }
