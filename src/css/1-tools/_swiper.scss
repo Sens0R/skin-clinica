@@ -70,7 +70,7 @@
 
 .swiper-shop-nav {
   @include flex($justify-content: space-between, $align-items: center);
-  @include margin-top($spacer-sm);
+  @include margin-top($spacer-xl);
 }
 
 .swiper-btn--left-shop,

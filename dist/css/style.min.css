@@ -8288,7 +8288,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.75rem;
+  margin-top: calc(1.425rem + 2.1vw);
+}
+@media (min-width: 1200px) {
+  .swiper-shop-nav {
+    margin-top: 3rem;
+  }
 }
 
 .swiper-btn--left-shop,
