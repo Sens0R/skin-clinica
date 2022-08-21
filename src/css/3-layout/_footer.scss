@@ -8,9 +8,6 @@
   margin-top: auto;
   position: relative;
   color: $color-light;
-  &-logo {
-    @include margin-bottom($spacer);
-  }
 }
 
 .copyright {
@@ -151,5 +148,20 @@
     .footer-nav {
       grid-row: span 3;
     }
+  }
+}
+
+.footer-phone {
+  @include margin-top($spacer);
+  @include flex($align-items: center);
+  p {
+    margin: 0;
+  }
+
+  a {
+    padding-left: $spacer;
+    padding-right: $spacer;
+    font-size: $fs-lg;
+    letter-spacing: 2px;
   }
 }

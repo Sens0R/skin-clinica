@@ -152,7 +152,7 @@
 
 .swiper-btn--left-testimonials,
 .swiper-btn--right-testimonials {
-  @include icon-grow(1.4);
+  @include icon-grow(1.25);
   &:focus-visible {
     outline: none;
     svg {

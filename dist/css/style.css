@@ -8292,8 +8292,8 @@
 @media (min-width: 768px) {
   .swiper-btn--left-testimonials,
 .swiper-btn--right-testimonials {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }
 
@@ -12810,14 +12810,6 @@ input {
   position: relative;
   color: hsl(0deg, 0%, 100%);
 }
-.footer-logo {
-  margin-bottom: calc(1.275rem + 0.3vw);
-}
-@media (min-width: 1200px) {
-  .footer-logo {
-    margin-bottom: 1.5rem;
-  }
-}
 
 .copyright {
   color: #999999;
@@ -12990,6 +12982,26 @@ input {
   }
 }
 
+.footer-phone {
+  margin-top: calc(1.275rem + 0.3vw);
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 1200px) {
+  .footer-phone {
+    margin-top: 1.5rem;
+  }
+}
+.footer-phone p {
+  margin: 0;
+}
+.footer-phone a {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 1.125rem;
+  letter-spacing: 2px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -13135,9 +13147,11 @@ input {
   outline-offset: 0;
   background-color: #e5065f;
   outline-color: hsl(0deg, 0%, 100%);
+  transition: none;
 }
 .rounded-icon:focus-visible svg {
   fill: hsl(0deg, 0%, 100%);
+  transition: none;
 }
 @media (hover: hover) and (pointer: fine) {
   .rounded-icon:hover {
@@ -13784,8 +13798,8 @@ input {
 .swiper-btn--right-testimonials:hover .hvr-icon,
 .swiper-btn--right-testimonials:focus-visible .hvr-icon,
 .swiper-btn--right-testimonials:active .hvr-icon {
-  -webkit-transform: scale(1.4) translateZ(0);
-  transform: scale(1.4) translateZ(0);
+  -webkit-transform: scale(1.25) translateZ(0);
+  transform: scale(1.25) translateZ(0);
 }
 .swiper-btn--left-testimonials:focus-visible,
 .swiper-btn--right-testimonials:focus-visible {
