@@ -62,10 +62,10 @@ svg {
 
 html,
 body {
+  @include font-size($fs-base);
   color: $color-secondary;
   font-family: $ff-primary;
   line-height: $lh-base;
-  font-size: $fs-base;
   background-color: $color-light;
   -webkit-tap-highlight-color: transparent;
 }
@@ -75,7 +75,7 @@ textarea,
 input,
 button {
   font-family: $ff-primary;
-  font-size: $fs-base;
+  @include font-size($fs-base);
 }
 
 .page-wrapper {
@@ -126,8 +126,7 @@ address,
 table,
 .spacer,
 hr {
-  @include margin-top($spacer);
-  @include margin-bottom($spacer);
+  @include spacer-y('margin', $spacer);
 }
 
 button {

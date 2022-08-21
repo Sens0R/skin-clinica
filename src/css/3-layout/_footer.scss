@@ -10,12 +10,6 @@
   color: $color-light;
 }
 
-.copyright {
-  color: darken($color-light, 40%);
-  font-size: 0.75rem;
-  text-align: center;
-}
-
 .logo-footer {
   @include flex($justify-content: flex-start, $align-items: center);
   max-width: 15rem;
@@ -102,11 +96,14 @@
 }
 
 .footer-nav {
-  @include media-breakpoint-up(lg) {
-    margin-left: 3rem;
+  @include media-breakpoint-up(md) {
     .row {
-      justify-content: flex-end;
+      justify-content: space-between;
     }
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-left: 5rem;
   }
 
   &__col {
@@ -161,7 +158,14 @@
   a {
     padding-left: $spacer;
     padding-right: $spacer;
-    font-size: $fs-lg;
-    letter-spacing: 2px;
+    font-size: $fs-base;
+    letter-spacing: 3px;
   }
 }
+
+.copyright {
+  color: darken($color-light, 40%);
+  font-size: 0.75rem;
+  text-align: center;
+}
+

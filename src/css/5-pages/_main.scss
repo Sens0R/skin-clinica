@@ -169,7 +169,7 @@
 
 @include media-breakpoint-up(sm) {
   .tab-btn {
-    @include button-light();
+    @include btn-light();
   }
 
   .tab-cards:before {

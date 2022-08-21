@@ -1,0 +1,59 @@
+@mixin spacer($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin($value);
+  } @else if $type == 'padding' {
+    @include padding($value);
+  }
+}
+
+@mixin spacer-top($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin-top($value);
+  } @else if $type == 'padding' {
+    @include padding-top($value);
+  }
+}
+
+@mixin spacer-left($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin-left($value);
+  } @else if $type == 'padding' {
+    @include padding-left($value);
+  }
+}
+
+@mixin spacer-right($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin-right($value);
+  } @else if $type == 'padding' {
+    @include padding-right($value);
+  }
+}
+
+@mixin spacer-bottom($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin-bottom($value);
+  } @else if $type == 'padding' {
+    @include padding-bottom($value);
+  }
+}
+
+@mixin spacer-y($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin-top($value);
+    @include margin-bottom($value);
+  } @else if $type == 'padding' {
+    @include padding-top($value);
+    @include padding-bottom($value);
+  }
+}
+
+@mixin spacer-x($type: padding, $value: $spacer) {
+  @if $type == 'margin' {
+    @include margin-left($value);
+    @include margin-right($value);
+  } @else if $type == 'padding' {
+    @include padding-left($value);
+    @include padding-right($value);
+  }
+}

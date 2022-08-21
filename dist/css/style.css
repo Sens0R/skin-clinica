@@ -12171,10 +12171,10 @@ svg {
 /* ====================   RESET ENDS HERE   ==================== */
 html,
 body {
+  font-size: 1rem;
   color: hsl(0deg, 0%, 12%);
   font-family: DMSans, Arial, sans-serif;
   line-height: 1.6;
-  font-size: 1rem;
   background-color: hsl(0deg, 0%, 100%);
   -webkit-tap-highlight-color: transparent;
 }
@@ -12811,12 +12811,6 @@ input {
   color: hsl(0deg, 0%, 100%);
 }
 
-.copyright {
-  color: #999999;
-  font-size: 0.75rem;
-  text-align: center;
-}
-
 .logo-footer {
   display: flex;
   justify-content: flex-start;
@@ -12922,12 +12916,14 @@ input {
   padding-left: 0.5em;
 }
 
+@media (min-width: 768px) {
+  .footer-nav .row {
+    justify-content: space-between;
+  }
+}
 @media (min-width: 992px) {
   .footer-nav {
-    margin-left: 3rem;
-  }
-  .footer-nav .row {
-    justify-content: flex-end;
+    margin-left: 5rem;
   }
 }
 .footer-nav__col {
@@ -12998,8 +12994,14 @@ input {
 .footer-phone a {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  font-size: 1.125rem;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  letter-spacing: 3px;
+}
+
+.copyright {
+  color: #999999;
+  font-size: 0.75rem;
+  text-align: center;
 }
 
 .card {
@@ -13193,7 +13195,7 @@ input {
     opacity: 0.3;
   }
 }
-.btn {
+.btn, .btn-light {
   padding: 0.5rem 1.875rem;
   background-color: hsl(0deg, 0%, 12%);
   color: hsl(0deg, 0%, 100%);
@@ -13206,12 +13208,12 @@ input {
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   transition: 0.2s ease-in-out;
 }
-.btn:focus-visible {
+.btn:focus-visible, .btn-light:focus-visible {
   background-color: #e5065f;
   outline-style: none;
 }
 @media (hover: hover) and (pointer: fine) {
-  .btn:hover {
+  .btn:hover, .btn-light:hover {
     background-color: #e5065f;
   }
 }
