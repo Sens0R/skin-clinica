@@ -9,7 +9,6 @@
   position: relative;
   color: $color-light;
   &-logo {
-    @include margin-top($spacer);
     @include margin-bottom($spacer);
   }
 }
@@ -32,14 +31,14 @@
   white-space: nowrap;
   color: $color-light;
   text-decoration: underline solid $color-light 1px;
-  text-underline-offset: 30%;
+  letter-spacing: 2px;
 }
 
 .logo-footer-icon {
   @include box(5rem, 5rem);
 }
 
-.footer-inner {
+.footer-container {
   position: relative;
 }
 
@@ -48,45 +47,29 @@
   @include padding-bottom($spacer-xl);
 }
 
-.footer-nav-main {
-  border-top: 1px solid darken($color-light, 40%);
-  @include padding-top($spacer-xl);
-  @include media-breakpoint-up(sm) {
-    @include padding-bottom($spacer-xl);
+.social-icons {
+  @include flex($align-items: center);
+  @include media-breakpoint-down(sm) {
+    flex-wrap: wrap;
   }
-  display: grid;
-  grid-template-columns: 1fr;
-}
 
-.footer-nav-main {
-  @include media-breakpoint-up(lg) {
-    grid-template-columns: 1fr 2.5fr;
-    .footer-nav {
-      grid-row: span 3;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 0.7rem;
     }
-  }
-}
-
-.footer-nav {
-  @include media-breakpoint-up(lg) {
-    margin-left: 4rem;
-  }
-
-  &__header {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  &__link {
-    @include flex($justify-content: center, $flex-direction: column);
-    padding: $spacer-sm 0;
-    font-size: $fs-sm;
-    color: $color-light;
   }
 }
 
 .mailing-form {
   @include flex($justify-content: center, $align-items: center);
+  margin-top: $spacer-lg;
+
+  &__button {
+    @include margin-top($spacer-lg);
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
 
   &__item {
     @include flex($justify-content: center, $align-items: center);
@@ -106,13 +89,6 @@
     }
   }
 
-  &__button {
-    margin-bottom: 0 !important;
-    @include media-breakpoint-up(lg) {
-      margin: 0 !important;
-    }
-  }
-
   &__input {
     height: 2.25rem;
     width: 16rem;
@@ -128,20 +104,52 @@
   }
 }
 
-.social-icons {
-  @include flex($align-items: center);
-  @include media-breakpoint-down(sm) {
-    flex-wrap: wrap;
+.footer-nav {
+  @include media-breakpoint-up(lg) {
+    margin-left: 3rem;
+    .row {
+      justify-content: flex-end;
+    }
   }
 
-  &__item {
-    &:not(:last-child) {
-      margin-right: 0.7rem;
-    }
+  &__col {
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+  }
+
+  &__list {
+    margin-bottom: 0;
+  }
+
+  &__header {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &__link {
+    @include flex($justify-content: center, $flex-direction: column);
+    padding: $spacer-sm 0;
+    font-size: $fs-sm;
+    color: $color-light;
   }
 }
 
+.footer-nav-main {
+  border-top: 1px solid darken($color-light, 40%);
+  @include padding-top($spacer-xl);
+  @include media-breakpoint-up(sm) {
+    @include padding-bottom($spacer-xl);
+  }
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
-@include media-breakpoint-up(sm) {
-  
+.footer-nav-main {
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 2.5fr;
+    .footer-nav {
+      grid-row: span 3;
+    }
+  }
 }

@@ -1261,7 +1261,7 @@
     >
   </h2>
   <div class="row">
-    <div class="col-12 col-md">
+    <div class="col-12 col-md-12 col-lg-4 blog-col">
       <a href="#" class="card">
         <div class="card__img">
           <picture>
@@ -1326,7 +1326,7 @@
         </div>
       </a>
     </div>
-    <div class="col-12 col-md">
+    <div class="col-12 col-md-6 col-lg-4 blog-col">
       <a href="#" class="card">
         <div class="card__img">
           <picture>
@@ -1391,7 +1391,7 @@
         </div>
       </a>
     </div>
-    <div class="col-12 col-md">
+    <div class="col-12 col-md-6 col-lg-4 blog-col">
       <a href="#" class="card">
         <div class="card__img">
           <picture>
@@ -1735,34 +1735,27 @@
     </picture>
   </div>
 
-  <div class="container-fluid container-lg footer-inner">
+  <div class="container-fluid container-lg footer-container">
     <div class="mailing-list text-center">
       <h2>Join our mailing list</h2>
       <p>
         Sign up to be the first to receive special news and updates from Skin
         Clinica.
       </p>
-      <div class="container-fluid container-lg spacer">
-        <div class="row mailing-form">
-          <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-            <input
-              placeholder="Full name"
-              class="mailing-form__input"
-              type="text"
-            />
-          </div>
-          <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-            <input
-              placeholder="Email"
-              class="mailing-form__input"
-              type="text"
-            />
-          </div>
-          <div class="col-12 col-md-auto mailing-form__item">
-            <button class="mailing-form__button btn btn-light">
-              Subscribe
-            </button>
-          </div>
+
+      <div class="row mailing-form">
+        <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
+          <input
+            placeholder="Full name"
+            class="mailing-form__input"
+            type="text"
+          />
+        </div>
+        <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
+          <input placeholder="Email" class="mailing-form__input" type="text" />
+        </div>
+        <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
+          <button class="btn btn-light">Subscribe</button>
         </div>
       </div>
     </div>
@@ -1777,7 +1770,7 @@
       </div>
       <div class="footer-nav">
         <div class="row">
-          <div class="col-7 col-sm col-xl-3">
+          <div class="col-7 col-sm-4 footer-nav__col">
             <p class="footer-nav__header">Menu</p>
             <ul class="footer-nav__list">
               <li><a class="footer-nav__link" href="#">Shop</a></li>
@@ -1790,7 +1783,7 @@
               <li><a class="footer-nav__link" href="#">Brands</a></li>
             </ul>
           </div>
-          <div class="col-7 col-sm col-xl-3">
+          <div class="col-7 col-sm-4 footer-nav__col">
             <p class="footer-nav__header">Company</p>
             <ul class="footer-nav__list">
               <li><a class="footer-nav__link" href="#">About</a></li>
@@ -1799,7 +1792,7 @@
               <li><a class="footer-nav__link" href="#">Contact</a></li>
             </ul>
           </div>
-          <div class="col-7 col-sm col-xl-3">
+          <div class="col-7 col-sm-4 footer-nav__col">
             <p class="footer-nav__header">Customer support</p>
             <ul class="footer-nav__list">
               <li>
@@ -1817,8 +1810,7 @@
           </div>
         </div>
       </div>
-      <div class="footer-socials">
-        <ul class="social-icons">
+      <div class="footer-socials"><ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="rounded-icon" aria-label="Facebook">
       <svg class="icon-rounded hvr-icon">
@@ -1862,8 +1854,7 @@
     </a>
   </li>
 </ul>
-
-      </div>
+</div>
     </div>
 
     <p class="copyright">
@@ -1871,9 +1862,6 @@
     </p>
   </div>
 </footer>
-
-
-
 
     </div>
   </body>

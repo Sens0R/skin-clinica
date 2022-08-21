@@ -239,8 +239,13 @@
 
 .swiper-shop {
   overflow-x: hidden;
-  @include margin-top($spacer-xl);
-  @include margin-bottom($spacer-xl);
+  @include margin-top($spacer-lg);
+  @include margin-bottom($spacer-lg);
+}
+
+.swiper-shop-nav {
+  @include flex($justify-content: space-between, $align-items: center);
+  @include margin-top($spacer-lg);
 }
 
 .shopping-card {
@@ -306,9 +311,9 @@
 
 /* ====================   BLOG   ==================== */
 
-.section .row .col-md {
-  @include margin-top($spacer-xl);
-  @include margin-bottom($spacer-xl);
+.blog-col {
+  @include margin-top($spacer-lg);
+  @include margin-bottom($spacer-lg);
 }
 
 /* ====================   TESTIMONIALS   ==================== */
@@ -325,9 +330,13 @@
   text-align: center;
   user-select: none;
 
+  p {
+    margin: 0;
+  }
+
   &__header {
     z-index: 1;
-    @include margin-bottom($spacer);
+    @include margin-bottom($spacer-lg);
   }
 
   &__body {
@@ -338,6 +347,8 @@
   }
 
   &__person {
+    @include margin-top($spacer);
+    @include margin-bottom($spacer-lg);
     @include flex(
       $justify-content: center,
       $align-items: center,
@@ -347,7 +358,7 @@
 }
 
 .testimonials-content {
-  max-width: 30rem;
+  max-width: 35rem;
   height: 100%;
   @include flex(
     $justify-content: center,
@@ -358,14 +369,13 @@
 }
 
 .person-photo-thumbnail {
-  @include image-cover($height: 5rem, $width: 5rem);
+  @include image-cover($height: 4.5rem, $width: 4.5rem);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  @include depth();
 }
 
 .person-name {
-  margin-bottom: 0;
+  margin-top: $spacer-sm !important;
   color: $color-accent;
   text-transform: uppercase;
   font-size: $fs-sm;

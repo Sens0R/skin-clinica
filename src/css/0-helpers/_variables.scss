@@ -1,11 +1,13 @@
 /* ====================   COLORS   ==================== */
-
+// resize tabs on landscape to fit screen
+// only swiper pagination and buttons related stuff in swiper.scss
 // rfs padding/margin snippet flex mixin
 // reword tab code and make separate js file
 // make overlay mixin
 // rework all tabs css
 // добавить текст -> close menu, close search
 //Critical css
+// picture shop sizes
 //bootstrap colours and other shit remove
 //Модернизировать линк Спейс миксин
 // рефактор кода футера
@@ -82,7 +84,7 @@ $grid-gutter-width: 1.5rem;
 $spacer: 1.5rem;
 $spacer-sm: $spacer * 0.5;
 $spacer-lg: $spacer * 1.5;
-$spacer-xl: $spacer * 2;
+$spacer-xl: $spacer * 3.5;
 $spacer-headings: $spacer * 1;
 
 // bootstrap spacer map

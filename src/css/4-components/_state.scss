@@ -152,7 +152,15 @@
 
 .swiper-btn--left-testimonials,
 .swiper-btn--right-testimonials {
-  @include icon-grow();
+  @include icon-grow(1.4);
+  &:focus-visible {
+    outline: none;
+    svg {
+      fill: $color-light;
+    }
+    fill: $color-accent;
+    background-color: $color-accent;
+  }
 }
 
 /* ====================   FOOTER   ==================== */

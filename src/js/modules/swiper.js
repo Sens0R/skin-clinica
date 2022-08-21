@@ -62,16 +62,27 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
   grabCursor: true,
   loop: true,
 
-  autoplay: {
+/*   autoplay: {
     delay: 4000,
-  },
-  speed: 1000,
+  }, */
+
   // If we need pagination
   pagination: {
     el: '.swiper-pagination-testimonials',
     clickable: true,
   },
 
+  // Default parameters
+
+  // Responsive breakpoints
+  breakpoints: {
+    // when window width is >=  575.98px
+
+    // when window width is >= 767.98px
+    1199.98: {
+      speed: 1000,
+    },
+  },
   // Navigation arrows
   navigation: {
     nextEl: '.swiper-btn--right-testimonials',
