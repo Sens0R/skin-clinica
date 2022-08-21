@@ -62,9 +62,9 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
   grabCursor: true,
   loop: true,
 
-/*   autoplay: {
+  autoplay: {
     delay: 4000,
-  }, */
+  },
 
   // If we need pagination
   pagination: {
