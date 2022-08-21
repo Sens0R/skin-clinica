@@ -13865,6 +13865,10 @@ input {
 }
 
 /* ====================   ABOUT-US   ==================== */
+.about-us.section {
+  padding-bottom: 0;
+}
+
 .about-us-text-content,
 .about-us-tabs {
   padding-bottom: calc(1.65rem + 4.8vw);

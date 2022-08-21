@@ -29,6 +29,10 @@
 
 /* ====================   ABOUT-US   ==================== */
 
+.about-us.section {
+  padding-bottom: 0;
+}
+
 .about-us-text-content,
 .about-us-tabs {
   @include padding-bottom($spacer-xl);
