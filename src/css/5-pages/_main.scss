@@ -325,6 +325,7 @@
 .testimonials-bg {
   @include absolute(top 0 left 0);
   @include image-cover();
+ 
 }
 
 .testimonials {
@@ -341,12 +342,13 @@
   &__header {
     z-index: 1;
     @include margin-bottom($spacer-lg);
+    color: $color-gray;
   }
 
   &__body {
     font-style: italic;
     font-size: $fs-lg;
-    color: $color-gray;
+
     margin-bottom: auto;
   }
 

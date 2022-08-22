@@ -165,6 +165,16 @@
 
 /* ====================   FOOTER   ==================== */
 
+.footer-phone__link {
+  @include hover {
+    text-decoration: underline 1px solid $color-light;
+  }
+  &:focus-visible {
+    outline-offset: -6px;
+    outline-color: $color-primary;
+  }
+}
+
 .mailing-form__input:focus-visible {
   outline-offset: 0;
   outline-color: $color-light;

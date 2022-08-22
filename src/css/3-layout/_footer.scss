@@ -1,32 +1,14 @@
 .footer-bg {
   @include absolute(top 0 left 0);
   @include image-cover();
+  filter: brightness(0.25) grayscale(50%);
 }
 
 .footer {
-  user-select: none;
-  margin-top: auto;
   position: relative;
   color: $color-light;
-}
-
-.logo-footer {
-  @include flex($justify-content: flex-start, $align-items: center);
-  max-width: 15rem;
-}
-
-.logo-footer-text {
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  margin-left: 0.5em;
-  white-space: nowrap;
-  color: $color-light;
-  text-decoration: underline solid $color-light 1px;
-  letter-spacing: 2px;
-}
-
-.logo-footer-icon {
-  @include box(5rem, 5rem);
+  margin-top: auto;
+  user-select: none;
 }
 
 .footer-container {
@@ -34,29 +16,15 @@
 }
 
 .mailing-list {
-  @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
-}
-
-.social-icons {
-  @include flex($align-items: center);
-  @include media-breakpoint-down(sm) {
-    flex-wrap: wrap;
-  }
-
-  &__item {
-    &:not(:last-child) {
-      margin-right: 0.7rem;
-    }
-  }
+  @include spacer-vertical('padding', $spacer-xl);
 }
 
 .mailing-form {
   @include flex($justify-content: center, $align-items: center);
-  margin-top: $spacer-lg;
+  @include spacer-top('margin', $spacer-lg);
 
   &__button {
-    @include margin-top($spacer-lg);
+    @include spacer-top('margin', $spacer-lg);
     @include media-breakpoint-up(md) {
       margin: 0;
     }
@@ -95,20 +63,43 @@
   }
 }
 
-.footer-nav {
-  @include media-breakpoint-up(md) {
-    .row {
-      justify-content: space-between;
+.logo-footer {
+  @include flex($justify-content: flex-start, $align-items: center);
+  max-width: 15rem;
+}
+
+.logo-text-footer {
+  @extend .logo-text;
+  color: $color-light;
+  text-decoration: none;
+  display: block;
+}
+
+.logo-footer-icon {
+  @include box(5rem, 5rem);
+}
+
+.social-icons {
+  @include flex($align-items: center, $flex-wrap: wrap);
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 0.7rem;
     }
+  }
+}
+
+.footer-nav {
+  .row {
+    justify-content: space-between;
   }
 
   @include media-breakpoint-up(lg) {
-    margin-left: 5rem;
+    margin-left: 4rem;
   }
 
   &__col {
-    margin-top: $spacer;
-    margin-bottom: $spacer;
+    @include spacer-vertical('margin', $spacer);
   }
 
   &__list {
@@ -116,9 +107,9 @@
   }
 
   &__header {
-    margin-top: 0;
-    text-transform: uppercase;
     font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0;
   }
 
   &__link {
@@ -130,10 +121,10 @@
 }
 
 .footer-nav-main {
-  border-top: 1px solid darken($color-light, 40%);
-  @include padding-top($spacer-xl);
+  border-top: 1px solid fade-out($color-light, 0.75);
+  @include spacer-top('padding', $spacer-xl);
   @include media-breakpoint-up(sm) {
-    @include padding-bottom($spacer-xl);
+    @include spacer-bottom('padding', $spacer-xl);
   }
   display: grid;
   grid-template-columns: 1fr;
@@ -141,7 +132,7 @@
 
 .footer-nav-main {
   @include media-breakpoint-up(lg) {
-    grid-template-columns: 1fr 2.5fr;
+    grid-template-columns: 1.25fr 2.5fr;
     .footer-nav {
       grid-row: span 3;
     }
@@ -149,17 +140,16 @@
 }
 
 .footer-phone {
-  @include margin-top($spacer);
+  @include spacer-top('margin', $spacer);
   @include flex($align-items: center);
   p {
     margin: 0;
   }
 
-  a {
-    padding-left: $spacer;
-    padding-right: $spacer;
+  &__link {
+    padding: 1rem 2rem;
     font-size: $fs-base;
-    letter-spacing: 3px;
+    letter-spacing: 0.1rem;
   }
 }
 
@@ -168,4 +158,3 @@
   font-size: 0.75rem;
   text-align: center;
 }
-

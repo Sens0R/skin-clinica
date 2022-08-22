@@ -33,11 +33,11 @@
 }
 
 .text-sm {
-  font-size: $fs-sm;
+  @include font-size($fs-sm);
 }
 
 .text-lg {
-  font-size: $fs-lg;
+  @include font-size($fs-lg);
 }
 
 .text-center {
@@ -56,19 +56,23 @@
   text-transform: capitalize;
 }
 
-.text-italic {
+.fst-italic {
   font-style: italic;
 }
 
-.text-bold {
+.fst-normal {
+  font-style: normal;
+}
+
+.fw-bold {
   font-weight: bold;
 }
 
-.text-normal {
+.fw-normal {
   font-weight: normal;
 }
 
-.text-light {
+.fw-light {
   font-weight: light;
 }
 

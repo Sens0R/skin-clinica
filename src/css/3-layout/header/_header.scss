@@ -5,17 +5,18 @@
 }
 
 .notification {
-  background: $color-secondary;
-  margin: 0;
+  @include font-size($fs-sm);
   color: $color-light;
-  padding: 0.5rem;
-  text-align: center;
   font-weight: bold;
-  font-size: $fs-sm;
+  text-align: center;
+  background: $color-secondary;
+  padding: 0.5rem;
+  margin: 0;
+
   &__link {
     color: $color-primary;
-    vertical-align: middle;
     text-transform: uppercase;
+    vertical-align: middle;
     white-space: nowrap;
   }
 }
@@ -25,24 +26,21 @@
   box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
 }
 
-.header {
-  font-size: $fs-sm;
-  width: 100%;
-  @include z-index(header);
-  user-select: none;
-  background-color: $color-light;
-}
-
 .header-relative-wrapper {
   position: relative;
 }
 
-.nav-belt {
-  > * {
-    @include flex($justify-content: center, $align-items: center);
-    @include padding-top($spacer-sm);
-    @include padding-bottom($spacer-sm);
-  }
+.header {
+  @include font-size($fs-sm);
+  @include z-index(header);
+  width: 100%;
+  user-select: none;
+  background-color: $color-light;
+}
+
+.nav-belt > * {
+  @include flex($justify-content: center, $align-items: center);
+  @include spacer-vertical('margin', $spacer-sm);
 }
 
 .logo-header {
@@ -53,16 +51,16 @@
 }
 
 .logo-text {
+  @include font-size(1.25rem);
+  color: $color-secondary;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: underline solid $color-secondary 1px;
+  margin-left: 0.5em;
+
   @include media-breakpoint-down(sm) {
     display: none;
   }
-
-  font-size: 1.25rem;
-  color: $color-secondary;
-  text-transform: uppercase;
-  @include underline($depth: true);
-  margin-left: 0.5em;
-  white-space: nowrap;
 }
 
 .logo-header-icon {
@@ -104,8 +102,8 @@
   }
 
   &__search-icon {
-    fill: $color-primary;
     @include box(1rem, 1rem);
+    fill: $color-primary;
   }
 
   &__close {
@@ -124,11 +122,12 @@
 
 @include media-breakpoint-down(lg) {
   .mobile-search {
-    visibility: hidden;
-    transform: translateX(-100%);
     @include absolute(left 0 top 0);
     @include flex($justify-content: center, $align-items: center);
+    transform: translateX(-100%);
+    visibility: hidden;
     background: $color-white;
+    transition: transform 0.2s ease-in-out;
 
     &._active {
       transform: none;
@@ -181,7 +180,7 @@
       padding: 0 !important;
       background: none !important;
       box-shadow: none !important;
-      margin-right: 1.25rem;
+      margin-right: 1.25rem !important;
     }
 
     .icon-rounded {

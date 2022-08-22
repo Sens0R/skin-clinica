@@ -12,8 +12,6 @@ runNavigation({
   openBtn: '.nav-search-buttons__open',
   closeBtn: '.nav-search-buttons__close',
   focusElement: '.nav-search-input',
-  animationOpen: 'fadeIn',
-  animationSpeed: 'faster',
   copySize: '.header',
 });
 

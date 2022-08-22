@@ -38,7 +38,7 @@
   }
 }
 
-@mixin spacer-y($type: padding, $value: $spacer) {
+@mixin spacer-vertical($type: padding, $value: $spacer) {
   @if $type == 'margin' {
     @include margin-top($value);
     @include margin-bottom($value);
@@ -48,7 +48,7 @@
   }
 }
 
-@mixin spacer-x($type: padding, $value: $spacer) {
+@mixin spacer-horizontal($type: padding, $value: $spacer) {
   @if $type == 'margin' {
     @include margin-left($value);
     @include margin-right($value);

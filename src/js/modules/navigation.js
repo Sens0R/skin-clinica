@@ -169,6 +169,7 @@ export function runNavigation(userOptions) {
       if (e.matches) return;
       if (mainElement.classList.contains('_active')) {
         mainElement.classList.remove('is-changing');
+        document.body.style.overflow = null;
         close();
       }
     };
