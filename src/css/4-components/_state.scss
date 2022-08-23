@@ -110,10 +110,10 @@
 
 // about-us
 .tab-nav-list__link {
-  @include icon-pulse-shrink(0.35s);
   &:focus-visible {
     outline: 0;
   }
+  @include icon-pulse-shrink();
 }
 
 // shop

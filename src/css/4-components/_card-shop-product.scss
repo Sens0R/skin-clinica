@@ -1,0 +1,60 @@
+.card-shop-product {
+  @include flex($flex-direction: column);
+  height: 100%;
+  border-radius: $border-radius-sm;
+  border: 1px solid lighten($color-secondary, 75%);
+  padding: $spacer-sm;
+  @include media-breakpoint-up(lg) {
+    padding: $spacer;
+  }
+
+  &__header {
+    font-size: 0.75rem;
+    @include media-breakpoint-up(lg) {
+      font-size: $fs-base;
+    }
+
+    text-transform: uppercase;
+    margin: $spacer-sm 0;
+    margin: auto 0;
+  }
+
+  &__price {
+    margin: $spacer-sm 0;
+    color: $color-secondary;
+    font-size: $fs-sm;
+    @include media-breakpoint-up(lg) {
+      @include font-size($fs-lg);
+    }
+  }
+}
+
+.price-new {
+  color: $color-accent;
+  font-weight: bold;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: lighten($color-secondary, 34%);
+}
+
+.card-shop-product-img {
+  @include flex($justify-content: center, $align-items: center);
+  @include image-cover();
+  aspect-ratio: 1 / 1;
+}
+
+.card-shop-product__ratings {
+  @include flex($align-items: center);
+  margin-bottom: $spacer-sm;
+}
+
+.star-icon {
+  @include box(1rem, 1rem);
+  fill: $color-gray;
+}
+
+.star-icon-empty {
+  fill: lighten($color-gray, 40%);
+}

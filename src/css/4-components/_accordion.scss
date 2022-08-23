@@ -1,0 +1,40 @@
+//background-color: lighten($color-primary, 8%);
+.accordion {
+  @include spacer-bottom('margin', $spacer-lg);
+
+  &__item {
+    background-color: lighten($color-primary, 12%);
+    padding: 1.5rem 1rem;
+    border-radius: $border-radius-sm;
+    margin-bottom: 0.5rem;
+  }
+
+  &__question {
+    cursor: pointer;
+    @include flex($justify-content: space-between, $align-items: center);
+  }
+
+  &__header {
+  }
+
+  &__arrow-icon {
+    @include box(1rem, 1rem);
+    transition: transform 300ms ease;
+  }
+
+  &__question._active {
+    .accordion__arrow-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow: hidden;
+
+    transition: 1s ease max-height;
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

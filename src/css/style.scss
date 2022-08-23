@@ -29,12 +29,13 @@
 @import '3-layout/footer';
 
 // 4 - COMPONENTS
-@import '4-components/card';
+@import '4-components/card-blog-post';
+@import '4-components/card-shop-product';
 @import '4-components/rounded-icons';
 @import '4-components/overlay';
 @import '4-components/button';
-@import '4-components/spacer';
 @import '4-components/state';
+@import '4-components/accordion';
 
 // 5 - PAGES
 @import '5-pages/main';

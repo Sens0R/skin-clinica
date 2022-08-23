@@ -1,20 +1,13 @@
 .section {
-  @include padding-top($spacer-xl);
-  @include padding-bottom($spacer-xl);
-}
-
-.section-header {
-  margin: 0;
+  @include spacer-vertical('padding', $spacer-xl);
 }
 
 .section-btn {
   @include flex($justify-content: center, $align-items: center);
 }
 
-.section-header-link {
-  &__accent {
-    color: $color-accent-light;
-  }
+.section-header-link__accent {
+  color: $color-accent-light;
 }
 
 /* ====================   BANNER   ==================== */
@@ -35,8 +28,7 @@
 
 .about-us-text-content,
 .about-us-tabs {
-  @include padding-bottom($spacer-xl);
-  @include padding-top($spacer-xl);
+  @include spacer-vertical('padding', $spacer-xl);
 }
 
 .about-us {
@@ -87,7 +79,7 @@
 
 .tab-cards-wrapper {
   padding: 0;
-  margin: 17% 0;
+  margin: 15% 0;
 }
 
 .tab-cards {
@@ -98,26 +90,30 @@
 .tabs {
   position: relative;
   .row {
-    background: linear-gradient(to right, $color-accent-light, $color-light);
     border-radius: $border-radius-sm;
+    background-image: linear-gradient(
+      90deg,
+      hsl(336deg 95% 66%) 0%,
+      hsl(336deg 95% 83%) 40%,
+      hsl(0deg 0% 100%) 90%
+    );
   }
 }
 
 .about-us-tabs-title {
   @include flex($justify-content: center, $align-items: center);
-  font-size: 1.25rem;
-  margin: 0;
+  @include font-size(1.25rem);
   color: $color-light;
-  transform: rotate(-90deg);
-  white-space: nowrap;
   font-weight: bold;
   text-transform: uppercase;
+  white-space: nowrap;
   letter-spacing: 0.15em;
+  transform: rotate(-90deg);
 }
 
 .tab-arrow-right-icon {
   display: none;
-  margin-right: 0.375rem;
+  margin-right: 0.25rem;
   @include box(1.25rem, 1.25rem);
 }
 
@@ -131,8 +127,7 @@
 }
 
 .tab-nav {
-  @include padding-top($spacer);
-  @include padding-bottom($spacer);
+  @include spacer-vertical('padding', $spacer);
 }
 
 .tab-nav-list {
@@ -142,74 +137,61 @@
 
 .tab-nav-list__link {
   padding: 0.75rem 0;
-  font-size: 1.25rem;
   @include flex($align-items: center);
-}
-
-.tab-card {
-  border-radius: $border-radius-pill;
 }
 
 .tab-img {
   @include image-cover();
   aspect-ratio: 1 / 1;
-
   border-radius: $border-radius-sm;
 }
 
 .tab-btn {
-  @include margin-top($spacer);
+  @include spacer-top('margin', $spacer);
 }
 
 @include media-breakpoint-down(sm) {
   .tab-nav {
-    margin-left: -0.75rem;
+    @include flex(
+      $flex-direction: column,
+      $justify-content: center,
+      $align-items: center
+    );
+  }
+
+  .tab-nav-list__link {
+    justify-content: center;
+    min-width: 15rem;
+  }
+
+  .tab-nav-list__item:not(:first-child) {
+    border-top: 1px solid lighten($color-secondary, 60%);
   }
 }
 
 @include media-breakpoint-up(sm) {
-  .tab-btn {
-    @include btn-light();
-  }
-
-  .tab-cards:before {
-    content: '';
-    @include absolute(top 0);
-    @include box(100%, 100%);
-    z-index: 25;
-    background: linear-gradient(
-      90deg,
-      rgb(0, 0, 0, 0.7) 0%,
-      rgb(0, 0, 0, 0.5) 25%,
-      rgb(0, 0, 0, 0.3) 50%,
-      rgb(0, 0, 0, 0) 100%
-    );
+  .tab-cards {
+    filter: brightness(0.85);
   }
 
   .tab-cards-wrapper {
-    transform: translate(20%);
+    transform: translate(15%);
   }
 
   .tab-nav {
     @include center(vertical);
     left: 17%;
-    z-index: 10;
-    margin: 0;
-    @include padding-left($spacer);
-    border-radius: $border-radius-sm;
-    background-image: linear-gradient(
-      90deg,
-      hsla(0deg, 0%, 12%, 1) 0%,
-      hsla(137deg, 0%, 12%, 1) 50%,
-      hsla(137deg, 0%, 12%, 0.8) 56%,
-      hsla(137deg, 0%, 12%, 0.6) 62%,
-      hsla(137deg, 0%, 12%, 0.35) 68%,
-      transparent 76%
-    );
   }
 
   .tab-nav-list__item {
-    color: darken($color-light, 30%);
+    color: darken($color-light, 20%);
+  }
+
+  .tab-nav-list__link {
+    @include font-size(2rem);
+    text-shadow: 2px 2px 0px $color-dark;
+    font-weight: bold;
+    padding: 0;
   }
 
   .tab-nav-list__item._active {
@@ -220,22 +202,10 @@
     }
   }
 
-  .tab-nav-list__link {
-    font-size: 1.75rem;
-    font-weight: bold;
-    padding: 0;
-  }
-
   .tab-arrow-right-icon {
-    @include box(1.25rem, 1.25rem);
+    @include box(2.5rem, 2.5rem);
     fill: $color-light;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .tab-arrow-right-icon {
-    margin-right: 0.75rem;
-    @include box(1.75rem, 1.75rem);
+    filter: drop-shadow(1px 2px 1px $color-dark);
   }
 }
 
@@ -243,81 +213,18 @@
 
 .swiper-shop {
   overflow-x: hidden;
-  @include margin-top($spacer-lg);
-  @include margin-bottom($spacer-lg);
+  @include spacer-vertical('margin', $spacer-lg);
 }
 
 .swiper-shop-nav {
   @include flex($justify-content: space-between, $align-items: center);
-  @include margin-top($spacer-lg);
-}
-
-.shopping-card {
-  @include flex($flex-direction: column);
-  height: 100%;
-  border-radius: $border-radius-sm;
-  border: 1px solid lighten($color-secondary, 75%);
-  padding: $spacer-sm;
-  @include media-breakpoint-up(lg) {
-    padding: $spacer;
-  }
-
-  &__header {
-    font-size: 0.75rem;
-    @include media-breakpoint-up(lg) {
-      font-size: $fs-base;
-    }
-
-    text-transform: uppercase;
-    margin: $spacer-sm 0;
-    margin: auto 0;
-  }
-
-  &__price {
-    margin: $spacer-sm 0;
-    color: $color-secondary;
-    font-size: $fs-sm;
-    @include media-breakpoint-up(lg) {
-      font-size: $fs-lg;
-    }
-  }
-}
-
-.price-new {
-  color: $color-accent;
-  font-weight: bold;
-}
-
-.price-old {
-  text-decoration: line-through;
-  color: lighten($color-secondary, 34%);
-}
-
-.shopping-card-img {
-  @include flex($justify-content: center, $align-items: center);
-  @include image-cover();
-  aspect-ratio: 1 / 1;
-}
-
-.shopping-card__ratings {
-  @include flex($align-items: center);
-  margin-bottom: $spacer-sm;
-}
-
-.star-icon {
-  @include box(1rem, 1rem);
-  fill: $color-gray;
-}
-
-.star-icon-empty {
-  fill: lighten($color-gray, 40%);
+  @include spacer-top('margin', $spacer-lg);
 }
 
 /* ====================   BLOG   ==================== */
 
 .blog-col {
-  @include margin-top($spacer-lg);
-  @include margin-bottom($spacer-lg);
+  @include spacer-vertical('margin', $spacer-lg);
 }
 
 /* ====================   TESTIMONIALS   ==================== */
@@ -325,13 +232,16 @@
 .testimonials-bg {
   @include absolute(top 0 left 0);
   @include image-cover();
- 
 }
 
 .testimonials {
   position: relative;
-  @include flex($justify-content: center, $align-items: center);
-  flex-direction: column;
+  @include flex(
+    $justify-content: center,
+    $align-items: center,
+    $flex-direction: column
+  );
+
   text-align: center;
   user-select: none;
 
@@ -341,20 +251,19 @@
 
   &__header {
     z-index: 1;
-    @include margin-bottom($spacer-lg);
+    @include spacer-bottom('margin', $spacer-lg);
     color: $color-gray;
   }
 
   &__body {
     font-style: italic;
     font-size: $fs-lg;
-
     margin-bottom: auto;
   }
 
   &__person {
-    @include margin-top($spacer);
-    @include margin-bottom($spacer-lg);
+    @include spacer-top('padding', $spacer);
+    @include spacer-bottom('padding', $spacer-lg);
     @include flex(
       $justify-content: center,
       $align-items: center,
@@ -364,13 +273,14 @@
 }
 
 .testimonials-content {
-  max-width: 35rem;
-  height: 100%;
   @include flex(
     $justify-content: center,
     $align-items: center,
     $flex-direction: column
   );
+
+  max-width: 35rem;
+  height: 100%;
   @include margin-auto(x);
 }
 
@@ -384,7 +294,18 @@
   margin-top: $spacer-sm !important;
   color: $color-accent;
   text-transform: uppercase;
-  font-size: $fs-sm;
+  font-size: 0.75rem;
   letter-spacing: 1px;
   line-height: $lh-sm;
+}
+
+/* ====================   FAQ   ==================== */
+
+.faq {
+  &__header {
+    @include spacer-bottom('margin', $spacer-lg);
+    color: $color-gray;
+    text-align: center;
+  }
+  max-width: 1000px;
 }
