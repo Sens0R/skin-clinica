@@ -149,3 +149,21 @@ const tabsIntersectionObserver = new IntersectionObserver(
 );
 
 tabsIntersectionObserver.observe(cards);
+
+/* ====================   ACCORDION   ==================== */
+
+const accordionButtons = document.querySelectorAll('.accordion__button');
+
+accordionButtons.forEach((accordionButton) => {
+  accordionButton.addEventListener('click', () => {
+    const content = accordionButton.nextElementSibling;
+   
+    const contentHeight = content.scrollHeight;
+
+    accordionButton.classList.toggle('_active');
+
+    accordionButton.classList.contains('_active')
+      ? (content.style.maxHeight = `${contentHeight}px`)
+      : (content.style.maxHeight = null);
+  });
+});

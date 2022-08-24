@@ -13619,31 +13619,37 @@ input {
 }
 .accordion__item {
   background-color: #feebf3;
-  padding: 1.5rem 1rem;
   border-radius: 0.2rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
-.accordion__question {
-  cursor: pointer;
+.accordion__button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 1.25rem 1rem;
 }
-.accordion__arrow-icon {
+.accordion__icon {
   width: 1rem;
   height: 1rem;
   transition: transform 300ms ease;
 }
-.accordion__question._active .accordion__arrow-icon {
+.accordion__button._active .accordion__icon {
   transform: rotate(180deg);
 }
-.accordion__answer {
+.accordion__content {
   max-height: 0;
   overflow: hidden;
-  transition: 1s ease max-height;
+  transition: 300ms ease max-height;
+  margin: 0 1rem;
 }
-.accordion__answer :last-child {
-  margin-bottom: 0;
+.accordion__content :first-child {
+  margin-top: 0;
 }
 
 .section {

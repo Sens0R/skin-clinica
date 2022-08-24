@@ -4,37 +4,45 @@
 
   &__item {
     background-color: lighten($color-primary, 12%);
-    padding: 1.5rem 1rem;
     border-radius: $border-radius-sm;
     margin-bottom: 0.5rem;
+
+    @include flex(
+      $flex-direction: column,
+      $justify-content: center,
+      $align-items: flex-start
+    );
   }
 
-  &__question {
-    cursor: pointer;
+  &__button {
     @include flex($justify-content: space-between, $align-items: center);
+    width: 100%;
+    cursor: pointer;
+    padding: 1.25rem 1rem;
   }
 
   &__header {
   }
 
-  &__arrow-icon {
+  &__icon {
     @include box(1rem, 1rem);
     transition: transform 300ms ease;
   }
 
-  &__question._active {
-    .accordion__arrow-icon {
+  &__button._active {
+    .accordion__icon {
       transform: rotate(180deg);
     }
   }
 
-  &__answer {
+  &__content {
     max-height: 0;
     overflow: hidden;
+    transition: 300ms ease max-height;
+    margin: 0 1rem;
 
-    transition: 1s ease max-height;
-    :last-child {
-      margin-bottom: 0;
+    :first-child {
+      margin-top: 0;
     }
   }
 }
