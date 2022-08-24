@@ -302,10 +302,10 @@
 /* ====================   FAQ   ==================== */
 
 .faq {
+  max-width: 800px;
   &__header {
     @include spacer-bottom('margin', $spacer-lg);
     color: $color-gray;
     text-align: center;
   }
-  max-width: 1000px;
 }

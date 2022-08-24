@@ -12543,7 +12543,7 @@ input {
     width: 100%;
     visibility: hidden;
     overflow-y: auto;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease;
     background: hsl(0deg, 0%, 100%);
   }
   .navigation._active {
@@ -13618,7 +13618,7 @@ input {
   }
 }
 .accordion__item {
-  background-color: #feebf3;
+  background-color: #fafafa;
   border-radius: 0.2rem;
   margin-bottom: 0.5rem;
   display: flex;
@@ -13633,23 +13633,29 @@ input {
   width: 100%;
   cursor: pointer;
   padding: 1.25rem 1rem;
+  background-color: #feebf3;
+}
+.accordion__header {
+  color: #e5065f;
+}
+.accordion__icon-container {
+  margin-left: 0.5rem;
+  margin-bottom: auto;
 }
 .accordion__icon {
   width: 1rem;
   height: 1rem;
-  transition: transform 300ms ease;
+  fill: #e5065f;
+  transition: transform 600ms ease;
 }
 .accordion__button._active .accordion__icon {
-  transform: rotate(180deg);
+  transform: rotate(270deg);
 }
 .accordion__content {
   max-height: 0;
   overflow: hidden;
-  transition: 300ms ease max-height;
+  transition: 600ms ease max-height;
   margin: 0 1rem;
-}
-.accordion__content :first-child {
-  margin-top: 0;
 }
 
 .section {
@@ -14057,7 +14063,7 @@ input {
 
 /* ====================   FAQ   ==================== */
 .faq {
-  max-width: 1000px;
+  max-width: 800px;
 }
 .faq__header {
   margin-bottom: calc(1.35rem + 1.2vw);

@@ -1,5 +1,6 @@
 import './modules/swiper.js';
 import { fixedHeader, headroomHeader } from './modules/headers.js';
+import { accordion } from './modules/accordion.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
@@ -14,6 +15,8 @@ runNavigation({
   focusElement: '.nav-search-input',
   copySize: '.header',
 });
+
+accordion('.accordion__button')
 
 /* ====================   TABS   ==================== */
 
@@ -149,21 +152,3 @@ const tabsIntersectionObserver = new IntersectionObserver(
 );
 
 tabsIntersectionObserver.observe(cards);
-
-/* ====================   ACCORDION   ==================== */
-
-const accordionButtons = document.querySelectorAll('.accordion__button');
-
-accordionButtons.forEach((accordionButton) => {
-  accordionButton.addEventListener('click', () => {
-    const content = accordionButton.nextElementSibling;
-   
-    const contentHeight = content.scrollHeight;
-
-    accordionButton.classList.toggle('_active');
-
-    accordionButton.classList.contains('_active')
-      ? (content.style.maxHeight = `${contentHeight}px`)
-      : (content.style.maxHeight = null);
-  });
-});
