@@ -302,7 +302,7 @@
 /* ====================   FAQ   ==================== */
 
 .faq {
-  max-width: 800px;
+  max-width: 650px;
   &__header {
     @include spacer-bottom('margin', $spacer-lg);
     color: $color-gray;

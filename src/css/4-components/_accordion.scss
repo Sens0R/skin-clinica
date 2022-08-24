@@ -4,7 +4,6 @@
   &__item {
     background-color: darken($color-light, 2%);
     border-radius: $border-radius-sm;
-
     margin-bottom: 0.5rem;
 
     @include flex(
@@ -19,7 +18,7 @@
     width: 100%;
     cursor: pointer;
     padding: 1.25rem 1rem;
-    background-color: lighten($color-primary, 12%);
+    background-color: lighten($color-primary, 13%);
   }
 
   &__header {
@@ -48,5 +47,17 @@
     overflow: hidden;
     transition: 600ms ease max-height;
     margin: 0 1rem;
+  }
+}
+
+.accordion__button {
+  transition: 0.2s ease-in-out;
+  @include hover {
+    background-color: lighten($color-primary, 11%);
+  }
+
+  &:focus-visible {
+    border-radius: $border-radius-sm;
+    outline-offset: 0;
   }
 }

@@ -13633,7 +13633,7 @@ input {
   width: 100%;
   cursor: pointer;
   padding: 1.25rem 1rem;
-  background-color: #feebf3;
+  background-color: #fff0f6;
 }
 .accordion__header {
   color: #e5065f;
@@ -13656,6 +13656,19 @@ input {
   overflow: hidden;
   transition: 600ms ease max-height;
   margin: 0 1rem;
+}
+
+.accordion__button {
+  transition: 0.2s ease-in-out;
+}
+@media (hover: hover) and (pointer: fine) {
+  .accordion__button:hover {
+    background-color: #fee6f0;
+  }
+}
+.accordion__button:focus-visible {
+  border-radius: 0.2rem;
+  outline-offset: 0;
 }
 
 .section {
@@ -14063,7 +14076,7 @@ input {
 
 /* ====================   FAQ   ==================== */
 .faq {
-  max-width: 800px;
+  max-width: 650px;
 }
 .faq__header {
   margin-bottom: calc(1.35rem + 1.2vw);
