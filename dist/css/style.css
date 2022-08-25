@@ -12302,7 +12302,6 @@ a {
 
 :focus-visible {
   outline: 2px solid #e5065f;
-  outline-offset: 2px;
   border-radius: 50rem;
 }
 
@@ -13227,7 +13226,6 @@ input {
   transition: 0.4s ease-in-out;
 }
 .rounded-icon:focus-visible {
-  outline-offset: 0;
   background-color: #e5065f;
   outline-color: hsl(0deg, 0%, 100%);
   transition: none;
@@ -13369,7 +13367,6 @@ input {
 }
 
 .nav-search-input:focus-visible {
-  outline-offset: 0;
   outline-width: 1px;
   outline-color: hsl(0deg, 0%, 12%);
 }
@@ -13588,7 +13585,6 @@ input {
 }
 
 .mailing-form__input:focus-visible {
-  outline-offset: 0;
   outline-color: hsl(0deg, 0%, 100%);
 }
 
@@ -13620,7 +13616,7 @@ input {
 .accordion__item {
   background-color: #fafafa;
   border-radius: 0.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -13667,8 +13663,8 @@ input {
   }
 }
 .accordion__button:focus-visible {
+  transition: none;
   border-radius: 0.2rem;
-  outline-offset: 0;
 }
 
 .section {

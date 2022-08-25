@@ -16,7 +16,7 @@ runNavigation({
   copySize: '.header',
 });
 
-accordion('.accordion__button')
+accordion('.accordion__button', 'faq')
 
 /* ====================   TABS   ==================== */
 

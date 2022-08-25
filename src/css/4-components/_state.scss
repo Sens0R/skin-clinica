@@ -28,7 +28,6 @@
 }
 
 .nav-search-input:focus-visible {
-  outline-offset: 0;
   outline-width: 1px;
   outline-color: $color-secondary;
 }
@@ -176,7 +175,6 @@
 }
 
 .mailing-form__input:focus-visible {
-  outline-offset: 0;
   outline-color: $color-light;
 }
 

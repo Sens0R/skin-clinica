@@ -4,7 +4,7 @@
   &__item {
     background-color: darken($color-light, 2%);
     border-radius: $border-radius-sm;
-    margin-bottom: 0.5rem;
+    @include spacer-bottom('margin', $spacer-sm);
 
     @include flex(
       $flex-direction: column,
@@ -57,7 +57,7 @@
   }
 
   &:focus-visible {
+    transition: none;
     border-radius: $border-radius-sm;
-    outline-offset: 0;
   }
 }
