@@ -47,7 +47,7 @@
       <div class="row nav-belt">
         <!-- ====================   LOGO   ==================== -->
 
-        <div class="logo col justify-content-start">
+        <div class="logo col-auto justify-content-start">
           <a class="logo-header" href="index.html" aria-label="Skin clinica">
             <svg class="logo-header-icon hvr-icon">
               <use href="images/icons/sprite-multi.svg#logo-header"></use>
@@ -96,7 +96,7 @@
 
         <!-- ====================   TOOLS   ==================== -->
 
-        <div class="col d-flex tools">
+        <div class="col-auto d-flex tools">
           <div class="nav-tools">
             <button
               class="rounded-icon d-lg-none nav-search-buttons__open"
@@ -1670,7 +1670,8 @@
 <div class="section container-fluid faq">
   <h2 class="section-header faq__header">Frequently Asked Questions</h2>
   <div class="accordion">
-    <div class="accordion__item">
+    <ul aria-label="Accordion Control Group Buttons" class="accordion__controls">
+    <li class="accordion__item">
       <button class="accordion__button">
         <h3 class="accordion__header">What type of skin do I have?</h3>
         <div class="accordion__icon-container">
@@ -1714,8 +1715,8 @@
           elsewhere on the website, as this provides further information.
         </p>
       </div>
-    </div>
-    <div class="accordion__item">
+    </li>
+    <li class="accordion__item">
       <button class="accordion__button">
         <h3 class="accordion__header">
           Are 'natural' skin care products better?
@@ -1776,8 +1777,8 @@
           can come in both natural and synthetic forms.
         </p>
       </div>
-    </div>
-    <div class="accordion__item">
+    </li>
+    <li class="accordion__item">
       <button class="accordion__button">
         <h3 class="accordion__header">Can you prevent skin ageing?</h3>
         <div class="accordion__icon-container">
@@ -1817,8 +1818,8 @@
           helping to compensate for diminishing skin collagen.
         </p>
       </div>
-    </div>
-    <div class="accordion__item">
+    </li>
+    <li class="accordion__item">
       <button class="accordion__button">
         <h3 class="accordion__header">Is there a miracle cream?</h3>
         <div class="accordion__icon-container">
@@ -1854,10 +1855,12 @@
           on our website for a more indepth look at this.
         </p>
       </div>
-    </div>
+    </li>
+    
   </div>
   <div class="section-btn"><a href="#" class="btn">View all</a></div>
 </div>
+
 </main>
       <footer class="footer">
   <div class="footer-background">

@@ -12669,7 +12669,10 @@ input {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 35rem;
+  max-width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.4s ease-in-out;
 }
 
 .nav-search-input {
@@ -12683,6 +12686,10 @@ input {
 .nav-search-input::placeholder {
   color: hsl(0deg, 0%, 12%);
   padding-left: 0.5em;
+}
+
+.input-wrapper:focus-within {
+  max-width: 100%;
 }
 
 .nav-search-buttons__search {
@@ -12741,7 +12748,6 @@ input {
     transform: translateX(-100%);
     visibility: hidden;
     background: hsl(0deg, 0%, 100%);
-    transition: transform 0.2s ease-in-out;
   }
   .mobile-search._active {
     transform: none;
@@ -13633,9 +13639,11 @@ input {
 }
 .accordion__header {
   color: #e5065f;
+  text-align: left;
+  line-height: 1.25;
 }
 .accordion__icon-container {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   margin-bottom: auto;
 }
 .accordion__icon {
@@ -13645,7 +13653,7 @@ input {
   transition: transform 600ms ease;
 }
 .accordion__button._active .accordion__icon {
-  transform: rotate(270deg);
+  transform: rotate(180deg);
 }
 .accordion__content {
   max-height: 0;

@@ -23,10 +23,12 @@
 
   &__header {
     color: $color-accent;
+    text-align: left;
+    line-height: $lh-sm;
   }
 
   &__icon-container {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     margin-bottom: auto;
   }
 
@@ -38,7 +40,7 @@
 
   &__button._active {
     .accordion__icon {
-      transform: rotate(270deg);
+      transform: rotate(180deg);
     }
   }
 
