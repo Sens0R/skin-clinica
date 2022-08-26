@@ -127,6 +127,10 @@
 /* ====================   MOBILE SEARCH   ==================== */
 
 @include media-breakpoint-down(lg) {
+  .nav-search-input-wrapper {
+    max-width: none;
+  }
+  
   .mobile-search {
     @include absolute(left 0 top 0);
     @include flex($justify-content: center, $align-items: center);
