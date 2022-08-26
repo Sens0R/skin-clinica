@@ -73,7 +73,7 @@
 
 /* ====================   SEARCH   ==================== */
 
-.input-wrapper {
+.nav-search-input-wrapper {
   position: relative;
   @include flex($justify-content: center, $align-items: center);
   width: 100%;
@@ -96,7 +96,7 @@
   }
 }
 
-.input-wrapper:focus-within {
+.nav-search-input-wrapper:focus-within {
   max-width: 100%;
 }
 
@@ -133,6 +133,8 @@
     transform: translateX(-100%);
     visibility: hidden;
     background: $color-white;
+    //opacity: 0;
+    //transition: opacity 0.4s ease;
 
     &._active {
       transform: none;
@@ -142,6 +144,7 @@
     &._active {
       visibility: visible;
       @include z-index(nav-search);
+      //opacity: 1;
     }
   }
 

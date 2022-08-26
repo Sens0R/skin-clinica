@@ -12663,7 +12663,7 @@ input {
 }
 
 /* ====================   SEARCH   ==================== */
-.input-wrapper {
+.nav-search-input-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -12688,7 +12688,7 @@ input {
   padding-left: 0.5em;
 }
 
-.input-wrapper:focus-within {
+.nav-search-input-wrapper:focus-within {
   max-width: 100%;
 }
 
