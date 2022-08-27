@@ -1,6 +1,9 @@
 .accordion {
   @include spacer-bottom('margin', $spacer-lg);
-
+  &__controls {
+    margin: 0;
+  }
+  
   &__item {
     background-color: darken($color-light, 2%);
     border-radius: $border-radius-sm;
@@ -22,7 +25,12 @@
   }
 
   &__header {
-    color: $color-accent;
+    font-size: $fs-base;
+    @include media-breakpoint-up(sm) {
+      @include font-size(1.25rem);
+      color: $color-accent;
+    }
+    color: darken($color-accent, 4%);
     text-align: left;
     line-height: $lh-sm;
   }

@@ -57,6 +57,7 @@
 .nav-menu__link {
   display: inline-block;
   padding: $spacer-sm 0;
+  user-select: none;
 }
 
 /* ====================   MEDIA SECTION   ==================== */

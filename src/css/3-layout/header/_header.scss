@@ -34,7 +34,6 @@
   @include font-size($fs-sm);
   @include z-index(header);
   width: 100%;
-  user-select: none;
   background-color: $color-light;
 }
 
@@ -130,7 +129,7 @@
   .nav-search-input-wrapper {
     max-width: none;
   }
-  
+
   .mobile-search {
     @include absolute(left 0 top 0);
     @include flex($justify-content: center, $align-items: center);
@@ -177,6 +176,10 @@
 
   :last-child {
     margin-right: 0 !important;
+  }
+
+  &__name {
+    user-select: none;
   }
 }
 

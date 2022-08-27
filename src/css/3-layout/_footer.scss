@@ -8,7 +8,6 @@
   position: relative;
   color: $color-light;
   margin-top: auto;
-  user-select: none;
 }
 
 .footer-container {
@@ -59,6 +58,7 @@
       color: $color-gray;
       font-size: $fs-sm;
       padding-left: 0.5em;
+      user-select: none;
     }
   }
 }
@@ -100,6 +100,7 @@
 
   &__col {
     @include spacer-vertical('margin', $spacer);
+    user-select: none;
   }
 
   &__list {

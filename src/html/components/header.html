@@ -1,0 +1,163 @@
+<div class="header-relative-wrapper">
+  <nav class="container-fluid container-lg">
+    <div class="row nav-belt">
+      <!-- ====================   LOGO   ==================== -->
+
+      <div class="logo col-auto justify-content-start">
+        <a class="logo-header" href="index.html" aria-label="Skin clinica">
+          <svg class="logo-header-icon hvr-icon">
+            <use href="images/icons/sprite-multi.svg#logo-header"></use>
+          </svg>
+          <div class="logo-text">skin clinica</div>
+        </a>
+      </div>
+
+      <!-- ====================   SEARCH   ==================== -->
+
+      <div class="col gx-0">
+        <div class="container-fluid mobile-search">
+          <div class="nav-search">
+            <div class="nav-search-input-wrapper">
+              <input
+                type="search"
+                class="nav-search-input text-sm"
+                placeholder="Search"
+              />
+              <div class="nav-search-buttons">
+                <button class="nav-search-buttons__search" aria-label="Search">
+                  <svg class="nav-search-buttons__search-icon hvr-icon">
+                    <use href="images/icons/sprite-mono.svg#search"></use>
+                  </svg>
+                </button>
+
+                <button
+                  class="d-lg-none nav-search-buttons__close"
+                  type="button"
+                  aria-label="Close search"
+                >
+                  <svg class="nav-search-buttons__close-icon hvr-icon">
+                    <use
+                      href="images/icons/sprite-mono.svg#toggler-closed"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================   TOOLS   ==================== -->
+
+      <div class="col-auto d-flex tools">
+        <div class="nav-tools">
+          <button
+            class="rounded-icon d-lg-none nav-search-buttons__open"
+            type="button"
+            aria-label="Search"
+          >
+            <svg class="icon-rounded hvr-icon">
+              <use href="images/icons/sprite-mono.svg#search"></use>
+            </svg>
+          </button>
+
+          <a href="#" class="rounded-icon" aria-label="Account">
+            <svg class="icon-rounded hvr-icon">
+              <use href="images/icons/sprite-mono.svg#account"></use>
+            </svg>
+            <p class="nav-tools__name">Account</p>
+          </a>
+
+          <a href="#" class="rounded-icon" aria-label="Wishlist">
+            <svg class="icon-rounded hvr-icon">
+              <use href="images/icons/sprite-mono.svg#wishlist"></use>
+            </svg>
+            <p class="nav-tools__name">Wishlist</p>
+          </a>
+
+          <a href="#" class="rounded-icon" aria-label="Shopping cart">
+            <svg class="icon-rounded hvr-icon">
+              <use href="images/icons/sprite-mono.svg#cart"></use>
+            </svg>
+            <p class="nav-tools__name">Cart (0)</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- ====================   NAV-TOGGLER   ==================== -->
+      <div class="nav-toggler-group col-auto">
+        <button
+          class="nav-toggler nav-toggler--open _active"
+          type="button"
+          aria-label="Open navigation menu"
+        >
+          <svg class="nav-toggler-icon hvr-icon">
+            <use href="images/icons/sprite-mono.svg#toggler-open"></use>
+          </svg>
+          <div class="nav-toggler__text">menu</div>
+        </button>
+        <button
+          class="nav-toggler nav-toggler--close"
+          type="button"
+          aria-label="Close navigation menu"
+        >
+          <svg class="nav-toggler-icon hvr-icon">
+            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================   NAVIGATION   ==================== -->
+
+    <div class="navigation container-fluid px-lg-0">
+      <div class="nav-body">@@include('nav-menu.html',{})</div>
+      <div class="nav-mobile-socials">
+        @@include('social.html',{})
+      </div>
+      <!--    <p style="background: red">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsum
+      quos laborum assumenda harum fugit inventore, error dicta sapiente
+      iste. Necessitatibus fugiat recusandae, vel nesciunt perferendis sunt,
+      sapiente neque debitis, repellendus harum excepturi quam hic
+      obcaecati. Consequatur laborum rem, maiores officia veritatis
+      assumenda iusto libero, soluta minus dolorum corrupti fugit. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Laboriosam debitis
+      delectus aut deleniti quos ut nulla, provident error atque hic. Ea
+      suscipit enim similique veritatis molestiae incidunt quidem animi,
+      harum necessitatibus, id ratione odio doloribus laudantium accusantium
+      fuga blanditiis sapiente et nisi nam saepe illum consequuntur
+      praesentium porro cupiditate? Laudantium.
+    </p>
+    <p style="background: rgb(115, 255, 0)">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsum
+      quos laborum assumenda harum fugit inventore, error dicta sapiente
+      iste. Necessitatibus fugiat recusandae, vel nesciunt perferendis sunt,
+      sapiente neque debitis, repellendus harum excepturi quam hic
+      obcaecati. Consequatur laborum rem, maiores officia veritatis
+      assumenda iusto libero, soluta minus dolorum corrupti fugit. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Laboriosam debitis
+      delectus aut deleniti quos ut nulla, provident error atque hic. Ea
+      suscipit enim similique veritatis molestiae incidunt quidem animi,
+      harum necessitatibus, id ratione odio doloribus laudantium accusantium
+      fuga blanditiis sapiente et nisi nam saepe illum consequuntur
+      praesentium porro cupiditate? Laudantium.
+    </p>
+    <p style="background: rgb(0, 4, 255)">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsum
+      quos laborum assumenda harum fugit inventore, error dicta sapiente
+      iste. Necessitatibus fugiat recusandae, vel nesciunt perferendis sunt,
+      sapiente neque debitis, repellendus harum excepturi quam hic
+      obcaecati. Consequatur laborum rem, maiores officia veritatis
+      assumenda iusto libero, soluta minus dolorum corrupti fugit. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Laboriosam debitis
+      delectus aut deleniti quos ut nulla, provident error atque hic. Ea
+      suscipit enim similique veritatis molestiae incidunt quidem animi,
+      harum necessitatibus, id ratione odio doloribus laudantium accusantium
+      fuga blanditiis sapiente et nisi nam saepe illum consequuntur
+      praesentium porro cupiditate? Laudantium.
+      <span style="color: white">END</span>
+    </p> -->
+    </div>
+  </nav>
+</div>

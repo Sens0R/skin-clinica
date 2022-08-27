@@ -99,7 +99,7 @@
   }
 }
 
-@mixin center($position) {
+@mixin center($position: both) {
   position: absolute;
 
   @if $position == 'vertical' {

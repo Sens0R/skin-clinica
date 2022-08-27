@@ -84,6 +84,10 @@ button {
   @include flex($flex-direction: column);
 }
 
+::placeholder {
+  user-select: none;
+}
+
 ::selection {
   background-color: $color-accent;
   color: $color-light;
@@ -98,8 +102,6 @@ h6 {
   font-weight: $headings-fw;
   line-height: $headings-lh;
 }
-
-
 
 h1 {
   @include font-size($fs-h1);
@@ -144,7 +146,6 @@ a {
   color: inherit;
   cursor: pointer;
   text-decoration: none;
-  user-select: none;
 }
 
 :focus-visible {

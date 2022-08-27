@@ -4,6 +4,7 @@
 
   &__header {
     @include spacer-vertical('padding', $spacer);
+    @include font-size(1.25rem);
   }
 
   &__img {
