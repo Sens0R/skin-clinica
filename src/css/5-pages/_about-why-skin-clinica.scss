@@ -3,10 +3,6 @@
   aspect-ratio: 4 / 3;
 }
 
-.why-skin-clinica__header {
-  text-align: left;
-}
-
 .confusion-and-frustration {
   @include spacer-top('margin', $spacer-xl);
   ul {

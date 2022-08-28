@@ -46,8 +46,8 @@
   &:last-child {
     margin-bottom: 0 !important;
   }
+
   .about__header {
-    text-align: left;
     @include spacer-top('margin', $spacer);
     @include media-breakpoint-up(sm) {
       margin-top: 0;

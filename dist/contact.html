@@ -340,7 +340,7 @@
         <h2 class="about__header">We'd love to hear from you</h2>
         <ul class="contact__list">
           <li class="contact__item">
-            <h3 class="contact__list-header">Email</h3>
+            <p class="contact__list-header">Email</p>
             <a
               class="contact__link"
               href="mailto:service@skinclinica.com.au"
@@ -349,13 +349,13 @@
             >
           </li>
           <li class="contact__item">
-            <h3 class="contact__list-header">Phone</h3>
+            <p class="contact__list-header">Phone</p>
             <a href="tel:+61 2 5134 7278" class="contact__link"
               >61 2 5134 7278</a
             >
           </li>
           <li class="contact__item">
-            <h3 class="contact__list-header">Social</h3>
+            <p class="contact__list-header">Social</p>
             <div class="contact__social">
               <ul class="social-icons">
   <li class="social-icons__item">
@@ -408,8 +408,55 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4 contact-col">
         <h2 class="about__header">Contact form</h2>
-        <div class="g-recaptcha" data-sitekey="Your site key goes here"></div>
-        <button class="btn" type="submit">Submit</button>
+        <div class="contact-form">
+          <div class="contact__item">
+            <label for="name-input" class="contact__list-header">Name</label>
+            <input
+              id="name-input"
+              type="text"
+              name="name"
+              class="contact-form__input"
+            />
+          </div>
+          <div class="contact__item">
+            <label for="email-input" class="contact__list-header"
+              >Email address <span class="required">*</span></label
+            >
+            <input
+              id="email-input"
+              type="email"
+              name="email"
+              class="contact-form__input"
+              aria-required="true"
+            />
+          </div>
+          <div class="contact__item">
+            <label for="message-input" class="contact__list-header"
+              >Your message <span class="required">*</span></label
+            >
+            <textarea
+              id="message-input"
+              name="message"
+              rows="4"
+              cols="50"
+              class="contact-form__input"
+              placeholder="Enter your message here . . ."
+              aria-required="true"
+            ></textarea>
+          </div>
+          <div
+            class="g-recaptcha contact__item"
+            data-sitekey="Your site key goes here"
+          ></div>
+
+          <div class="contact__item">
+            <p class="contact__list-header">
+              "<span class="required">*</span>" indicates required fields
+            </p>
+          </div>
+
+          <button class="btn" type="submit">Submit</button>
+        </div>
       </div>
     </div>
   </div>
