@@ -74,7 +74,8 @@
   border-radius: inherit;
 }
 
-.nav-menu__link {
+.nav-menu__link,
+.contact__link {
   &:focus-visible {
     outline-style: none;
     color: $color-accent;

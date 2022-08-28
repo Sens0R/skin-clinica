@@ -10,6 +10,7 @@
   border-radius: $border-radius-sm;
   font-weight: bold;
   min-height: 2.625rem;
+  min-width: 8rem;
   padding: 0.5rem 2rem;
   transition: 0.2s ease-in-out;
   @include depth();

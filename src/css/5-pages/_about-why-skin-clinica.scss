@@ -1,0 +1,23 @@
+.about-why-skin-clinica-img {
+  @include image-cover();
+  aspect-ratio: 4 / 3;
+}
+
+.why-skin-clinica__header {
+  text-align: left;
+}
+
+.confusion-and-frustration {
+  @include spacer-top('margin', $spacer-xl);
+  ul {
+    list-style: outside;
+  }
+  li {
+    @include spacer-vertical('margin', $spacer);
+    margin-left: 1.5rem;
+    &::marker {
+      font-size: 1.25em;
+      color: $color-primary;
+    }
+  }
+}

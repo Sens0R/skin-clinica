@@ -25,7 +25,7 @@
     type="font/woff2"
     crossorigin
   />
-
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <!--  <link rel="shortcut icon" type="image/svg+xml" href="images/favicon.svg"/> -->
   <link rel="stylesheet" href="css/style.min.css" />
   <script defer src="js/app.min.js"></script>
@@ -293,46 +293,125 @@
       <source
         type="image/avif"
         srcset="
-          images/page-banner-faq-320.avif   320w,
-          images/page-banner-faq-640.avif   640w,
-          images/page-banner-faq-960.avif   960w,
-          images/page-banner-faq-1280.avif 1280w,
-          images/page-banner-faq-1920.avif 1920w,
-          images/page-banner-faq-2560.avif 2560w
+          images/page-banner-contact-320.avif   320w,
+          images/page-banner-contact-640.avif   640w,
+          images/page-banner-contact-960.avif   960w,
+          images/page-banner-contact-1280.avif 1280w,
+          images/page-banner-contact-1920.avif 1920w,
+          images/page-banner-contact-2560.avif 2560w
         "
       />
       <source
         type="image/webp"
         srcset="
-          images/page-banner-faq-320.webp   320w,
-          images/page-banner-faq-640.webp   640w,
-          images/page-banner-faq-960.webp   960w,
-          images/page-banner-faq-1280.webp 1280w,
-          images/page-banner-faq-1920.webp 1920w,
-          images/page-banner-faq-2560.webp 2560w
+          images/page-banner-contact-320.webp   320w,
+          images/page-banner-contact-640.webp   640w,
+          images/page-banner-contact-960.webp   960w,
+          images/page-banner-contact-1280.webp 1280w,
+          images/page-banner-contact-1920.webp 1920w,
+          images/page-banner-contact-2560.webp 2560w
         "
       />
       <source
         type="image/jpeg"
         srcset="
-          images/page-banner-faq-320.jpg   320w,
-          images/page-banner-faq-640.jpg   640w,
-          images/page-banner-faq-960.jpg   960w,
-          images/page-banner-faq-1280.jpg 1280w,
-          images/page-banner-faq-1920.jpg 1920w,
-          images/page-banner-faq-2560.jpg 2560w
+          images/page-banner-contact-320.jpg   320w,
+          images/page-banner-contact-640.jpg   640w,
+          images/page-banner-contact-960.jpg   960w,
+          images/page-banner-contact-1280.jpg 1280w,
+          images/page-banner-contact-1920.jpg 1920w,
+          images/page-banner-contact-2560.jpg 2560w
         "
       />
       <img
         draggable="false"
         class="page-banner-img"
-        src="images/page-banner-faq-960.jpg"
+        src="images/page-banner-contact-960.jpg"
         alt="page-banner-img"
         width="2560"
         height="2560"
       />
     </picture>
     <h1 class="page-header">Contact Us</h1>
+  </div>
+  <div class="container-fluid container-lg contact">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 contact-col">
+        <h2 class="about__header">We'd love to hear from you</h2>
+        <ul class="contact__list">
+          <li class="contact__item">
+            <h3 class="contact__list-header">Email</h3>
+            <a
+              class="contact__link"
+              href="mailto:service@skinclinica.com.au"
+              target="_blank"
+              >service@skinclinica.com.au</a
+            >
+          </li>
+          <li class="contact__item">
+            <h3 class="contact__list-header">Phone</h3>
+            <a href="tel:+61 2 5134 7278" class="contact__link"
+              >61 2 5134 7278</a
+            >
+          </li>
+          <li class="contact__item">
+            <h3 class="contact__list-header">Social</h3>
+            <div class="contact__social">
+              <ul class="social-icons">
+  <li class="social-icons__item">
+    <a href="#" class="rounded-icon" aria-label="Facebook">
+      <svg class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#socials--facebook"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="rounded-icon" aria-label="Instagram">
+      <svg class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#socials--instagram"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="rounded-icon" aria-label="Linkedin">
+      <svg class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#socials--linkedin"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="rounded-icon" aria-label="Twitter">
+      <svg class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#socials--twitter"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="rounded-icon" aria-label="Pinterest">
+      <svg class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#socials--pinterest"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="social-icons__item">
+    <a href="#" class="rounded-icon" aria-label="Gmail">
+      <svg class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#socials--gmail"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 contact-col">
+        <h2 class="about__header">Contact form</h2>
+        <div class="g-recaptcha" data-sitekey="Your site key goes here"></div>
+        <button class="btn" type="submit">Submit</button>
+      </div>
+    </div>
   </div>
 </main>
 

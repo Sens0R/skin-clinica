@@ -1,0 +1,41 @@
+.about-company-founder-col {
+  @include margin-auto(x);
+}
+
+.about-company-founder-img {
+  aspect-ratio: 1 / 1;
+  @include image-cover();
+  object-position: top;
+  @include spacer-bottom('margin', $spacer);
+}
+
+@include media-breakpoint-up(md) {
+  .about-company-founder-img {
+    border-radius: 50%;
+    max-height: 425px;
+    max-width: 425px;
+    float: left;
+    shape-outside: circle();
+    padding: 2rem;
+    margin-left: -2rem;
+    border-left: 0.5rem solid $color-primary;
+  }
+}
+
+.message-from-founder {
+  padding-top: 0;
+  .paragraph-accent {
+    text-align: center;
+  }
+}
+
+.company-founder-sign-thumbnail {
+  object-fit: contain;
+  height: 2.75rem;
+}
+
+.company-founder-sign-thumbnail {
+  @include margin-auto(x);
+  @include spacer-top('margin', $spacer-sm);
+  @include spacer-bottom('margin', $spacer-lg);
+}

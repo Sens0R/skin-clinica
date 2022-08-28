@@ -1,0 +1,56 @@
+.about__welcome-msg {
+  @include flex($flex-direction: column, $align-items: center);
+  @include margin-auto(x);
+}
+
+.about > .row {
+  @include flex($justify-content: center, $align-items: center);
+}
+
+.about:last-child {
+  margin-bottom: 0;
+}
+
+.about__header {
+  text-align: center;
+}
+
+.about__header-explanation {
+  font-style: italic;
+  font-weight: normal;
+  @include font-size(1.25rem);
+  letter-spacing: 0.25rem;
+  color: $color-gray;
+}
+
+.paragraph-accent {
+  font-style: italic;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0;
+}
+
+.about-img {
+  @include image-cover();
+  @include spacer-top('margin', $spacer-xl);
+  @include media-breakpoint-up(sm) {
+    margin-top: 0;
+  }
+  aspect-ratio: 4 / 3;
+  border-radius: $border-radius-sm;
+}
+
+.about__read-more-section {
+  @include media-breakpoint-up(sm) {
+    @include spacer-vertical('margin', $spacer-xl);
+  }
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+  .about__header {
+    text-align: left;
+    @include spacer-top('margin', $spacer);
+    @include media-breakpoint-up(sm) {
+      margin-top: 0;
+    }
+  }
+}

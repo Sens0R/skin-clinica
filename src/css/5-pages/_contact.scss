@@ -1,0 +1,44 @@
+.contact {
+  @include spacer-top('margin', $spacer-xl);
+  .row {
+    justify-content: space-around;
+  }
+
+  .about__header {
+    text-align: left;
+  }
+
+  &__item {
+    @include spacer-vertical('margin', $spacer-lg);
+  }
+
+  &__list {
+    margin: 0;
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list-header {
+    @include font-size($fs-base);
+    font-weight: bold;
+    color: lighten($color-secondary, 33%);
+  }
+
+  &__link {
+    @include spacer-vertical('padding', $spacer-sm);
+    color: $color-accent !important;
+  }
+
+  &__social > .social-icons {
+    @include spacer-vertical('margin', $spacer-sm);
+  }
+}
+
+.contact-col {
+  @include spacer-bottom('margin', $spacer-xl);
+}
+
+.g-recaptcha {
+  @include spacer-vertical('margin', $spacer);
+}

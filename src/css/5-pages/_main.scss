@@ -189,7 +189,7 @@
 
   .tab-nav-list__link {
     @include font-size(2rem);
-    text-shadow: 2px 2px 0px $color-dark;
+    text-shadow: 2px 2px 3px $color-dark;
     font-weight: bold;
     padding: 0;
   }

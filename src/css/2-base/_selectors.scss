@@ -28,8 +28,6 @@
 .text-link {
   color: $color-accent;
   font-weight: bold;
-  text-transform: uppercase;
-  user-select: text;
 }
 
 .text-sm {
@@ -80,6 +78,10 @@
   white-space: nowrap;
 }
 
+.text-underline {
+  text-decoration: underline 1px solid $color-dark;
+}
+
 .link-space {
   @include link-space();
 
@@ -93,15 +95,19 @@
 .position-static {
   position: static;
 }
+
 .position-relative {
   position: relative;
 }
+
 .position-absolute {
   position: absolute;
 }
+
 .position-fixed {
   position: fixed;
 }
+
 .position-sticky {
   position: sticky;
 }
