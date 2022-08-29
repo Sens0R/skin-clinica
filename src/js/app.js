@@ -159,6 +159,14 @@ if (tabsCheck) {
 }
 
 /* ====================   DROPDOWN   ==================== */
+
+if (window.matchMedia(`(max-width: ${lg}px)`).matches) {
+  accordion('[data-dropdown]', '[data-dropdown-btn]');
+  console.log('mobile');
+} else {
+  console.log('desktop');
+}
+
 const dropdowns = document.querySelectorAll('[data-dropdown]');
 
 if (dropdowns) {

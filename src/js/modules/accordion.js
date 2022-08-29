@@ -1,5 +1,8 @@
-export function accordion() {
-  let accordionInstances = document.querySelectorAll('.accordion');
+export function accordion(
+  accordionInstance = '.accordion',
+  accordionButton = '.accordion__button'
+) {
+  let accordionInstances = document.querySelectorAll(accordionInstance);
 
   accordionInstances.forEach((accordionInstance, i) => {
     let instanceNumber;
@@ -12,7 +15,7 @@ export function accordion() {
 
     const contentIdPrefix = accordionInstanceName + instanceNumber;
     const accordionButtons =
-      accordionInstance.querySelectorAll('.accordion__button');
+      accordionInstance.querySelectorAll(accordionButton);
 
     accordionButtons.forEach((accordionButton, i) => {
       const content = accordionButton.nextElementSibling;
@@ -23,8 +26,10 @@ export function accordion() {
       content.id = contentId;
       accordionButton.setAttribute('aria-controls', contentId);
 
-      const mql = window.matchMedia('(orientation: landscape)');
-      mql.addEventListener('change', changeHandler);
+      const mediaQueryOrientation = window.matchMedia(
+        '(orientation: landscape)'
+      );
+      mediaQueryOrientation.addEventListener('change', changeHandler);
 
       function changeHandler(e) {
         if (accordionButton.classList.contains('_active'))

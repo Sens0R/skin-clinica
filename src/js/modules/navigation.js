@@ -171,9 +171,14 @@ export function runNavigation(userOptions) {
     mql.onchange = (e) => {
       if (e.matches) return;
       if (mainElement.classList.contains('_active')) {
-        mainElement.classList.remove('_is-changing');
-        document.body.style.overflow = null;
         close();
+        setTimeout(() => {
+          mainElement.classList.remove('_is-changing');
+          document.body.style.overflow = null;
+          mainElement.style.height = null;
+          window.visualViewport.removeEventListener('resize', resizeHandler);
+          console.log('CLOSED');
+        }, 15);
       }
     };
   }
