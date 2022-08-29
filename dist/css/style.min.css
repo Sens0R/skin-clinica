@@ -13739,6 +13739,7 @@ input {
 .nav-menu-dropdown {
   top: 100%;
   position: absolute;
+  display: none;
   margin-left: -0.75rem;
   overflow: hidden;
   pointer-events: none;
@@ -13773,13 +13774,11 @@ input {
   background-color: #fee1ed;
 }
 
-.nav-menu__item[data-dropdown-open] .nav-menu-dropdown,
-[data-dropdown-is-changing] .nav-menu-dropdown {
+.nav-menu__item.active .nav-menu-dropdown {
   display: block;
   pointer-events: all;
 }
-.nav-menu__item[data-dropdown-open] .nav-menu-dropdown__content,
-[data-dropdown-is-changing] .nav-menu-dropdown__content {
+.nav-menu__item.active .nav-menu-dropdown__content {
   transform: translateY(0);
 }
 

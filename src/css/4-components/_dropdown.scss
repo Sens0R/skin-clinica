@@ -16,6 +16,7 @@
 
 .nav-menu-dropdown {
   @include absolute(top 100%);
+  display: none;
   margin-left: -0.75rem;
   overflow: hidden;
   pointer-events: none;
@@ -55,8 +56,7 @@
   }
 }
 
-.nav-menu__item[data-dropdown-open],
-[data-dropdown-is-changing] {
+.nav-menu__item.active {
   .nav-menu-dropdown {
     display: block;
     pointer-events: all;
