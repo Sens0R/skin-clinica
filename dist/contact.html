@@ -154,7 +154,7 @@
 
     <!-- ====================   NAVIGATION   ==================== -->
 
-    <div class="navigation container-fluid px-lg-0">
+    <div role="navigation" aria-label="main-menu" class="navigation container-fluid px-lg-0">
       <div class="nav-body"><ul class="nav-menu nav-menu--main">
   <li class="nav-menu__item">
     <a href="#" class="nav-menu__link">Shop</a>
@@ -171,8 +171,41 @@
 </ul>
 <hr class="d-lg-none my-lg" />
 <ul class="nav-menu nav-menu--secondary">
-  <li class="nav-menu__item">
+  <li data-dropdown class="nav-menu__item">
     <a href="about.html" class="nav-menu__link">About</a>
+    <button
+      data-dropdown-btn
+      class="dropdown-btn"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-label="Dropdown menu for About"
+    >
+      <svg class="dropdown-btn-icon hvr-icon">
+        <use href="images/icons/sprite-mono.svg#arrow-down"></use>
+      </svg>
+    </button>
+    <div aria-label="submenu" class="nav-menu-dropdown" hidden>
+      <div class="nav-menu-dropdown__content">
+        <div class="nav-menu-dropdown__column">
+          <ul class="nav-menu-dropdown__list">
+            <li>
+              <a
+                href="about-why-skin-clinica.html"
+                class="nav-menu-dropdown__link"
+                >Why Skin Clinica</a
+              >
+            </li>
+            <li>
+              <a
+                href="about-company-founder.html"
+                class="nav-menu-dropdown__link"
+                >About Our Founder</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </li>
   <li class="nav-menu__item">
     <a href="faq.html" class="nav-menu__link">Faq</a>
@@ -536,7 +569,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-nav-main">
+  <nav role="navigation" aria-label="Footer" class="footer-nav-main">
     <div class="footer-logo">
       <a href="index.html" aria-label="Skin clinica" class="logo-footer">
         <svg class="logo-footer-icon hvr-icon">
@@ -640,7 +673,7 @@
   </li>
 </ul>
 </div>
-  </div>
+  </nav>
 
   <p class="copyright">
     © ALL CONTENT IS THE COPYRIGHT OF SKIN CLINICA. ALL RIGHTS RESERVED

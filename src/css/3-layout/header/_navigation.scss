@@ -110,7 +110,7 @@
       transform: none;
     }
 
-    &.is-changing,
+    &._is-changing,
     &._active {
       @include z-index(nav-menu);
       visibility: visible;

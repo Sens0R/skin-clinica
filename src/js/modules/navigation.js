@@ -171,7 +171,7 @@ export function runNavigation(userOptions) {
     mql.onchange = (e) => {
       if (e.matches) return;
       if (mainElement.classList.contains('_active')) {
-        mainElement.classList.remove('is-changing');
+        mainElement.classList.remove('_is-changing');
         document.body.style.overflow = null;
         close();
       }
@@ -250,10 +250,10 @@ export function runNavigation(userOptions) {
 
     if (!transitionDuration) return (mainElement.style.height = null);
 
-    mainElement.classList.add('is-changing');
+    mainElement.classList.add('_is-changing');
     setTimeout(() => {
       mainElement.style.height = null;
-      mainElement.classList.remove('is-changing');
+      mainElement.classList.remove('_is-changing');
     }, transitionDuration);
   }
 

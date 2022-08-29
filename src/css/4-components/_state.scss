@@ -74,7 +74,28 @@
   border-radius: inherit;
 }
 
-.nav-menu__link,
+.nav-menu__item {
+  @include hover {
+    .nav-menu__link {
+      color: $color-accent;
+      text-decoration: underline;
+    }
+    
+    .dropdown-btn-icon {
+      fill: $color-accent;
+    }
+  }
+  
+}
+
+.nav-menu__link {
+  &:focus-visible {
+    color: $color-accent;
+    outline-style: none;
+    text-decoration: underline 3px;
+  }
+}
+
 .contact__link {
   &:focus-visible {
     outline-style: none;
