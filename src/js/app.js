@@ -179,19 +179,19 @@ if (dropdowns) {
         }
       }, 100);
     }
-    
-    if (dropdownButton) {
-      dropdownButton.addEventListener('click', () => {
-        dropdown.classList.add('active');
-        if (dropdownContentFirstLink) dropdownContentFirstLink.focus();
 
-        dropdownContent.addEventListener('focusout', focusOutHandler);
+    if (dropdownButton) {
+      dropdownButton.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter' || e.keyCode === 32) {
+          dropdown.classList.add('active');
+          if (dropdownContentFirstLink) dropdownContentFirstLink.focus();
+          dropdownContent.addEventListener('focusout', focusOutHandler);
+        }
       });
     }
 
     dropdown.addEventListener('mouseenter', () => {
       dropdown.classList.add('active');
-      dropdownContent.removeEventListener('focusout', focusOutHandler);
     });
 
     dropdown.addEventListener('mouseleave', () => {

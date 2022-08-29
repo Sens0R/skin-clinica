@@ -38,8 +38,8 @@ export function accordion() {
       }
 
       accordionButton.addEventListener('click', accordionBtnToggler);
-      accordionButton.addEventListener('keyup', () => {
-        if (key === 'Enter' || key === 'Space') {
+      accordionButton.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter' || e.key === 'Space') {
           accordionBtnToggler();
         }
       });
