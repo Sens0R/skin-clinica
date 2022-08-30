@@ -1,23 +1,15 @@
 /* ====================   MOBILE   ==================== */
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(lg) {
   .dropdown-btn-icon {
     @include box(1.25rem, 1.25rem);
-  }
-
-  .nav-menu__item {
-    width: 100%;
-  }
-
-  .nav-menu__controls {
-    @include flex($justify-content: space-between, $align-items: center);
   }
 
   .nav-menu-dropdown {
     max-height: 0;
     overflow: hidden;
     transition: 600ms ease max-height;
-    
+
     &__list {
       margin: 0;
     }
@@ -39,7 +31,7 @@
   }
 
   .dropdown-btn-icon {
-    @include box(0.5rem, 0.5rem);
+    @include box(0.75rem, 0.75rem);
   }
 
   .nav-body {
@@ -47,21 +39,24 @@
   }
 
   .nav-menu-dropdown {
-    @include absolute(top 100%);
-    display: none;
+    position: absolute;
+    top: calc(100% - 1rem);
+    padding-top: 1rem;
     margin-left: -0.75rem;
     overflow: hidden;
-    pointer-events: none;
     z-index: -1;
-    background-color: $color-light;
-    border-top: 3px solid $color-primary;
-    border-bottom-left-radius: $border-radius-sm;
-    border-bottom-right-radius: $border-radius-sm;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    transform: translateY(1rem);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
 
     &__content {
-      transform: translateY(-100%);
-      transition: transform 0s;
+      background-color: $color-light;
+      border-top: 3px solid $color-primary;
+      border-bottom-left-radius: $border-radius-sm;
+      border-bottom-right-radius: $border-radius-sm;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     }
 
     &__column {
@@ -89,12 +84,25 @@
   }
 
   .nav-menu__item.active {
+    color: $color-accent;
+    text-decoration: none;
+
+    .dropdown-btn-icon {
+      fill: $color-accent;
+    }
+
     .nav-menu-dropdown {
-      display: block;
+      color: $color-secondary;
+    }
+  }
+
+  .nav-menu__item.active,
+  .nav-menu__item.is-changing {
+    .nav-menu-dropdown {
       pointer-events: all;
-      &__content {
-        transform: translateY(0);
-      }
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
     }
   }
 }

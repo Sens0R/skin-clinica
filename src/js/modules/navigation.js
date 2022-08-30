@@ -153,10 +153,15 @@ export function runNavigation(userOptions) {
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
 
-    if (focusElement)
-      setTimeout(function () {
-        document.querySelector(focusElement).focus();
-      }, '5');
+    if (focusElement) {
+      transitionDuration
+        ? setTimeout(function () {
+            document.querySelector(focusElement).focus();
+          }, transitionDuration)
+        : setTimeout(function () {
+            document.querySelector(focusElement).focus();
+          }, 100);
+    }
 
     if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
   });

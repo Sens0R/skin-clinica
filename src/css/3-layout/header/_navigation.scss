@@ -36,18 +36,19 @@
     $align-items: flex-start
   );
 
-  &--main {
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .nav-body > hr {
   width: 100%;
 }
 
-.nav-menu__item:not(:last-child) {
-  @include spacer-right('margin', $spacer);
+.nav-menu__item {
+  cursor: pointer;
+  &:not(:last-child) {
+    @include spacer-right('margin', $spacer);
+  }
 }
 
 .nav-mobile-socials .social-icons__item {
