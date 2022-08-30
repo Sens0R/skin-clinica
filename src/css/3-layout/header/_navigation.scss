@@ -46,9 +46,10 @@
 
 .nav-menu__item {
   cursor: pointer;
-  &:not(:last-child) {
-    @include spacer-right('margin', $spacer);
-  }
+  @include spacer-right('padding', $spacer);
+}
+.nav-menu--secondary > :last-child {
+  padding-right: 0;
 }
 
 .nav-mobile-socials .social-icons__item {

@@ -170,13 +170,20 @@ if (tabsCheck) {
 const dropdowns = document.querySelectorAll('[data-dropdown]');
 
 if (dropdowns) {
-  let transitionDurationComputed = getComputedStyle(
-    document.querySelector('[data-dropdown-content]')
-  ).getPropertyValue('transition-duration');
+  const dropdownTransitionEl = document.querySelector(
+    '[data-dropdown-content]'
+  );
+
+  let transitionDurationComputed;
   let transitionDuration;
-  if (transitionDurationComputed)
+
+  if (dropdownTransitionEl) {
+    transitionDurationComputed = getComputedStyle(
+      dropdownTransitionEl
+    ).getPropertyValue('transition-duration');
     transitionDuration =
       Number(transitionDurationComputed.replace('s', '')) * 1000;
+  }
 
   dropdowns.forEach((dropdown) => {
     const dropdownButton = dropdown.querySelector('[data-dropdown-btn]');
@@ -200,15 +207,15 @@ if (dropdowns) {
       dropdownButton.addEventListener('keyup', (e) => {
         if (e.key === 'Enter' || e.keyCode === 32) {
           dropdown.classList.add('active');
-          if (dropdownContentFirstLink) {
-            transitionDuration
-              ? setTimeout(() => {
-                  dropdownContentFirstLink.focus();
-                }, transitionDuration)
-              : dropdownContentFirstLink.focus();
-          }
-
           dropdownContent.addEventListener('focusout', focusOutHandler);
+          if (dropdownContentFirstLink) {
+            if (transitionDuration > 0)
+              return setTimeout(() => {
+                dropdownContentFirstLink.focus();
+              }, transitionDuration);
+
+            dropdownContentFirstLink.focus();
+          }
         }
       });
     }
@@ -219,11 +226,13 @@ if (dropdowns) {
 
     dropdown.addEventListener('mouseleave', () => {
       dropdown.classList.remove('active');
-      dropdown.classList.add('is-changing');
-      if (transitionDuration)
+
+      /* if (transitionDuration > 0) {
+        dropdown.classList.add('is-changing');
         setTimeout(() => {
           dropdown.classList.remove('is-changing');
         }, transitionDuration);
+      } */
     });
   });
 }

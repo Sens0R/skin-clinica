@@ -12491,14 +12491,16 @@ input {
 
 .nav-menu__item {
   cursor: pointer;
-}
-.nav-menu__item:not(:last-child) {
-  margin-right: calc(1.275rem + 0.3vw);
+  padding-right: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
-  .nav-menu__item:not(:last-child) {
-    margin-right: 1.5rem;
+  .nav-menu__item {
+    padding-right: 1.5rem;
   }
+}
+
+.nav-menu--secondary > :last-child {
+  padding-right: 0;
 }
 
 .nav-mobile-socials .social-icons__item {
@@ -13720,6 +13722,15 @@ input {
   border-radius: 0.2rem;
 }
 
+.dropdown-left {
+  left: 0;
+}
+
+.nav-menu-dropdown {
+  text-transform: none;
+  color: #454545 !important;
+}
+
 /* ====================   MOBILE   ==================== */
 @media (max-width: 991.98px) {
   .dropdown-btn-icon {
@@ -13755,23 +13766,25 @@ input {
   }
   .nav-menu-dropdown {
     position: absolute;
-    top: calc(100% - 1rem);
-    padding-top: 1rem;
+    top: 100%;
     margin-left: -0.75rem;
     overflow: hidden;
     z-index: -1;
     pointer-events: none;
-    transform: translateY(1rem);
     visibility: hidden;
     opacity: 0;
     transition: all 0.2s ease-in-out;
   }
   .nav-menu-dropdown__content {
+    display: flex;
     background-color: hsl(0deg, 0%, 100%);
     border-top: 3px solid hsl(336deg, 95%, 84%);
     border-bottom-left-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+  .nav-menu-dropdown__column:not(:last-child) {
+    border-right: 1px solid #fed7e7;
   }
   .nav-menu-dropdown__list {
     margin: 0;
@@ -13780,7 +13793,7 @@ input {
     display: flex;
     align-items: center;
     padding: 0.75rem;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
   }
 }
 @media (min-width: 992px) and (hover: hover) and (pointer: fine) {
@@ -13811,7 +13824,6 @@ input {
   .nav-menu__item.active .nav-menu-dropdown,
 .nav-menu__item.is-changing .nav-menu-dropdown {
     pointer-events: all;
-    transform: translateY(0);
     visibility: visible;
     opacity: 1;
   }

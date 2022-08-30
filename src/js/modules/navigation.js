@@ -183,7 +183,7 @@ export function runNavigation(userOptions) {
           mainElement.style.height = null;
           window.visualViewport.removeEventListener('resize', resizeHandler);
           console.log('CLOSED');
-        }, 15);
+        }, 250);
       }
     };
   }
