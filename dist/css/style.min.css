@@ -12491,16 +12491,15 @@ input {
 
 .nav-menu__item {
   cursor: pointer;
-  padding-right: calc(1.275rem + 0.3vw);
-}
-@media (min-width: 1200px) {
-  .nav-menu__item {
-    padding-right: 1.5rem;
-  }
+  padding: 0 0.75rem;
 }
 
 .nav-menu--secondary > :last-child {
   padding-right: 0;
+}
+
+.nav-menu--main > :first-child {
+  padding-left: 0;
 }
 
 .nav-mobile-socials .social-icons__item {
@@ -13731,6 +13730,18 @@ input {
   color: #454545 !important;
 }
 
+.dropdown-btn {
+  padding: 2px;
+}
+
+.dropdown-btn:focus-visible {
+  fill: #e5065f;
+  outline: none;
+}
+.dropdown-btn:focus-visible .dropdown-btn-icon {
+  transform: scale(2) rotate(90deg);
+}
+
 /* ====================   MOBILE   ==================== */
 @media (max-width: 991.98px) {
   .dropdown-btn-icon {
@@ -13751,15 +13762,13 @@ input {
 }
 /* ====================   DESKTOP   ==================== */
 @media (min-width: 992px) {
-  .dropdown-btn {
-    padding: 0.25rem;
-  }
   .dropdown-btn:focus-visible {
     outline-offset: 0;
   }
   .dropdown-btn-icon {
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    transition: all 0.2s ease-in-out;
   }
   .nav-body {
     position: relative;
@@ -13782,6 +13791,11 @@ input {
     border-bottom-left-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    transition: all 0.2s ease-in-out;
+  }
+  .nav-menu-dropdown__column {
+    min-width: 12.5rem;
   }
   .nav-menu-dropdown__column:not(:last-child) {
     border-right: 1px solid #fed7e7;
@@ -13793,19 +13807,22 @@ input {
     display: flex;
     align-items: center;
     padding: 0.75rem;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
   }
 }
 @media (min-width: 992px) and (hover: hover) and (pointer: fine) {
   .nav-menu-dropdown__link:hover {
     background-color: #fee1ed;
+    color: #e5065f;
   }
 }
 @media (min-width: 992px) {
   .nav-menu-dropdown__link:focus-visible {
     outline: none;
     border-radius: 0;
+    color: #e5065f;
     background-color: #fee1ed;
+    text-decoration: underline 3px solid #e5065f;
   }
 }
 @media (min-width: 992px) {
@@ -13821,11 +13838,16 @@ input {
   }
 }
 @media (min-width: 992px) {
-  .nav-menu__item.active .nav-menu-dropdown,
-.nav-menu__item.is-changing .nav-menu-dropdown {
+  .nav-menu__item.active .nav-menu-dropdown {
     pointer-events: all;
     visibility: visible;
     opacity: 1;
+  }
+  .nav-menu__item.active .nav-menu-dropdown__content {
+    transform: translateY(0);
+  }
+  .nav-menu__item.active .dropdown-btn-icon {
+    transform: rotate(90deg);
   }
 }
 .page-banner {
