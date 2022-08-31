@@ -13721,11 +13721,21 @@ input {
   border-radius: 0.2rem;
 }
 
+/* ====================   DELETE AFTER   ==================== */
+.dropdown-btn-single {
+  padding: 0.8rem 0;
+}
+.dropdown-btn-single:focus-visible {
+  background: hsl(336deg, 95%, 84%);
+}
+
+/* ====================   DELETE AFTER   ==================== */
 .dropdown-left {
   left: 0;
 }
 
 .nav-menu-dropdown {
+  cursor: auto;
   text-transform: none;
   color: #454545 !important;
 }

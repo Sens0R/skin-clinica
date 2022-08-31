@@ -1,8 +1,17 @@
+/* ====================   DELETE AFTER   ==================== */
+.dropdown-btn-single {
+  padding: 0.8rem 0;
+  &:focus-visible {
+    background: $color-primary;
+  }
+}
+/* ====================   DELETE AFTER   ==================== */
 .dropdown-left {
   left: 0;
 }
 
 .nav-menu-dropdown {
+  cursor: auto;
   text-transform: none;
   color: lighten($color-secondary, 15%) !important;
 }
