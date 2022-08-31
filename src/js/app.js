@@ -179,10 +179,14 @@ export function dropdown() {
 
     let dropdownContentFirstLink;
     if (dropdownContent) {
+      dropdownContent.ariaLabel = 'submenu';
       dropdownContentFirstLink = dropdownContent.getElementsByTagName('a')[0];
     }
 
     if (dropdownButton) {
+      dropdownButton.ariaHasPopup = true;
+      dropdownButton.ariaExpanded = false;
+
       dropdownButton.addEventListener('keyup', (e) => {
         if (e.key === 'Enter' || e.keyCode === 32) {
           openDropdown();
