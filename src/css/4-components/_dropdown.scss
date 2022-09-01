@@ -47,13 +47,10 @@
 }
 
 .dropdown-btn {
-  &:focus {
+  &:focus-visible {
     fill: $color-accent;
     outline: none;
-  }
 
-  &:focus-visible {
-    outline-offset: 0;
     .dropdown-btn-icon {
       transform: scale(2) rotate(90deg);
     }

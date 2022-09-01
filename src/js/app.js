@@ -163,23 +163,7 @@ if (tabsCheck) {
 dropdown();
 
 export function dropdown() {
-  let dropdowns = document.querySelectorAll('[data-dropdown]');
-  if (dropdowns.length === 0) {
-    console.error(
-      '%c Dropdown element is not set. Use' +
-        '%c data-dropdown' +
-        '%c attribute for hover-dropdown or' +
-        '%c data-dropdown="click"' +
-        '%c for click-dropdown',
-      'color: red;',
-      'color: white;',
-      'color: red;',
-      'color: white;',
-      'color: red;'
-    );
-    return;
-  }
-
+  let dropdowns;
   let desktop;
   let mobile;
 
@@ -211,7 +195,6 @@ export function dropdown() {
       console.log('DESKTOP: ' + desktop + ` >>> ${lg}`);
     }
 
-    
     renderDropdowns();
   };
 
@@ -220,8 +203,23 @@ export function dropdown() {
   function renderDropdowns() {
     console.log('RENDER DROPDOWNS STARTED');
     dropdowns = document.querySelectorAll('[data-dropdown]');
+    if (dropdowns.length === 0) {
+      console.error(
+        '%c Dropdown element is not set. Use' +
+          '%c data-dropdown' +
+          '%c attribute for hover-dropdown or' +
+          '%c data-dropdown="click"' +
+          '%c for click-dropdown',
+        'color: red;',
+        'color: white;',
+        'color: red;',
+        'color: white;',
+        'color: red;'
+      );
+      return;
+    }
+
     dropdowns.forEach((dropdown) => {
-      console.log('RENDERING DROPDOWN BUTTON');
       const dropdownButton = dropdown.querySelector('[data-dropdown-btn]');
       if (!dropdownButton) {
         console.error(
@@ -239,7 +237,6 @@ export function dropdown() {
         return;
       }
 
-      console.log('RENDERING DROPDOWN CONTENT');
       const dropdownContent = dropdown.querySelector('[data-dropdown-content]');
       if (!dropdownContent) {
         console.error(
@@ -257,7 +254,6 @@ export function dropdown() {
         return;
       }
 
-      console.log('MAKING ARIA');
       let clickDropdown;
       let hoverDropdown;
       dropdownButton.ariaHasPopup = true;
@@ -266,22 +262,13 @@ export function dropdown() {
       const dropdownContentFirstLink =
         dropdownContent.getElementsByTagName('a')[0];
 
-      console.log('mobile = ' + mobile);
-      console.log('desktop = ' + desktop);
-      if (mobile) {
-        dropdownButton.addEventListener('click', mobileAccordion);
-        console.log('ADDING MOBILE ACCORDION LISTENER');
-      }
+      if (mobile) dropdownButton.addEventListener('click', mobileAccordion);
 
       if (desktop) runDesktopDropdownNavigation();
-      console.log(
-        '======================================================================'
-      );
 
       /* ====================   FUNCTIONS  ==================== */
 
       function runDesktopDropdownNavigation() {
-        console.log('ADDING DESKTOP DROPDOWN NAVIGATION LISTENERS');
         if (dropdown.dataset.dropdown === 'click') {
           clickDropdown = dropdown;
         } else {

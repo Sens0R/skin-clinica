@@ -13760,12 +13760,9 @@ input {
   padding: 2px;
 }
 
-.dropdown-btn:focus {
+.dropdown-btn:focus-visible {
   fill: #e5065f;
   outline: none;
-}
-.dropdown-btn:focus-visible {
-  outline-offset: 0;
 }
 .dropdown-btn:focus-visible .dropdown-btn-icon {
   transform: scale(2) rotate(90deg);
