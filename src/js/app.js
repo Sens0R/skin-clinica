@@ -163,7 +163,7 @@ if (tabsCheck) {
 dropdown();
 
 export function dropdown() {
-  const dropdowns = document.querySelectorAll('[data-dropdown]');
+  let dropdowns = document.querySelectorAll('[data-dropdown]');
   if (dropdowns.length === 0) {
     console.error(
       '%c Dropdown element is not set. Use' +
@@ -211,15 +211,15 @@ export function dropdown() {
       console.log('DESKTOP: ' + desktop + ` >>> ${lg}`);
     }
 
-    setTimeout(() => {
-      renderDropdowns();
-    }, 1000);
+    
+    renderDropdowns();
   };
 
   renderDropdowns();
 
   function renderDropdowns() {
     console.log('RENDER DROPDOWNS STARTED');
+    dropdowns = document.querySelectorAll('[data-dropdown]');
     dropdowns.forEach((dropdown) => {
       console.log('RENDERING DROPDOWN BUTTON');
       const dropdownButton = dropdown.querySelector('[data-dropdown-btn]');
