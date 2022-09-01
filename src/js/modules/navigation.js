@@ -102,7 +102,7 @@ export function runNavigation(userOptions) {
   let elementHeight;
   let elementWidth;
   const copySizeObserver = new ResizeObserver((entries) => {
-    console.log('OBSERVING ELEMENT SIZE:');
+    //console.log('OBSERVING ELEMENT SIZE:');
     entries.forEach((entry) => {
       elementHeight = entry.borderBoxSize[0].blockSize;
       elementWidth = entry.borderBoxSize[0].inlineSize;
@@ -114,10 +114,10 @@ export function runNavigation(userOptions) {
   const intersectionObs = new IntersectionObserver((entries) =>
     entries.forEach((entry) => {
       aboveHeaderContentVisibleHeight = entry.intersectionRect.height;
-      console.log(
+    /*   console.log(
         'ABOVE HEADER CONTENT VISIBLE HEIGHT: ' +
           aboveHeaderContentVisibleHeight
-      );
+      ); */
       open();
       intersectionObs.unobserve(aboveHeaderContentWrapper);
     })
@@ -126,7 +126,7 @@ export function runNavigation(userOptions) {
   const navContentHeightObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
       contentHeight = entry.borderBoxSize[0].blockSize;
-      console.log('CONTENT HEIGHT: ' + contentHeight);
+      //console.log('CONTENT HEIGHT: ' + contentHeight);
       aboveHeaderContentWrapper
         ? intersectionObs.observe(aboveHeaderContentWrapper)
         : open();
@@ -182,7 +182,7 @@ export function runNavigation(userOptions) {
           document.body.style.overflow = null;
           mainElement.style.height = null;
           window.visualViewport.removeEventListener('resize', resizeHandler);
-          console.log('CLOSED');
+          //console.log('CLOSED');
         }, 250);
       }
     };
@@ -199,16 +199,16 @@ export function runNavigation(userOptions) {
     if (alwaysFullscreen) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
-      console.log('USING ALL AVAILABLE VIEWPORT HEIGHT, BLOCKING BODY SCROLL');
+      //console.log('USING ALL AVAILABLE VIEWPORT HEIGHT, BLOCKING BODY SCROLL');
       return;
     }
 
     if (availableViewportHeight - contentHeight < 0) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
-      console.log(
+    /*   console.log(
         'CONTENT DOES NOT FIT VIEWPORT => ADDING HEIGHT, MAKING IT SCROLLABLE, BLOCKING BODY SCROLL'
-      );
+      ); */
       return;
     }
 
@@ -225,9 +225,9 @@ export function runNavigation(userOptions) {
         backdropEl.addEventListener('click', close);
       }
 
-      console.log(
+      /* console.log(
         'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP/FULLSCREEN AND LOCKING BODY SCROLL'
-      );
+      ); */
 
       return;
     }
@@ -235,9 +235,9 @@ export function runNavigation(userOptions) {
     mainElement.style.height = null;
     if (!scrollBlock) document.body.style.overflow = null;
 
-    console.log(
+    /* console.log(
       'NAVIGATION CONTENT HAS ENOUGH VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
-    );
+    ); */
   }
 
   function close() {
