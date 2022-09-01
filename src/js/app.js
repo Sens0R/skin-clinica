@@ -237,6 +237,9 @@ export function dropdown() {
         return;
       }
 
+      closeDropdown();
+      
+
       const dropdownContent = dropdown.querySelector('[data-dropdown-content]');
       if (!dropdownContent) {
         console.error(
@@ -253,6 +256,8 @@ export function dropdown() {
         );
         return;
       }
+      
+      dropdownContent.style.maxHeight = null;
 
       let clickDropdown;
       let hoverDropdown;
