@@ -237,9 +237,6 @@ export function dropdown() {
         return;
       }
 
-      closeDropdown();
-      
-
       const dropdownContent = dropdown.querySelector('[data-dropdown-content]');
       if (!dropdownContent) {
         console.error(
@@ -256,16 +253,20 @@ export function dropdown() {
         );
         return;
       }
-      
+
       dropdownContent.style.maxHeight = null;
 
       let clickDropdown;
       let hoverDropdown;
+
       dropdownButton.ariaHasPopup = true;
       dropdownButton.ariaExpanded = false;
+      dropdownContent.ariaHidden = true;
       dropdownContent.ariaLabel = 'submenu';
       const dropdownContentFirstLink =
         dropdownContent.getElementsByTagName('a')[0];
+
+      closeDropdown();
 
       if (mobile) dropdownButton.addEventListener('click', mobileAccordion);
 
@@ -299,8 +300,10 @@ export function dropdown() {
 
         if (dropdown.classList.contains('active')) {
           dropdownButton.ariaExpanded = true;
+          dropdownContent.ariaHidden = false;
           dropdownContent.style.maxHeight = `${dropdownContentHeight}px`;
         } else {
+          dropdownContent.ariaHidden = true;
           dropdownButton.ariaExpanded = false;
           dropdownContent.style.maxHeight = null;
         }
@@ -329,11 +332,13 @@ export function dropdown() {
             document.removeEventListener('click', clickOutside);
           });
         dropdownButton.ariaExpanded = true;
+        dropdownContent.ariaHidden = false;
         dropdown.classList.add('active');
       }
 
       function closeDropdown() {
         dropdownButton.ariaExpanded = false;
+        dropdownContent.ariaHidden = true;
         dropdown.classList.remove('active');
       }
 
