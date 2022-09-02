@@ -23,6 +23,7 @@
 }
 
 /* ====================   MEDIA   ==================== */
+
 @include media-breakpoint-down(lg) {
   [data-dropdown-content] {
     max-height: 0;
@@ -59,9 +60,8 @@
       transform: translateY(0);
     }
   }
-  
+
   .dropdown-btn-icon {
     @include box(0.5rem, 0.5rem);
   }
-
 }

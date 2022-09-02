@@ -39,9 +39,6 @@
 .nav-menu {
   @include flex($flex-direction: column, $flex-wrap: wrap);
 
-  &__item {
-  }
-
   &__link {
     display: inline-block;
     padding: $spacer-sm 0;
@@ -71,33 +68,26 @@
 
 .dropdown-content {
   @include flex($flex-wrap: wrap);
-  padding-left: 0.75rem;
+
   &__column {
-    padding: 0;
-    min-width: 10rem;
-    border-left: 1px solid lighten($color-primary, 5%);
-    border-right: 1px solid lighten($color-primary, 5%);
-    margin-left: -1px;
     @include flex($flex-direction: column);
+    box-shadow: 1px 0px lighten($color-primary, 5%);
   }
 
   &__list {
-    width: 100%;
     margin: 0;
-    li {
-      padding: 0 0.75rem;
-    }
   }
 
   &__list-header {
     font-weight: bold;
-    padding: 0.75rem !important;
+    padding: 0.75rem;
     margin: 0;
     margin-bottom: auto;
   }
 
   &__link {
-    padding: 0.75rem 0;
+    padding: 0.75rem;
+    @include flex($flex-direction: column);
   }
 }
 
@@ -200,24 +190,25 @@
   .dropdown-content {
     display: flex;
     background-color: $color-light;
-
     transform: translateY(-100%);
     transition: all 0.2s ease-in-out;
 
     &__column {
+      //min-width: 50%;
       min-width: 12.5rem;
     }
 
-    &__list li {
+    &__list {
+      
+    }
+
+    &__link {
       @include hover {
         background-color: lighten($color-primary, 10%);
         color: $color-accent;
       }
-      transition: background-color 0.1s ease-in-out;
-    }
 
-    &__link {
-      @include flex($align-items: center);
+      transition: background-color 0.1s ease-in-out;
 
       &:focus-visible {
         outline: none;
@@ -269,7 +260,6 @@
   }
 
   .nav-body {
-    position: relative;
     @include flex(
       $justify-content: space-between,
       $align-items: center,
