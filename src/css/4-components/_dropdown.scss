@@ -8,6 +8,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+[data-dropdown-btn] {
+  @include link-space(25px);
+}
+
 [data-dropdown].active {
   color: $color-accent;
   text-decoration: none;

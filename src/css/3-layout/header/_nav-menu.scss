@@ -28,8 +28,11 @@
   }
 }
 
-.nav-body > hr {
-  width: 100%;
+.nav-body {
+  position: relative;
+  hr {
+    width: 100%;
+  }
 }
 
 .nav-mobile-socials > .social-icons__item {
@@ -199,7 +202,6 @@
     }
 
     &__list {
-      
     }
 
     &__link {
@@ -269,23 +271,19 @@
 
   .nav-menu {
     margin: 0;
-    @include flex(
-      $justify-content: center,
-      $align-items: center,
-      $flex-direction: row
-    );
+    flex-direction: row;
+    align-items: center;
+    &__item {
+      padding: 0 0.75rem;
+    }
   }
 
-  .nav-menu__item {
-    cursor: pointer;
-    padding: 0 0.75rem;
+  .nav-menu--main {
+    margin-left: -0.75rem;
   }
 
-  .nav-menu--secondary > :last-child {
-    padding-right: 0;
-  }
-
-  .nav-menu--main > :first-child {
-    padding-left: 0;
+  .nav-menu--secondary {
+    margin-right: -0.75rem;
+    justify-content: flex-end;
   }
 }

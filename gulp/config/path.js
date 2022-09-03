@@ -12,8 +12,10 @@ export const path = {
     html: `${buildFolder}/`,
     images: `${buildFolder}/images/`,
     fonts: `${buildFolder}/fonts/`,
+    files: `${buildFolder}/files/`
   },
   src: {
+    files: `${srcFolder}/files/**/*.*`,
     js: `${srcFolder}/js/app.js`,
     images: `${srcFolder}/assets/images/**/*.{jpg,jpeg,png,gif,webp}`,
     thumbnail: `${srcFolder}/assets/thumbnail/**/*.{jpg,jpeg,png,gif,webp}`,
@@ -24,6 +26,7 @@ export const path = {
     svgSpriteMulti: `${srcFolder}/assets/svgicons/multi/**/*.svg`,
   },
   watch: {
+    files: `${srcFolder}/files/**/*.*`,
     js: `${srcFolder}/js/**/*.js`,
     scss: `${srcFolder}/css/**/*.scss`,
     html: `${srcFolder}/**/*.html`,

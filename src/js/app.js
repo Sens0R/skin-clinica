@@ -3,6 +3,7 @@ import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { accordion } from './modules/accordion.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
+import { forEach } from 'lodash';
 
 //fixedHeader();
 fixedHeader(lg);
@@ -197,6 +198,17 @@ export function dropdown() {
 
     renderDropdowns();
   };
+
+  const mqlDropdownOrientation = window.matchMedia('(orientation: portrait)');
+  mqlDropdownOrientation.onchange = () => {
+    const openDropdownContent = document.querySelectorAll('[data-dropdown-content][aria-hidden="false"')
+    
+    openDropdownContent.forEach((openContent) => {
+      openContent.style.maxHeight = `${openContent.scrollHeight}px`;
+      console.log('HEIGHT ADJUSTED');
+    });
+    
+  };  
 
   renderDropdowns();
 

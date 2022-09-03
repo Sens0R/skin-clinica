@@ -79,5 +79,6 @@ export const spriteMulti = () => {
         },
       })
     )
-    .pipe(app.gulp.dest(`${app.path.build.images}`));
+    .pipe(app.gulp.dest(`${app.path.build.images}`))
+    .pipe(app.plugins.browsersync.stream()); // test auto-update sprites
 };
