@@ -33,7 +33,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    translate: -50% -50%;
   }
 }
 
@@ -104,14 +104,14 @@
 
   @if $position == 'vertical' {
     top: 50%;
-    transform: translateY(-50%);
+    translate: 0 -50%;
   } @else if $position == 'horizontal' {
     left: 50%;
-    transform: translate(-50%);
+    translate: -50%;
   } @else if $position == 'both' {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    translate: -50% -50%;
   }
 }
 

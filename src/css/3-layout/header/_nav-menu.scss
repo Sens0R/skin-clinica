@@ -44,7 +44,7 @@
 
   &__link {
     display: inline-block;
-    padding: $spacer-sm 0;
+    padding: $spacer-sm;
     user-select: none;
     font-weight: bold;
     text-transform: uppercase;
@@ -53,13 +53,21 @@
 
 .nav-menu-dropdown {
   &__btn {
-    padding: 2px;
+    @include flex(
+      $display: inline-flex,
+      $justify-content: center,
+      $align-items: center
+    );
+    padding: 1rem;
+    margin-left: -(calc($spacer-sm + 0.875rem));
+
     &:focus-visible {
       fill: $color-accent;
       outline: none;
 
       .dropdown-btn-icon {
-        transform: scale(2) rotate(90deg);
+        scale: 2;
+        rotate: 90deg;
       }
     }
   }
@@ -101,107 +109,14 @@
   }
 }
 
-@include media-breakpoint-down(sm) {
-}
-
-@include media-breakpoint-down(lg) {
-}
-
-/* 
- @include media-breakpoint-down(lg) {
-  .nav-menu-dropdown__btn {
-    padding: 1rem;
-  }
-
-  .nav-menu-dropdown__content {
-    max-height: 0;
-    overflow: hidden;
-    transition: 600ms ease max-height;
-  }
-
-  .dropdown-content {
-    &__column {
-    }
-
-    &__list {
-    }
-
-    &__link {
-      padding: 0.75rem;
-    }
-  }
-} */
-
-/* @include media-breakpoint-down(md) {
- 
-  .dropdown-content {
-    &__column {
-      &:first-child > .nav-menu-dropdown__list {
-        margin-top: 0;
-      }
-
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-accent-light;
-      }
-    }
-
-    &__link {
-      font-weight: normal;
-    }
-  }
-} */
-
-/* @include media-breakpoint-only(md) {
-  .nav-menu__item {
-  }
-
-  .nav-menu-dropdown__content {
-    @include flex($flex-wrap: wrap);
-  }
-
-  .nav-menu-dropdown {
-    &__column {
-      min-width: 14rem;
-    }
-
-    &__list {
-      margin: 0;
-    }
-  }
-
-  .nav-menu__link {
-  }
-
-  .navigation {
-  }
-
-  .nav-body {
-    hr {
-      margin: 0;
-    }
-  }
-
-  .nav-menu {
-  }
-
-  .nav-mobile-socials > .social-icons {
-    justify-content: center;
-  }
-} */
-
 @include media-breakpoint-up(lg) {
   .dropdown-content {
     display: flex;
     background-color: $color-light;
-    transform: translateY(-100%);
-    transition: all 0.2s ease-in-out;
+    border-top: 3px solid $color-primary;
 
     &__column {
-      //min-width: 50%;
       min-width: 12.5rem;
-    }
-
-    &__list {
     }
 
     &__link {
@@ -228,15 +143,15 @@
 @include media-breakpoint-down(lg) {
   .navigation {
     @include absolute(left 0);
-    transform: translateX(100%);
+    translate: 100% 0;
     width: 100%;
     visibility: hidden;
     overflow-y: auto;
-    transition: transform 0.2s ease;
+    transition: translate 0.2s ease;
     background: $color-light;
 
     &._active {
-      transform: none;
+      translate: none;
     }
 
     &._is-changing,
@@ -273,9 +188,6 @@
     margin: 0;
     flex-direction: row;
     align-items: center;
-    &__item {
-      padding: 0 0.75rem;
-    }
   }
 
   .nav-menu--main {

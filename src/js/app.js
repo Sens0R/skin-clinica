@@ -163,21 +163,19 @@ if (tabsCheck) {
 
 dropdown();
 
-export function dropdown() {
+export function dropdown(breakpoint = lg) {
   let dropdowns;
   let desktop;
   let mobile;
 
-  const mqlDropdowns = window.matchMedia(`(max-width: ${lg}px)`);
+  const mqlDropdowns = window.matchMedia(`(max-width: ${breakpoint}px)`);
 
   if (mqlDropdowns.matches) {
     desktop = false;
     mobile = true;
-    console.log('MOBILE: ' + mobile + ` <<< ${lg}`);
   } else {
     mobile = false;
     desktop = true;
-    console.log('DESKTOP: ' + desktop + ` >>> ${lg}`);
   }
 
   mqlDropdowns.onchange = (e) => {
@@ -189,11 +187,9 @@ export function dropdown() {
     if (e.matches) {
       desktop = false;
       mobile = true;
-      console.log('MOBILE: ' + mobile + ` <<< ${lg}`);
     } else {
       mobile = false;
       desktop = true;
-      console.log('DESKTOP: ' + desktop + ` >>> ${lg}`);
     }
 
     renderDropdowns();
@@ -201,14 +197,15 @@ export function dropdown() {
 
   const mqlDropdownOrientation = window.matchMedia('(orientation: portrait)');
   mqlDropdownOrientation.onchange = () => {
-    const openDropdownContent = document.querySelectorAll('[data-dropdown-content][aria-hidden="false"')
-    
+    const openDropdownContent = document.querySelectorAll(
+      '[data-dropdown-content][aria-hidden="false"'
+    );
+
     openDropdownContent.forEach((openContent) => {
       openContent.style.maxHeight = `${openContent.scrollHeight}px`;
       console.log('HEIGHT ADJUSTED');
     });
-    
-  };  
+  };
 
   renderDropdowns();
 
@@ -275,18 +272,16 @@ export function dropdown() {
       dropdownButton.ariaExpanded = false;
       dropdownContent.ariaHidden = true;
       dropdownContent.ariaLabel = 'submenu';
-      const dropdownContentFirstLink =
-        dropdownContent.getElementsByTagName('a')[0];
+      const dropdownContentFirstFocusableEl = dropdownContent.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )[0];
 
       closeDropdown();
 
-      if (mobile) dropdownButton.addEventListener('click', mobileAccordion);
+      dropdownButton.addEventListener('click', toggleDropdown);
+      dropdownButton.addEventListener('keyup', keyboardNavigation);
 
-      if (desktop) runDesktopDropdownNavigation();
-
-      /* ====================   FUNCTIONS  ==================== */
-
-      function runDesktopDropdownNavigation() {
+      if (desktop) {
         if (dropdown.dataset.dropdown === 'click') {
           clickDropdown = dropdown;
         } else {
@@ -294,46 +289,20 @@ export function dropdown() {
           hoverDropdown = dropdown;
         }
 
-        dropdownButton.addEventListener('keyup', keyboardNavigation);
-        if (clickDropdown)
-          dropdownButton.addEventListener('click', openOnClick);
-
         if (hoverDropdown) {
           dropdown.addEventListener('mouseenter', openDropdown);
           dropdown.addEventListener('mouseleave', closeDropdown);
         }
       }
 
-      function mobileAccordion() {
-        let dropdownContentHeight = dropdownContent.scrollHeight;
-        console.log(dropdown);
-        console.log('CLICKED');
-        dropdown.classList.toggle('active');
+      /* ====================   FUNCTIONS  ==================== */
 
-        if (dropdown.classList.contains('active')) {
-          dropdownButton.ariaExpanded = true;
-          dropdownContent.ariaHidden = false;
-          dropdownContent.style.maxHeight = `${dropdownContentHeight}px`;
-        } else {
-          dropdownContent.ariaHidden = true;
-          dropdownButton.ariaExpanded = false;
-          dropdownContent.style.maxHeight = null;
-        }
-      }
-
-      function openOnClick() {
-        if (!clickDropdown.classList.contains('active')) {
-          openDropdown();
-          setTimeout(() => {
-            document.addEventListener('click', clickOutside);
-          }, 1);
-        }
-      }
-
-      function clickOutside(e) {
-        if (e.target.closest('[data-dropdown-content]')) return;
-        closeDropdown();
-        document.removeEventListener('click', clickOutside);
+      function toggleDropdown() {
+        if (dropdown.classList.contains('active')) return closeDropdown();
+        openDropdown();
+        setTimeout(() => {
+          document.addEventListener('click', clickOutside);
+        }, 1);
       }
 
       function openDropdown() {
@@ -343,15 +312,27 @@ export function dropdown() {
             activeDropdown.classList.remove('active');
             document.removeEventListener('click', clickOutside);
           });
+
+        dropdown.classList.add('active');
         dropdownButton.ariaExpanded = true;
         dropdownContent.ariaHidden = false;
-        dropdown.classList.add('active');
+        if (mobile) {
+          let dropdownContentHeight = dropdownContent.scrollHeight;
+          dropdownContent.style.maxHeight = `${dropdownContentHeight}px`;
+        }
       }
 
       function closeDropdown() {
-        dropdownButton.ariaExpanded = false;
-        dropdownContent.ariaHidden = true;
         dropdown.classList.remove('active');
+        dropdownContent.ariaHidden = true;
+        dropdownButton.ariaExpanded = false;
+        if (mobile) dropdownContent.style.maxHeight = null;
+      }
+
+      function clickOutside(e) {
+        if (e.target.closest('[data-dropdown-content]')) return;
+        closeDropdown();
+        document.removeEventListener('click', clickOutside);
       }
 
       function keyboardNavigation(e) {
@@ -370,9 +351,7 @@ export function dropdown() {
       }
 
       function setFocus() {
-        setTimeout(() => {
-          dropdownContentFirstLink.focus();
-        }, 15);
+        dropdownContentFirstFocusableEl.focus();
         dropdownContent.addEventListener('focusout', closeOnFocusOut);
       }
 

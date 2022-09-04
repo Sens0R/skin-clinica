@@ -44,7 +44,7 @@
 @media (hover: hover) and (pointer: fine) {
   .card-blog-post {
     .card-blog-post-img {
-      transition: transform 0.3s ease-in-out;
+      transition: scale 0.3s ease-in-out;
     }
 
     @include icon-pulse-grow();
@@ -65,7 +65,7 @@
       }
 
       .card-blog-post-img {
-        transform: scale(1.075);
+        scale: 1.1;
       }
     }
   }
@@ -75,7 +75,7 @@
   &:focus-visible {
     outline: none;
     .card-blog-post-img {
-      transform: scale(1.075);
+      scale: 1.1;
     }
 
     &:before {

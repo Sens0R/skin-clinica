@@ -25,8 +25,8 @@
     type="font/woff2"
     crossorigin
   />
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-  <!--  <link rel="shortcut icon" type="image/svg+xml" href="images/favicon.svg"/> -->
+  <script defer src='https://www.google.com/recaptcha/api.js'></script>
+  <link rel="shortcut icon" type="image/svg+xml" href="images/icons/favicon.svg"/> 
   <link rel="stylesheet" href="css/style.min.css" />
   <script defer src="js/app.min.js"></script>
 
@@ -493,7 +493,7 @@
 
   <li data-dropdown="click" class="nav-menu__item nav-menu-dropdown">
     <a href="about.html" class="nav-menu__link nav-menu-dropdown__link"
-      >click</a
+      >Link + btn click</a
     >
     <button
       class="nav-menu-dropdown__btn"
@@ -533,11 +533,11 @@
 
   <li data-dropdown class="nav-menu__item nav-menu-dropdown">
     <button
-      class="dropdown-btn-single"
+      class="nav-menu__link"
       data-dropdown-btn
       aria-label="Dropdown menu for Single"
     >
-      Single Button
+      Only btn hover
     </button>
 
     <div class="nav-menu-dropdown__content" data-dropdown-content>
@@ -562,11 +562,11 @@
 
   <li data-dropdown="click" class="nav-menu__item nav-menu-dropdown">
     <button
-      class="dropdown-btn-single"
+      class="nav-menu__link"
       data-dropdown-btn
       aria-label="Dropdown menu for Single"
     >
-      Single Button Click
+      Only btn click
     </button>
 
     <div class="nav-menu-dropdown__content" data-dropdown-content>

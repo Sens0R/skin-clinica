@@ -1,8 +1,5 @@
-//Основной модуль
 import gulp from 'gulp';
-//Импорт путей
 import { path } from './gulp/config/path.js';
-//Импорт общих плагинов
 import { plugins } from './gulp/config/plugins.js';
 
 //Передаем значения в глобальную переменную
@@ -16,7 +13,7 @@ global.app = {
 
 //Импорт задач
 import { reset } from './gulp/tasks/reset.js';
-import { copy } from './gulp/tasks/copy.js';
+import { copy, copyRegularSvg } from './gulp/tasks/copy.js';
 import { html } from './gulp/tasks/html.js';
 import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
@@ -45,23 +42,35 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 // Параллельные сценарии
 const imageTasks = gulp.parallel(images, thumbnail);
-const svgSprites = gulp.parallel(spriteMono, spriteMulti);
+const svgSprites = gulp.parallel(spriteMono, spriteMulti, copyRegularSvg);
 
 // Основной сценарий
-const mainTasks = gulp.series(
-  fonts,
-  gulp.parallel(html, scss, js, svgSprites, imageTasks)
-);
+const mainTasks = gulp.series(fonts, gulp.parallel(html, scss, js, svgSprites));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, copy, mainTasks, gulp.parallel(watcher, server));
-const build = gulp.series(reset, copy, mainTasks);
-const deployZIP = gulp.series(reset, mainTasks, zip);
-const deployFTP = gulp.series(reset, mainTasks, ftp);
+const devReset = gulp.series(reset, copy, gulp.parallel(mainTasks, imageTasks), gulp.parallel(watcher, server));
+
+const build = gulp.series(reset, copy, gulp.parallel(mainTasks, imageTasks));
+
+const deployZIP = gulp.series(
+  reset,
+  copy,
+  gulp.parallel(mainTasks, imageTasks),
+  zip
+);
+
+const deployFTP = gulp.series(
+  reset,
+  copy,
+  gulp.parallel(mainTasks, imageTasks),
+  ftp
+);
 
 // Экспорт сценариев
 export { dev };
 export { build };
+export { devReset };
 export { deployZIP };
 export { deployFTP };
 

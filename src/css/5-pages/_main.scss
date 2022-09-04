@@ -108,7 +108,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   letter-spacing: 0.15em;
-  transform: rotate(-90deg);
+  rotate: -90deg;
 }
 
 .tab-arrow-right-icon {
@@ -175,7 +175,7 @@
   }
 
   .tab-cards-wrapper {
-    transform: translate(15%);
+    translate: 15%;
   }
 
   .tab-nav {

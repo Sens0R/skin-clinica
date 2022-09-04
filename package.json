@@ -6,9 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "gulp",
+    "dev-reset": "gulp devReset",
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build",
     "ftp": "gulp deployFTP --build"
+    
   },
   "repository": {
     "type": "git",
