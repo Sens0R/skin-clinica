@@ -203,7 +203,6 @@ export function dropdown(breakpoint = lg) {
 
     openDropdownContent.forEach((openContent) => {
       openContent.style.maxHeight = `${openContent.scrollHeight}px`;
-      console.log('HEIGHT ADJUSTED');
     });
   };
 
@@ -267,14 +266,14 @@ export function dropdown(breakpoint = lg) {
 
       let clickDropdown;
       let hoverDropdown;
+      const dropdownContentFirstFocusableEl = dropdownContent.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )[0];
 
       dropdownButton.ariaHasPopup = true;
       dropdownButton.ariaExpanded = false;
       dropdownContent.ariaHidden = true;
       dropdownContent.ariaLabel = 'submenu';
-      const dropdownContentFirstFocusableEl = dropdownContent.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )[0];
 
       closeDropdown();
 
@@ -316,6 +315,7 @@ export function dropdown(breakpoint = lg) {
         dropdown.classList.add('active');
         dropdownButton.ariaExpanded = true;
         dropdownContent.ariaHidden = false;
+
         if (mobile) {
           let dropdownContentHeight = dropdownContent.scrollHeight;
           dropdownContent.style.maxHeight = `${dropdownContentHeight}px`;
