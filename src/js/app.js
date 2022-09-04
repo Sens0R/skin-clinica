@@ -305,13 +305,14 @@ export function dropdown(breakpoint = lg) {
       }
 
       function openDropdown() {
-        document
-          .querySelectorAll('[data-dropdown]')
-          .forEach((activeDropdown) => {
-            activeDropdown.classList.remove('active');
-            document.removeEventListener('click', clickOutside);
-          });
-
+        if (desktop) {
+          document
+            .querySelectorAll('[data-dropdown]')
+            .forEach((activeDropdown) => {
+              activeDropdown.classList.remove('active');
+              document.removeEventListener('click', clickOutside);
+            });
+        }
         dropdown.classList.add('active');
         dropdownButton.ariaExpanded = true;
         dropdownContent.ariaHidden = false;
@@ -330,9 +331,11 @@ export function dropdown(breakpoint = lg) {
       }
 
       function clickOutside(e) {
-        if (e.target.closest('[data-dropdown-content]')) return;
-        closeDropdown();
-        document.removeEventListener('click', clickOutside);
+        if (desktop) {
+          if (e.target.closest('[data-dropdown-content]')) return;
+          closeDropdown();
+          document.removeEventListener('click', clickOutside);
+        }
       }
 
       function keyboardNavigation(e) {
