@@ -168,6 +168,16 @@
 }
 
 @include media-breakpoint-up(lg) {
+  [data-nav-page].active-page {
+    .nav-menu__link {
+      color: $color-accent;
+    }
+
+    .nav-menu-dropdown__btn {
+      fill: $color-accent;
+    }
+  }
+
   .nav-mobile-socials {
     display: none;
   }

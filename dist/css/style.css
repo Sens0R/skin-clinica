@@ -14224,6 +14224,12 @@ input {
   }
 }
 @media (min-width: 992px) {
+  [data-nav-page].active-page .nav-menu__link {
+    color: #e5065f;
+  }
+  [data-nav-page].active-page .nav-menu-dropdown__btn {
+    fill: #e5065f;
+  }
   .nav-mobile-socials {
     display: none;
   }
