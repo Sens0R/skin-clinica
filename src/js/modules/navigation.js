@@ -183,6 +183,7 @@ export function runNavigation(userOptions) {
           document.body.style.overflow = null;
           mainElement.style.height = null;
           window.visualViewport.removeEventListener('resize', resizeHandler);
+          mainElement.classList.add('stop-transition');
           //console.log('CLOSED');
         }, 250);
       }

@@ -149,7 +149,7 @@
     overflow-y: auto;
     transition: all 0.2s ease;
     background: $color-light;
-    
+
     &._active {
       translate: none;
       @include z-index(nav-menu);
