@@ -95,6 +95,10 @@
   }
 }
 
+.stop-transition {
+  transition: none !important;
+}
+
 /* ====================   POSITION   ==================== */
 .position-static {
   position: static;

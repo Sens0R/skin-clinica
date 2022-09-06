@@ -139,9 +139,6 @@
 }
 
 /* ====================   NAVIGATION MEDIA   ==================== */
-.stop-transition {
-  transition: none !important;
-}
 
 @include media-breakpoint-down(lg) {
   .navigation {

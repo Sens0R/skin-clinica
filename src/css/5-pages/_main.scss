@@ -189,7 +189,6 @@
 
   .tab-nav-list__link {
     @include font-size(2rem);
-    text-shadow: 2px 2px 3px $color-dark;
     font-weight: bold;
     padding: 0;
   }
@@ -205,7 +204,6 @@
   .tab-arrow-right-icon {
     @include box(2.5rem, 2.5rem);
     fill: $color-light;
-    filter: drop-shadow(1px 2px 1px $color-dark);
   }
 }
 
@@ -309,4 +307,3 @@
     text-align: center;
   }
 }
-

@@ -180,7 +180,6 @@ export function runNavigation(userOptions) {
       if (mainElement.classList.contains('_active')) {
         close();
         setTimeout(() => {
-          //mainElement.classList.remove('_is-changing');
           document.body.style.overflow = null;
           mainElement.style.height = null;
           window.visualViewport.removeEventListener('resize', resizeHandler);
@@ -270,11 +269,7 @@ export function runNavigation(userOptions) {
 
     if (!transitionDuration) return (mainElement.style.height = null);
 
-    //mainElement.classList.add('_is-changing');
-    setTimeout(() => {
-      mainElement.style.height = null;
-      //mainElement.classList.remove('_is-changing');
-    }, transitionDuration);
+    mainElement.style.height = null;
   }
 
   function addBackdrop(backdropClass) {

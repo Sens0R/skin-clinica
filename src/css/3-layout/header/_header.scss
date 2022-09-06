@@ -131,20 +131,18 @@
   }
 
   .mobile-search {
-    @include absolute(left 0 top 0);
+    @include absolute(left 0);
     @include flex($justify-content: center, $align-items: center);
-    translate: -100% 0;
+    opacity: 0;
     visibility: hidden;
     background: $color-white;
+    transition: all 0.5s ease-in-out;
+    @include z-index(nav-search);
 
     &._active {
-      translate: none;
-    }
-
-    &._is-changing,
-    &._active {
+      opacity: 1;
       visibility: visible;
-      @include z-index(nav-search);
+      
     }
   }
 
