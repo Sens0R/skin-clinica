@@ -139,23 +139,22 @@
 }
 
 /* ====================   NAVIGATION MEDIA   ==================== */
+.stop-transition {
+  transition: none !important;
+}
 
 @include media-breakpoint-down(lg) {
   .navigation {
     @include absolute(left 0);
-    translate: 100% 0;
+    translate: 100%;
     width: 100%;
     visibility: hidden;
     overflow-y: auto;
-    transition: translate 0.2s ease;
+    transition: all 0.2s ease;
     background: $color-light;
-
+    
     &._active {
       translate: none;
-    }
-
-    &._is-changing,
-    &._active {
       @include z-index(nav-menu);
       visibility: visible;
       box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;

@@ -42,6 +42,7 @@ export function runNavigation(userOptions) {
     ? (mainElement = document.querySelector(userOptions.mainClass))
     : (mainElement = document.querySelector(defaultOptions.mainClass));
 
+  mainElement.classList.add('stop-transition');
   let transitionDurationComputed = getComputedStyle(
     mainElement
   ).getPropertyValue('transition-duration');
@@ -114,7 +115,7 @@ export function runNavigation(userOptions) {
   const intersectionObs = new IntersectionObserver((entries) =>
     entries.forEach((entry) => {
       aboveHeaderContentVisibleHeight = entry.intersectionRect.height;
-    /*   console.log(
+      /*   console.log(
         'ABOVE HEADER CONTENT VISIBLE HEIGHT: ' +
           aboveHeaderContentVisibleHeight
       ); */
@@ -136,6 +137,7 @@ export function runNavigation(userOptions) {
   /* ====================   OPEN NAVIGATION   ==================== */
 
   openBtnEl.addEventListener('click', function () {
+    mainElement.classList.remove('stop-transition');
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
@@ -178,7 +180,7 @@ export function runNavigation(userOptions) {
       if (mainElement.classList.contains('_active')) {
         close();
         setTimeout(() => {
-          mainElement.classList.remove('_is-changing');
+          //mainElement.classList.remove('_is-changing');
           document.body.style.overflow = null;
           mainElement.style.height = null;
           window.visualViewport.removeEventListener('resize', resizeHandler);
@@ -206,7 +208,7 @@ export function runNavigation(userOptions) {
     if (availableViewportHeight - contentHeight < 0) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
-    /*   console.log(
+      /*   console.log(
         'CONTENT DOES NOT FIT VIEWPORT => ADDING HEIGHT, MAKING IT SCROLLABLE, BLOCKING BODY SCROLL'
       ); */
       return;
@@ -241,6 +243,14 @@ export function runNavigation(userOptions) {
   }
 
   function close() {
+    mainElement.addEventListener(
+      'transitionend',
+      () => {
+        mainElement.classList.add('stop-transition');
+      },
+      { once: true }
+    );
+
     mainElement.classList.remove('_active');
     closeBtnEl.classList.remove('_active');
     openBtnEl.classList.add('_active');
@@ -260,10 +270,10 @@ export function runNavigation(userOptions) {
 
     if (!transitionDuration) return (mainElement.style.height = null);
 
-    mainElement.classList.add('_is-changing');
+    //mainElement.classList.add('_is-changing');
     setTimeout(() => {
       mainElement.style.height = null;
-      mainElement.classList.remove('_is-changing');
+      //mainElement.classList.remove('_is-changing');
     }, transitionDuration);
   }
 

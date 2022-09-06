@@ -6,7 +6,7 @@ import { dropdown } from './modules/dropdown.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
-//fixedHeader();
+activePageHighlight();
 fixedHeader(lg);
 runNavigation({ smartFullscreen: true });
 
@@ -18,6 +18,7 @@ runNavigation({
   copySize: '.header',
 });
 
+dropdown(lg);
 accordion();
 
 /* ====================   TABS   ==================== */
@@ -159,10 +160,3 @@ if (tabsCheck) {
 
   tabsIntersectionObserver.observe(cards);
 }
-
-/* ====================   DROPDOWN   ==================== */
-
-dropdown(lg);
-activePageHighlight()
-
-

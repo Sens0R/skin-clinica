@@ -1,84 +1,16 @@
-export function accordion(
-  accordionInstance = '.accordion',
-  accordionButton = '.accordion__button',
-  kill = false
-) {
-  if (kill) {
+const accordionInstances = document.querySelectorAll('[data-accordion]');
 
-  }
-  
-  let accordionInstances = document.querySelectorAll(accordionInstance);
+window.matchMedia('(orientation: landscape)').onchange = () => {
+  const activeButtons = document.querySelectorAll(
+    '[data-accordion-content][aria-hidden="false"'
+  );
 
-  accordionInstances.forEach((accordionInstance, i) => {
-    let instanceNumber;
-    let accordionInstanceName = '';
-
-    if (i > 0) {
-      instanceNumber = '-' + (i + 1) + '-';
-      accordionInstanceName = 'accordion';
-    } else instanceNumber = '';
-
-    const contentIdPrefix = accordionInstanceName + instanceNumber;
-    const accordionButtons =
-      accordionInstance.querySelectorAll(accordionButton);
-
-    accordionButtons.forEach((accordionButton, i) => {
-      const content = accordionButton.nextElementSibling;
-      let contentHeight;
-      accordionButton.ariaExpanded = 'false';
-      content.ariaHidden = true;
-      const contentId = `${contentIdPrefix}collapse-${i + 1}`;
-      content.id = contentId;
-      accordionButton.setAttribute('aria-controls', contentId);
-
-      const mediaQueryOrientation = window.matchMedia(
-        '(orientation: landscape)'
-      );
-      mediaQueryOrientation.addEventListener('change', changeHandler);
-
-      function changeHandler(e) {
-        if (accordionButton.classList.contains('_active'))
-          if (e.matches) {
-            contentHeight = content.scrollHeight;
-            content.style.maxHeight = `${contentHeight}px`;
-          } else {
-            contentHeight = content.scrollHeight;
-            content.style.maxHeight = `${contentHeight}px`;
-          }
-      }
-
-      accordionButton.addEventListener('click', accordionBtnToggler);
-      accordionButton.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter' || e.key === 'Space') {
-          accordionBtnToggler();
-        }
-      });
-
-      function accordionBtnToggler() {
-        if (accordionButton.classList.contains('_active')) {
-          accordionButton.classList.remove('_active');
-
-          accordionButton.ariaExpanded = 'false';
-          content.ariaHidden = true;
-
-          content.style.maxHeight = null;
-          return;
-        }
-
-        contentHeight = content.scrollHeight;
-        accordionButton.classList.add('_active');
-
-        accordionButton.ariaExpanded = 'true';
-        content.ariaHidden = false;
-        content.style.maxHeight = `${contentHeight}px`;
-      }
-    });
+  activeButtons.forEach((activeButton) => {
+    activeButton.style.maxHeight = `${activeButton.scrollHeight}px`;
   });
-}
+};
 
-export function accordionKill() {
-  let accordionInstances = document.querySelectorAll(accordionInstance);
-
+export function accordion() {
   accordionInstances.forEach((accordionInstance, i) => {
     let instanceNumber;
     let accordionInstanceName = '';
@@ -89,58 +21,35 @@ export function accordionKill() {
     } else instanceNumber = '';
 
     const contentIdPrefix = accordionInstanceName + instanceNumber;
-    const accordionButtons =
-      accordionInstance.querySelectorAll(accordionButton);
+    const accordionButtons = accordionInstance.querySelectorAll(
+      '[data-accordion-btn]'
+    );
 
     accordionButtons.forEach((accordionButton, i) => {
-      const content = accordionButton.nextElementSibling;
-      let contentHeight;
+      const content = accordionButton.parentNode.querySelector(
+        '[data-accordion-content]'
+      );
+
       accordionButton.ariaExpanded = 'false';
       content.ariaHidden = true;
       const contentId = `${contentIdPrefix}collapse-${i + 1}`;
       content.id = contentId;
       accordionButton.setAttribute('aria-controls', contentId);
+      accordionButton.addEventListener('click', accordionToggler);
 
-      const mediaQueryOrientation = window.matchMedia(
-        '(orientation: landscape)'
-      );
-      mediaQueryOrientation.addEventListener('change', changeHandler);
-
-      function changeHandler(e) {
-        if (accordionButton.classList.contains('_active'))
-          if (e.matches) {
-            contentHeight = content.scrollHeight;
-            content.style.maxHeight = `${contentHeight}px`;
-          } else {
-            contentHeight = content.scrollHeight;
-            content.style.maxHeight = `${contentHeight}px`;
-          }
-      }
-
-      accordionButton.addEventListener('click', accordionBtnToggler);
-      accordionButton.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter' || e.key === 'Space') {
-          accordionBtnToggler();
-        }
-      });
-
-      function accordionBtnToggler() {
-        if (accordionButton.classList.contains('_active')) {
-          accordionButton.classList.remove('_active');
-
+      function accordionToggler() {
+        if (accordionButton.classList.contains('active')) {
+          accordionButton.classList.remove('active');
           accordionButton.ariaExpanded = 'false';
           content.ariaHidden = true;
-
           content.style.maxHeight = null;
           return;
         }
 
-        contentHeight = content.scrollHeight;
-        accordionButton.classList.add('_active');
-
+        accordionButton.classList.add('active');
         accordionButton.ariaExpanded = 'true';
         content.ariaHidden = false;
-        content.style.maxHeight = `${contentHeight}px`;
+        content.style.maxHeight = `${content.scrollHeight}px`;
       }
     });
   });

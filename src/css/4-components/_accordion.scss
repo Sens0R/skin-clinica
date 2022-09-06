@@ -46,7 +46,7 @@
     transition: rotate 600ms ease;
   }
 
-  &__button._active {
+  &__button.active {
     .accordion__icon {
       rotate: 180deg;
     }

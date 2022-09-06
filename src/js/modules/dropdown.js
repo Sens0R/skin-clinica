@@ -2,7 +2,16 @@ let dropdowns;
 let desktop;
 let mobile;
 const dropdownsMedia = window.matchMedia(`(max-width: 992px)`);
-const dropdownOrientation = window.matchMedia('(orientation: portrait)');
+
+window.matchMedia('(orientation: landscape)').onchange = () => {
+  const openDropdownContent = document.querySelectorAll(
+    '[data-dropdown-content][aria-hidden="false"'
+  );
+
+  openDropdownContent.forEach((openContent) => {
+    openContent.style.maxHeight = `${openContent.scrollHeight}px`;
+  });
+};
 
 export function dropdown() {
   if (dropdownsMedia.matches) {
@@ -27,16 +36,6 @@ export function dropdown() {
     }
 
     renderDropdowns();
-  };
-
-  dropdownOrientation.onchange = () => {
-    const openDropdownContent = document.querySelectorAll(
-      '[data-dropdown-content][aria-hidden="false"'
-    );
-
-    openDropdownContent.forEach((openContent) => {
-      openContent.style.maxHeight = `${openContent.scrollHeight}px`;
-    });
   };
 
   renderDropdowns();
@@ -95,8 +94,6 @@ function renderDropdowns() {
       return;
     }
 
-    
-
     const dropdownContentFirstFocusableEl = dropdownContent.querySelectorAll(
       'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     )[0];
@@ -106,11 +103,11 @@ function renderDropdowns() {
     dropdownContent.ariaHidden = true;
     dropdownContent.ariaLabel = 'submenu';
     dropdownContent.style.maxHeight = null;
-    
+
     closeDropdown();
 
     dropdownButton.addEventListener('click', toggleDropdown);
-    dropdownButton.addEventListener('keyup', keyboardNavigation);
+    dropdownButton.addEventListener('keyup', firstElementFocus);
 
     if (desktop) {
       if (!dropdown.dataset.dropdown) {
@@ -138,6 +135,7 @@ function renderDropdowns() {
             document.removeEventListener('click', clickOutside);
           });
       }
+
       dropdown.classList.add('active');
       dropdownButton.ariaExpanded = true;
       dropdownContent.ariaHidden = false;
@@ -163,9 +161,8 @@ function renderDropdowns() {
       }
     }
 
-    function keyboardNavigation(e) {
+    function firstElementFocus(e) {
       if (e.key === 'Enter' || e.keyCode === 32) {
-        openDropdown();
         const contentHasTransition = getComputedStyle(
           dropdown.querySelector('[data-dropdown-content]')
         ).getPropertyValue('transition');
