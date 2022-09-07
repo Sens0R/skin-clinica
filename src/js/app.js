@@ -19,6 +19,7 @@ runNavigation({
   focus: '.nav-search-input',
   stopTransition: true,
   breakpoint: md,
+  backdrop: '_active'
 });
 
 dropdown(lg);

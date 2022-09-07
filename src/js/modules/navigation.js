@@ -21,7 +21,6 @@ export function runNavigation(userOptions) {
   const content = document.querySelector('[data-nav-content]');
   let options = defaultOptions;
   let mainElement;
-  let backdropEl;
 
   userOptions && 'mainElement' in userOptions
     ? (mainElement = document.querySelector(userOptions.mainElement))
@@ -84,7 +83,7 @@ export function runNavigation(userOptions) {
 
     if (backdrop) addBackdrop(backdrop);
 
-    if (closeOnBackdropClick) backdropEl.addEventListener('click', close);
+    if (closeOnBackdropClick) backdrop.addEventListener('click', close);
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
 
@@ -123,12 +122,12 @@ export function runNavigation(userOptions) {
     const createBackdrop = document.createElement('div');
     createBackdrop.classList.add('nav-backdrop');
     document.querySelector('.page-wrapper').after(createBackdrop);
-    backdropEl = document.querySelector('.nav-backdrop');
-    backdropEl.classList.add(backdropClass);
+    backdrop = document.querySelector('.nav-backdrop');
+    backdrop.classList.add(backdropClass);
   }
 
   function removeBackdrop() {
-    if (backdropEl) backdropEl.remove();
+    backdrop.remove();
   }
 
   /* function removeLater() {
