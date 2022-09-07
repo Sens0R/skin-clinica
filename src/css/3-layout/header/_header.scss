@@ -136,7 +136,7 @@
     opacity: 0;
     visibility: hidden;
     background: $color-white;
-    transition: all 0.5s ease-in-out;
+    //transition: all 0.5s ease-in-out;
     @include z-index(nav-search);
 
     &._active {
