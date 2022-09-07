@@ -15,7 +15,7 @@
       <!-- ====================   SEARCH   ==================== -->
 
       <div class="col gx-0">
-        <div class="container-fluid mobile-search">
+        <div data-search class="container-fluid mobile-search">
           <div class="nav-search">
             <div class="nav-search-input-wrapper">
               <input
@@ -23,7 +23,7 @@
                 class="nav-search-input text-sm"
                 placeholder="Search"
               />
-              <div class="nav-search-buttons">
+              <div  class="nav-search-buttons">
                 <button class="nav-search-buttons__search" aria-label="Search">
                   <svg class="nav-search-buttons__search-icon hvr-icon">
                     <use href="images/icons/sprite-mono.svg#search"></use>
@@ -31,6 +31,7 @@
                 </button>
 
                 <button
+                  data-search-btn="close"
                   class="d-lg-none nav-search-buttons__close"
                   type="button"
                   aria-label="Close search"
@@ -52,6 +53,7 @@
       <div class="col-auto d-flex tools">
         <div class="nav-tools">
           <button
+            data-search-btn="open"
             class="rounded-icon d-lg-none nav-search-buttons__open"
             type="button"
             aria-label="Search"
@@ -87,6 +89,7 @@
       <!-- ====================   NAV-TOGGLER   ==================== -->
       <div class="nav-toggler-group col-auto">
         <button
+          data-nav-btn="open"
           class="nav-toggler nav-toggler--open _active"
           type="button"
           aria-label="Open navigation menu"
@@ -97,6 +100,7 @@
           <div class="nav-toggler__text">menu</div>
         </button>
         <button
+          data-nav-btn="close"
           class="nav-toggler nav-toggler--close"
           type="button"
           aria-label="Close navigation menu"
@@ -110,13 +114,11 @@
 
     <!-- ====================   NAVIGATION   ==================== -->
 
-    <nav role="navigation" aria-label="main-menu" class="navigation container-fluid px-lg-0">
-      <div class="navigation-content-wrapper">
-      <div class="nav-body">@@include('nav-menu.html',{})</div>
-      <div class="nav-mobile-socials">
-        @@include('social.html',{})
-      </div>
-<!--          <p style="background: red">
+    <nav data-nav role="navigation" aria-label="main-menu" class="navigation">
+      <div data-nav-content>
+        <div class="nav-body">@@include('nav-menu.html',{})</div>
+        <div class="nav-mobile-socials">@@include('social.html',{})</div>
+        <!--          <p style="background: red">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsum
       quos laborum assumenda harum fugit inventore, error dicta sapiente
       iste. Necessitatibus fugiat recusandae, vel nesciunt perferendis sunt,
@@ -159,7 +161,7 @@
       praesentium porro cupiditate? Laudantium.
       <span style="color: white">END</span>
     </p>  -->
-  </div>
+      </div>
     </nav>
   </div>
 </div>

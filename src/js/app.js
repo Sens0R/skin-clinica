@@ -1,21 +1,21 @@
 import './modules/swiper.js';
 import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { accordion } from './modules/accordion.js';
-import { activePageHighlight } from './modules/activePageHighlight.js';
+import { activePageHighlight } from './modules/active-page-highlight.js';
 import { dropdown } from './modules/dropdown.js';
 import { runNavigation } from './modules/navigation.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
 fixedHeader(lg);
-runNavigation();
+runNavigation({aboveHeader: '[data-above-header]'});
 
-runNavigation({
-  mainClass: '.mobile-search',
-  openBtn: '.nav-search-buttons__open',
-  closeBtn: '.nav-search-buttons__close',
+ runNavigation({
+  mainClass: '[data-search]',
+  openBtn: '[data-search-btn="open"]',
+  closeBtn: '[data-search-btn="close"]',
   focusElement: '.nav-search-input',
-});
+}); 
 
 dropdown(lg);
 accordion();

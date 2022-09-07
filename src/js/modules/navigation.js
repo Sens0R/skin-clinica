@@ -1,13 +1,11 @@
-import { headerHeight } from './headers.js';
 import { lg } from './breakpoints.js';
-import debounce from 'lodash/debounce.js';
 
 // Default options
 const defaultOptions = {
-  mainClass: '.navigation',
-  openBtn: '.nav-toggler--open',
-  closeBtn: '.nav-toggler--close',
-  aboveHeaderContent: '.above-header-content-wrapper',
+  mainClass: '[data-nav]',
+  openBtn: '[data-nav-btn="open"]',
+  closeBtn: '[data-nav-btn="close"]',
+  aboveHeader: false,
   breakpoint: lg,
   backdrop: false,
   smartBackdrop: false,
@@ -16,20 +14,15 @@ const defaultOptions = {
   smartFullscreen: false,
   scrollBlock: false,
   focusElement: false,
-  //copySize: false,
 };
 
 /*  ---------------------- RUN  -------------------------- */
 
 export function runNavigation(userOptions) {
-  let htmlDataOptions;
   let options = defaultOptions;
   let mainElement;
-  let transitionDuration;
-  //let copySizeEl;
   let backdropEl;
-  let aboveHeaderContentVisibleHeight = 0;
-  let aboveHeaderContentWrapper;
+  let aboveHeaderWrapper;
   let contentHeight;
   let availableViewportHeight;
   let visibleContent;
@@ -38,26 +31,12 @@ export function runNavigation(userOptions) {
     ? (mainElement = document.querySelector(userOptions.mainClass))
     : (mainElement = document.querySelector(defaultOptions.mainClass));
 
-  //mainElement.classList.add('stop-transition');
-
-  const mainElementDataJSON = mainElement.getAttribute('data-navigation');
-  if (mainElementDataJSON) htmlDataOptions = JSON.parse(mainElementDataJSON);
-
-  if (userOptions && mainElementDataJSON)
-    options = { ...defaultOptions, ...userOptions, ...htmlDataOptions };
-
-  if (userOptions && !mainElementDataJSON)
-    options = { ...defaultOptions, ...userOptions };
-
-  if (!userOptions && mainElementDataJSON)
-    options = { ...defaultOptions, ...htmlDataOptions };
-
-  //console.log(options);
+  if (userOptions) options = { ...defaultOptions, ...userOptions };
 
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 
   let {
-    aboveHeaderContent,
+    aboveHeader,
     openBtn,
     closeBtn,
     breakpoint,
@@ -68,81 +47,33 @@ export function runNavigation(userOptions) {
     alwaysFullscreen,
     scrollBlock,
     focusElement,
-    copySize,
   } = options;
 
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
-  /*  let elementHeight;
-  let elementWidth;
-
-  const copySizeObserver = new ResizeObserver((entries) => {
-    //console.log('OBSERVING ELEMENT SIZE:');
-    entries.forEach((entry) => {
-      elementHeight = entry.borderBoxSize[0].blockSize;
-      elementWidth = entry.borderBoxSize[0].inlineSize;
-      mainElement.style.height = `${elementHeight}px`;
-      mainElement.style.width = `${elementWidth}px`;
-    });
-  }); */
-
-  /*   const content = mainElement.innerHTML;
-  visibleContent =
-    '<div class="navigation-content-wrapper">' + content + '</div>';
-  mainElement.innerHTML = visibleContent;
-  visibleContent = document.querySelector('.navigation-content-wrapper'); */
-  if (aboveHeaderContent)
-    aboveHeaderContentWrapper = document.querySelector(aboveHeaderContent);
-
-  //if (copySize) copySizeEl = document.querySelector(copySize);
-
-  /*  const intersectionObs = new IntersectionObserver((entries) =>
-    entries.forEach((entry) => {
-      aboveHeaderContentVisibleHeight = entry.intersectionRect.height;
-       console.log(
-        'ABOVE HEADER CONTENT VISIBLE HEIGHT: ' +
-          aboveHeaderContentVisibleHeight
-      ); 
-      open();
-      intersectionObs.unobserve(aboveHeaderContentWrapper);
-    })
-  ); */
-
-  /*   const navContentHeightObserver = new ResizeObserver((entries) => {
-    entries.forEach((entry) => {
-      contentHeight = entry.borderBoxSize[0].blockSize;
-      console.log('CONTENT HEIGHT: ' + contentHeight);
-      aboveHeaderContentWrapper
-        ? intersectionObs.observe(aboveHeaderContentWrapper)
-        : open();
-    });
-  }); */
+  if (aboveHeader) {
+    aboveHeaderWrapper = document.querySelector(aboveHeader);
+    visibleContent = document.querySelector('[data-nav-content]');
+  }
 
   /* ====================   OPEN NAVIGATION   ==================== */
-  visibleContent = document.querySelector('.navigation-content-wrapper');
+
   const headerHeight = document.querySelector('.header').scrollHeight;
 
   openBtnEl.addEventListener('click', () => {
     //mainElement.classList.remove('stop-transition');
+
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
-   
-    visibleContent.style.maxHeight = `${
-      window.innerHeight -
-      headerHeight -
-      aboveHeaderContentWrapper.scrollHeight
-    }px`;
-    
-    //visibleContent.style.overflowY = 'auto'
-    document.body.style.overflow = 'hidden';
-    //if (copySize) copySizeObserver.observe(copySizeEl);
 
-    //aboveHeaderContentWrapper.style.maxHeight = '0px';
-    if (!copySize) {
-      //navContentHeightObserver.observe(visibleContent);
-      window.visualViewport.addEventListener('resize', resizeHandler);
+    document.body.style.overflow = 'hidden'; // fix later
+
+    if (aboveHeader) {
+      visibleContent.style.maxHeight = `${
+        window.innerHeight - headerHeight - aboveHeaderWrapper.scrollHeight
+      }px`;
     }
 
     if (backdrop) addBackdrop(backdrop);
@@ -151,14 +82,16 @@ export function runNavigation(userOptions) {
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
 
-    if (focusElement) document.querySelector(focusElement).focus();
-    mainElement.addEventListener(
-      'transitionend',
-      () => {
-        if (focusElement) document.querySelector(focusElement).focus();
-      },
-      { once: true }
-    );
+    if (focusElement) {
+      document.querySelector(focusElement).focus();
+      mainElement.addEventListener(
+        'transitionend',
+        () => {
+          if (focusElement) document.querySelector(focusElement).focus();
+        },
+        { once: true }
+      );
+    }
   });
 
   /* ====================   CLOSE NAVIGATION   ==================== */
@@ -175,7 +108,7 @@ export function runNavigation(userOptions) {
         setTimeout(() => {
           document.body.style.overflow = null;
           mainElement.style.height = null;
-          window.visualViewport.removeEventListener('resize', resizeHandler);
+
           //mainElement.classList.add('stop-transition');
           //console.log('CLOSED');
         }, 250);
@@ -186,11 +119,6 @@ export function runNavigation(userOptions) {
   /* ====================   HELPERS   ==================== */
 
   function open() {
-    availableViewportHeight =
-      window.innerHeight -
-      aboveHeaderContentVisibleHeight -
-      parseInt(headerHeight, 10);
-
     if (alwaysFullscreen) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
@@ -236,7 +164,6 @@ export function runNavigation(userOptions) {
   }
 
   function close() {
-   
     mainElement.addEventListener(
       'transitionend',
       () => {
@@ -251,19 +178,7 @@ export function runNavigation(userOptions) {
     openBtnEl.classList.add('_active');
     document.body.style.overflow = null;
 
-    if (copySize) {
-      //copySizeObserver.unobserve(copySizeEl);
-      //mainElement.style.width = null;
-    }
-
-    /*    if (!copySize) {
-      navContentHeightObserver.unobserve(visibleContent);
-      window.visualViewport.removeEventListener('resize', resizeHandler);
-    }
- */
     if (backdrop || smartBackdrop) removeBackdrop();
-
-    if (!transitionDuration) return (mainElement.style.height = null);
 
     mainElement.style.height = null;
   }
@@ -279,12 +194,4 @@ export function runNavigation(userOptions) {
   const removeBackdrop = () => {
     if (backdropEl) backdropEl.remove();
   };
-
-  let prevHeight = window.innerHeight;
-  const resizeHandler = debounce((ev) => {
-    if (window.innerHeight !== prevHeight) {
-      prevHeight = window.innerHeight;
-      open();
-    }
-  }, 250);
 }

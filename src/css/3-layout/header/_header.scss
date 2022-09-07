@@ -1,7 +1,7 @@
 @import 'nav-menu';
 
-.above-header-content-wrapper {
-  @include z-index(above-header-content-wrapper);
+[above-header] {
+  @include z-index(above-header);
 }
 
 .notification {

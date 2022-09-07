@@ -13993,7 +13993,7 @@ input {
   width: 100%;
 }
 
-.nav-mobile-socials > .social-icons__item {
+.nav-mobile-socials .social-icons__item {
   padding: 0.75rem 0;
 }
 
@@ -14126,18 +14126,22 @@ input {
 }
 /* ====================   NAVIGATION MEDIA   ==================== */
 @media (max-width: 991.98px) {
-  .navigation-content-wrapper {
+  [data-nav-content] {
     max-height: 0;
     overflow-y: auto;
   }
   .navigation {
+    will-change: auto;
     translate: 100%;
     visibility: hidden;
     width: 100%;
     height: 0;
-    -webkit-transition: all 0.6s ease-in-out, opacity 1s ease-in-out;
-    -o-transition: all 0.6s ease-in-out, opacity 1s ease-in-out;
-    transition: all 0.6s ease-in-out, opacity 1s ease-in-out;
+    -webkit-transition: all 0.3s, translate 0.5s, opacity 1s;
+    -o-transition: all 0.3s, translate 0.5s, opacity 1s;
+    transition: all 0.3s, translate 0.5s, opacity 1s;
+    -webkit-transition-timing-function: ease-in-out;
+         -o-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
     overflow: hidden;
     opacity: 0;
     background: hsl(0deg, 0%, 100%);
@@ -14153,6 +14157,9 @@ input {
   }
   .nav-menu {
     font-size: 1rem;
+  }
+  .nav-menu__link {
+    padding-left: 0;
   }
 }
 @media (min-width: 992px) {
@@ -14203,7 +14210,7 @@ input {
             justify-content: flex-end;
   }
 }
-.above-header-content-wrapper {
+[above-header] {
   z-index: 25;
 }
 
@@ -14659,20 +14666,6 @@ input {
   height: 5rem;
 }
 
-.social-icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-.social-icons__item:not(:last-child) {
-  margin-right: 0.7rem;
-}
-
 .footer-nav .row {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -15067,6 +15060,20 @@ input {
   .rounded-icon:hover .icon-rounded {
     fill: hsl(0deg, 0%, 100%);
   }
+}
+
+.social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.social-icons__item:not(:last-child) {
+  margin-right: 0.625rem;
 }
 
 .nav-backdrop {

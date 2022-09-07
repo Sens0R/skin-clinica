@@ -79,15 +79,7 @@
   @include box(5rem, 5rem);
 }
 
-.social-icons {
-  @include flex($align-items: center, $flex-wrap: wrap);
 
-  &__item {
-    &:not(:last-child) {
-      margin-right: 0.7rem;
-    }
-  }
-}
 
 .footer-nav {
   .row {

@@ -34,3 +34,13 @@
     }
   }
 }
+
+.social-icons {
+  @include flex($align-items: center, $flex-wrap: wrap);
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 0.625rem;
+    }
+  }
+}
