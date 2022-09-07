@@ -122,6 +122,10 @@ export function runNavigation(userOptions) {
   }
 
   function close() {
+    if (notification) {
+      notificationBtn.click();
+    }
+    
     mainElement.addEventListener(
       'transitionend',
       () => {
