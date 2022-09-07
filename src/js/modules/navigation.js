@@ -1,12 +1,9 @@
-import { lg } from './breakpoints.js';
-
-// Default options
 const defaultOptions = {
   mainElement: '[data-nav]',
   openBtn: '[data-nav-btn="open"]',
   closeBtn: '[data-nav-btn="close"]',
   notification: false,
-  breakpoint: lg,
+  breakpoint: 992,
   backdrop: false,
   smartBackdrop: false,
   closeOnBackdropClick: false,
@@ -20,20 +17,17 @@ const defaultOptions = {
 /*  ---------------------- RUN  -------------------------- */
 
 export function runNavigation(userOptions) {
+  const headerHeight = document.querySelector('header').scrollHeight;
+  const content = document.querySelector('[data-nav-content]');
   let options = defaultOptions;
   let mainElement;
   let backdropEl;
-  let notificationEl;
-  let visibleContent;
-  let notificationBtn;
 
   userOptions && 'mainElement' in userOptions
     ? (mainElement = document.querySelector(userOptions.mainElement))
     : (mainElement = document.querySelector(defaultOptions.mainElement));
 
   if (userOptions) options = { ...defaultOptions, ...userOptions };
-
-  if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 
   // destructor
   let {
@@ -48,24 +42,27 @@ export function runNavigation(userOptions) {
     alwaysFullscreen,
     scrollBlock,
     focus,
-    stopTransition
+    stopTransition,
   } = options;
 
-  const openBtnEl = document.querySelector(openBtn);
-  const closeBtnEl = document.querySelector(closeBtn);
-  const headerHeight = document.querySelector('.header').scrollHeight;
+  openBtn = document.querySelector(openBtn);
+  closeBtn = document.querySelector(closeBtn);
 
   if (notification) {
-    notificationEl = document.querySelector(notification);
-    visibleContent = document.querySelector('[data-nav-content]');
-    notificationBtn = document.querySelector('[data-close-notification-btn]');
+    notification = document.querySelector(notification);
   }
 
   if (stopTransition) mainElement.classList.add('stop-transition');
 
-  openBtnEl.addEventListener('click', open);
-  closeBtnEl.addEventListener('click', close);
+  openBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
 
+  // adjust height on orientation change
+  window.matchMedia('(orientation: landscape)').onchange = () => {
+    if (mainElement.classList.contains('active')) calcContentHeight();
+  };
+
+  // close on resize
   if (breakpoint) {
     window.matchMedia(`(max-width: ${breakpoint}px)`).onchange = (e) => {
       if (mainElement.classList.contains('active') && !e.matches) close();
@@ -75,17 +72,15 @@ export function runNavigation(userOptions) {
   /* ====================   FUNCTIONS   ==================== */
 
   function open() {
+    mainElement.classList.add('active');
+    closeBtn.classList.add('active');
+    openBtn.classList.remove('active');
+    document.body.style.overflow = 'hidden';
+    calcContentHeight();
+
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
-    mainElement.classList.add('active');
-    closeBtnEl.classList.add('active');
-    openBtnEl.classList.remove('active');
-    document.body.style.overflow = 'hidden';
-
-    if (notification) {
-      notificationBtn.click();
-      visibleContent.style.maxHeight = `${window.innerHeight - headerHeight}px`;
-    }
+    if (notification) notification.click();
 
     if (backdrop) addBackdrop(backdrop);
 
@@ -103,26 +98,25 @@ export function runNavigation(userOptions) {
   }
 
   function close() {
-    if (notification) {
-      notificationBtn.click();
-    }
+    mainElement.classList.remove('active');
+    closeBtn.classList.remove('active');
+    openBtn.classList.add('active');
+    document.body.style.overflow = null;
+    mainElement.style.height = null;
+
+    if (backdrop || smartBackdrop) removeBackdrop();
 
     if (stopTransition) {
       mainElement.addEventListener(
         'transitionend',
-        () => {
-          mainElement.classList.add('stop-transition');
-        },
+        () => mainElement.classList.add('stop-transition'),
         { once: true }
       );
     }
+  }
 
-    mainElement.classList.remove('active');
-    closeBtnEl.classList.remove('active');
-    openBtnEl.classList.add('active');
-    document.body.style.overflow = null;
-    mainElement.style.height = null;
-    if (backdrop || smartBackdrop) removeBackdrop();
+  function calcContentHeight() {
+    content.style.maxHeight = `${window.innerHeight - headerHeight}px`;
   }
 
   function addBackdrop(backdropClass) {
@@ -137,7 +131,6 @@ export function runNavigation(userOptions) {
     if (backdropEl) backdropEl.remove();
   }
 
-  
   /* function removeLater() {
      (alwaysFullscreen) {
       mainElement.style.height = availableViewportHeight + 'px';

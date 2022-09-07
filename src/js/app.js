@@ -10,7 +10,7 @@ import { md, lg, sm } from './modules/breakpoints.js';
 activePageHighlight();
 notification();
 fixedHeader(lg);
-runNavigation({ notification: '[data-notification]' });
+runNavigation({ notification: '[data-close-notification-btn]' });
 
 runNavigation({
   mainElement: '[data-search]',
@@ -18,6 +18,7 @@ runNavigation({
   closeBtn: '[data-search-btn="close"]',
   focus: '.nav-search-input',
   stopTransition: true,
+  breakpoint: md,
 });
 
 dropdown(lg);
