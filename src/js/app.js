@@ -8,14 +8,13 @@ import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
 fixedHeader(lg);
-runNavigation({ smartFullscreen: true });
+runNavigation();
 
 runNavigation({
   mainClass: '.mobile-search',
   openBtn: '.nav-search-buttons__open',
   closeBtn: '.nav-search-buttons__close',
   focusElement: '.nav-search-input',
-  copySize: '.header',
 });
 
 dropdown(lg);

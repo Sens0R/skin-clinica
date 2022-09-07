@@ -14126,22 +14126,28 @@ input {
 }
 /* ====================   NAVIGATION MEDIA   ==================== */
 @media (max-width: 991.98px) {
-  .navigation {
-    left: 0;
-    position: absolute;
-    translate: 100%;
-    width: 100%;
-    visibility: hidden;
+  .navigation-content-wrapper {
+    max-height: 0;
     overflow-y: auto;
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+  }
+  .navigation {
+    translate: 100%;
+    visibility: hidden;
+    width: 100%;
+    height: 0;
+    -webkit-transition: all 0.6s ease-in-out, opacity 1s ease-in-out;
+    -o-transition: all 0.6s ease-in-out, opacity 1s ease-in-out;
+    transition: all 0.6s ease-in-out, opacity 1s ease-in-out;
+    overflow: hidden;
+    opacity: 0;
     background: hsl(0deg, 0%, 100%);
   }
   .navigation._active {
+    height: 100vh;
     translate: none;
-    z-index: 100;
     visibility: visible;
+    z-index: 100;
+    opacity: 1;
     -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
             box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   }

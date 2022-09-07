@@ -1,4 +1,3 @@
-import { addAnimation } from './functions.js';
 import { headerHeight } from './headers.js';
 import { lg } from './breakpoints.js';
 import debounce from 'lodash/debounce.js';
@@ -17,10 +16,7 @@ const defaultOptions = {
   smartFullscreen: false,
   scrollBlock: false,
   focusElement: false,
-  copySize: false,
-  animationOpen: false,
-  animationClose: false,
-  animationSpeed: false,
+  //copySize: false,
 };
 
 /*  ---------------------- RUN  -------------------------- */
@@ -30,7 +26,7 @@ export function runNavigation(userOptions) {
   let options = defaultOptions;
   let mainElement;
   let transitionDuration;
-  let copySizeEl;
+  //let copySizeEl;
   let backdropEl;
   let aboveHeaderContentVisibleHeight = 0;
   let aboveHeaderContentWrapper;
@@ -42,14 +38,7 @@ export function runNavigation(userOptions) {
     ? (mainElement = document.querySelector(userOptions.mainClass))
     : (mainElement = document.querySelector(defaultOptions.mainClass));
 
-  mainElement.classList.add('stop-transition');
-  let transitionDurationComputed = getComputedStyle(
-    mainElement
-  ).getPropertyValue('transition-duration');
-
-  if (transitionDurationComputed)
-    transitionDuration =
-      Number(transitionDurationComputed.replace('s', '')) * 1000;
+  //mainElement.classList.add('stop-transition');
 
   const mainElementDataJSON = mainElement.getAttribute('data-navigation');
   if (mainElementDataJSON) htmlDataOptions = JSON.parse(mainElementDataJSON);
@@ -68,7 +57,6 @@ export function runNavigation(userOptions) {
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 
   let {
-    mainClass,
     aboveHeaderContent,
     openBtn,
     closeBtn,
@@ -80,28 +68,15 @@ export function runNavigation(userOptions) {
     alwaysFullscreen,
     scrollBlock,
     focusElement,
-    animationOpen,
-    animationClose,
-    animationSpeed,
     copySize,
   } = options;
-
-  if (!copySize) {
-    const content = mainElement.innerHTML;
-    visibleContent = '<div class="navigation-content">' + content + '</div>';
-    mainElement.innerHTML = visibleContent;
-    visibleContent = document.querySelector('.navigation-content');
-    if (aboveHeaderContent)
-      aboveHeaderContentWrapper = document.querySelector(aboveHeaderContent);
-  }
 
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
-  if (copySize) copySizeEl = document.querySelector(copySize);
-
-  let elementHeight;
+  /*  let elementHeight;
   let elementWidth;
+
   const copySizeObserver = new ResizeObserver((entries) => {
     //console.log('OBSERVING ELEMENT SIZE:');
     entries.forEach((entry) => {
@@ -110,42 +85,63 @@ export function runNavigation(userOptions) {
       mainElement.style.height = `${elementHeight}px`;
       mainElement.style.width = `${elementWidth}px`;
     });
-  });
+  }); */
 
-  const intersectionObs = new IntersectionObserver((entries) =>
+  /*   const content = mainElement.innerHTML;
+  visibleContent =
+    '<div class="navigation-content-wrapper">' + content + '</div>';
+  mainElement.innerHTML = visibleContent;
+  visibleContent = document.querySelector('.navigation-content-wrapper'); */
+  if (aboveHeaderContent)
+    aboveHeaderContentWrapper = document.querySelector(aboveHeaderContent);
+
+  //if (copySize) copySizeEl = document.querySelector(copySize);
+
+  /*  const intersectionObs = new IntersectionObserver((entries) =>
     entries.forEach((entry) => {
       aboveHeaderContentVisibleHeight = entry.intersectionRect.height;
-      /*   console.log(
+       console.log(
         'ABOVE HEADER CONTENT VISIBLE HEIGHT: ' +
           aboveHeaderContentVisibleHeight
-      ); */
+      ); 
       open();
       intersectionObs.unobserve(aboveHeaderContentWrapper);
     })
-  );
+  ); */
 
-  const navContentHeightObserver = new ResizeObserver((entries) => {
+  /*   const navContentHeightObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
       contentHeight = entry.borderBoxSize[0].blockSize;
-      //console.log('CONTENT HEIGHT: ' + contentHeight);
+      console.log('CONTENT HEIGHT: ' + contentHeight);
       aboveHeaderContentWrapper
         ? intersectionObs.observe(aboveHeaderContentWrapper)
         : open();
     });
-  });
+  }); */
 
   /* ====================   OPEN NAVIGATION   ==================== */
+  visibleContent = document.querySelector('.navigation-content-wrapper');
+  const headerHeight = document.querySelector('.header').scrollHeight;
 
-  openBtnEl.addEventListener('click', function () {
-    mainElement.classList.remove('stop-transition');
+  openBtnEl.addEventListener('click', () => {
+    //mainElement.classList.remove('stop-transition');
     mainElement.classList.add('_active');
     closeBtnEl.classList.add('_active');
     openBtnEl.classList.remove('_active');
+   
+    visibleContent.style.maxHeight = `${
+      window.innerHeight -
+      headerHeight -
+      aboveHeaderContentWrapper.scrollHeight
+    }px`;
+    
+    //visibleContent.style.overflowY = 'auto'
+    document.body.style.overflow = 'hidden';
+    //if (copySize) copySizeObserver.observe(copySizeEl);
 
-    if (copySize) copySizeObserver.observe(copySizeEl);
-
+    //aboveHeaderContentWrapper.style.maxHeight = '0px';
     if (!copySize) {
-      navContentHeightObserver.observe(visibleContent);
+      //navContentHeightObserver.observe(visibleContent);
       window.visualViewport.addEventListener('resize', resizeHandler);
     }
 
@@ -155,17 +151,14 @@ export function runNavigation(userOptions) {
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
 
-    if (focusElement) {
-      transitionDuration
-        ? setTimeout(function () {
-            document.querySelector(focusElement).focus();
-          }, transitionDuration)
-        : setTimeout(function () {
-            document.querySelector(focusElement).focus();
-          }, 100);
-    }
-
-    if (animationOpen) addAnimation(mainClass, animationOpen, animationSpeed);
+    if (focusElement) document.querySelector(focusElement).focus();
+    mainElement.addEventListener(
+      'transitionend',
+      () => {
+        if (focusElement) document.querySelector(focusElement).focus();
+      },
+      { once: true }
+    );
   });
 
   /* ====================   CLOSE NAVIGATION   ==================== */
@@ -183,7 +176,7 @@ export function runNavigation(userOptions) {
           document.body.style.overflow = null;
           mainElement.style.height = null;
           window.visualViewport.removeEventListener('resize', resizeHandler);
-          mainElement.classList.add('stop-transition');
+          //mainElement.classList.add('stop-transition');
           //console.log('CLOSED');
         }, 250);
       }
@@ -243,10 +236,12 @@ export function runNavigation(userOptions) {
   }
 
   function close() {
+   
     mainElement.addEventListener(
       'transitionend',
       () => {
-        mainElement.classList.add('stop-transition');
+        //mainElement.classList.add('stop-transition');
+        if (focusElement) document.querySelector(focusElement).focus();
       },
       { once: true }
     );
@@ -257,15 +252,15 @@ export function runNavigation(userOptions) {
     document.body.style.overflow = null;
 
     if (copySize) {
-      copySizeObserver.unobserve(copySizeEl);
-      mainElement.style.width = null;
+      //copySizeObserver.unobserve(copySizeEl);
+      //mainElement.style.width = null;
     }
 
-    if (!copySize) {
+    /*    if (!copySize) {
       navContentHeightObserver.unobserve(visibleContent);
       window.visualViewport.removeEventListener('resize', resizeHandler);
     }
-
+ */
     if (backdrop || smartBackdrop) removeBackdrop();
 
     if (!transitionDuration) return (mainElement.style.height = null);
