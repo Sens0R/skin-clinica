@@ -80,6 +80,7 @@ export function runNavigation(userOptions) {
     mainElement.classList.add('active');
     closeBtnEl.classList.add('active');
     openBtnEl.classList.remove('active');
+    document.body.style.overflow = 'hidden';
 
     if (notification) {
       notificationBtn.click();
