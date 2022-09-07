@@ -1,4 +1,4 @@
-.nav-toggler._active {
+.nav-toggler.active {
   display: block;
 }
 
@@ -152,13 +152,13 @@
     visibility: hidden;
     width: 100%;
     height: 0;
-    transition: all 0.3s, translate 0.5s, opacity 1s;
+    transition: all 0.4s, translate 0.6s, opacity 1s;
     transition-timing-function: ease-in-out;
     overflow: hidden;
     opacity: 0;
     background: $color-light;
 
-    &._active {
+    &.active {
       height: 100vh;
       translate: none;
       visibility: visible;

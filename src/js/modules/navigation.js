@@ -5,7 +5,7 @@ const defaultOptions = {
   mainClass: '[data-nav]',
   openBtn: '[data-nav-btn="open"]',
   closeBtn: '[data-nav-btn="close"]',
-  aboveHeader: false,
+  notification: false,
   breakpoint: lg,
   backdrop: false,
   smartBackdrop: false,
@@ -22,10 +22,9 @@ export function runNavigation(userOptions) {
   let options = defaultOptions;
   let mainElement;
   let backdropEl;
-  let aboveHeaderWrapper;
-  let contentHeight;
-  let availableViewportHeight;
+  let notificationEl;
   let visibleContent;
+  let notificationBtn;
 
   userOptions && 'mainClass' in userOptions
     ? (mainElement = document.querySelector(userOptions.mainClass))
@@ -36,7 +35,7 @@ export function runNavigation(userOptions) {
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 
   let {
-    aboveHeader,
+    notification,
     openBtn,
     closeBtn,
     breakpoint,
@@ -52,28 +51,56 @@ export function runNavigation(userOptions) {
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
 
-  if (aboveHeader) {
-    aboveHeaderWrapper = document.querySelector(aboveHeader);
+  if (notification) {
+    notificationEl = document.querySelector(notification);
     visibleContent = document.querySelector('[data-nav-content]');
+    notificationBtn = document.querySelector('[data-close-notification-btn]');
   }
 
   /* ====================   OPEN NAVIGATION   ==================== */
 
   const headerHeight = document.querySelector('.header').scrollHeight;
 
-  openBtnEl.addEventListener('click', () => {
+  openBtnEl.addEventListener('click', open);
+
+  /* ====================   OPEN NAVIGATION   ==================== */
+
+  /* ====================   CLOSE NAVIGATION   ==================== */
+
+  closeBtnEl.addEventListener('click', close);
+
+  if (breakpoint) {
+    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
+
+    mql.onchange = (e) => {
+      if (e.matches) return;
+      if (mainElement.classList.contains('active')) {
+        close();
+        setTimeout(() => {
+          document.body.style.overflow = null;
+          mainElement.style.height = null;
+
+          //mainElement.classList.add('stop-transition');
+          //console.log('CLOSED');
+        }, 250);
+      }
+    };
+  }
+
+  /* ====================   FUNCTIONS   ==================== */
+
+  function open() {
     //mainElement.classList.remove('stop-transition');
 
-    mainElement.classList.add('_active');
-    closeBtnEl.classList.add('_active');
-    openBtnEl.classList.remove('_active');
+    mainElement.classList.add('active');
+    closeBtnEl.classList.add('active');
+    openBtnEl.classList.remove('active');
 
     document.body.style.overflow = 'hidden'; // fix later
 
-    if (aboveHeader) {
-      visibleContent.style.maxHeight = `${
-        window.innerHeight - headerHeight - aboveHeaderWrapper.scrollHeight
-      }px`;
+    if (notification) {
+      notificationBtn.click();
+      visibleContent.style.maxHeight = `${window.innerHeight - headerHeight}px`;
     }
 
     if (backdrop) addBackdrop(backdrop);
@@ -92,33 +119,41 @@ export function runNavigation(userOptions) {
         { once: true }
       );
     }
-  });
-
-  /* ====================   CLOSE NAVIGATION   ==================== */
-
-  closeBtnEl.addEventListener('click', close);
-
-  if (breakpoint) {
-    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
-
-    mql.onchange = (e) => {
-      if (e.matches) return;
-      if (mainElement.classList.contains('_active')) {
-        close();
-        setTimeout(() => {
-          document.body.style.overflow = null;
-          mainElement.style.height = null;
-
-          //mainElement.classList.add('stop-transition');
-          //console.log('CLOSED');
-        }, 250);
-      }
-    };
   }
 
-  /* ====================   HELPERS   ==================== */
+  function close() {
+    mainElement.addEventListener(
+      'transitionend',
+      () => {
+        //mainElement.classList.add('stop-transition');
+        if (focusElement) document.querySelector(focusElement).focus();
+      },
+      { once: true }
+    );
 
-  function open() {
+    mainElement.classList.remove('active');
+    closeBtnEl.classList.remove('active');
+    openBtnEl.classList.add('active');
+    document.body.style.overflow = null;
+
+    if (backdrop || smartBackdrop) removeBackdrop();
+
+    mainElement.style.height = null;
+  }
+
+  function addBackdrop(backdropClass) {
+    const createBackdrop = document.createElement('div');
+    createBackdrop.classList.add('nav-backdrop');
+    document.querySelector('.page-wrapper').after(createBackdrop);
+    backdropEl = document.querySelector('.nav-backdrop');
+    backdropEl.classList.add(backdropClass);
+  }
+
+  function removeBackdrop() {
+    if (backdropEl) backdropEl.remove();
+  }
+
+  function removeLater() {
     if (alwaysFullscreen) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
@@ -162,36 +197,4 @@ export function runNavigation(userOptions) {
       'NAVIGATION CONTENT HAS ENOUGH VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
     ); */
   }
-
-  function close() {
-    mainElement.addEventListener(
-      'transitionend',
-      () => {
-        //mainElement.classList.add('stop-transition');
-        if (focusElement) document.querySelector(focusElement).focus();
-      },
-      { once: true }
-    );
-
-    mainElement.classList.remove('_active');
-    closeBtnEl.classList.remove('_active');
-    openBtnEl.classList.add('_active');
-    document.body.style.overflow = null;
-
-    if (backdrop || smartBackdrop) removeBackdrop();
-
-    mainElement.style.height = null;
-  }
-
-  function addBackdrop(backdropClass) {
-    const createBackdrop = document.createElement('div');
-    createBackdrop.classList.add('nav-backdrop');
-    document.querySelector('.page-wrapper').after(createBackdrop);
-    backdropEl = document.querySelector('.nav-backdrop');
-    backdropEl.classList.add(backdropClass);
-  }
-
-  const removeBackdrop = () => {
-    if (backdropEl) backdropEl.remove();
-  };
 }

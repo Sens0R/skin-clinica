@@ -46,7 +46,7 @@ function headroomCreate() {
   headroom.init();
 }
 
-/* ====================   STICKY HEADER ON SCROLL   ==================== */
+/* ====================   STICKY HEADER ==================== */
 
 export function fixedHeader(width) {
   header.before(headerAnchor);

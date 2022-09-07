@@ -35,14 +35,18 @@
 
   <body>
     <div class="page-wrapper">
-      <div data-above-header>
+      <div data-notification>
         <p class="notification">
           Free Shipping On All Us Orders Over $50 + 2 Free Samples 🎁
-          <a href="#" class="notification__link">Shop now</a>
+          <a href="shop.html" class="notification__link">Shop now</a>
         </p>
+        <button data-close-notification-btn>
+          <svg class="close-notification-icon hvr-icon">
+            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+          </svg>
+        </button>
       </div>
-    <header class="header">
-      <div class="header-relative-wrapper">
+      <header class="header"><div class="header-relative-wrapper">
   <div class="container-fluid container-lg">
     <div class="row nav-belt">
       <!-- ====================   LOGO   ==================== -->
@@ -134,7 +138,7 @@
       <div class="nav-toggler-group col-auto">
         <button
           data-nav-btn="open"
-          class="nav-toggler nav-toggler--open _active"
+          class="nav-toggler nav-toggler--open active"
           type="button"
           aria-label="Open navigation menu"
         >
@@ -697,11 +701,9 @@
     </nav>
   </div>
 </div>
-
-    </header>
- 
-   
-  
+</header>
+    
+<!-- ====================   DO NOT USE PRETTIER HERE   ==================== -->
 
 
 
@@ -946,3 +948,5 @@
       </div>
     </body>
   </html>
+
+  <!-- ====================   DO NOT USE PRETTIER HERE   ==================== -->

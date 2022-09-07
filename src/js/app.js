@@ -8,14 +8,14 @@ import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
 fixedHeader(lg);
-runNavigation({aboveHeader: '[data-above-header]'});
+runNavigation({ notification: '[data-notification]' });
 
- runNavigation({
+runNavigation({
   mainClass: '[data-search]',
   openBtn: '[data-search-btn="open"]',
   closeBtn: '[data-search-btn="close"]',
   focusElement: '.nav-search-input',
-}); 
+});
 
 dropdown(lg);
 accordion();
@@ -158,4 +158,20 @@ if (tabsCheck) {
   );
 
   tabsIntersectionObserver.observe(cards);
+}
+
+
+/* ====================   notification   ==================== */
+
+const notification = document.querySelector('[data-notification]');
+if (notification) {
+  const closeNotificationBtn = document.querySelector(
+    '[data-close-notification-btn]'
+  );
+  notification.style.maxHeight = notification.scrollHeight + 'px';
+
+  closeNotificationBtn.addEventListener('click', () => {
+    notification.classList.add('closed');
+    notification.style.maxHeight = 0 + 'px';
+  });
 }
