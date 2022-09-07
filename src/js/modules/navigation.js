@@ -2,7 +2,7 @@ import { lg } from './breakpoints.js';
 
 // Default options
 const defaultOptions = {
-  mainClass: '[data-nav]',
+  mainElement: '[data-nav]',
   openBtn: '[data-nav-btn="open"]',
   closeBtn: '[data-nav-btn="close"]',
   notification: false,
@@ -13,7 +13,8 @@ const defaultOptions = {
   alwaysFullscreen: false,
   smartFullscreen: false,
   scrollBlock: false,
-  focusElement: false,
+  focus: false,
+  stopTransition: false,
 };
 
 /*  ---------------------- RUN  -------------------------- */
@@ -26,14 +27,15 @@ export function runNavigation(userOptions) {
   let visibleContent;
   let notificationBtn;
 
-  userOptions && 'mainClass' in userOptions
-    ? (mainElement = document.querySelector(userOptions.mainClass))
-    : (mainElement = document.querySelector(defaultOptions.mainClass));
+  userOptions && 'mainElement' in userOptions
+    ? (mainElement = document.querySelector(userOptions.mainElement))
+    : (mainElement = document.querySelector(defaultOptions.mainElement));
 
   if (userOptions) options = { ...defaultOptions, ...userOptions };
 
   if ('breakpoint' in options) options.breakpoint = eval(options.breakpoint);
 
+  // destructor
   let {
     notification,
     openBtn,
@@ -45,11 +47,13 @@ export function runNavigation(userOptions) {
     smartFullscreen,
     alwaysFullscreen,
     scrollBlock,
-    focusElement,
+    focus,
+    stopTransition
   } = options;
 
   const openBtnEl = document.querySelector(openBtn);
   const closeBtnEl = document.querySelector(closeBtn);
+  const headerHeight = document.querySelector('.header').scrollHeight;
 
   if (notification) {
     notificationEl = document.querySelector(notification);
@@ -57,46 +61,25 @@ export function runNavigation(userOptions) {
     notificationBtn = document.querySelector('[data-close-notification-btn]');
   }
 
-  /* ====================   OPEN NAVIGATION   ==================== */
-
-  const headerHeight = document.querySelector('.header').scrollHeight;
+  if (stopTransition) mainElement.classList.add('stop-transition');
 
   openBtnEl.addEventListener('click', open);
-
-  /* ====================   OPEN NAVIGATION   ==================== */
-
-  /* ====================   CLOSE NAVIGATION   ==================== */
-
   closeBtnEl.addEventListener('click', close);
 
   if (breakpoint) {
-    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
-
-    mql.onchange = (e) => {
-      if (e.matches) return;
-      if (mainElement.classList.contains('active')) {
-        close();
-        setTimeout(() => {
-          document.body.style.overflow = null;
-          mainElement.style.height = null;
-
-          //mainElement.classList.add('stop-transition');
-          //console.log('CLOSED');
-        }, 250);
-      }
+    window.matchMedia(`(max-width: ${breakpoint}px)`).onchange = (e) => {
+      if (mainElement.classList.contains('active') && !e.matches) close();
     };
   }
 
   /* ====================   FUNCTIONS   ==================== */
 
   function open() {
-    //mainElement.classList.remove('stop-transition');
+    if (stopTransition) mainElement.classList.remove('stop-transition');
 
     mainElement.classList.add('active');
     closeBtnEl.classList.add('active');
     openBtnEl.classList.remove('active');
-
-    document.body.style.overflow = 'hidden'; // fix later
 
     if (notification) {
       notificationBtn.click();
@@ -109,15 +92,12 @@ export function runNavigation(userOptions) {
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
 
-    if (focusElement) {
-      document.querySelector(focusElement).focus();
-      mainElement.addEventListener(
-        'transitionend',
-        () => {
-          if (focusElement) document.querySelector(focusElement).focus();
-        },
-        { once: true }
-      );
+    if (focus) {
+      const focusEl = document.querySelector(focus);
+      focusEl.focus();
+      mainElement.addEventListener('transitionend', () => focusEl.focus(), {
+        once: true,
+      });
     }
   }
 
@@ -125,24 +105,23 @@ export function runNavigation(userOptions) {
     if (notification) {
       notificationBtn.click();
     }
-    
-    mainElement.addEventListener(
-      'transitionend',
-      () => {
-        //mainElement.classList.add('stop-transition');
-        if (focusElement) document.querySelector(focusElement).focus();
-      },
-      { once: true }
-    );
+
+    if (stopTransition) {
+      mainElement.addEventListener(
+        'transitionend',
+        () => {
+          mainElement.classList.add('stop-transition');
+        },
+        { once: true }
+      );
+    }
 
     mainElement.classList.remove('active');
     closeBtnEl.classList.remove('active');
     openBtnEl.classList.add('active');
     document.body.style.overflow = null;
-
-    if (backdrop || smartBackdrop) removeBackdrop();
-
     mainElement.style.height = null;
+    if (backdrop || smartBackdrop) removeBackdrop();
   }
 
   function addBackdrop(backdropClass) {
@@ -157,8 +136,9 @@ export function runNavigation(userOptions) {
     if (backdropEl) backdropEl.remove();
   }
 
-  function removeLater() {
-    if (alwaysFullscreen) {
+  
+  /* function removeLater() {
+     (alwaysFullscreen) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
       //console.log('USING ALL AVAILABLE VIEWPORT HEIGHT, BLOCKING BODY SCROLL');
@@ -168,9 +148,9 @@ export function runNavigation(userOptions) {
     if (availableViewportHeight - contentHeight < 0) {
       mainElement.style.height = availableViewportHeight + 'px';
       document.body.style.overflow = 'hidden';
-      /*   console.log(
+         console.log(
         'CONTENT DOES NOT FIT VIEWPORT => ADDING HEIGHT, MAKING IT SCROLLABLE, BLOCKING BODY SCROLL'
-      ); */
+      ); 
       return;
     }
 
@@ -187,9 +167,9 @@ export function runNavigation(userOptions) {
         backdropEl.addEventListener('click', close);
       }
 
-      /* console.log(
+       console.log(
         'NAVIGATION CONTENT HAS NOT MUCH FREE SPACE FOR SCROLL, ACTIVATING BACKDROP/FULLSCREEN AND LOCKING BODY SCROLL'
-      ); */
+      ); 
 
       return;
     }
@@ -197,8 +177,8 @@ export function runNavigation(userOptions) {
     mainElement.style.height = null;
     if (!scrollBlock) document.body.style.overflow = null;
 
-    /* console.log(
+    console.log(
       'NAVIGATION CONTENT HAS ENOUGH VIEWPORT SPACE, REMOVING HEIGHT, ALLOWING BODY SCROLL'
-    ); */
-  }
+    ); 
+  } */
 }

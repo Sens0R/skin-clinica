@@ -4,17 +4,20 @@ import { accordion } from './modules/accordion.js';
 import { activePageHighlight } from './modules/active-page-highlight.js';
 import { dropdown } from './modules/dropdown.js';
 import { runNavigation } from './modules/navigation.js';
+import { notification } from './modules/notification.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
+notification();
 fixedHeader(lg);
 runNavigation({ notification: '[data-notification]' });
 
 runNavigation({
-  mainClass: '[data-search]',
+  mainElement: '[data-search]',
   openBtn: '[data-search-btn="open"]',
   closeBtn: '[data-search-btn="close"]',
-  focusElement: '.nav-search-input',
+  focus: '.nav-search-input',
+  stopTransition: true,
 });
 
 dropdown(lg);
@@ -160,20 +163,4 @@ if (tabsCheck) {
   tabsIntersectionObserver.observe(cards);
 }
 
-/* ====================   notification   ==================== */
-
-const notification = document.querySelector('[data-notification]');
-if (notification) {
-  const closeNotificationBtn = document.querySelector(
-    '[data-close-notification-btn]'
-  );
-  
-  notification.style.maxHeight = notification.scrollHeight + 'px';
-
-  closeNotificationBtn.addEventListener('click', () => {
-    notification.classList.add('closed');
-    notification.style.maxHeight = 0 + 'px';
-
-  }, {once: true});
-}
 
