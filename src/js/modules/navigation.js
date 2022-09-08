@@ -19,7 +19,7 @@ const defaultOptions = {
 export function runNavigation(userOptions) {
   const headerHeight = document.querySelector('header').scrollHeight;
   const content = document.querySelector('[data-nav-content]');
-  let prevHeight = window.innerHeight;
+
   let options = defaultOptions;
   let mainElement;
 
@@ -77,7 +77,8 @@ export function runNavigation(userOptions) {
     openBtn.classList.remove('active');
     document.body.style.overflow = 'hidden';
     calcContentHeight();
-    document.addEventListener('resize', resizeHandler);
+
+    window.visualViewport.addEventListener('resize', calcContentHeight);
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -104,7 +105,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.add('active');
     document.body.style.overflow = null;
     mainElement.style.height = null;
-    document.removeEventListener('resize', resizeHandler);
+    window.visualViewport.removeEventListener('resize', calcContentHeight);
 
     if (backdrop || smartBackdrop) removeBackdrop();
 
@@ -118,7 +119,7 @@ export function runNavigation(userOptions) {
   }
 
   function calcContentHeight() {
-    content.style.maxHeight = `${prevHeight - headerHeight}px`;
+    content.style.maxHeight = `${window.innerHeight - headerHeight}px`;
   }
 
   function addBackdrop(backdropClass) {
@@ -131,36 +132,6 @@ export function runNavigation(userOptions) {
 
   function removeBackdrop() {
     backdrop.remove();
-  }
-
-  /*   function handleHeightChange (height) {
-    console.log(height);
-  }
-  
-  let prevHeight = 0;
-  
-  const viewportHeightObserver = new ResizeObserver(entries => {
-    for (const entry of entries) {
-      console.log(entry.borderBoxSize)
-      const height = entry.borderBoxSize?.[0].blockSize;
-      if (typeof height === 'number' && height !== prevHeight) {
-        prevHeight = height;
-        handleHeightChange(height);
-        calcContentHeight()
-        window.scrollTo(0, 1)
-      }
-    }
-  });
-  
- 
-  
-  viewportHeightObserver.observe(document.body, { box: 'border-box' }); */
-
-  function resizeHandler() {
-    if (window.innerHeight !== prevHeight) {
-      prevHeight = window.innerHeight;
-      calcContentHeight();
-    }
   }
 
   /* function removeLater() {
