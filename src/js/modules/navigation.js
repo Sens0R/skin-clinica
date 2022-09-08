@@ -77,8 +77,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.remove('active');
     document.body.style.overflow = 'hidden';
     calcContentHeight();
-
-    window.visualViewport.addEventListener('resize', calcContentHeight);
+    window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
