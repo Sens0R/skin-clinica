@@ -80,7 +80,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.remove('active');
     document.body.style.overflow = 'hidden';
     calcContentHeight();
-    //window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
+    window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -107,7 +107,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.add('active');
     document.body.style.overflow = null;
     mainElement.style.height = null;
-    //window.visualViewport.removeEventListener('resize', calcContentHeight);
+    window.visualViewport.removeEventListener('resize', calcContentHeight);
 
     if (backdrop || smartBackdrop) removeBackdrop();
 
@@ -120,9 +120,9 @@ export function runNavigation(userOptions) {
     }
   }
 
-  function calcContentHeight() {
+   function calcContentHeight() {
     content.style.maxHeight = `${window.innerHeight - headerHeight}px`;
-  }
+  } 
 
   function addBackdrop(backdropClass) {
     const createBackdrop = document.createElement('div');
