@@ -19,6 +19,7 @@ const defaultOptions = {
 export function runNavigation(userOptions) {
   const headerHeight = document.querySelector('header').scrollHeight;
   const content = document.querySelector('[data-nav-content]');
+  let prevHeight = window.innerHeight;
   let options = defaultOptions;
   let mainElement;
 
@@ -76,7 +77,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.remove('active');
     document.body.style.overflow = 'hidden';
     calcContentHeight();
-    //document.addEventListener('resize', resizeHandler);
+    document.addEventListener('resize', resizeHandler);
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -103,7 +104,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.add('active');
     document.body.style.overflow = null;
     mainElement.style.height = null;
-    //document.removeEventListener('resize', resizeHandler);
+    document.removeEventListener('resize', resizeHandler);
 
     if (backdrop || smartBackdrop) removeBackdrop();
 
@@ -117,7 +118,7 @@ export function runNavigation(userOptions) {
   }
 
   function calcContentHeight() {
-    content.style.maxHeight = `${window.innerHeight - headerHeight}px`;
+    content.style.maxHeight = `${prevHeight - headerHeight}px`;
   }
 
   function addBackdrop(backdropClass) {
@@ -131,8 +132,8 @@ export function runNavigation(userOptions) {
   function removeBackdrop() {
     backdrop.remove();
   }
-  
-  function handleHeightChange (height) {
+
+  /*   function handleHeightChange (height) {
     console.log(height);
   }
   
@@ -146,21 +147,21 @@ export function runNavigation(userOptions) {
         prevHeight = height;
         handleHeightChange(height);
         calcContentHeight()
+        window.scrollTo(0, 1)
       }
     }
   });
   
-  viewportHeightObserver.observe(document.body, {box: 'border-box'});
-  // function resizeHandler() {
-  //   let prevHeight = window.innerHeight;
-  //   if (
-  //     window.innerHeight !== prevHeight &&
-  //     mainElement.classList.contains('active')
-  //   ) {
-  //     prevHeight = window.innerHeight;
-  //     calcContentHeight();
-  //   }
-  // }
+ 
+  
+  viewportHeightObserver.observe(document.body, { box: 'border-box' }); */
+
+  function resizeHandler() {
+    if (window.innerHeight !== prevHeight) {
+      prevHeight = window.innerHeight;
+      calcContentHeight();
+    }
+  }
 
   /* function removeLater() {
      (alwaysFullscreen) {
