@@ -76,6 +76,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.remove('active');
     document.body.style.overflow = 'hidden';
     calcContentHeight();
+    document.addEventListener('resize', resizeHandler);
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -102,6 +103,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.add('active');
     document.body.style.overflow = null;
     mainElement.style.height = null;
+    document.removeEventListener('resize', resizeHandler);
 
     if (backdrop || smartBackdrop) removeBackdrop();
 
@@ -128,6 +130,17 @@ export function runNavigation(userOptions) {
 
   function removeBackdrop() {
     backdrop.remove();
+  }
+
+  function resizeHandler() {
+    let prevHeight = window.innerHeight;
+    if (
+      window.innerHeight !== prevHeight &&
+      mainElement.classList.contains('active')
+    ) {
+      prevHeight = window.innerHeight;
+      calcContentHeight();
+    }
   }
 
   /* function removeLater() {
