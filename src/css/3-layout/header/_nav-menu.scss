@@ -160,6 +160,7 @@
 
     &.active {
       height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       translate: none;
       visibility: visible;
       @include z-index(nav-menu);

@@ -54,6 +54,9 @@ export function runNavigation(userOptions) {
 
   if (stopTransition) mainElement.classList.add('stop-transition');
 
+  // add content to default options
+  // add error check here for missing elements - mainElement, openBtn, closeBtn, notification, content
+
   openBtn.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
 
@@ -77,7 +80,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.remove('active');
     document.body.style.overflow = 'hidden';
     calcContentHeight();
-    window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
+    //window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -104,7 +107,7 @@ export function runNavigation(userOptions) {
     openBtn.classList.add('active');
     document.body.style.overflow = null;
     mainElement.style.height = null;
-    window.visualViewport.removeEventListener('resize', calcContentHeight);
+    //window.visualViewport.removeEventListener('resize', calcContentHeight);
 
     if (backdrop || smartBackdrop) removeBackdrop();
 

@@ -19,7 +19,7 @@ runNavigation({
   focus: '.nav-search-input',
   stopTransition: true,
   breakpoint: md,
-  backdrop: '_active'
+  backdrop: '_active',
 });
 
 dropdown(lg);
@@ -165,4 +165,10 @@ if (tabsCheck) {
   tabsIntersectionObserver.observe(cards);
 }
 
+['DOMContentLoaded', 'resize'].forEach((event) => {
+  window.addEventListener(event, (_) => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+});
 
