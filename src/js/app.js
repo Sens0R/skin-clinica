@@ -9,7 +9,9 @@ import { notification } from './modules/notification.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
+
 notification();
+
 fixedHeader(lg);
 //search()
 

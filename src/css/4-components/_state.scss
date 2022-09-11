@@ -35,11 +35,6 @@
   }
 }
 
-.nav-search-input:focus-visible {
-  outline-width: 1px;
-  outline-color: $color-secondary;
-}
-
 .nav-search-buttons__search {
   &:focus-visible {
     outline-style: none;

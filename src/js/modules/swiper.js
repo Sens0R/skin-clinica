@@ -10,6 +10,7 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
 
   autoplay: {
     delay: 4000,
+    pauseOnMouseEnter: true
   },
 
   // Navigation arrows
@@ -64,6 +65,7 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
 
   autoplay: {
     delay: 4000,
+    pauseOnMouseEnter: true
   },
 
   // If we need pagination
@@ -72,14 +74,9 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
     clickable: true,
   },
 
-  // Default parameters
-
   // Responsive breakpoints
   breakpoints: {
-    // when window width is >=  575.98px
-
-    // when window width is >= 767.98px
-    1199.98: {
+     1199.98: {
       speed: 1000,
     },
   },

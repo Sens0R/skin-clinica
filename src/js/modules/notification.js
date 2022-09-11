@@ -4,14 +4,20 @@ export function notification() {
     const closeNotificationBtn = document.querySelector(
       '[data-close-notification-btn]'
     );
-    
+
     notification.style.maxHeight = notification.scrollHeight + 'px';
+
+    closeNotificationBtn.ariaLabel = 'Close notification';
+    closeNotificationBtn.addEventListener(
+      'click',
+      () => {
+        notification.classList.add('closed');
+        notification.style.maxHeight = 0 + 'px';
+        sessionStorage.setItem('notification', 'closed');
+      },
+      { once: true }
+    );
     
-    closeNotificationBtn.ariaLabel = 'Close notification'
-    closeNotificationBtn.addEventListener('click', () => {
-      notification.classList.add('closed');
-      notification.style.maxHeight = 0 + 'px';
-  
-    }, {once: true});
+    if (sessionStorage.getItem('notification')) closeNotificationBtn.click();
   }
 }
