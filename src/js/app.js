@@ -3,26 +3,22 @@ import { fixedHeader, headroomHeader } from './modules/headers.js';
 import { accordion } from './modules/accordion.js';
 import { activePageHighlight } from './modules/active-page-highlight.js';
 import { dropdown } from './modules/dropdown.js';
-import { runNavigation } from './modules/navigation.js';
+import { hamburger } from './modules/hamburger.js';
+import { search } from './modules/search.js';
 import { notification } from './modules/notification.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
 notification();
 fixedHeader(lg);
-runNavigation({ notification: '[data-close-notification-btn]' });
+//search()
 
-runNavigation({
-  mainElement: '[data-search]',
-  openBtn: '[data-search-btn="open"]',
-  closeBtn: '[data-search-btn="close"]',
-  focus: '.nav-search-input',
-  stopTransition: true,
-  breakpoint: md,
-  backdrop: '_active',
+hamburger({
+  notification: '[data-close-notification-btn]',
+  adjustViewport: '[data-nav-content]',
 });
 
-dropdown(lg);
+dropdown();
 accordion();
 
 /* ====================   TABS   ==================== */
@@ -164,5 +160,3 @@ if (tabsCheck) {
 
   tabsIntersectionObserver.observe(cards);
 }
-
-

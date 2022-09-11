@@ -94,8 +94,8 @@ function renderDropdowns() {
       return;
     }
 
-    const dropdownContentFirstFocusableEl = dropdownContent.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    const firstFocusableEl = dropdownContent.querySelectorAll(
+      'button, [href]:not(use), input, select, textarea, [tabindex]:not([tabindex="-1"])'
     )[0];
 
     dropdownButton.ariaHasPopup = true;
@@ -107,7 +107,7 @@ function renderDropdowns() {
     closeDropdown();
 
     dropdownButton.addEventListener('click', toggleDropdown);
-    dropdownButton.addEventListener('keyup', firstElementFocus);
+    dropdownButton.addEventListener('keydown', keyboardNavigation);
 
     if (desktop) {
       if (!dropdown.dataset.dropdown) {
@@ -161,32 +161,31 @@ function renderDropdowns() {
       }
     }
 
-    function firstElementFocus(e) {
-      if (e.key === 'Enter' || e.keyCode === 32) {
-        const contentHasTransition = getComputedStyle(
-          dropdown.querySelector('[data-dropdown-content]')
-        ).getPropertyValue('transition');
+    function keyboardNavigation() {
+      const contentHasTransition = getComputedStyle(
+        dropdown.querySelector('[data-dropdown-content]')
+      ).getPropertyValue('transition-duration');
 
-        if (contentHasTransition === 'all 0s ease 0s') return setFocus();
+      if (contentHasTransition === '0s') return firstFocusableEl.focus();
 
-        dropdownContent.addEventListener('transitionend', setFocus, {
+      dropdownContent.addEventListener(
+        'transitionend',
+        () => firstFocusableEl.focus(),
+        {
           once: true,
-        });
-      }
+        }
+      );
+
+      dropdownContent.addEventListener('focusout', focusOut);
     }
 
-    function setFocus() {
-      dropdownContentFirstFocusableEl.focus();
-      dropdownContent.addEventListener('focusout', closeOnFocusOut);
-    }
-
-    function closeOnFocusOut() {
+    function focusOut() {
       setTimeout(() => {
         if (!dropdownContent.contains(document.activeElement)) {
           closeDropdown();
-          dropdownContent.removeEventListener('focusout', closeOnFocusOut);
+          dropdownContent.removeEventListener('focusout', focusOut);
         }
-      }, 15);
+      }, 25);
     }
   });
 }

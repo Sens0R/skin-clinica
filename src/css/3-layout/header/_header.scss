@@ -5,7 +5,7 @@
 }
 
 .close-notification-icon {
-  @include box(2rem, 2rem);
+  @include box(1.25rem, 1.25rem);
   fill: $color-light;
   z-index: 100;
 }

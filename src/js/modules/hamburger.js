@@ -1,7 +1,8 @@
 const defaultOptions = {
   mainElement: '[data-nav]',
-  openBtn: '[data-nav-btn="open"]',
-  closeBtn: '[data-nav-btn="close"]',
+  toggler: '[data-nav-btn]',
+  hamburgerId: 'navigation',
+  adjustViewport: false,
   notification: false,
   breakpoint: 992,
   backdrop: false,
@@ -16,12 +17,11 @@ const defaultOptions = {
 
 /*  ---------------------- RUN  -------------------------- */
 
-export function runNavigation(userOptions) {
-  const headerHeight = document.querySelector('header').scrollHeight;
-  const content = document.querySelector('[data-nav-content]');
-
+export function hamburger(userOptions) {
   let options = defaultOptions;
   let mainElement;
+  let headerHeight;
+  let content;
 
   userOptions && 'mainElement' in userOptions
     ? (mainElement = document.querySelector(userOptions.mainElement))
@@ -32,8 +32,9 @@ export function runNavigation(userOptions) {
   // destructor
   let {
     notification,
-    openBtn,
-    closeBtn,
+    toggler,
+    hamburgerId,
+    adjustViewport,
     breakpoint,
     backdrop,
     smartBackdrop,
@@ -45,8 +46,28 @@ export function runNavigation(userOptions) {
     stopTransition,
   } = options;
 
-  openBtn = document.querySelector(openBtn);
-  closeBtn = document.querySelector(closeBtn);
+  toggler = document.querySelector(toggler);
+  mainElement.id = hamburgerId;
+  toggler.type = 'button';
+  toggler.ariaExpanded = false;
+  toggler.ariaHasPopup = true;
+  toggler.ariaLabel = `Toggle ${hamburgerId}`;
+  toggler.setAttribute('aria-controls', hamburgerId);
+
+  const firstFocusableEl = mainElement.querySelectorAll(
+    'button, [href]:not(use), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  )[0];
+
+  let contentHasTransition = getComputedStyle(mainElement).getPropertyValue(
+    'transition-duration'
+  );
+
+  if (contentHasTransition === '0s') contentHasTransition = false;
+
+  if (adjustViewport) {
+    headerHeight = document.querySelector('header').scrollHeight;
+    content = document.querySelector(adjustViewport);
+  }
 
   if (notification) {
     notification = document.querySelector(notification);
@@ -54,11 +75,10 @@ export function runNavigation(userOptions) {
 
   if (stopTransition) mainElement.classList.add('stop-transition');
 
-  // add content to default options
   // add error check here for missing elements - mainElement, openBtn, closeBtn, notification, content
 
-  openBtn.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
+  toggler.addEventListener('click', open);
+  toggler.addEventListener('keydown', keyboardNavigation);
 
   // adjust height on orientation change
   window.matchMedia('(orientation: landscape)').onchange = () => {
@@ -75,12 +95,21 @@ export function runNavigation(userOptions) {
   /* ====================   FUNCTIONS   ==================== */
 
   function open() {
+    if (mainElement.classList.contains('active')) return close();
     mainElement.classList.add('active');
-    closeBtn.classList.add('active');
-    openBtn.classList.remove('active');
+    mainElement.ariaModal = true;
+    mainElement.role = 'dialog';
+
+    toggler.classList.add('active');
+    toggler.ariaExpanded = true;
+
     document.body.style.overflow = 'hidden';
-    calcContentHeight();
-    window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
+    document.addEventListener('keydown', closeWithEsc);
+
+    if (adjustViewport) {
+      calcContentHeight();
+      window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
+    }
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -103,11 +132,19 @@ export function runNavigation(userOptions) {
 
   function close() {
     mainElement.classList.remove('active');
-    closeBtn.classList.remove('active');
-    openBtn.classList.add('active');
-    document.body.style.overflow = null;
     mainElement.style.height = null;
-    window.visualViewport.removeEventListener('resize', calcContentHeight);
+    mainElement.ariaModal = null;
+    mainElement.role = null;
+
+    toggler.classList.remove('active');
+    toggler.ariaExpanded = false;
+
+    document.body.style.overflow = null;
+    document.removeEventListener('keyup', closeWithEsc);
+
+    if (adjustViewport) {
+      window.visualViewport.removeEventListener('resize', calcContentHeight);
+    }
 
     if (backdrop || smartBackdrop) removeBackdrop();
 
@@ -120,9 +157,41 @@ export function runNavigation(userOptions) {
     }
   }
 
-   function calcContentHeight() {
+  function keyboardNavigation() {
+    if (!contentHasTransition) return firstFocusableEl.focus();
+
+    mainElement.addEventListener(
+      'transitionend',
+      () => firstFocusableEl.focus(),
+      {
+        once: true,
+      }
+    );
+
+    mainElement.addEventListener('focusout', focusOut);
+  }
+
+  function focusOut() {
+    setTimeout(() => {
+      if (!mainElement.contains(document.activeElement)) {
+        mainElement.removeEventListener('focusout', focusOut);
+        close();
+        //openBtn.focus();
+        toggler.focus();
+      }
+    }, 25);
+  }
+
+  function closeWithEsc(e) {
+    if (e.key === 'Escape' || e.key === 'Esc' || e.code === 27) {
+      close();
+      //openBtn.focus();
+    }
+  }
+
+  function calcContentHeight() {
     content.style.maxHeight = `${window.innerHeight - headerHeight}px`;
-  } 
+  }
 
   function addBackdrop(backdropClass) {
     const createBackdrop = document.createElement('div');

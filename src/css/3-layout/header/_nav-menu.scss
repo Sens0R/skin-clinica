@@ -1,22 +1,21 @@
-.nav-toggler.active {
-  display: block;
-}
-
-.nav-toggler-group {
+.nav-toggler-col {
   @include flex($justify-content: center, $align-items: center);
   min-width: 3.75rem;
   max-width: 3.75rem;
 }
 
 .nav-toggler {
-  display: none;
-
-  &--open > .nav-toggler-icon {
-    @include box(2.125rem, 1.0625rem);
+  &__open {
+    .nav-toggler-icon {
+      @include box(2.125rem, 1.0625rem);
+    }
   }
 
-  &--close > .nav-toggler-icon {
-    @include box(2.5rem, 2.5rem);
+  &__close {
+    display: none;
+    .nav-toggler-icon {
+      @include box(1.75rem, 1.75rem);
+    }
   }
 
   &__text {
@@ -25,6 +24,16 @@
     text-transform: uppercase;
     line-height: 0.75;
     margin-top: 0.5rem;
+  }
+}
+
+.nav-toggler.active {
+  .nav-toggler__open {
+    display: none;
+  }
+
+  .nav-toggler__close {
+    display: block;
   }
 }
 
@@ -60,16 +69,6 @@
     );
     padding: 1rem;
     margin-left: -(calc($spacer-sm + 0.875rem));
-
-    &:focus-visible {
-      fill: $color-accent;
-      outline: none;
-
-      .dropdown-btn-icon {
-        scale: 2;
-        rotate: 90deg;
-      }
-    }
   }
 
   &__content {
@@ -117,23 +116,6 @@
 
     &__column {
       min-width: 12.5rem;
-    }
-
-    &__link {
-      @include hover {
-        background-color: lighten($color-primary, 10%);
-        color: $color-accent;
-      }
-
-      transition: background-color 0.1s ease-in-out;
-
-      &:focus-visible {
-        outline: none;
-        border-radius: 0;
-        color: $color-accent;
-        background-color: lighten($color-primary, 10%);
-        text-decoration: underline 3px solid $color-accent;
-      }
     }
   }
 }
@@ -191,7 +173,7 @@
     display: none;
   }
 
-  .nav-toggler-group {
+  .nav-toggler-col {
     display: none !important;
   }
 

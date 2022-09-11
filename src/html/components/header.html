@@ -23,7 +23,7 @@
                 class="nav-search-input text-sm"
                 placeholder="Search"
               />
-              <div  class="nav-search-buttons">
+              <div class="nav-search-buttons">
                 <button class="nav-search-buttons__search" aria-label="Search">
                   <svg class="nav-search-buttons__search-icon hvr-icon">
                     <use href="images/icons/sprite-mono.svg#search"></use>
@@ -87,34 +87,27 @@
       </div>
 
       <!-- ====================   NAV-TOGGLER   ==================== -->
-      <div class="nav-toggler-group col-auto">
-        <button
-          data-nav-btn="open"
-          class="nav-toggler nav-toggler--open active"
-          type="button"
-          aria-label="Open navigation menu"
-        >
-          <svg class="nav-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-          </svg>
-          <div class="nav-toggler__text">menu</div>
-        </button>
-        <button
-          data-nav-btn="close"
-          class="nav-toggler nav-toggler--close"
-          type="button"
-          aria-label="Close navigation menu"
-        >
-          <svg class="nav-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-          </svg>
+      <div class="nav-toggler-col col-auto">
+        <button data-nav-btn class="nav-toggler">
+          <div class="nav-toggler__open">
+            <svg class="nav-toggler-icon hvr-icon">
+              <use href="images/icons/sprite-mono.svg#toggler-open"></use>
+            </svg>
+            <div class="nav-toggler__text">menu</div>
+          </div>
+
+          <div class="nav-toggler__close">
+            <svg class="nav-toggler-icon hvr-icon">
+              <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+            </svg>
+          </div>
         </button>
       </div>
     </div>
 
     <!-- ====================   NAVIGATION   ==================== -->
 
-    <nav data-nav role="navigation" aria-label="main-menu" class="navigation">
+    <nav data-nav class="navigation" aria-label="Main navigation">
       <div data-nav-content>
         <div class="nav-body">@@include('nav-menu.html',{})</div>
         <div class="nav-mobile-socials">@@include('social.html',{})</div>
