@@ -51,7 +51,7 @@
     <!-- ====================   LOGO   ==================== -->
 
     <div class="logo col-auto justify-content-start">
-      <a class="logo-header" href="index.html" aria-label="Skin clinica">
+      <a class="logo-header" href="index.html" aria-label="Skin clinica home. Skin clinica logo.">
         <svg class="logo-header-icon hvr-icon">
           <use href="images/icons/sprite-multi.svg#logo-header"></use>
         </svg>
@@ -2243,11 +2243,18 @@
           class="mailing-form__input"
           type="text"
           id="full-name"
+          aria-required="false"
         />
       </div>
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
         <label for="email-adress" class="visually-hidden">Email address</label>
-        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" />
+        <input
+          placeholder="Email"
+          class="mailing-form__input"
+          type="text"
+          id="email-adress"
+          aria-required="true"
+        />
       </div>
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
         <button type="submit" class="btn-light">Subscribe</button>
@@ -2256,7 +2263,11 @@
   </section>
   <nav role="navigation" aria-label="Footer" class="footer-nav-main">
     <div class="footer-logo">
-      <a href="index.html" aria-label="Skin clinica" class="logo-footer">
+      <a
+        href="index.html"
+        aria-label="Skin clinica home. Skin clinica logo."
+        class="logo-footer"
+      >
         <svg class="logo-footer-icon hvr-icon">
           <use href="images/icons/sprite-multi.svg#logo-footer"></use>
         </svg>
@@ -2286,10 +2297,14 @@
           <ul class="footer-nav__list">
             <li><a class="footer-nav__link" href="shop.html">Shop</a></li>
             <li>
-              <a class="footer-nav__link" href="skin-intelligence.html">Skin Intelligence</a>
+              <a class="footer-nav__link" href="skin-intelligence.html"
+                >Skin Intelligence</a
+              >
             </li>
             <li>
-              <a class="footer-nav__link" href="skin-care-packages.html">Skin Care Packages</a>
+              <a class="footer-nav__link" href="skin-care-packages.html"
+                >Skin Care Packages</a
+              >
             </li>
             <li><a class="footer-nav__link" href="brands.html">Brands</a></li>
           </ul>
