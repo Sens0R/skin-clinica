@@ -721,20 +721,20 @@
         <h2 class="about__header">Contact form</h2>
         <div class="contact-form">
           <div class="contact__item">
-            <label for="name-input" class="contact__list-header">Name</label>
+            <label for="contacts-name" class="contact__list-header">Name</label>
             <input
-              id="name-input"
+              id="contacts-name"
               type="text"
               name="name"
               class="contact-form__input"
             />
           </div>
           <div class="contact__item">
-            <label for="email-input" class="contact__list-header"
+            <label for="contacts-email" class="contact__list-header"
               >Email address <span class="required">*</span></label
             >
             <input
-              id="email-input"
+              id="contacts-email"
               type="email"
               name="email"
               class="contact-form__input"
@@ -742,11 +742,11 @@
             />
           </div>
           <div class="contact__item">
-            <label for="message-input" class="contact__list-header"
+            <label for="conctacts-message" class="contact__list-header"
               >Your message <span class="required">*</span></label
             >
             <textarea
-              id="message-input"
+              id="conctacts-message"
               name="message"
               rows="4"
               cols="50"
@@ -833,17 +833,20 @@
 
     <form class="row mailing-form">
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
+        <label for="full-name" class="visually-hidden">Full name</label>
         <input
           placeholder="Full name"
           class="mailing-form__input"
           type="text"
+          id="full-name"
         />
       </div>
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-        <input placeholder="Email" class="mailing-form__input" type="text" />
+        <label for="email-adress" class="visually-hidden">Email address</label>
+        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" />
       </div>
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
-        <button class="btn-light">Subscribe</button>
+        <button type="submit" class="btn-light">Subscribe</button>
       </div>
     </form>
   </section>

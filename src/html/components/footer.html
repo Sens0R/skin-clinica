@@ -57,17 +57,20 @@
 
     <form class="row mailing-form">
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
+        <label for="full-name" class="visually-hidden">Full name</label>
         <input
           placeholder="Full name"
           class="mailing-form__input"
           type="text"
+          id="full-name"
         />
       </div>
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-        <input placeholder="Email" class="mailing-form__input" type="text" />
+        <label for="email-adress" class="visually-hidden">Email address</label>
+        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" />
       </div>
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
-        <button class="btn-light">Subscribe</button>
+        <button type="submit" class="btn-light">Subscribe</button>
       </div>
     </form>
   </section>
