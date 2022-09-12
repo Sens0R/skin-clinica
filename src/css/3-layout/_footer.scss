@@ -2,13 +2,13 @@
   @include absolute(top 0 left 0);
   @include image-cover();
   filter: brightness(0.25) grayscale(50%);
-  background-color: $color-secondary;
 }
 
 .footer {
   position: relative;
   color: $color-light;
   margin-top: auto;
+  background-color: $color-secondary;
 }
 
 .footer-container {
