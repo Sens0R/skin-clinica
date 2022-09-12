@@ -2,6 +2,7 @@
   @include absolute(top 0 left 0);
   @include image-cover();
   filter: brightness(0.25) grayscale(50%);
+  background-color: $color-secondary;
 }
 
 .footer {
@@ -67,8 +68,6 @@
   @include flex($justify-content: flex-start, $align-items: center);
   max-width: 15rem;
 }
-
-
 
 .logo-footer-icon {
   @include box(5rem, 5rem);

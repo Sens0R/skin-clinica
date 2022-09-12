@@ -14527,6 +14527,7 @@ input {
      object-position: center;
   -webkit-filter: brightness(0.25) grayscale(50%);
           filter: brightness(0.25) grayscale(50%);
+  background-color: hsl(0deg, 0%, 12%);
 }
 
 .footer {
