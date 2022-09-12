@@ -64,14 +64,18 @@
     <div class="col gx-0">
       <div data-search class="container-fluid mobile-search">
         <div class="nav-search">
-          <div class="nav-search-input-wrapper">
+          <form role="search" class="nav-search-form">
+            <label for='nav-search-input'>
+              <span class='visually-hidden'>Search</span>
+            </label>
             <input
-              type="search"
+              type="text"
               class="nav-search-input text-sm"
               placeholder="Search"
+              id="nav-search-input"
             />
             <div class="nav-search-buttons">
-              <button class="nav-search-buttons__search" aria-label="Search">
+              <button type="submit" class="nav-search-buttons__search">
                 <svg class="nav-search-buttons__search-icon hvr-icon">
                   <use href="images/icons/sprite-mono.svg#search"></use>
                 </svg>
@@ -80,7 +84,6 @@
               <button
                 data-search-btn="close"
                 class="d-lg-none nav-search-buttons__close"
-                type="button"
                 aria-label="Close search"
               >
                 <svg class="nav-search-buttons__close-icon hvr-icon">
@@ -88,7 +91,7 @@
                 </svg>
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -100,8 +103,7 @@
         <button
           data-search-btn="open"
           class="rounded-icon d-lg-none nav-search-buttons__open"
-          type="button"
-          aria-label="Search"
+          aria-label="Open search"
         >
           <svg class="icon-rounded hvr-icon">
             <use href="images/icons/sprite-mono.svg#search"></use>
@@ -931,7 +933,7 @@
         <svg class="logo-footer-icon hvr-icon">
           <use href="images/icons/sprite-multi.svg#logo-footer"></use>
         </svg>
-        <div class="logo-text-footer">skin clinica</div>
+        <div class="logo-text-light">skin clinica</div>
       </a>
       <div class="footer-phone">
         <p class="footer-nav__header">Phone</p>

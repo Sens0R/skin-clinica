@@ -68,18 +68,11 @@
   max-width: 15rem;
 }
 
-.logo-text-footer {
-  @extend .logo-text;
-  color: $color-light;
-  text-decoration: none;
-  display: block;
-}
+
 
 .logo-footer-icon {
   @include box(5rem, 5rem);
 }
-
-
 
 .footer-nav {
   .row {

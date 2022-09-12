@@ -64,18 +64,24 @@
   }
 }
 
+
 .logo-text {
   @include font-size(1.25rem);
   color: $color-secondary;
   text-transform: uppercase;
   white-space: nowrap;
-  text-decoration: underline solid $color-secondary 1px;
   margin-left: 0.5em;
 
   @include media-breakpoint-down(sm) {
     display: none;
   }
 }
+
+.logo-text-light {
+  @extend .logo-text;
+  color: $color-light;
+}
+
 
 .logo-header-icon {
   border-radius: 100%;
@@ -87,7 +93,7 @@
 
 /* ====================   SEARCH   ==================== */
 
-.nav-search-input-wrapper {
+.nav-search-form {
   position: relative;
   @include flex($justify-content: center, $align-items: center);
   width: 100%;
@@ -110,7 +116,7 @@
   }
 }
 
-.nav-search-input-wrapper:focus-within {
+.nav-search-form:focus-within {
   max-width: 100%;
 }
 
@@ -141,7 +147,7 @@
 /* ====================   MOBILE SEARCH   ==================== */
 
 @include media-breakpoint-down(lg) {
-  .nav-search-input-wrapper {
+  .nav-search-form {
     max-width: none;
   }
 

@@ -13902,6 +13902,10 @@ input {
           text-decoration: underline 1px solid hsl(0deg, 0%, 0%);
 }
 
+.visually-hidden {
+  display: none !important;
+}
+
 .link-space {
   position: relative;
 }
@@ -14279,19 +14283,21 @@ input {
   }
 }
 
-.logo-text, .logo-text-footer {
+.logo-text, .logo-text-light {
   font-size: 1.25rem;
   color: hsl(0deg, 0%, 12%);
   text-transform: uppercase;
   white-space: nowrap;
-  -webkit-text-decoration: underline solid hsl(0deg, 0%, 12%) 1px;
-          text-decoration: underline solid hsl(0deg, 0%, 12%) 1px;
   margin-left: 0.5em;
 }
 @media (max-width: 575.98px) {
-  .logo-text, .logo-text-footer {
+  .logo-text, .logo-text-light {
     display: none;
   }
+}
+
+.logo-text-light {
+  color: hsl(0deg, 0%, 100%);
 }
 
 .logo-header-icon {
@@ -14307,7 +14313,7 @@ input {
 }
 
 /* ====================   SEARCH   ==================== */
-.nav-search-input-wrapper {
+.nav-search-form {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14356,7 +14362,7 @@ input {
   padding-left: 0.5em;
 }
 
-.nav-search-input-wrapper:focus-within {
+.nav-search-form:focus-within {
   max-width: 100%;
 }
 
@@ -14406,7 +14412,7 @@ input {
 
 /* ====================   MOBILE SEARCH   ==================== */
 @media (max-width: 991.98px) {
-  .nav-search-input-wrapper {
+  .nav-search-form {
     max-width: none;
   }
   .mobile-search {
@@ -14655,12 +14661,6 @@ input {
       -ms-flex-align: center;
           align-items: center;
   max-width: 15rem;
-}
-
-.logo-text-footer {
-  color: hsl(0deg, 0%, 100%);
-  text-decoration: none;
-  display: block;
 }
 
 .logo-footer-icon {
