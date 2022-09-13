@@ -9,18 +9,12 @@ window.matchMedia('(orientation: landscape)').onchange = () => {
 };
 
 export function accordion() {
-  const accordionIcons = document.querySelectorAll('[data-accordion-icon]');
-  accordionIcons.forEach((accordionIcon) => {
-    accordionIcon.setAttribute('aria-hidden', 'true');
-  });
-
-  const accordionButtons = document.querySelectorAll(
-    '[data-accordion-btn]'
-  );
+  const accordionButtons = document.querySelectorAll('[data-accordion-btn]');
 
   accordionButtons.forEach((accordionButton) => {
-    const content = accordionButton.parentNode.nextElementSibling
+    const content = accordionButton.parentNode.nextElementSibling;
     content.setAttribute('aria-hidden', 'true');
+    accordionButton.querySelector('svg').setAttribute('aria-hidden', 'true');
     accordionButton.setAttribute('aria-expanded', 'false');
     accordionButton.addEventListener('click', accordionToggler);
 
