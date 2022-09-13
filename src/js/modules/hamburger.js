@@ -1,5 +1,3 @@
-import { main } from '@popperjs/core';
-
 const defaultOptions = {
   mainElement: '[data-nav]',
   toggler: '[data-nav-btn]',

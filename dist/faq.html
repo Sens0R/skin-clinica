@@ -33,6 +33,7 @@
       </aside>
       <header class="header"><div class="container-fluid container-lg">
   <div class="row nav-belt">
+
     <!-- ====================   LOGO   ==================== -->
 
     <div class="logo col-auto justify-content-start">
@@ -50,16 +51,18 @@
       <div data-search class="container-fluid mobile-search">
         <div class="nav-search">
           <form role="search" class="nav-search-form">
-            <label>
+            <label for="nav-search-input" class="visually-hidden">
               Search for products
-              <input type="text" class="nav-search-input text-sm" placeholder="Search for products...">
             </label>
+            <input type="text" class="nav-search-input text-sm" placeholder="Search for products..."
+              id="nav-search-input" required>
             <div class="nav-search-buttons">
               <button type="submit" class="nav-search-buttons__search" aria-label="Submit search">
                 <svg class="nav-search-buttons__search-icon hvr-icon">
                   <use href="images/icons/sprite-mono.svg#search"></use>
                 </svg>
               </button>
+
               <button type="button" data-search-btn="close" class="d-lg-none nav-search-buttons__close"
                 aria-label="Close search">
                 <svg class="nav-search-buttons__close-icon hvr-icon">
@@ -141,9 +144,11 @@
     <div class="nav-menu-dropdown__content" data-dropdown-content>
       <div class="dropdown-content">
         <div class="col-6 col-md-3 dropdown-content__column">
-          <ul aria-labelledby="" class="dropdown-content__list">
-            <li class="dropdown-content__list-header" role="heading">
-              Shop by Category
+          <ul class="dropdown-content__list">
+            <li class="dropdown-content__list-header">
+              <h2>
+                Shop by Category
+              </h2>
             </li>
             <li>
               <a href="#" class="dropdown-content__link">Beauty</a>
@@ -161,7 +166,9 @@
         </div>
         <div class="col-6 col-md-3 dropdown-content__column">
           <ul class="dropdown-content__list">
-            <li class="dropdown-content__list-header" role="heading">Face Care</li>
+            <li class="dropdown-content__list-header">
+              <h2>Face Care</h2>
+            </li>
             <li>
               <a href="#" class="dropdown-content__link">Eye Care</a>
             </li>
@@ -178,7 +185,9 @@
         </div>
         <div class="col-6 col-md-3 dropdown-content__column">
           <ul class="dropdown-content__list">
-            <li class="dropdown-content__list-header" role="heading">Skin Care</li>
+            <li class="dropdown-content__list-header">
+              <h2>Skin Care</h2>
+            </li>
             <li>
               <a href="#" class="dropdown-content__link">Moisturisers</a>
             </li>
@@ -196,14 +205,14 @@
         </div>
         <div class="col-6 col-md-3 dropdown-content__column">
           <ul class="dropdown-content__list">
-            <li class="dropdown-content__list-header" role="heading">
-              Accessories & Gifts
+            <li class="dropdown-content__list-header">
+              <h2>Accessories &amp; Gifts</h2>
             </li>
             <li>
               <a href="#" class="dropdown-content__link">Accessories</a>
             </li>
             <li>
-              <a href="#" class="dropdown-content__link">Sets & Gifts</a>
+              <a href="#" class="dropdown-content__link">Sets &amp; Gifts</a>
             </li>
             <li>
               <a href="#" class="dropdown-content__link">Skin Care Packages</a>
@@ -218,7 +227,8 @@
   </li>
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
     <a href="skin-intelligence.html" class="nav-menu__link nav-menu-dropdown__link">Skin Intelligence</a>
-    <button class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Skin Intelligence">
+    <button type="button" class="nav-menu-dropdown__btn" data-dropdown-btn
+      aria-label="Dropdown menu for Skin Intelligence">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -269,7 +279,8 @@
   </li>
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
     <a href="skin-care-packages.html" class="nav-menu__link nav-menu-dropdown__link">Skin Care Packages</a>
-    <button class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Skin Care Packages">
+    <button type="button" class="nav-menu-dropdown__btn" data-dropdown-btn
+      aria-label="Dropdown menu for Skin Care Packages">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -296,7 +307,7 @@
   </li>
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
     <a href="brands.html" class="nav-menu__link nav-menu-dropdown__link">Brands</a>
-    <button class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Brands">
+    <button type="button" class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Brands">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -354,7 +365,7 @@
               <a href="#" class="dropdown-content__link">Oskia</a>
             </li>
             <li>
-              <a href="#" class="dropdown-content__link">Pestle & Mortar</a>
+              <a href="#" class="dropdown-content__link">Pestle &amp; Mortar</a>
             </li>
             <li>
               <a href="#" class="dropdown-content__link">Primera</a>
@@ -566,7 +577,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Skin care products are labelled for different skin types such as
             normal, oily, combination, dry or sensitive. But figuring out what
@@ -602,7 +613,7 @@
             Take a look at the information we have provided on skin types
             elsewhere on the website, as this provides further information.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -615,7 +626,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             This sounds very appealing and seems to make a lot of sense at
             first. But what is natural? This segment of skin care has seen major
@@ -667,7 +678,7 @@
             may not be good for your skin or you know you could react to, as
             they can come in both natural and synthetic forms.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -680,7 +691,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             The way our skin ages is affected by our genes and the modulation of
             those genes, or what is known as epigenetics. While we cannot change
@@ -711,7 +722,7 @@
             wrinkles while also helping to compensate for diminishing skin
             collagen.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -724,7 +735,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             There is no single cream or combination of products that will keep
             our skin looking the way it did in your 20s. While there is nothing
@@ -750,7 +761,7 @@
             Hyaluronic Acid. Check out the information we have provided on Hero
             Ingredients on our website for a more indepth look at this.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -763,7 +774,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Actives are ingredients in skin care products that address
             particular concerns. They can be found in everyday care products, as
@@ -790,7 +801,7 @@
             best of actives may not work for everyone or not as well as we hoped
             for, so it is always important to be realistic.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -803,7 +814,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Traditionally, we have used products from the same brand and the
             same range of products. Skin care companies would have us believe
@@ -827,7 +838,7 @@
             and Retinol can irritate your skin if overused or incorrectly
             combined, so make sure you know what you are using.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -840,7 +851,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             While topical products have come a long way, and there are so many
             more skin issues that can be treated today without the use of more
@@ -868,7 +879,7 @@
             It really does pay to do your homework and be cautious, especially
             if you could end up with a worse outcome.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -881,7 +892,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             We know that micellar water makes things quick and easy for you, but
             the effort you put in now determines what type of skin you will have
@@ -916,7 +927,7 @@
             but make sure you rinse it all off or, better still, use a rinse-off
             version.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -929,7 +940,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Double cleansing is great if you wear mineral sunscreen or heavy
             makeup, and should be limited to once a day. Oil cleansers work
@@ -954,7 +965,7 @@
             before proceeding with using the oil cleanser on the rest of your
             face.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -967,7 +978,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Regular skin exfoliation is the key to smooth, bright, and clear
             skin, but it can get downright confusing to know how often to
@@ -1005,7 +1016,7 @@
             often, or too aggressively, your skin can become irritated or
             sensitised, and this can be counter-productive.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -1018,7 +1029,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             This comes up a lot and is really a matter of personal preference.
             If you use the right products to cleanse, you do not necessarily
@@ -1027,7 +1038,7 @@
             unnecessary step in your beauty routine. Save the time, effort and
             expense for something that does something more for your skin.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -1040,7 +1051,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             The skin around your eyes is thinner, more sensitive and has its own
             distinct set of needs. Eye creams and eye gels are specifically
@@ -1088,7 +1099,7 @@
             your eyes at its best and help avoid potential problems that can
             arise from applying other, non-suitable products.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -1102,7 +1113,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Skin needs to maintain a healthy balance between water and oil, with
             a ratio of 70% to 30% considered to be ideal. Stripping the skin of
@@ -1150,7 +1161,7 @@
             are some people who do not enjoy using oils on their skin, and that
             is OK too. Load up instead on other skin moisturising factors.
           </p>
-        </section>
+        </div>
       </div>
       <div class="accordion__item">
         <h2>
@@ -1163,7 +1174,7 @@
             </span>
           </button>
         </h2>
-        <section class="accordion__content">
+        <div class="accordion__content">
           <p>
             Skin can become dry and flaky for a number of different reasons:
             skin type, age, hormones, aggressive treatments, types of products
@@ -1190,7 +1201,7 @@
             moisturiser and adding a skin oil as your final layer in the evening
             to prevent moisture loss.
           </p>
-        </section>
+        </div>
       </div>
     </div>
   </div>
@@ -1238,11 +1249,11 @@
     <form class="row mailing-form">
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
         <label for="full-name" class="visually-hidden">Full name</label>
-        <input placeholder="Full name" class="mailing-form__input" type="text" id="full-name" aria-required="false">
+        <input placeholder="Full name" class="mailing-form__input" type="text" id="full-name">
       </div>
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
         <label for="email-adress" class="visually-hidden">Email address</label>
-        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" aria-required="true">
+        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" required>
       </div>
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
         <button type="submit" class="btn-light">Subscribe</button>
@@ -1259,7 +1270,7 @@
       </a>
       <div class="footer-phone">
         <p class="footer-nav__header">Phone</p>
-        <a href="tel:+61 2 5134 7278" class="footer-phone__link">61&nbsp;2&nbsp;5134&nbsp;7278</a>
+        <a href="tel:+61251347278" class="footer-phone__link">61&nbsp;2&nbsp;5134&nbsp;7278</a>
       </div>
     </div>
 

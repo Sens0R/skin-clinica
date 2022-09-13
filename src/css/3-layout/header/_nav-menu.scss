@@ -80,24 +80,21 @@
   @include flex($flex-wrap: wrap);
 
   &__column {
-    @include flex($flex-direction: column);
     box-shadow: 1px 0px lighten($color-primary, 5%);
   }
 
   &__list {
     margin: 0;
-    @include flex($flex-direction: column);
-  
-    height: 100%;
   }
 
-  &__list-header {
+  &__list-header :first-child {
+    font-size: $fs-sm;
     font-weight: bold;
     padding: 0.75rem;
-    margin-bottom: auto;
   }
 
   &__link {
+    font-size: $fs-sm;
     padding: 0.75rem;
     @include flex($flex-direction: column);
   }
@@ -118,6 +115,10 @@
 
     &__column {
       min-width: 12.5rem;
+    }
+
+    &__link {
+      font-size: $fs-base;
     }
   }
 }
