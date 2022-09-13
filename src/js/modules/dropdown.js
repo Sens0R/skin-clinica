@@ -98,10 +98,10 @@ function renderDropdowns() {
       'button, [href]:not(use), input, select, textarea, [tabindex]:not([tabindex="-1"])'
     )[0];
 
-    dropdownButton.ariaHasPopup = true;
-    dropdownButton.ariaExpanded = false;
-    dropdownContent.ariaHidden = true;
-    dropdownContent.ariaLabel = 'submenu';
+    dropdownButton.setAttribute('aria-hasPopup', 'true');
+    dropdownButton.setAttribute('aria-expanded', 'false');
+    dropdownContent.setAttribute('aria-hidden', 'true');
+    dropdownContent.setAttribute('aria-label', 'submenu');
     dropdownContent.style.maxHeight = null;
 
     closeDropdown();
@@ -137,8 +137,8 @@ function renderDropdowns() {
       }
 
       dropdown.classList.add('active');
-      dropdownButton.ariaExpanded = true;
-      dropdownContent.ariaHidden = false;
+      dropdownButton.setAttribute('aria-expanded', 'true');
+      dropdownContent.setAttribute('aria-hidden', 'false');
 
       if (mobile) {
         let dropdownContentHeight = dropdownContent.scrollHeight;
@@ -148,8 +148,9 @@ function renderDropdowns() {
 
     function closeDropdown() {
       dropdown.classList.remove('active');
-      dropdownContent.ariaHidden = true;
-      dropdownButton.ariaExpanded = false;
+      dropdownButton.setAttribute('aria-expanded', 'false');
+      dropdownContent.setAttribute('aria-hidden', 'true');
+
       if (mobile) dropdownContent.style.maxHeight = null;
     }
 

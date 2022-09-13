@@ -14071,11 +14071,18 @@ input {
 }
 .dropdown-content__list {
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
 }
 .dropdown-content__list-header {
   font-weight: bold;
   padding: 0.75rem;
-  margin: 0;
   margin-bottom: auto;
 }
 .dropdown-content__link {
@@ -14149,10 +14156,10 @@ input {
   }
 }
 @media (min-width: 992px) {
-  [data-nav-page].active-page .nav-menu__link {
+  .active-page .nav-menu__link {
     color: #e5065f;
   }
-  [data-nav-page].active-page .nav-menu-dropdown__btn {
+  .active-page .nav-menu-dropdown__btn {
     fill: #e5065f;
   }
   .nav-mobile-socials {
@@ -15569,26 +15576,13 @@ input {
     margin-bottom: 2.25rem;
   }
 }
-.accordion__controls {
-  margin: 0;
+.accordion:first-child {
+  width: 100%;
 }
 .accordion__item {
   background-color: #fafafa;
   border-radius: 0.2rem;
   margin-bottom: 0.75rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 .accordion__button {
   display: -webkit-box;
@@ -15600,19 +15594,17 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-  cursor: pointer;
   padding: 1.25rem 1rem;
+  width: 100%;
   background-color: #fff0f6;
-}
-.accordion__header {
   font-size: 1rem;
+  font-weight: bold;
   color: #d10557;
   text-align: left;
   line-height: 1.25;
 }
 @media (min-width: 576px) {
-  .accordion__header {
+  .accordion__button {
     font-size: 1.25rem;
     color: #e5065f;
   }

@@ -7,7 +7,7 @@ export function notification() {
 
     notification.style.maxHeight = notification.scrollHeight + 'px';
 
-    closeNotificationBtn.ariaLabel = 'Close notification';
+    closeNotificationBtn.setAttribute('aria-label', 'Close notification');
     closeNotificationBtn.addEventListener(
       'click',
       () => {
@@ -17,7 +17,7 @@ export function notification() {
       },
       { once: true }
     );
-    
+
     if (sessionStorage.getItem('notification')) closeNotificationBtn.click();
   }
 }

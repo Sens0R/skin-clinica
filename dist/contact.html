@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Skin Clinica is your one stop online shop for skin care routines and natural products. We have skincare for all skin types. Free shipping available!"
-  />
+  <meta name="description"
+    content="Skin Clinica is your one stop online shop for skin care routines and natural products. We have skincare for all skin types. Free shipping available!">
 
-  <link
-    rel="preload"
-    href="fonts/DMSans-Regular.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
+  <link rel="preload" href="fonts/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link
-    rel="preload"
-    href="fonts/DMSans-Bold.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
-  <script defer src='https://www.google.com/recaptcha/api.js'></script>
-  <link rel="shortcut icon" type="image/svg+xml" href="images/icons/favicon.svg"/> 
-  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="preload" href="fonts/DMSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <script defer src="https://www.google.com/recaptcha/api.js"></script>
+  <link rel="shortcut icon" type="image/svg+xml" href="images/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.min.css">
   <script defer src="js/app.min.js"></script>
 
   <title>Skin Clinica</title>
 </head>
-
   <body>
     <div class="page-wrapper">
-      <div data-notification>
+      <aside data-notification>
         <p class="notification">
           Free Shipping On All Us Orders Over $50 + 2 Free Samples 🎁
           <a href="shop.html" class="notification__link">Shop now</a>
         </p>
-        <button data-close-notification-btn aria-label="close notification">
+        <button type="button" data-close-notification-btn aria-label="close notification">
           <svg class="close-notification-icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
           </svg>
         </button>
-      </div>
+      </aside>
       <header class="header"><div class="container-fluid container-lg">
   <div class="row nav-belt">
     <!-- ====================   LOGO   ==================== -->
@@ -65,15 +50,8 @@
       <div data-search class="container-fluid mobile-search">
         <div class="nav-search">
           <form role="search" class="nav-search-form">
-            <label for='nav-search-input'>
-              <span class='visually-hidden'>Search</span>
-            </label>
-            <input
-              type="text"
-              class="nav-search-input text-sm"
-              placeholder="Search"
-              id="nav-search-input"
-            />
+            <input type="text" class="nav-search-input text-sm" placeholder="Search for products..."
+              id="nav-search-input">
             <div class="nav-search-buttons">
               <button type="submit" class="nav-search-buttons__search" aria-label="Submit search">
                 <svg class="nav-search-buttons__search-icon hvr-icon">
@@ -81,11 +59,8 @@
                 </svg>
               </button>
 
-              <button
-                data-search-btn="close"
-                class="d-lg-none nav-search-buttons__close"
-                aria-label="Close search"
-              >
+              <button type="button" data-search-btn="close" class="d-lg-none nav-search-buttons__close"
+                aria-label="Close search">
                 <svg class="nav-search-buttons__close-icon hvr-icon">
                   <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
                 </svg>
@@ -100,11 +75,8 @@
 
     <div class="col-auto d-flex tools">
       <div class="nav-tools">
-        <button
-          data-search-btn="open"
-          class="rounded-icon d-lg-none nav-search-buttons__open"
-          aria-label="Open search"
-        >
+        <button type="button" data-search-btn="open" class="rounded-icon d-lg-none nav-search-buttons__open"
+          aria-label="Open search">
           <svg class="icon-rounded hvr-icon">
             <use href="images/icons/sprite-mono.svg#search"></use>
           </svg>
@@ -135,19 +107,19 @@
 
     <!-- ====================   NAV-TOGGLER   ==================== -->
     <div class="nav-toggler-col col-auto">
-      <button data-nav-btn class="nav-toggler">
-        <div class="nav-toggler__open">
+      <button type="button" data-nav-btn class="nav-toggler">
+        <span class="nav-toggler__open">
           <svg class="nav-toggler-icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-open"></use>
           </svg>
-          <div class="nav-toggler__text">menu</div>
-        </div>
+          <span class="nav-toggler__text">menu</span>
+        </span>
 
-        <div class="nav-toggler__close">
+        <span class="nav-toggler__close">
           <svg class="nav-toggler-icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
           </svg>
-        </div>
+        </span>
       </button>
     </div>
   </div>
@@ -159,11 +131,7 @@
       <div class="nav-body"><ul class="nav-menu nav-menu--main">
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
     <a href="shop.html" class="nav-menu__link nav-menu-dropdown__link">Shop</a>
-    <button
-      class="nav-menu-dropdown__btn"
-      data-dropdown-btn
-      aria-label="Dropdown menu for Shop"
-    >
+    <button type="button" class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Shop">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -172,10 +140,10 @@
     <div class="nav-menu-dropdown__content" data-dropdown-content>
       <div class="dropdown-content">
         <div class="col-6 col-md-3 dropdown-content__column">
-          <p class="dropdown-content__list-header" role="header">
-            Shop by Category
-          </p>
-          <ul class="dropdown-content__list">
+          <ul aria-labelledby="" class="dropdown-content__list">
+            <li class="dropdown-content__list-header" role="heading">
+              Shop by Category
+            </li>
             <li>
               <a href="#" class="dropdown-content__link">Beauty</a>
             </li>
@@ -191,8 +159,8 @@
           </ul>
         </div>
         <div class="col-6 col-md-3 dropdown-content__column">
-          <p class="dropdown-content__list-header" role="header">Face Care</p>
           <ul class="dropdown-content__list">
+            <li class="dropdown-content__list-header" role="heading">Face Care</li>
             <li>
               <a href="#" class="dropdown-content__link">Eye Care</a>
             </li>
@@ -208,8 +176,8 @@
           </ul>
         </div>
         <div class="col-6 col-md-3 dropdown-content__column">
-          <p class="dropdown-content__list-header" role="header">Skin Care</p>
           <ul class="dropdown-content__list">
+            <li class="dropdown-content__list-header" role="heading">Skin Care</li>
             <li>
               <a href="#" class="dropdown-content__link">Moisturisers</a>
             </li>
@@ -226,10 +194,10 @@
           </ul>
         </div>
         <div class="col-6 col-md-3 dropdown-content__column">
-          <p class="dropdown-content__list-header" role="header">
-            Accessories & Gifts
-          </p>
           <ul class="dropdown-content__list">
+            <li class="dropdown-content__list-header" role="heading">
+              Accessories & Gifts
+            </li>
             <li>
               <a href="#" class="dropdown-content__link">Accessories</a>
             </li>
@@ -248,16 +216,8 @@
     </div>
   </li>
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
-    <a
-      href="skin-intelligence.html"
-      class="nav-menu__link nav-menu-dropdown__link"
-      >Skin Intelligence</a
-    >
-    <button
-      class="nav-menu-dropdown__btn"
-      data-dropdown-btn
-      aria-label="Dropdown menu for Skin Intelligence"
-    >
+    <a href="skin-intelligence.html" class="nav-menu__link nav-menu-dropdown__link">Skin Intelligence</a>
+    <button class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Skin Intelligence">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -274,14 +234,10 @@
               <a href="#" class="dropdown-content__link">Healthy Skin</a>
             </li>
             <li>
-              <a href="#" class="dropdown-content__link"
-                >Sunscreen Ingredients</a
-              >
+              <a href="#" class="dropdown-content__link">Sunscreen Ingredients</a>
             </li>
             <li>
-              <a href="#" class="dropdown-content__link"
-                >Fragrance in skin care</a
-              >
+              <a href="#" class="dropdown-content__link">Fragrance in skin care</a>
             </li>
             <li>
               <a href="#" class="dropdown-content__link">Essential Oils</a>
@@ -297,9 +253,7 @@
               <a href="#" class="dropdown-content__link">Skin Concerns</a>
             </li>
             <li>
-              <a href="#" class="dropdown-content__link"
-                >Skin Care Ingredients</a
-              >
+              <a href="#" class="dropdown-content__link">Skin Care Ingredients</a>
             </li>
             <li>
               <a href="#" class="dropdown-content__link">Hero Ingredients</a>
@@ -313,16 +267,8 @@
     </div>
   </li>
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
-    <a
-      href="skin-care-packages.html"
-      class="nav-menu__link nav-menu-dropdown__link"
-      >Skin Care Packages</a
-    >
-    <button
-      class="nav-menu-dropdown__btn"
-      data-dropdown-btn
-      aria-label="Dropdown menu for Skin Care Packages"
-    >
+    <a href="skin-care-packages.html" class="nav-menu__link nav-menu-dropdown__link">Skin Care Packages</a>
+    <button class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Skin Care Packages">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -332,14 +278,10 @@
       <div class="dropdown-content">
         <ul class="dropdown-content__list">
           <li>
-            <a href="#" class="dropdown-content__link"
-              >Skin Care Consultation Complete</a
-            >
+            <a href="#" class="dropdown-content__link">Skin Care Consultation Complete</a>
           </li>
           <li>
-            <a href="#" class="dropdown-content__link"
-              >Skin Care Protocol Keratosis Pilaris</a
-            >
+            <a href="#" class="dropdown-content__link">Skin Care Protocol Keratosis Pilaris</a>
           </li>
           <li>
             <a href="#" class="dropdown-content__link">Skin Care Essentials</a>
@@ -352,14 +294,8 @@
     </div>
   </li>
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
-    <a href="brands.html" class="nav-menu__link nav-menu-dropdown__link"
-      >Brands</a
-    >
-    <button
-      class="nav-menu-dropdown__btn"
-      data-dropdown-btn
-      aria-label="Dropdown menu for Brands"
-    >
+    <a href="brands.html" class="nav-menu__link nav-menu-dropdown__link">Brands</a>
+    <button class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for Brands">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -456,17 +392,11 @@
     </div>
   </li>
 </ul>
-<hr class="d-lg-none my-lg" />
+<hr class="d-lg-none my-lg">
 <ul class="nav-menu nav-menu--secondary">
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
-    <a href="about.html" class="nav-menu__link nav-menu-dropdown__link"
-      >About</a
-    >
-    <button
-      class="nav-menu-dropdown__btn"
-      data-dropdown-btn
-      aria-label="Dropdown menu for About"
-    >
+    <a href="about.html" class="nav-menu__link nav-menu-dropdown__link">About</a>
+    <button type="button" class="nav-menu-dropdown__btn" data-dropdown-btn aria-label="Dropdown menu for About">
       <svg class="dropdown-btn-icon nav-menu-dropdown__btn-icon hvr-icon">
         <use href="images/icons/sprite-mono.svg#arrow-down"></use>
       </svg>
@@ -476,14 +406,10 @@
       <div class="dropdown-content">
         <ul class="dropdown-content__list">
           <li>
-            <a href="about-why-skin-clinica.html" class="dropdown-content__link"
-              >Why Skin Clinica</a
-            >
+            <a href="about-why-skin-clinica.html" class="dropdown-content__link">Why Skin Clinica</a>
           </li>
           <li>
-            <a href="about-company-founder.html" class="dropdown-content__link"
-              >About Our Founder</a
-            >
+            <a href="about-company-founder.html" class="dropdown-content__link">About Our Founder</a>
           </li>
         </ul>
       </div>
@@ -499,8 +425,7 @@
     <a href="contact.html" class="nav-menu__link">Contact</a>
   </li>
 </ul>
-<hr class="d-lg-none my-lg" />
-</div>
+<hr class="d-lg-none my-lg"></div>
       <div class="nav-mobile-socials"><ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="rounded-icon" aria-label="Facebook">
@@ -591,12 +516,9 @@
     </p>  -->
     </div>
   </nav>
-</div>
-</header>
-    
+</div></header>
+
 <!-- ====================   DO NOT USE PRETTIER HERE   ==================== -->
-
-
 
 <main>
   <div class="page-banner">
@@ -777,50 +699,31 @@
         <footer class="footer">
            <div class="footer-background">
   <picture>
-    <source
-      type="image/avif"
-      sizes="100vw"
-      srcset="
+    <source type="image/avif" sizes="100vw" srcset="
         images/footer-bg-320.avif   320w,
         images/footer-bg-640.avif   640w,
         images/footer-bg-960.avif   960w,
         images/footer-bg-1280.avif 1280w,
         images/footer-bg-1920.avif 1920w,
         images/footer-bg-2560.avif 2560w
-      "
-    />
-    <source
-      type="image/webp"
-      sizes="100vw"
-      srcset="
+      ">
+    <source type="image/webp" sizes="100vw" srcset="
         images/footer-bg-320.webp   320w,
         images/footer-bg-640.webp   640w,
         images/footer-bg-960.webp   960w,
         images/footer-bg-1280.webp 1280w,
         images/footer-bg-1920.webp 1920w,
         images/footer-bg-2560.webp 2560w
-      "
-    />
-    <source
-      type="image/jpeg"
-      sizes="100vw"
-      srcset="
+      ">
+    <source type="image/jpeg" sizes="100vw" srcset="
         images/footer-bg-320.jpg   320w,
         images/footer-bg-640.jpg   640w,
         images/footer-bg-960.jpg   960w,
         images/footer-bg-1280.jpg 1280w,
         images/footer-bg-1920.jpg 1920w,
         images/footer-bg-2560.jpg 2560w
-      "
-    />
-    <img
-      draggable="false"
-      class="footer-bg"
-      src="images/footer-bg-960.jpg"
-      alt=""
-      width="2560"
-      height="2560"
-    />
+      ">
+    <img draggable="false" class="footer-bg" src="images/footer-bg-960.jpg" alt="" width="2560" height="2560">
   </picture>
 </div>
 
@@ -835,36 +738,20 @@
     <form class="row mailing-form">
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
         <label for="full-name" class="visually-hidden">Full name</label>
-        <input
-          placeholder="Full name"
-          class="mailing-form__input"
-          type="text"
-          id="full-name"
-          aria-required="false"
-        />
+        <input placeholder="Full name" class="mailing-form__input" type="text" id="full-name" aria-required="false">
       </div>
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
         <label for="email-adress" class="visually-hidden">Email address</label>
-        <input
-          placeholder="Email"
-          class="mailing-form__input"
-          type="text"
-          id="email-adress"
-          aria-required="true"
-        />
+        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" aria-required="true">
       </div>
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
         <button type="submit" class="btn-light">Subscribe</button>
       </div>
     </form>
   </section>
-  <nav role="navigation" aria-label="Footer" class="footer-nav-main">
+  <nav aria-label="Footer" class="footer-nav-main">
     <div class="footer-logo">
-      <a
-        href="index.html"
-        aria-label="Skin clinica home. Skin clinica logo."
-        class="logo-footer"
-      >
+      <a href="index.html" aria-label="Skin clinica home. Skin clinica logo." class="logo-footer">
         <svg class="logo-footer-icon hvr-icon">
           <use href="images/icons/sprite-multi.svg#logo-footer"></use>
         </svg>
@@ -872,9 +759,7 @@
       </a>
       <div class="footer-phone">
         <p class="footer-nav__header">Phone</p>
-        <a href="tel:+61 2 5134 7278" class="footer-phone__link"
-          >61 2 5134 7278</a
-        >
+        <a href="tel:+61 2 5134 7278" class="footer-phone__link">61&nbsp;2&nbsp;5134&nbsp;7278</a>
       </div>
     </div>
 
@@ -894,14 +779,10 @@
           <ul class="footer-nav__list">
             <li><a class="footer-nav__link" href="shop.html">Shop</a></li>
             <li>
-              <a class="footer-nav__link" href="skin-intelligence.html"
-                >Skin Intelligence</a
-              >
+              <a class="footer-nav__link" href="skin-intelligence.html">Skin Intelligence</a>
             </li>
             <li>
-              <a class="footer-nav__link" href="skin-care-packages.html"
-                >Skin Care Packages</a
-              >
+              <a class="footer-nav__link" href="skin-care-packages.html">Skin Care Packages</a>
             </li>
             <li><a class="footer-nav__link" href="brands.html">Brands</a></li>
           </ul>
@@ -916,7 +797,7 @@
             <li><a class="footer-nav__link" href="#">Shipping</a></li>
             <li><a class="footer-nav__link" href="#">Returns</a></li>
             <li>
-              <a class="footer-nav__link" href="#">Terms & Conditions</a>
+              <a class="footer-nav__link" href="#">Terms &amp; Conditions</a>
             </li>
             <li>
               <a class="footer-nav__link" href="#">Privacy Policy</a>
@@ -976,7 +857,6 @@
     © ALL CONTENT IS THE COPYRIGHT OF SKIN CLINICA. ALL RIGHTS RESERVED
   </p>
 </div>
-
         </footer>
       </div>
     </body>

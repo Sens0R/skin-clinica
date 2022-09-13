@@ -1,3 +1,5 @@
+import { main } from '@popperjs/core';
+
 const defaultOptions = {
   mainElement: '[data-nav]',
   toggler: '[data-nav-btn]',
@@ -49,9 +51,9 @@ export function hamburger(userOptions) {
   toggler = document.querySelector(toggler);
   mainElement.id = hamburgerId;
   toggler.type = 'button';
-  toggler.ariaExpanded = false;
-  toggler.ariaHasPopup = true;
-  toggler.ariaLabel = `Toggle ${hamburgerId}`;
+  toggler.setAttribute('aria-expanded', 'false');
+  toggler.setAttribute('aria-hasPopup', 'true');
+  toggler.setAttribute('aria-label', `Toggle ${hamburgerId}`);
   toggler.setAttribute('aria-controls', hamburgerId);
 
   const firstFocusableEl = mainElement.querySelectorAll(
@@ -97,11 +99,11 @@ export function hamburger(userOptions) {
   function open() {
     if (mainElement.classList.contains('active')) return close();
     mainElement.classList.add('active');
-    mainElement.ariaModal = true;
-    mainElement.role = 'dialog';
+    mainElement.setAttribute('aria-modal', 'true');
+    mainElement.setAttribute('role', 'dialog');
 
     toggler.classList.add('active');
-    toggler.ariaExpanded = true;
+    toggler.setAttribute('aria-expanded', 'true');
 
     document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', closeWithEsc);
@@ -133,11 +135,11 @@ export function hamburger(userOptions) {
   function close() {
     mainElement.classList.remove('active');
     mainElement.style.height = null;
-    mainElement.ariaModal = null;
-    mainElement.role = null;
+    mainElement.removeAttribute('aria-modal');
+    mainElement.removeAttribute('role');
 
     toggler.classList.remove('active');
-    toggler.ariaExpanded = false;
+    toggler.setAttribute('aria-expanded', 'false');
 
     document.body.style.overflow = null;
     document.removeEventListener('keyup', closeWithEsc);

@@ -1,17 +1,3 @@
-export function mediaOrientation() {
-  const mediaQueryOrientation = window.matchMedia('(orientation: landscape)');
-
-  // Define a callback function for the event listener.
-  function handleOrientationChange(mql) {
-    // …
-  }
-
-  // Run the orientation change handler once.
-  handleOrientationChange(mediaQueryOrientation);
-
-  // Add the callback function as a listener to the query list.
-  mediaQueryOrientation.addEventListener('change', handleOrientationChange);
-}
 
 /* ====================   REFRESH SITE ON TOP   ==================== */
 

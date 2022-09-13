@@ -1,5 +1,3 @@
-const accordionInstances = document.querySelectorAll('[data-accordion]');
-
 window.matchMedia('(orientation: landscape)').onchange = () => {
   const activeButtons = document.querySelectorAll(
     '[data-accordion-content][aria-hidden="false"'
@@ -11,46 +9,34 @@ window.matchMedia('(orientation: landscape)').onchange = () => {
 };
 
 export function accordion() {
-  accordionInstances.forEach((accordionInstance, i) => {
-    let instanceNumber;
-    let accordionInstanceName = '';
+  const accordionIcons = document.querySelectorAll('[data-accordion-icon]');
+  accordionIcons.forEach((accordionIcon) => {
+    accordionIcon.setAttribute('aria-hidden', 'true');
+  });
 
-    if (i > 0) {
-      instanceNumber = '-' + (i + 1) + '-';
-      accordionInstanceName = 'accordion';
-    } else instanceNumber = '';
+  const accordionButtons = document.querySelectorAll(
+    '[data-accordion-btn]'
+  );
 
-    const contentIdPrefix = accordionInstanceName + instanceNumber;
-    const accordionButtons = accordionInstance.querySelectorAll(
-      '[data-accordion-btn]'
-    );
+  accordionButtons.forEach((accordionButton) => {
+    const content = accordionButton.parentNode.nextElementSibling
+    content.setAttribute('aria-hidden', 'true');
+    accordionButton.setAttribute('aria-expanded', 'false');
+    accordionButton.addEventListener('click', accordionToggler);
 
-    accordionButtons.forEach((accordionButton, i) => {
-      const content = accordionButton.parentNode.querySelector(
-        '[data-accordion-content]'
-      );
-
-      accordionButton.ariaExpanded = 'false';
-      content.ariaHidden = true;
-      const contentId = `${contentIdPrefix}collapse-${i + 1}`;
-      content.id = contentId;
-      accordionButton.setAttribute('aria-controls', contentId);
-      accordionButton.addEventListener('click', accordionToggler);
-
-      function accordionToggler() {
-        if (accordionButton.classList.contains('active')) {
-          accordionButton.classList.remove('active');
-          accordionButton.ariaExpanded = 'false';
-          content.ariaHidden = true;
-          content.style.maxHeight = null;
-          return;
-        }
-
-        accordionButton.classList.add('active');
-        accordionButton.ariaExpanded = 'true';
-        content.ariaHidden = false;
-        content.style.maxHeight = `${content.scrollHeight}px`;
+    function accordionToggler() {
+      if (accordionButton.classList.contains('active')) {
+        accordionButton.classList.remove('active');
+        accordionButton.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+        content.style.maxHeight = null;
+        return;
       }
-    });
+
+      accordionButton.classList.add('active');
+      accordionButton.setAttribute('aria-expanded', 'true');
+      content.setAttribute('aria-hidden', 'false');
+      content.style.maxHeight = `${content.scrollHeight}px`;
+    }
   });
 }

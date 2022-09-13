@@ -1,31 +1,23 @@
 .accordion {
   @include spacer-bottom('margin', $spacer-lg);
-  &__controls {
-    margin: 0;
+
+  &:first-child {
+    width: 100%;
   }
-  
+
   &__item {
     background-color: darken($color-light, 2%);
     border-radius: $border-radius-sm;
     @include spacer-bottom('margin', $spacer-sm);
-
-    @include flex(
-      $flex-direction: column,
-      $justify-content: center,
-      $align-items: flex-start
-    );
   }
 
   &__button {
     @include flex($justify-content: space-between, $align-items: center);
-    width: 100%;
-    cursor: pointer;
     padding: 1.25rem 1rem;
+    width: 100%;
     background-color: lighten($color-primary, 13%);
-  }
-
-  &__header {
     font-size: $fs-base;
+    font-weight: bold;
     @include media-breakpoint-up(sm) {
       @include font-size(1.25rem);
       color: $color-accent;
@@ -36,6 +28,7 @@
   }
 
   &__icon-container {
+   
     margin-left: 1rem;
     margin-bottom: auto;
   }

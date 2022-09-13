@@ -86,12 +86,14 @@
 
   &__list {
     margin: 0;
+    @include flex($flex-direction: column);
+  
+    height: 100%;
   }
 
   &__list-header {
     font-weight: bold;
     padding: 0.75rem;
-    margin: 0;
     margin-bottom: auto;
   }
 
@@ -159,7 +161,7 @@
 }
 
 @include media-breakpoint-up(lg) {
-  [data-nav-page].active-page {
+  .active-page {
     .nav-menu__link {
       color: $color-accent;
     }

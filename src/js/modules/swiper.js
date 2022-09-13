@@ -1,12 +1,14 @@
-import Swiper, { Navigation, Pagination, Keyboard, Autoplay } from 'swiper';
+import Swiper, { Navigation, Pagination, Keyboard, Autoplay, A11y } from 'swiper';
 
 const swiperShop = new Swiper('.swiper.swiper-shop', {
-  modules: [Navigation, Pagination, Keyboard, Autoplay],
+  modules: [Navigation, Pagination, Keyboard, Autoplay, A11y],
   pagination: {
     el: '.swiper-pagination-shop',
     clickable: true,
   },
   loop: true,
+
+  a11y: true,
 
   autoplay: {
     delay: 4000,
@@ -57,7 +59,7 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
 
 const swiper = new Swiper('.swiper.swiper-testimonials', {
   // configure Swiper to use modules
-  modules: [Navigation, Pagination, Keyboard, Autoplay],
+  modules: [Navigation, Pagination, Keyboard, Autoplay, A11y],
   // Optional parameters
   direction: 'horizontal',
   grabCursor: true,
