@@ -14431,9 +14431,6 @@ input {
 }
 /* ====================   NAVIGATION MEDIA   ==================== */
 @media (max-width: 991.98px) {
-  [data-nav-content] {
-    overflow-y: auto;
-  }
   .navigation {
     will-change: auto;
     translate: 100%;

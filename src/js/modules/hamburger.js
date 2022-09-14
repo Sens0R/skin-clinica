@@ -99,7 +99,7 @@ export function hamburger(userOptions) {
         content.style.overflowY = 'auto';
         toggler.style.display = null;
       }
-      
+
       if (!e.matches) {
         content.style.overflowY = null;
         toggler.style.display = 'none';

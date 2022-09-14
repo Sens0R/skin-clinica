@@ -126,11 +126,7 @@
 /* ====================   NAVIGATION MEDIA   ==================== */
 
 @include media-breakpoint-down(lg) {
-  [data-nav-content] {
-    overflow-y: auto;
-  }
-
-  .navigation {
+   .navigation {
     will-change: auto;
     translate: 100%;
     visibility: hidden;
