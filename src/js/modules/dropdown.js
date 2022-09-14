@@ -100,7 +100,6 @@ function renderDropdowns() {
 
     dropdownButton.setAttribute('aria-hasPopup', 'true');
     dropdownButton.setAttribute('aria-expanded', 'false');
-    dropdownButton.querySelector('svg').setAttribute('aria-hidden', 'true');
     dropdownContent.setAttribute('aria-hidden', 'true');
     dropdownContent.setAttribute('aria-label', 'submenu');
     dropdownContent.style.maxHeight = null;
