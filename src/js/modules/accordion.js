@@ -2,7 +2,7 @@ const accordionInstances = document.querySelectorAll('[data-accordion]');
 
 window.matchMedia('(orientation: landscape)').onchange = () => {
   const activeButtons = document.querySelectorAll(
-    '[data-accordion-btn][aria-expanded="true"]'
+    'button[aria-expanded="true"]'
   );
 
   activeButtons.forEach((activeButton) => {
@@ -13,9 +13,7 @@ window.matchMedia('(orientation: landscape)').onchange = () => {
 
 export function accordion() {
   accordionInstances.forEach((accordionInstance) => {
-    const accordionButtons = accordionInstance.querySelectorAll(
-      '[data-accordion-btn]'
-    );
+    const accordionButtons = accordionInstance.querySelectorAll('button');
     const accordionInstanceName = accordionInstance.dataset.accordion;
 
     accordionButtons.forEach((accordionButton, i) => {
