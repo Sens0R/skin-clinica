@@ -24,7 +24,6 @@
     margin: 0;
     @include font-size($fs-base);
     font-weight: bold;
-    color: lighten($color-secondary, 33%);
   }
 
   &__link {
@@ -51,21 +50,19 @@
       outline: none;
       border-color: $color-secondary;
     }
+  }
 
-    &::placeholder {
-      padding-left: 1rem;
+  textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 5rem;
+  }
+
+  &:focus-within:invalid {
+    button {
+      background-color: $color-gray;
     }
   }
-}
-
-.required {
-  color: $color-accent;
-}
-
-#message-input {
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 5rem;
 }
 
 .contact-col {

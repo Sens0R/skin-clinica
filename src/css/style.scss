@@ -25,7 +25,8 @@
 @import '2-base/selectors';
 
 // 3 - LAYOUT
-@import '3-layout/header/header';
+@import '3-layout/header';
+@import '3-layout/nav-menu';
 @import '3-layout/footer';
 
 // 4 - COMPONENTS

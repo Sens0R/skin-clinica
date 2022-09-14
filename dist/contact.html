@@ -564,20 +564,27 @@
     </picture>
     <h1 class="page-header">Contact Us</h1>
   </div>
+
   <div class="container-fluid container-lg contact">
     <div class="row">
+
       <div class="col-12 col-md-6 col-lg-4 contact-col">
+
         <h2 class="about__header">We'd love to hear from you</h2>
+
         <ul class="contact__list">
+
           <li class="contact__item">
             <p class="contact__list-header">Email</p>
             <a class="contact__link" href="mailto:service@skinclinica.com.au"
               target="_blank">service@skinclinica.com.au</a>
           </li>
+
           <li class="contact__item">
             <p class="contact__list-header">Phone</p>
             <a href="tel:+61251347278" class="contact__link">61&nbsp;2&nbsp;5134&nbsp;7278</a>
           </li>
+
           <li class="contact__item">
             <p class="contact__list-header">Social</p>
             <div class="contact__social">
@@ -628,36 +635,41 @@
 
             </div>
           </li>
+
         </ul>
+
       </div>
+
       <div class="col-12 col-md-6 col-lg-4 contact-col">
+
         <h2 class="about__header">Contact form</h2>
-        <div class="contact-form">
+
+        <form class="contact-form">
+
           <div class="contact__item">
             <label for="contacts-name" class="contact__list-header">Name</label>
             <input id="contacts-name" type="text" name="name" class="contact-form__input">
           </div>
-          <div class="contact__item">
-            <label for="contacts-email" class="contact__list-header">Email address <span
-                class="required">*</span></label>
-            <input id="contacts-email" type="email" name="email" class="contact-form__input" required>
-          </div>
-          <div class="contact__item">
-            <label for="conctacts-message" class="contact__list-header">Your message <span
-                class="required">*</span></label>
-            <textarea id="conctacts-message" name="message" rows="4" cols="50" class="contact-form__input"
-              placeholder="Enter your message here . . ." required></textarea>
-          </div>
-          <div class="g-recaptcha contact__item" data-sitekey="Your site key goes here"></div>
 
           <div class="contact__item">
-            <p class="contact__list-header">
-              "<span class="required">*</span>" indicates required fields
-            </p>
+            <label for="contacts-email" class="contact__list-header">Email address <span>(required)</span></label>
+            <input id="contacts-email" type="email" name="email" class="contact-form__input" required>
           </div>
+
+          <div class="contact__item">
+            <label for="conctacts-message" class="contact__list-header">Your message <span>(required)</span></label>
+            <textarea id="conctacts-message" name="message" rows="4" cols="50" class="contact-form__input"
+              placeholder="Enter your message here..." required></textarea>
+          </div>
+
+          <div class="g-recaptcha contact__item" data-sitekey="Your site key goes here"></div>
+
           <button class="btn" type="submit">Submit</button>
-        </div>
+
+        </form>
+
       </div>
+
     </div>
   </div>
 </main>
@@ -694,7 +706,9 @@
 </div>
 
 <div class="container-fluid container-lg footer-container">
+
   <section class="mailing-list text-center">
+
     <h2>Join our mailing list</h2>
     <p>
       Sign up to be the first to receive special news and updates from Skin
@@ -702,19 +716,25 @@
     </p>
 
     <form class="row mailing-form">
+
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-        <label for="full-name" class="visually-hidden">Full name</label>
-        <input placeholder="Full name" class="mailing-form__input" type="text" id="full-name">
+        <label for="full-name">Full name <span>(optional)</span></label>
+        <input placeholder="Full name" type="text" id="full-name">
       </div>
+
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-        <label for="email-adress" class="visually-hidden">Email address</label>
-        <input placeholder="Email" class="mailing-form__input" type="text" id="email-adress" required>
+        <label for="email-adress">Email address <span>(required)</span></label>
+        <input placeholder="Email" type="email" id="email-adress" required>
       </div>
+
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
         <button type="submit" class="btn-light">Subscribe</button>
       </div>
+
     </form>
+
   </section>
+
   <nav aria-label="Footer" class="footer-nav-main">
     <div class="footer-logo">
       <a href="index.html" aria-label="Skin clinica home. Skin clinica logo." class="logo-footer">
