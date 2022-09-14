@@ -4,11 +4,11 @@ let mobile;
 const dropdownsMedia = window.matchMedia(`(max-width: 992px)`);
 
 window.matchMedia('(orientation: landscape)').onchange = () => {
-  const openDropdownContent = document.querySelectorAll(
-    '[data-dropdown-content][aria-hidden="false"'
+  const openContents = document.querySelectorAll(
+    '[data-dropdown] > [aria-hidden="false"]'
   );
 
-  openDropdownContent.forEach((openContent) => {
+  openContents.forEach((openContent) => {
     openContent.style.maxHeight = `${openContent.scrollHeight}px`;
   });
 };
@@ -60,7 +60,7 @@ function renderDropdowns() {
   }
 
   dropdowns.forEach((dropdown) => {
-    const dropdownButton = dropdown.querySelector('[data-dropdown-btn]');
+    const dropdownButton = dropdown.querySelector('button');
     if (!dropdownButton) {
       console.error(
         '%c Dropdown button is not set. Use' +
@@ -77,7 +77,7 @@ function renderDropdowns() {
       return;
     }
 
-    const dropdownContent = dropdown.querySelector('[data-dropdown-content]');
+    const dropdownContent = dropdownButton.nextElementSibling;
     if (!dropdownContent) {
       console.error(
         '%c Dropdown content is not set. Use' +
@@ -156,7 +156,8 @@ function renderDropdowns() {
 
     function clickOutside(e) {
       if (desktop) {
-        if (e.target.closest('[data-dropdown-content]')) return;
+        if (e.target.closest('[aria-label="submenu"][aria-hidden="false"]'))
+          return;
         closeDropdown();
         document.removeEventListener('click', clickOutside);
       }
@@ -164,7 +165,7 @@ function renderDropdowns() {
 
     function keyboardNavigation() {
       const contentHasTransition = getComputedStyle(
-        dropdown.querySelector('[data-dropdown-content]')
+        dropdown.querySelector('[aria-label="submenu"]')
       ).getPropertyValue('transition-duration');
 
       if (contentHasTransition === '0s') return firstFocusableEl.focus();

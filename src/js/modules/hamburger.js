@@ -1,8 +1,7 @@
 const defaultOptions = {
-  mainElement: '[data-nav]',
-  toggler: '[data-nav-btn]',
+  mainElement: '[data-hamburger]',
+  toggler: '[data-hamburger-btn]',
   hamburgerId: 'navigation',
-  adjustViewport: false,
   notification: false,
   breakpoint: 992,
   backdrop: false,
@@ -11,7 +10,6 @@ const defaultOptions = {
   alwaysFullscreen: false,
   smartFullscreen: false,
   scrollBlock: false,
-  focus: false,
   stopTransition: false,
 };
 
@@ -20,8 +18,6 @@ const defaultOptions = {
 export function hamburger(userOptions) {
   let options = defaultOptions;
   let mainElement;
-  let headerHeight;
-  let content;
 
   userOptions && 'mainElement' in userOptions
     ? (mainElement = document.querySelector(userOptions.mainElement))
@@ -34,7 +30,6 @@ export function hamburger(userOptions) {
     notification,
     toggler,
     hamburgerId,
-    adjustViewport,
     breakpoint,
     backdrop,
     smartBackdrop,
@@ -42,12 +37,22 @@ export function hamburger(userOptions) {
     smartFullscreen,
     alwaysFullscreen,
     scrollBlock,
-    focus,
     stopTransition,
   } = options;
 
-  toggler = document.querySelector(toggler);
+  const headerHeight = document.querySelector('header').scrollHeight;
+  const wrapAll = (target, wrapper = document.createElement('div')) => {
+    [...target.childNodes].forEach((child) => wrapper.appendChild(child));
+    target.appendChild(wrapper);
+    return wrapper;
+  };
+
+  const content = wrapAll(mainElement);
+  content.style.overflowY = 'auto';
+
+  //const content = document.querySelector('[data-nav-content]');
   mainElement.id = hamburgerId;
+  toggler = document.querySelector(toggler);
   toggler.type = 'button';
   toggler.setAttribute('aria-expanded', 'false');
   toggler.setAttribute('aria-hasPopup', 'true');
@@ -63,11 +68,6 @@ export function hamburger(userOptions) {
   );
 
   if (contentHasTransition === '0s') contentHasTransition = false;
-
-  if (adjustViewport) {
-    headerHeight = document.querySelector('header').scrollHeight;
-    content = document.querySelector(adjustViewport);
-  }
 
   if (notification) {
     notification = document.querySelector(notification);
@@ -85,9 +85,23 @@ export function hamburger(userOptions) {
     if (mainElement.classList.contains('active')) calcContentHeight();
   };
 
-  // close on resize
+  // media
   if (breakpoint) {
-    window.matchMedia(`(max-width: ${breakpoint}px)`).onchange = (e) => {
+    const watchBreakpoint = window.matchMedia(`(max-width: ${breakpoint}px)`);
+
+    if (!watchBreakpoint.matches) {
+      toggler.style.display = 'none';
+      content.style.overflowY = null;
+    }
+
+    watchBreakpoint.onchange = (e) => {
+      if (e.matches) content.style.overflowY = 'auto';
+
+      if (!e.matches) {
+        content.style.overflowY = null;
+        toggler.style.display = 'none';
+      }
+
       if (mainElement.classList.contains('active') && !e.matches) close();
     };
   }
@@ -106,10 +120,8 @@ export function hamburger(userOptions) {
     document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', closeWithEsc);
 
-    if (adjustViewport) {
-      calcContentHeight();
-      window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
-    }
+    calcContentHeight();
+    window.visualViewport.addEventListener('resize', calcContentHeight); // mobile browser header fix
 
     if (stopTransition) mainElement.classList.remove('stop-transition');
 
@@ -120,14 +132,6 @@ export function hamburger(userOptions) {
     if (closeOnBackdropClick) backdrop.addEventListener('click', close);
 
     if (scrollBlock) document.body.style.overflow = 'hidden';
-
-    if (focus) {
-      const focusEl = document.querySelector(focus);
-      focusEl.focus();
-      mainElement.addEventListener('transitionend', () => focusEl.focus(), {
-        once: true,
-      });
-    }
   }
 
   function close() {
@@ -135,16 +139,13 @@ export function hamburger(userOptions) {
     mainElement.style.height = null;
     mainElement.removeAttribute('aria-modal');
     mainElement.removeAttribute('role');
-
     toggler.classList.remove('active');
     toggler.setAttribute('aria-expanded', 'false');
 
     document.body.style.overflow = null;
     document.removeEventListener('keyup', closeWithEsc);
 
-    if (adjustViewport) {
-      window.visualViewport.removeEventListener('resize', calcContentHeight);
-    }
+    window.visualViewport.removeEventListener('resize', calcContentHeight);
 
     if (backdrop || smartBackdrop) removeBackdrop();
 
@@ -176,7 +177,6 @@ export function hamburger(userOptions) {
       if (!mainElement.contains(document.activeElement)) {
         mainElement.removeEventListener('focusout', focusOut);
         close();
-        //openBtn.focus();
         toggler.focus();
       }
     }, 25);
@@ -185,7 +185,6 @@ export function hamburger(userOptions) {
   function closeWithEsc(e) {
     if (e.key === 'Escape' || e.key === 'Esc' || e.code === 27) {
       close();
-      //openBtn.focus();
     }
   }
 

@@ -1,11 +1,11 @@
-.nav-toggler-col {
-  @include flex($justify-content: center, $align-items: center);
-  min-width: 3.75rem;
-  max-width: 3.75rem;
-}
-
 .nav-toggler {
   &__open {
+    @include flex(
+      $flex-direction: column,
+      $justify-content: center,
+      $align-items: center
+    );
+
     .nav-toggler-icon {
       @include box(2.125rem, 1.0625rem);
     }
@@ -127,7 +127,6 @@
 
 @include media-breakpoint-down(lg) {
   [data-nav-content] {
-    max-height: 0;
     overflow-y: auto;
   }
 
@@ -174,10 +173,6 @@
 
   .nav-mobile-socials {
     display: none;
-  }
-
-  .nav-toggler-col {
-    display: none !important;
   }
 
   .nav-body {

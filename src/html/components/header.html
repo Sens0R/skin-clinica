@@ -77,31 +77,31 @@
     </div>
 
     <!-- ====================   NAV-TOGGLER   ==================== -->
-    <div class="nav-toggler-col col-auto">
-      <button type="button" data-nav-btn class="nav-toggler">
-        <span class="nav-toggler__open">
-          <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-          </svg>
-          <span class="nav-toggler__text">menu</span>
-        </span>
 
-        <span class="nav-toggler__close">
-          <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-          </svg>
-        </span>
-      </button>
-    </div>
+    <button type="button" data-hamburger-btn class="nav-toggler col-auto">
+      <span class="nav-toggler__open">
+        <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
+          <use href="images/icons/sprite-mono.svg#toggler-open"></use>
+        </svg>
+        <span class="nav-toggler__text">menu</span>
+      </span>
+
+      <span class="nav-toggler__close">
+        <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
+          <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+        </svg>
+      </span>
+    </button>
+
   </div>
 
   <!-- ====================   NAVIGATION   ==================== -->
 
-  <nav data-nav class="navigation" aria-label="Main navigation">
-    <div data-nav-content>
-      <div class="nav-body">@@include('nav-menu.html',{})</div>
-      <div class="nav-mobile-socials">@@include('social.html',{})</div>
-      <!--          <p style="background: red">
+  <nav data-hamburger class="navigation" aria-label="Main">
+
+    <div class="nav-body">@@include('nav-menu.html',{})</div>
+    <div class="nav-mobile-socials">@@include('social.html',{})</div>
+    <!--          <p style="background: red">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsum
       quos laborum assumenda harum fugit inventore, error dicta sapiente
       iste. Necessitatibus fugiat recusandae, vel nesciunt perferendis sunt,
@@ -144,6 +144,6 @@
       praesentium porro cupiditate? Laudantium.
       <span style="color: white">END</span>
     </p>  -->
-    </div>
+
   </nav>
 </div>

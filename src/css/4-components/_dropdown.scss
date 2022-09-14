@@ -7,7 +7,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-[data-dropdown-content] {
+.nav-menu-dropdown__content {
   overflow: hidden;
   visibility: hidden;
   pointer-events: none;
@@ -17,11 +17,11 @@
   }
 }
 
-[data-dropdown].active {
+.nav-menu-dropdown.active {
   color: $color-accent;
   text-decoration: none;
 
-  [data-dropdown-content] {
+  .nav-menu-dropdown__content {
     color: $color-secondary;
     visibility: visible;
     pointer-events: all;
@@ -36,7 +36,7 @@
 /* ====================   MEDIA   ==================== */
 
 @include media-breakpoint-up(lg) {
-  [data-dropdown-content] {
+  .nav-menu-dropdown__content {
     position: absolute;
     top: 100%;
     z-index: -1;
@@ -52,9 +52,9 @@
     }
   }
 
-  [data-dropdown].active {
+  .nav-menu-dropdown.active {
     z-index: 1;
-    [data-dropdown-content] {
+    .nav-menu-dropdown__content {
       opacity: 1;
       transition: none;
     }

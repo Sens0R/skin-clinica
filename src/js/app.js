@@ -17,7 +17,6 @@ fixedHeader(lg);
 
 hamburger({
   notification: '[data-close-notification-btn]',
-  adjustViewport: '[data-nav-content]',
 });
 
 dropdown();

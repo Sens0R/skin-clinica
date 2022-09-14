@@ -2,7 +2,7 @@ const accordionInstances = document.querySelectorAll('[data-accordion]');
 
 window.matchMedia('(orientation: landscape)').onchange = () => {
   const activeButtons = document.querySelectorAll(
-    'button[aria-expanded="true"]'
+    '[data-accordion] * button[aria-expanded="true"]'
   );
 
   activeButtons.forEach((activeButton) => {
