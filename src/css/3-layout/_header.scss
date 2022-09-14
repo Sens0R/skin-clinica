@@ -62,7 +62,6 @@
   }
 }
 
-
 .logo-text {
   @include font-size(1.25rem);
   color: $color-secondary;
@@ -79,7 +78,6 @@
   @extend .logo-text;
   color: $color-light;
 }
-
 
 .logo-header-icon {
   border-radius: 100%;
@@ -98,6 +96,12 @@
   max-width: 25rem;
   @include margin-auto(x);
   transition: all 0.4s ease-in-out;
+
+  &:focus-within:valid {
+    .nav-search-buttons__search svg {
+      fill: $color-accent;
+    }
+  }
 }
 
 .nav-search-input {
