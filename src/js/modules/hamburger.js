@@ -95,8 +95,11 @@ export function hamburger(userOptions) {
     }
 
     watchBreakpoint.onchange = (e) => {
-      if (e.matches) content.style.overflowY = 'auto';
-
+      if (e.matches) {
+        content.style.overflowY = 'auto';
+        toggler.style.display = null;
+      }
+      
       if (!e.matches) {
         content.style.overflowY = null;
         toggler.style.display = 'none';
