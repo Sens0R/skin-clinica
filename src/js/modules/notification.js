@@ -1,9 +1,8 @@
 export function notification() {
   const notification = document.querySelector('[data-notification]');
+
   if (notification) {
-    const closeNotificationBtn = document.querySelector(
-      '[data-close-notification-btn]'
-    );
+    const closeNotificationBtn = notification.querySelector('button');
 
     notification.style.maxHeight = notification.scrollHeight + 'px';
 
@@ -13,11 +12,8 @@ export function notification() {
       () => {
         notification.classList.add('closed');
         notification.style.maxHeight = 0 + 'px';
-        sessionStorage.setItem('notification', 'closed');
       },
       { once: true }
     );
-
-    if (sessionStorage.getItem('notification')) closeNotificationBtn.click();
   }
 }

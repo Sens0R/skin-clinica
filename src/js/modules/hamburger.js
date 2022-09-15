@@ -90,20 +90,13 @@ export function hamburger(userOptions) {
     const watchBreakpoint = window.matchMedia(`(max-width: ${breakpoint}px)`);
 
     if (!watchBreakpoint.matches) {
-      toggler.style.display = 'none';
       content.style.overflowY = null;
     }
 
     watchBreakpoint.onchange = (e) => {
-      if (e.matches) {
-        content.style.overflowY = 'auto';
-        toggler.style.display = null;
-      }
-
-      if (!e.matches) {
-        content.style.overflowY = null;
-        toggler.style.display = 'none';
-      }
+      e.matches
+        ? (content.style.overflowY = 'auto')
+        : (content.style.overflowY = null);
 
       if (mainElement.classList.contains('active') && !e.matches) close();
     };
@@ -149,6 +142,7 @@ export function hamburger(userOptions) {
     document.removeEventListener('keyup', closeWithEsc);
 
     window.visualViewport.removeEventListener('resize', calcContentHeight);
+    content.style.maxHeight = null;
 
     if (backdrop || smartBackdrop) removeBackdrop();
 

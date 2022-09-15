@@ -1,0 +1,21 @@
+[data-notification]button {
+  padding: 0.5rem;
+}
+
+.close-notification-icon {
+  @include box(1rem, 1rem);
+  fill: $color-light;
+  z-index: 100;
+}
+
+[data-notification] {
+  @include flex($justify-content: center, $align-items: center);
+  transition: all 0.4s ease-in-out;
+  visibility: visible;
+  @include z-index(above-header);
+  background: $color-secondary;
+}
+
+[data-notification].closed {
+  visibility: hidden;
+}

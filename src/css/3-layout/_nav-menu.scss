@@ -1,4 +1,5 @@
 .nav-toggler {
+  min-width: 3.75rem;
   &__open {
     @include flex(
       $flex-direction: column,
@@ -108,6 +109,10 @@
 }
 
 @include media-breakpoint-up(lg) {
+  .nav-toggler {
+    display: none;
+  }
+  
   .dropdown-content {
     display: flex;
     background-color: $color-light;
