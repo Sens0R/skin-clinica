@@ -13979,13 +13979,13 @@ input {
 
 [data-animate=accordion-item] {
   opacity: 0;
-  translate: -150%;
+  translate: 0 5rem;
   -webkit-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
 [data-animate=accordion-item]:nth-child(odd) {
-  translate: 150%;
+  translate: 0 -5rem;
 }
 
 [data-animate=accordion-item].show {
@@ -13993,6 +13993,22 @@ input {
   translate: none;
 }
 
+@media (min-width: 992px) {
+  [data-animate=accordion-item] {
+    opacity: 0;
+    translate: -150%;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  [data-animate=accordion-item]:nth-child(odd) {
+    translate: 150%;
+  }
+  [data-animate=accordion-item].show {
+    opacity: 1;
+    translate: none;
+  }
+}
 .notification {
   width: 100%;
   font-size: 0.875rem;
