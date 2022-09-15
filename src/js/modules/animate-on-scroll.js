@@ -5,7 +5,7 @@ export function animateOnScroll() {
         if (entry.isIntersecting) entry.target.classList.add('show');
       }),
     {
-      threshold: 0.33,
+      threshold: 0,
     }
   );
 

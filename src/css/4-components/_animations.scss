@@ -1,5 +1,7 @@
-[data-animate='section'] {
-  opacity: 0;
+/* ====================   PAGE SECTION   ==================== */
+
+ [data-animate='section'] {
+  opacity: 0.15;
   filter: blur(1px);
   transition: all 0.75s ease-in-out;
 }
@@ -8,18 +10,9 @@
   opacity: 1;
   filter: blur(0);
 }
+ 
 
-[data-animate='accordion-item'] {
-  translate: 0 5rem;
-  transition: all 1s ease-in-out;
-  &:nth-child(odd) {
-    translate: 0 -5rem;
-  }
-}
-
-[data-animate='accordion-item'].show {
-  translate: none;
-}
+/* ====================   ACCORDION ITEM   ==================== */
 
 @include media-breakpoint-up(lg) {
   [data-animate='accordion-item'] {
@@ -33,4 +26,28 @@
   [data-animate='accordion-item'].show {
     translate: none;
   }
+}
+
+/* ====================   BLOG CARD HEADER   ==================== */
+
+[data-animate='blog-header-1'],
+[data-animate='blog-header-2'],
+[data-animate='blog-header-3'] {
+  opacity: 0;
+  translate: 15%;
+  transition: all 0.75s ease-in-out;
+}
+
+[data-animate='blog-header-2'] {
+  transition-delay: 0.25s;
+}
+[data-animate='blog-header-3'] {
+  transition-delay: 0.5s;
+}
+
+[data-animate='blog-header-1'].show,
+[data-animate='blog-header-2'].show,
+[data-animate='blog-header-3'].show {
+  opacity: 1;
+  translate: none;
 }

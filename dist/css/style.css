@@ -15763,8 +15763,9 @@ input {
   visibility: hidden;
 }
 
+/* ====================   PAGE SECTION   ==================== */
 [data-animate=section] {
-  opacity: 0;
+  opacity: 0.15;
   -webkit-filter: blur(1px);
           filter: blur(1px);
   -webkit-transition: all 0.75s ease-in-out;
@@ -15778,20 +15779,7 @@ input {
           filter: blur(0);
 }
 
-[data-animate=accordion-item] {
-  translate: 0 5rem;
-  -webkit-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-[data-animate=accordion-item]:nth-child(odd) {
-  translate: 0 -5rem;
-}
-
-[data-animate=accordion-item].show {
-  translate: none;
-}
-
+/* ====================   ACCORDION ITEM   ==================== */
 @media (min-width: 992px) {
   [data-animate=accordion-item] {
     translate: -100%;
@@ -15806,6 +15794,36 @@ input {
     translate: none;
   }
 }
+/* ====================   BLOG CARD HEADER   ==================== */
+[data-animate=blog-header-1],
+[data-animate=blog-header-2],
+[data-animate=blog-header-3] {
+  opacity: 0;
+  translate: 15%;
+  -webkit-transition: all 0.75s ease-in-out;
+  -o-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out;
+}
+
+[data-animate=blog-header-2] {
+  -webkit-transition-delay: 0.25s;
+       -o-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+
+[data-animate=blog-header-3] {
+  -webkit-transition-delay: 0.5s;
+       -o-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+
+[data-animate=blog-header-1].show,
+[data-animate=blog-header-2].show,
+[data-animate=blog-header-3].show {
+  opacity: 1;
+  translate: none;
+}
+
 .page-banner {
   position: relative;
 }
