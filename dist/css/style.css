@@ -13961,6 +13961,18 @@ input {
   position: sticky;
 }
 
+/* ====================   ANIMATIONS   ==================== */
+[data-animate=section] {
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+
+[data-animate=section].show {
+  opacity: 1;
+}
+
 .notification {
   width: 100%;
   font-size: 0.875rem;
