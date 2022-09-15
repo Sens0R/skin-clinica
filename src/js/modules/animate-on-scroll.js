@@ -2,10 +2,10 @@ export function sectionAOS() {
   const sectionObserver = new IntersectionObserver(
     (entries) =>
       entries.forEach((entry) => {
-        entry.target.classList.toggle('show', entry.isIntersecting);
+        if (entry.isIntersecting) entry.target.classList.add('show');
       }),
     {
-      threshold: 0.2,
+      threshold: 0.33,
     }
   );
 
