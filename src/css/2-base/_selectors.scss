@@ -125,45 +125,4 @@
   position: sticky;
 }
 
-/* ====================   ANIMATIONS   ==================== */
 
-[data-animate='section'] {
-  opacity: 0;
-  filter: blur(1px);
-  transition: all 0.6s ease-in-out;
-}
-
-[data-animate='section'].show {
-  opacity: 1;
-  filter: blur(0);
-}
-
-[data-animate='accordion-item'] {
-  opacity: 0;
-  translate: 0 5rem;
-  transition: all 1s ease-in-out;
-  &:nth-child(odd) {
-    translate: 0 -5rem;
-  }
-}
-
-[data-animate='accordion-item'].show {
-  opacity: 1;
-  translate: none;
-}
-
-@include media-breakpoint-up(lg) {
-  [data-animate='accordion-item'] {
-    opacity: 0;
-    translate: -150%;
-    transition: all 1s ease-in-out;
-    &:nth-child(odd) {
-      translate: 150%;
-    }
-  }
-
-  [data-animate='accordion-item'].show {
-    opacity: 1;
-    translate: none;
-  }
-}

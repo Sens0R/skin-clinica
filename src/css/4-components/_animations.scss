@@ -1,0 +1,36 @@
+[data-animate='section'] {
+  opacity: 0;
+  filter: blur(1px);
+  transition: all 0.75s ease-in-out;
+}
+
+[data-animate='section'].show {
+  opacity: 1;
+  filter: blur(0);
+}
+
+[data-animate='accordion-item'] {
+  translate: 0 5rem;
+  transition: all 1s ease-in-out;
+  &:nth-child(odd) {
+    translate: 0 -5rem;
+  }
+}
+
+[data-animate='accordion-item'].show {
+  translate: none;
+}
+
+@include media-breakpoint-up(lg) {
+  [data-animate='accordion-item'] {
+    translate: -100%;
+    transition: all 1s ease-in-out;
+    &:nth-child(odd) {
+      translate: 100%;
+    }
+  }
+
+  [data-animate='accordion-item'].show {
+    translate: none;
+  }
+}
