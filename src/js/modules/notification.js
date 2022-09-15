@@ -2,6 +2,10 @@ export function notification() {
   const notification = document.querySelector('[data-notification]');
 
   if (notification) {
+    window.matchMedia('(orientation: landscape)').onchange = () => {
+      notification.style.maxHeight = notification.scrollHeight + 'px';
+    };
+
     const closeNotificationBtn = notification.querySelector('button');
 
     notification.style.maxHeight = notification.scrollHeight + 'px';
