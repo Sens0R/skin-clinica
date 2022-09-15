@@ -14,7 +14,7 @@
 
 .banner-bg {
   @include image-cover(auto);
-  height: 50vh;
+  height: 30vh;
   @include media-breakpoint-up(md) {
     height: 80vh;
   }

@@ -42,17 +42,19 @@
 
 /* ====================   LOGO   ==================== */
 
-[data-animate='tab-logo'] {
-  rotate: 360deg;
-  transition: all 0.75s ease-in-out;
-  transition-delay: 2s;
-  opacity: 0;
-}
+@include media-breakpoint-up(md) {
+  [data-animate='tab-logo'] {
+    rotate: 360deg;
+    transition: all 0.75s ease-in-out;
+    transition-delay: 2s;
+    opacity: 0;
+  }
 
-[data-animate='tab-logo'].show {
-  opacity: 1;
-  rotate: 0deg;
-  fill: $color-accent;
+  [data-animate='tab-logo'].show {
+    opacity: 1;
+    rotate: 0deg;
+    fill: $color-accent;
+  }
 }
 
 /* ====================   PAGE SECTION   ==================== */

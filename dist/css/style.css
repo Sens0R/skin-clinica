@@ -15812,23 +15812,23 @@ input {
 }
 
 /* ====================   LOGO   ==================== */
-[data-animate=tab-logo] {
-  rotate: 360deg;
-  -webkit-transition: all 0.75s ease-in-out;
-  -o-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
-  -webkit-transition-delay: 2s;
-       -o-transition-delay: 2s;
-          transition-delay: 2s;
-  opacity: 0;
+@media (min-width: 768px) {
+  [data-animate=tab-logo] {
+    rotate: 360deg;
+    -webkit-transition: all 0.75s ease-in-out;
+    -o-transition: all 0.75s ease-in-out;
+    transition: all 0.75s ease-in-out;
+    -webkit-transition-delay: 2s;
+         -o-transition-delay: 2s;
+            transition-delay: 2s;
+    opacity: 0;
+  }
+  [data-animate=tab-logo].show {
+    opacity: 1;
+    rotate: 0deg;
+    fill: #e5065f;
+  }
 }
-
-[data-animate=tab-logo].show {
-  opacity: 1;
-  rotate: 0deg;
-  fill: #e5065f;
-}
-
 /* ====================   PAGE SECTION   ==================== */
 [data-animate=section-header] {
   opacity: 0;
@@ -15960,7 +15960,7 @@ input {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  height: 50vh;
+  height: 30vh;
 }
 @media (min-width: 768px) {
   .banner-bg {
