@@ -15826,7 +15826,6 @@ input {
   [data-animate=tab-logo].show {
     opacity: 1;
     rotate: 0deg;
-    fill: #e5065f;
   }
 }
 /* ====================   PAGE SECTION   ==================== */
@@ -15962,7 +15961,7 @@ input {
      object-position: center;
   height: 30vh;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .banner-bg {
     height: 80vh;
   }
@@ -16019,17 +16018,17 @@ input {
 
 .logo-regular-icon {
   fill: #fb5698;
-  height: calc(1.725rem + 5.7vw);
-  width: calc(1.725rem + 5.7vw);
+  height: calc(1.825rem + 6.9vw);
+  width: calc(1.825rem + 6.9vw);
 }
 @media (min-width: 1200px) {
   .logo-regular-icon {
-    height: 6rem;
+    height: 7rem;
   }
 }
 @media (min-width: 1200px) {
   .logo-regular-icon {
-    width: 6rem;
+    width: 7rem;
   }
 }
 

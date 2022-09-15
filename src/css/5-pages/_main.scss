@@ -15,7 +15,7 @@
 .banner-bg {
   @include image-cover(auto);
   height: 30vh;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     height: 80vh;
   }
 }
@@ -49,8 +49,8 @@
 
 .logo-regular-icon {
   fill: $color-accent-light;
-  @include rfs(6rem, height);
-  @include rfs(6rem, width);
+  @include rfs(7rem, height);
+  @include rfs(7rem, width);
 }
 
 [data-tab-content] {
