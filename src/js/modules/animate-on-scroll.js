@@ -1,4 +1,4 @@
-export function sectionAOS() {
+export function animateOnScroll() {
   const sectionObserver = new IntersectionObserver(
     (entries) =>
       entries.forEach((entry) => {
@@ -9,7 +9,7 @@ export function sectionAOS() {
     }
   );
 
-  const sections = document.querySelectorAll('[data-animate="section"]');
+  const sections = document.querySelectorAll('[data-animate]');
   sections.forEach((section) => {
     sectionObserver.observe(section);
   });

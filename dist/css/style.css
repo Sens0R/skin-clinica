@@ -13964,13 +13964,30 @@ input {
 /* ====================   ANIMATIONS   ==================== */
 [data-animate=section] {
   opacity: 0;
-  -webkit-transition: opacity 0.6s ease-in-out;
-  -o-transition: opacity 0.6s ease-in-out;
-  transition: opacity 0.6s ease-in-out;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+  -webkit-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 [data-animate=section].show {
   opacity: 1;
+  -webkit-filter: blur(0);
+          filter: blur(0);
+}
+
+[data-animate=accordion-item] {
+  opacity: 0;
+  translate: -100%;
+  -webkit-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+[data-animate=accordion-item].show {
+  opacity: 1;
+  translate: none;
 }
 
 .notification {

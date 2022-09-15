@@ -5,12 +5,12 @@ import { accordion } from './modules/accordion.js';
 import { activePageHighlight } from './modules/active-page-highlight.js';
 import { dropdown } from './modules/dropdown.js';
 import { hamburger } from './modules/hamburger.js';
-import { sectionAOS } from './modules/animate-on-scroll.js';
+import { animateOnScroll } from './modules/animate-on-scroll.js';
 import { search } from './modules/search.js';
 import { md, lg, sm } from './modules/breakpoints.js';
 
 activePageHighlight();
-sectionAOS();
+animateOnScroll();
 
 notification();
 

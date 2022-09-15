@@ -127,11 +127,24 @@
 
 /* ====================   ANIMATIONS   ==================== */
 
-[data-animate="section"] {
+[data-animate='section'] {
   opacity: 0;
-  transition: opacity 0.6s ease-in-out;
+  filter: blur(2px);
+  transition: all 0.6s ease-in-out;
 }
 
-[data-animate="section"].show {
+[data-animate='section'].show {
   opacity: 1;
+  filter: blur(0);
+}
+
+[data-animate='accordion-item'] {
+  opacity: 0;
+  translate: -100%;
+  transition: all 0.6s ease-in-out;
+}
+
+[data-animate='accordion-item'].show {
+  opacity: 1;
+  translate: none;
 }
