@@ -13570,7 +13570,7 @@
 * {
   margin: 0;
   padding: 0;
-  text-underline-offset: 25%;
+  text-underline-offset: 30%;
 }
 
 ul,
@@ -15600,7 +15600,6 @@ input {
   padding: 1.25rem 1rem;
   width: 100%;
   background-color: #fff0f6;
-  font-size: 1rem;
   font-weight: bold;
   color: #d10557;
   text-align: left;
@@ -15608,7 +15607,7 @@ input {
 }
 @media (min-width: 576px) {
   .accordion__button {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: #e5065f;
   }
 }
@@ -16358,6 +16357,7 @@ input {
 @media (min-width: 576px) {
   .about-img {
     margin-top: 0;
+    min-height: 100%;
   }
 }
 

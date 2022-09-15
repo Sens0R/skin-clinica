@@ -16,19 +16,20 @@
     padding: 1.25rem 1rem;
     width: 100%;
     background-color: lighten($color-primary, 13%);
-    font-size: $fs-base;
     font-weight: bold;
+
+    
     @include media-breakpoint-up(sm) {
-      @include font-size(1.25rem);
+      font-size: $fs-lg;
       color: $color-accent;
     }
+
     color: darken($color-accent, 4%);
     text-align: left;
     line-height: $lh-sm;
   }
 
   &__icon-container {
-   
     margin-left: 1rem;
     margin-bottom: auto;
   }
