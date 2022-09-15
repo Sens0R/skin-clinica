@@ -1,6 +1,7 @@
 let dropdowns;
 let desktop;
 let mobile;
+
 const dropdownsMedia = window.matchMedia(`(max-width: 992px)`);
 
 window.matchMedia('(orientation: landscape)').onchange = () => {

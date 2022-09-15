@@ -102,6 +102,8 @@ const swiperTestimonials = new Swiper('.swiper.swiper-testimonials', {
 });
 
 /* ====================   INTERSECTION OBSERVERS ==================== */
+const swiperShopEl = document.querySelector('.swiper-shop');
+const swiperTestimonialsEl = document.querySelector('.swiper-testimonials');
 
 const shopObserver = new IntersectionObserver(
   (entries) =>
@@ -114,7 +116,8 @@ const shopObserver = new IntersectionObserver(
     threshold: 0.75,
   }
 );
-shopObserver.observe(document.querySelector('.swiper-shop'));
+
+if (swiperShopEl) shopObserver.observe(swiperShopEl);
 
 const testimonialsObserver = new IntersectionObserver(
   (entries) =>
@@ -127,4 +130,5 @@ const testimonialsObserver = new IntersectionObserver(
     threshold: 0.75,
   }
 );
-testimonialsObserver.observe(document.querySelector('.swiper-testimonials'));
+
+if (swiperTestimonialsEl) testimonialsObserver.observe(swiperTestimonialsEl);
