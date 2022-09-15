@@ -15784,24 +15784,13 @@ input {
   -webkit-transition: all 0.75s ease-in-out;
   -o-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out;
+  scale: 0.5;
 }
 
 [data-animate=main-header].show {
   opacity: 1;
   translate: none;
-}
-
-[data-animate=main-header-accent] {
-  -webkit-transition: all 0.75s ease-in-out;
-  -o-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
-  -webkit-transition-delay: 0.25s;
-       -o-transition-delay: 0.25s;
-          transition-delay: 0.25s;
-}
-
-[data-animate=main-header-accent].show {
-  color: #fb5698;
+  scale: 1;
 }
 
 /* ====================   LOGO   ==================== */
@@ -15822,55 +15811,45 @@ input {
 /* ====================   PAGE SECTION   ==================== */
 [data-animate=section-header] {
   opacity: 0;
-  translate: 15%;
   -webkit-transition: all 0.75s ease-in-out;
   -o-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out;
+  scale: 0.25;
 }
 
 [data-animate=section-header].show {
   opacity: 1;
-  translate: none;
+  scale: 1;
 }
 
-/* ====================   ACCORDION ITEM   ==================== */
-@media (min-width: 992px) {
-  [data-animate=accordion-item] {
-    translate: -100%;
-    -webkit-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-  }
-  [data-animate=accordion-item]:nth-child(odd) {
-    translate: 100%;
-  }
-  [data-animate=accordion-item].show {
-    translate: none;
-  }
-}
 /* ====================   BLOG CARD HEADER   ==================== */
 [data-animate=blog-header-1],
 [data-animate=blog-header-2],
 [data-animate=blog-header-3] {
   opacity: 0;
   translate: 15%;
-  -webkit-transition: all 0.75s ease-in-out;
-  -o-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
-[data-animate=blog-header-2] {
-  -webkit-transition-delay: 0.25s;
-       -o-transition-delay: 0.25s;
-          transition-delay: 0.25s;
+@media (min-width: 992px) {
+  [data-animate=blog-header-1] {
+    -webkit-transition-delay: 0.33s;
+         -o-transition-delay: 0.33s;
+            transition-delay: 0.33s;
+  }
+  [data-animate=blog-header-2] {
+    -webkit-transition-delay: 0.66s;
+         -o-transition-delay: 0.66s;
+            transition-delay: 0.66s;
+  }
+  [data-animate=blog-header-3] {
+    -webkit-transition-delay: 1s;
+         -o-transition-delay: 1s;
+            transition-delay: 1s;
+  }
 }
-
-[data-animate=blog-header-3] {
-  -webkit-transition-delay: 0.5s;
-       -o-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-}
-
 [data-animate=blog-header-1].show,
 [data-animate=blog-header-2].show,
 [data-animate=blog-header-3].show {
@@ -15878,6 +15857,26 @@ input {
   translate: none;
 }
 
+/* ====================   ACCORDION ITEM   ==================== */
+@media (min-width: 992px) {
+  [data-animate=accordion-item] {
+    translate: -75%;
+    scale: 0.25;
+    rotate: 15deg;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  [data-animate=accordion-item]:nth-child(odd) {
+    translate: 75%;
+    rotate: -15deg;
+  }
+  [data-animate=accordion-item].show {
+    translate: none;
+    scale: 1;
+    rotate: 0deg;
+  }
+}
 .page-banner {
   position: relative;
 }

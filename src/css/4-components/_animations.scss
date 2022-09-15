@@ -17,20 +17,13 @@
   opacity: 0;
   translate: 0 -75%;
   transition: all 0.75s ease-in-out;
+  scale: 0.5;
 }
 
 [data-animate='main-header'].show {
   opacity: 1;
   translate: none;
-}
-
-[data-animate='main-header-accent'] {
-  transition: all 0.75s ease-in-out;
-  transition-delay: 0.25s;
-}
-
-[data-animate='main-header-accent'].show {
-  color: $color-accent-light;
+  scale: 1;
 }
 
 /* ====================   LOGO   ==================== */
@@ -51,29 +44,13 @@
 
 [data-animate='section-header'] {
   opacity: 0;
-  translate: 15%;
   transition: all 0.75s ease-in-out;
+  scale: 0.25;
 }
 
 [data-animate='section-header'].show {
   opacity: 1;
-  translate: none;
-}
-
-/* ====================   ACCORDION ITEM   ==================== */
-
-@include media-breakpoint-up(lg) {
-  [data-animate='accordion-item'] {
-    translate: -100%;
-    transition: all 1s ease-in-out;
-    &:nth-child(odd) {
-      translate: 100%;
-    }
-  }
-
-  [data-animate='accordion-item'].show {
-    translate: none;
-  }
+  scale: 1;
 }
 
 /* ====================   BLOG CARD HEADER   ==================== */
@@ -83,14 +60,21 @@
 [data-animate='blog-header-3'] {
   opacity: 0;
   translate: 15%;
-  transition: all 0.75s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
-[data-animate='blog-header-2'] {
-  transition-delay: 0.25s;
-}
-[data-animate='blog-header-3'] {
-  transition-delay: 0.5s;
+@include media-breakpoint-up(lg) {
+  [data-animate='blog-header-1'] {
+    transition-delay: 0.33s;
+  }
+
+  [data-animate='blog-header-2'] {
+    transition-delay: 0.66s;
+  }
+
+  [data-animate='blog-header-3'] {
+    transition-delay: 1s;
+  }
 }
 
 [data-animate='blog-header-1'].show,
@@ -98,4 +82,25 @@
 [data-animate='blog-header-3'].show {
   opacity: 1;
   translate: none;
+}
+
+/* ====================   ACCORDION ITEM   ==================== */
+
+@include media-breakpoint-up(lg) {
+  [data-animate='accordion-item'] {
+    translate: -75%;
+    scale: 0.25;
+    rotate: 15deg;
+    transition: all 1s ease-in-out;
+    &:nth-child(odd) {
+      translate: 75%;
+      rotate: -15deg;
+    }
+  }
+
+  [data-animate='accordion-item'].show {
+    translate: none;
+    scale: 1;
+    rotate: 0deg;
+  }
 }
