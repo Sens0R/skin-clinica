@@ -3,7 +3,8 @@ export function notification() {
 
   if (notification) {
     window.matchMedia('(orientation: landscape)').onchange = () => {
-      notification.style.maxHeight = notification.scrollHeight + 'px';
+      if (!notification.contains('closed'))
+        notification.style.maxHeight = notification.scrollHeight + 'px';
     };
 
     const closeNotificationBtn = notification.querySelector('button');
