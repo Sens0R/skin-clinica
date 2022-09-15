@@ -1,4 +1,10 @@
-import Swiper, { Navigation, Pagination, Keyboard, Autoplay, A11y } from 'swiper';
+import Swiper, {
+  Navigation,
+  Pagination,
+  Keyboard,
+  Autoplay,
+  A11y,
+} from 'swiper';
 
 const swiperShop = new Swiper('.swiper.swiper-shop', {
   modules: [Navigation, Pagination, Keyboard, Autoplay, A11y],
@@ -12,7 +18,7 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
 
   autoplay: {
     delay: 4000,
-    pauseOnMouseEnter: true
+    pauseOnMouseEnter: true,
   },
 
   // Navigation arrows
@@ -57,7 +63,7 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
   },
 });
 
-const swiper = new Swiper('.swiper.swiper-testimonials', {
+const swiperTestimonials = new Swiper('.swiper.swiper-testimonials', {
   // configure Swiper to use modules
   modules: [Navigation, Pagination, Keyboard, Autoplay, A11y],
   // Optional parameters
@@ -67,7 +73,7 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
 
   autoplay: {
     delay: 4000,
-    pauseOnMouseEnter: true
+    pauseOnMouseEnter: true,
   },
 
   // If we need pagination
@@ -78,7 +84,7 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
 
   // Responsive breakpoints
   breakpoints: {
-     1199.98: {
+    1199.98: {
       speed: 1000,
     },
   },
@@ -94,3 +100,31 @@ const swiper = new Swiper('.swiper.swiper-testimonials', {
     pageUpDown: true,
   },
 });
+
+/* ====================   INTERSECTION OBSERVERS ==================== */
+
+const shopObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      entry.isIntersecting
+        ? swiperShop.autoplay.start()
+        : swiperShop.autoplay.stop();
+    }),
+  {
+    threshold: 0.75,
+  }
+);
+shopObserver.observe(document.querySelector('.swiper-shop'));
+
+const testimonialsObserver = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      entry.isIntersecting
+        ? swiperTestimonials.autoplay.start()
+        : swiperTestimonials.autoplay.stop();
+    }),
+  {
+    threshold: 0.75,
+  }
+);
+testimonialsObserver.observe(document.querySelector('.swiper-testimonials'));

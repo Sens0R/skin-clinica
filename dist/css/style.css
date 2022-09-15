@@ -15763,20 +15763,6 @@ input {
   visibility: hidden;
 }
 
-/* ====================   NOTIFICATION   ==================== */
-[data-animate=notification] {
-  -webkit-transition: all 0.75s ease-in-out;
-  -o-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
-  rotate: 360deg;
-  scale: 0.5;
-}
-
-[data-animate=notification].show {
-  rotate: 0deg;
-  scale: 1;
-}
-
 /* ====================   MAIN HEADER   ==================== */
 [data-animate=main-header] {
   opacity: 0;
@@ -15793,19 +15779,54 @@ input {
   scale: 1;
 }
 
+[data-animate=about-us-p-1],
+[data-animate=about-us-p-2],
+[data-animate=about-us-p-3] {
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  [data-animate=about-us-p-1] {
+    -webkit-transition-delay: 0.5s;
+         -o-transition-delay: 0.5s;
+            transition-delay: 0.5s;
+  }
+  [data-animate=about-us-p-2] {
+    -webkit-transition-delay: 1s;
+         -o-transition-delay: 1s;
+            transition-delay: 1s;
+  }
+  [data-animate=about-us-p-3] {
+    -webkit-transition-delay: 1.5s;
+         -o-transition-delay: 1.5s;
+            transition-delay: 1.5s;
+  }
+}
+[data-animate=about-us-p-1].show,
+[data-animate=about-us-p-2].show,
+[data-animate=about-us-p-3].show {
+  opacity: 1;
+}
+
 /* ====================   LOGO   ==================== */
 [data-animate=tab-logo] {
   rotate: 360deg;
   -webkit-transition: all 0.75s ease-in-out;
   -o-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out;
-  scale: 0.5;
+  -webkit-transition-delay: 2s;
+       -o-transition-delay: 2s;
+          transition-delay: 2s;
+  opacity: 0;
 }
 
 [data-animate=tab-logo].show {
+  opacity: 1;
   rotate: 0deg;
   fill: #e5065f;
-  scale: 1;
 }
 
 /* ====================   PAGE SECTION   ==================== */

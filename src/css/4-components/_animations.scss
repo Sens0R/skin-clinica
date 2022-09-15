@@ -1,18 +1,4 @@
-/* ====================   NOTIFICATION   ==================== */
-
-[data-animate='notification'] {
-  transition: all 0.75s ease-in-out;
-  rotate: 360deg;
-  scale: 0.5;
-}
-
-[data-animate='notification'].show {
-  rotate: 0deg;
-  scale: 1;
-}
-
 /* ====================   MAIN HEADER   ==================== */
-
 [data-animate='main-header'] {
   opacity: 0;
   translate: 0 -75%;
@@ -26,18 +12,47 @@
   scale: 1;
 }
 
+// paragraphs
+[data-animate='about-us-p-1'],
+[data-animate='about-us-p-2'],
+[data-animate='about-us-p-3'] {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+@include media-breakpoint-up(lg) {
+  [data-animate='about-us-p-1'] {
+    transition-delay: 0.5s;
+  }
+
+  [data-animate='about-us-p-2'] {
+    transition-delay: 1s;
+  }
+
+  [data-animate='about-us-p-3'] {
+    transition-delay: 1.5s;
+  }
+}
+
+[data-animate='about-us-p-1'].show,
+[data-animate='about-us-p-2'].show,
+[data-animate='about-us-p-3'].show {
+  opacity: 1;
+}
+
 /* ====================   LOGO   ==================== */
 
 [data-animate='tab-logo'] {
   rotate: 360deg;
   transition: all 0.75s ease-in-out;
-  scale: 0.5;
+  transition-delay: 2s;
+  opacity: 0;
 }
 
 [data-animate='tab-logo'].show {
+  opacity: 1;
   rotate: 0deg;
   fill: $color-accent;
-  scale: 1;
 }
 
 /* ====================   PAGE SECTION   ==================== */
