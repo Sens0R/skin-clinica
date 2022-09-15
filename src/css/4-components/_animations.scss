@@ -1,16 +1,64 @@
-/* ====================   PAGE SECTION   ==================== */
+/* ====================   NOTIFICATION   ==================== */
 
- [data-animate='section'] {
-  opacity: 0.15;
-  filter: blur(1px);
+[data-animate='notification'] {
+  transition: all 0.75s ease-in-out;
+  rotate: 360deg;
+  scale: 0.5;
+}
+
+[data-animate='notification'].show {
+  rotate: 0deg;
+  scale: 1;
+}
+
+/* ====================   MAIN HEADER   ==================== */
+
+[data-animate='main-header'] {
+  opacity: 0;
+  translate: 0 -75%;
   transition: all 0.75s ease-in-out;
 }
 
-[data-animate='section'].show {
+[data-animate='main-header'].show {
   opacity: 1;
-  filter: blur(0);
+  translate: none;
 }
- 
+
+[data-animate='main-header-accent'] {
+  transition: all 0.75s ease-in-out;
+  transition-delay: 0.25s;
+}
+
+[data-animate='main-header-accent'].show {
+  color: $color-accent-light;
+}
+
+/* ====================   LOGO   ==================== */
+
+[data-animate='tab-logo'] {
+  rotate: 360deg;
+  transition: all 0.75s ease-in-out;
+  scale: 0.5;
+}
+
+[data-animate='tab-logo'].show {
+  rotate: 0deg;
+  fill: $color-accent;
+  scale: 1;
+}
+
+/* ====================   PAGE SECTION   ==================== */
+
+[data-animate='section-header'] {
+  opacity: 0;
+  translate: 15%;
+  transition: all 0.75s ease-in-out;
+}
+
+[data-animate='section-header'].show {
+  opacity: 1;
+  translate: none;
+}
 
 /* ====================   ACCORDION ITEM   ==================== */
 

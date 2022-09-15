@@ -39,10 +39,6 @@
   }
 }
 
-.about-us h1 span {
-  color: $color-accent-light;
-}
-
 .about-us-text-content {
   user-select: text;
 }
@@ -53,8 +49,8 @@
 
 .logo-regular-icon {
   fill: $color-accent-light;
-  @include rfs(5rem, height);
-  @include rfs(5rem, width);
+  @include rfs(6rem, height);
+  @include rfs(6rem, width);
 }
 
 [data-tab-content] {
