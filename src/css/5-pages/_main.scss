@@ -22,30 +22,26 @@
 
 /* ====================   ABOUT-US   ==================== */
 
-@include media-breakpoint-down(xl) {
-  .hero-tabs {
+.hero-tabs {
+  @include media-breakpoint-down(xl) {
     @include spacer-vertical('padding', $spacer-xl);
   }
 }
 
 .hero-p-accent {
+  line-height: 1;
   text-transform: uppercase;
   @include font-size(1.375rem);
   color: $color-accent;
 }
 
 .hero {
-  user-select: none;
   @include spacer-top('padding', $spacer);
 
   .row {
     justify-content: space-between;
     align-items: center;
   }
-}
-
-.hero-text-content {
-  user-select: text;
 }
 
 .logo-regular-icon {

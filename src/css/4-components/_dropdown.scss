@@ -42,9 +42,8 @@
     z-index: -1;
     opacity: 0;
     transition: all 0.25s ease-in-out;
-    border-bottom-left-radius: $border-radius-sm;
-    border-bottom-right-radius: $border-radius-sm;
-    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+    border-radius: $border-radius-sm;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 
     .dropdown-content {
       translate: 0 -100%;
