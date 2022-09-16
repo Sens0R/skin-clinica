@@ -1,59 +1,56 @@
 /* ====================   MAIN HEADER   ==================== */
-[data-animate='main-header'] {
+
+[data-animate='hero-header'] {
   opacity: 0;
   translate: 0 -75%;
   transition: all 0.75s ease-in-out;
   scale: 0.5;
 }
 
-[data-animate='main-header'].show {
+[data-animate='hero-header'].show {
   opacity: 1;
   translate: none;
   scale: 1;
 }
 
 // paragraphs
-[data-animate='about-us-p-1'],
-[data-animate='about-us-p-2'],
-[data-animate='about-us-p-3'] {
+[data-animate='hero-p-1'],
+[data-animate='hero-p-2'],
+[data-animate='hero-p-3'] {
   opacity: 0;
   transition: all 1s ease-in-out;
 }
 
-@include media-breakpoint-up(lg) {
-  [data-animate='about-us-p-1'] {
-    transition-delay: 0.5s;
-  }
-
-  [data-animate='about-us-p-2'] {
-    transition-delay: 1s;
-  }
-
-  [data-animate='about-us-p-3'] {
-    transition-delay: 1.5s;
-  }
+[data-animate='hero-p-1'] {
+  transition-delay: 0.5s;
 }
 
-[data-animate='about-us-p-1'].show,
-[data-animate='about-us-p-2'].show,
-[data-animate='about-us-p-3'].show {
+[data-animate='hero-p-2'] {
+  transition-delay: 1s;
+}
+
+[data-animate='hero-p-3'] {
+  transition-delay: 1.5s;
+}
+
+[data-animate='hero-p-1'].show,
+[data-animate='hero-p-2'].show,
+[data-animate='hero-p-3'].show {
   opacity: 1;
 }
 
 /* ====================   LOGO   ==================== */
 
-@include media-breakpoint-up(md) {
-  [data-animate='tab-logo'] {
-    rotate: 360deg;
-    transition: all 0.75s ease-in-out;
-    transition-delay: 2s;
-    opacity: 0;
-  }
+[data-animate='hero-logo'] {
+  rotate: 360deg;
+  transition: all 0.75s ease-in-out;
+  transition-delay: 2s;
+  opacity: 0;
+}
 
-  [data-animate='tab-logo'].show {
-    opacity: 1;
-    rotate: 0deg;
-  }
+[data-animate='hero-logo'].show {
+  opacity: 1;
+  rotate: 0deg;
 }
 
 /* ====================   PAGE SECTION   ==================== */

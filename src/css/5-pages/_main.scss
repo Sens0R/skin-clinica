@@ -14,43 +14,44 @@
 
 .banner-bg {
   @include image-cover(auto);
-  height: 30vh;
+  height: 50vh;
   @include media-breakpoint-up(lg) {
-    height: 80vh;
+    height: 100vh;
   }
 }
 
 /* ====================   ABOUT-US   ==================== */
 
-.about-us.section {
-  padding-bottom: 0;
+@include media-breakpoint-down(xl) {
+  .hero-tabs {
+    @include spacer-vertical('padding', $spacer-xl);
+  }
 }
 
-.about-us-text-content,
-.about-us-tabs {
-  @include spacer-vertical('padding', $spacer-xl);
+.hero-p-accent {
+  text-transform: uppercase;
+  @include font-size(1.375rem);
+  color: $color-accent;
 }
 
-.about-us {
+.hero {
   user-select: none;
+  @include spacer-top('padding', $spacer);
+
   .row {
     justify-content: space-between;
     align-items: center;
   }
 }
 
-.about-us-text-content {
+.hero-text-content {
   user-select: text;
-}
-
-.about-us-text-content p {
-  color: $color-gray;
 }
 
 .logo-regular-icon {
   fill: $color-accent-light;
-  @include rfs(7rem, height);
-  @include rfs(7rem, width);
+  @include rfs(6rem, height);
+  @include rfs(6rem, width);
 }
 
 [data-tab-content] {
