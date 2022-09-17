@@ -1,21 +1,53 @@
-[data-notification]button {
-  padding: 0.5rem;
-}
-
-.close-notification-icon {
-  @include box(1rem, 1rem);
-  fill: $color-light;
-  z-index: 100;
-}
-
-[data-notification] {
-  @include flex($justify-content: center, $align-items: center);
+.notification {
   transition: all 0.4s ease-in-out;
   visibility: visible;
   @include z-index(above-header);
   background: $color-secondary;
+  color: $color-light;
+  font-size: $fs-sm;
+
+  p {
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  &__btn {
+    @include flex($justify-content: center, $align-items: center);
+    min-height: 100%;
+    &:focus-visible {
+      outline: none;
+      background-color: $color-primary;
+      svg {
+        fill: $color-secondary;
+      }
+    }
+  }
+
+  &__link {
+    color: $color-primary;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    @include link-space();
+    @include hover {
+      text-decoration: underline solid $color-primary 1px;
+    }
+
+    &:focus-visible {
+      outline: none;
+      text-decoration: underline solid $color-primary 2px;
+    }
+  }
+
+  &__icon {
+    @include box(1rem, 1rem);
+    fill: $color-light;
+  }
 }
 
-[data-notification].closed {
+.notification.closed {
   visibility: hidden;
 }
+

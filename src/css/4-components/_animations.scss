@@ -57,12 +57,12 @@
 [data-animate='section-header'] {
   opacity: 0;
   transition: all 0.75s ease-in-out;
-  scale: 0.25;
+  translate: 5rem;
 }
 
 [data-animate='section-header'].show {
+  translate: none;
   opacity: 1;
-  scale: 1;
 }
 
 /* ====================   BLOG CARD HEADER   ==================== */

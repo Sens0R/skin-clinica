@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +17,26 @@
 
   <title>Skin Clinica</title>
 </head>
-  <body>
-    <div class="page-wrapper">
-      <aside data-notification>
-        <p class="notification">
-          Free Shipping On All Us Orders Over $50 + 2 Free Samples 🎁
-          <a href="shop.html" class="notification__link">Shop now</a>
-        </p>
-        <button type="button" aria-label="close notification">
-          <svg aria-hidden="true" class="close-notification-icon hvr-icon">
+
+<body>
+  <div class="page-wrapper">
+    <div class="container-fluid">
+      <aside class="row notification" data-notification>
+        <div class="col notification__content">
+          <p>
+            Free Shipping On All Us Orders Over $50 + 2 Free Samples 🎁
+            <a href="shop.html" class="notification__link">Shop now</a>
+          </p>
+        </div>
+
+        <button class="notification__btn col-auto" type="button" aria-label="close notification">
+          <svg aria-hidden="true" class="notification__icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
           </svg>
         </button>
       </aside>
-      <header class="header"><div class="container-fluid container-lg">
+    </div>
+    <header class="header"><div class="container-fluid container-lg">
   <div class="row nav-belt">
 
     <!-- ====================   LOGO   ==================== -->
@@ -89,25 +95,25 @@
           </svg>
         </button>
 
-        <a href="#" class="rounded-icon" aria-label="Account">
+        <a href="#" class="rounded-icon" aria-labelledby="tools-account">
           <svg aria-hidden="true" class="icon-rounded hvr-icon">
             <use href="images/icons/sprite-mono.svg#account"></use>
           </svg>
-          <p class="nav-tools__name">Account</p>
+          <p id="tools-account" class="nav-tools__name">Account</p>
         </a>
 
-        <a href="#" class="rounded-icon" aria-label="Wishlist">
+        <a href="#" class="rounded-icon" aria-labelledby="tools-wishlist">
           <svg aria-hidden="true" class="icon-rounded hvr-icon">
             <use href="images/icons/sprite-mono.svg#wishlist"></use>
           </svg>
-          <p class="nav-tools__name">Wishlist</p>
+          <p id="tools-wishlist" class="nav-tools__name">Wishlist</p>
         </a>
 
-        <a href="#" class="rounded-icon" aria-label="Shopping cart">
+        <a href="#" class="rounded-icon" aria-labelledby="tools-cart">
           <svg aria-hidden="true" class="icon-rounded hvr-icon">
             <use href="images/icons/sprite-mono.svg#cart"></use>
           </svg>
-          <p class="nav-tools__name">Cart (0)</p>
+          <p id="tools-cart" class="nav-tools__name">Cart (0)</p>
         </a>
       </div>
     </div>
@@ -545,12 +551,8 @@
   </nav>
 </div></header>
 
-<!-- ====================   DO NOT USE PRETTIER HERE   ==================== -->
-
 <main>
-  
-
-<!--  ====================   HERO   ==================== -->
+  <!--  ====================   HERO   ==================== -->
 
 <section class="container-fluid container-lg hero">
   <div class="row">
@@ -794,7 +796,7 @@
 <section class="section container-fluid container-lg shop">
   <h2 class="section-header">
     <a data-animate="section-header" class="section-header-link" href="#">From The <span
-        class="section-header-link__accent">Shop</span></a>
+        class="section-header-link__accent">Shop.</span></a>
   </h2>
   <div class="swiper swiper-shop">
     <div class="swiper-wrapper">
@@ -1287,7 +1289,7 @@
 <section class="section container-fluid container-lg blog">
   <h2 class="section-header">
     <a data-animate="section-header" class="section-header-link" href="blog.html">From The <span
-        class="section-header-link__accent">Blog</span></a>
+        class="section-header-link__accent">Blog.</span></a>
   </h2>
   <div class="row">
     <div class="col-12 col-md-12 col-lg-4 blog-col">
@@ -1772,8 +1774,8 @@
 </section>
 </main>
 
-        <footer class="footer">
-           <div class="footer-background">
+<footer class="footer">
+  <div class="footer-background">
   <picture>
     <source type="image/avif" sizes="100vw" srcset="
         images/footer-bg-320.avif   320w,
@@ -1816,13 +1818,17 @@
     <form class="row mailing-form">
 
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-        <label for="full-name">Full name <span>(optional)</span></label>
-        <input autocomplete="off" placeholder="Full name" type="text" id="full-name">
+        <div class="position-relative">
+          <label for="full-name">Full name <span>(optional)</span></label>
+          <input autocomplete="off" placeholder="Full name" type="text" id="full-name">
+        </div>
       </div>
 
       <div class="col-12 col-sm-6 d-flex col-md-auto mailing-form__item">
-        <label for="email-adress">Email address <span>(required)</span></label>
-        <input placeholder="Email" type="email" id="email-adress" required>
+        <div class="position-relative">
+          <label for="email-adress">Email address <span>(required)</span></label>
+          <input placeholder="Email" type="email" id="email-adress" required>
+        </div>
       </div>
 
       <div class="col-12 col-md-auto mailing-form__item mailing-form__button">
@@ -1941,9 +1947,8 @@
     © ALL CONTENT IS THE COPYRIGHT OF SKIN CLINICA. ALL RIGHTS RESERVED
   </p>
 </div>
-        </footer>
-      </div>
-    </body>
-  </html>
+</footer>
+</div>
+</body>
 
-  <!-- ====================   DO NOT USE PRETTIER HERE   ==================== -->
+</html>

@@ -20,14 +20,14 @@
   }
 }
 
-@mixin link-space($size: 48px) {
+@mixin link-space($width: 100%, $height: 100%, $size: 48px) {
   position: relative;
 
   &:before {
     content: '';
     display: block;
-    width: 100%;
-    height: 100%;
+    width: $width;
+    height: $height;
     min-width: $size;
     min-height: $size;
     position: absolute;

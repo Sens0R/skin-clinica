@@ -1,0 +1,52 @@
+@import '1-hero-section';
+@import '2-shop-section';
+@import '3-blog-section';
+@import '4-testimonials-section';
+@import '5-faq-section';
+
+.section {
+  @include spacer-vertical('padding', $spacer-xl);
+}
+
+.section-btn {
+  @include flex($justify-content: center, $align-items: center);
+}
+
+.section-header-link {
+  &__accent {
+    color: $color-accent-light;
+  }
+
+  @include link-space($width: 130%, $height: 150%);
+  transition: all 0.4s ease-in-out;
+  span {
+    text-decoration: underline 3px solid transparent;
+    text-underline-offset: 5%;
+    transition: all 0.6s ease-in-out;
+  }
+
+  @include hover {
+    translate: 1.5rem;
+    span {
+      text-decoration-color: $color-accent-light;
+    }
+  }
+
+  &:focus-visible {
+    translate: 1.5rem;
+    outline: none;
+    outline-offset: 0.25rem;
+    outline-width: 5px;
+    span {
+      text-decoration-color: $color-accent-light;
+    }
+  }
+}
+
+.banner-bg {
+  @include image-cover(auto);
+  height: 50vh;
+  @include media-breakpoint-up(lg) {
+    height: 100vh;
+  }
+}

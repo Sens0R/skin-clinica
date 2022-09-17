@@ -18,7 +18,7 @@ fixedHeader(lg);
 search()
 
 hamburger({
-  notification: '[data-close-notification-btn]',
+  notification: '[data-notification] button',
 });
 
 dropdown();

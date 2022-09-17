@@ -1,4 +1,5 @@
 .nav-toggler {
+  min-height: 100%;
   min-width: 3.75rem;
   &__open {
     @include flex(
@@ -13,9 +14,10 @@
   }
 
   &__close {
+    @include flex($justify-content: center, $align-items: center);
     display: none;
     .nav-toggler-icon {
-      @include box(1.75rem, 1.75rem);
+      @include box(1.5rem, 1.5rem);
     }
   }
 
@@ -39,7 +41,6 @@
 }
 
 .nav-body {
-  user-select: none;
   position: relative;
   hr {
     width: 100%;
@@ -56,7 +57,6 @@
   &__link {
     display: inline-block;
     padding: $spacer-sm;
-    user-select: none;
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -113,7 +113,7 @@
   .nav-toggler {
     display: none;
   }
-  
+
   .dropdown-content {
     display: flex;
     background-color: $color-light;
@@ -132,13 +132,13 @@
 /* ====================   NAVIGATION MEDIA   ==================== */
 
 @include media-breakpoint-down(lg) {
-   .navigation {
+  .navigation {
     will-change: auto;
     translate: 100%;
     visibility: hidden;
     width: 100%;
     height: 0;
-    transition: all 0.4s, translate 0.6s, opacity 1s;
+    transition: all 0.3s, translate 0.6s, opacity 1s;
     transition-timing-function: ease-in-out;
     overflow: hidden;
     opacity: 0;

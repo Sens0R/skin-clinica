@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('head-part.html',{ "title":"Skin Clinica" })
-  <body>
-    <div class="page-wrapper">
-      <aside data-notification>
-        <p class="notification">
-          Free Shipping On All Us Orders Over $50 + 2 Free Samples 🎁
-          <a href="shop.html" class="notification__link">Shop now</a>
-        </p>
-        <button type="button" aria-label="close notification">
-          <svg aria-hidden="true" class="close-notification-icon hvr-icon">
+@@include('head-part.html',{ "title":"Skin Clinica" })
+
+<body>
+  <div class="page-wrapper">
+    <div class="container-fluid">
+      <aside class="row notification" data-notification>
+        <div class="col notification__content">
+          <p>
+            Free Shipping On All Us Orders Over $50 + 2 Free Samples 🎁
+            <a href="shop.html" class="notification__link">Shop now</a>
+          </p>
+        </div>
+
+        <button class="notification__btn col-auto" type="button" aria-label="close notification">
+          <svg aria-hidden="true" class="notification__icon hvr-icon">
             <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
           </svg>
         </button>
       </aside>
-      <header class="header">@@include('../components/header.html',{})</header>
-
-<!-- ====================   DO NOT USE PRETTIER HERE   ==================== -->
+    </div>
+    <header class="header">@@include('../components/header.html',{})</header>

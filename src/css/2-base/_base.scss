@@ -84,10 +84,6 @@ button {
   @include flex($flex-direction: column);
 }
 
-::placeholder {
-  user-select: none;
-}
-
 ::selection {
   background-color: $color-accent;
   color: $color-light;
@@ -149,8 +145,8 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid $color-accent;
-  border-radius: $border-radius-pill;
+  outline-color: $color-accent;
+  
 }
 
 input {

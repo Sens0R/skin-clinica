@@ -1,27 +1,3 @@
-.section {
-  @include spacer-vertical('padding', $spacer-xl);
-}
-
-.section-btn {
-  @include flex($justify-content: center, $align-items: center);
-}
-
-.section-header-link__accent {
-  color: $color-accent-light;
-}
-
-/* ====================   BANNER   ==================== */
-
-.banner-bg {
-  @include image-cover(auto);
-  height: 50vh;
-  @include media-breakpoint-up(lg) {
-    height: 100vh;
-  }
-}
-
-/* ====================   ABOUT-US   ==================== */
-
 .hero-tabs {
   @include media-breakpoint-down(xl) {
     @include spacer-vertical('padding', $spacer-xl);
@@ -143,6 +119,10 @@
   @include spacer-top('margin', $spacer);
 }
 
+// add focus & hover
+
+/* ====================   MEDIA   ==================== */
+
 @include media-breakpoint-down(sm) {
   .tab-nav {
     @include flex(
@@ -197,106 +177,5 @@
   .tab-arrow-right-icon {
     @include box(2.5rem, 2.5rem);
     fill: $color-light;
-  }
-}
-
-/* ====================   SHOP   ==================== */
-
-.swiper-shop {
-  overflow-x: hidden;
-  @include spacer-vertical('margin', $spacer-lg);
-}
-
-.swiper-shop-nav {
-  @include flex($justify-content: space-between, $align-items: center);
-  @include spacer-top('margin', $spacer-lg);
-}
-
-/* ====================   BLOG   ==================== */
-
-.blog-col {
-  @include spacer-vertical('margin', $spacer-lg);
-}
-
-/* ====================   TESTIMONIALS   ==================== */
-
-.testimonials-bg {
-  @include absolute(top 0 left 0);
-  @include image-cover();
-}
-
-.testimonials {
-  position: relative;
-  @include flex(
-    $justify-content: center,
-    $align-items: center,
-    $flex-direction: column
-  );
-
-  text-align: center;
-  user-select: none;
-
-  p {
-    margin: 0;
-  }
-
-  &__header {
-    z-index: 1;
-    @include spacer-bottom('margin', $spacer-lg);
-    
-  }
-
-  &__body {
-    font-style: italic;
-    font-size: $fs-lg;
-    margin-bottom: auto;
-  }
-
-  &__person {
-    @include spacer-top('padding', $spacer);
-    @include spacer-bottom('padding', $spacer-lg);
-    @include flex(
-      $justify-content: center,
-      $align-items: center,
-      $flex-direction: column
-    );
-  }
-}
-
-.testimonials-content {
-  @include flex(
-    $justify-content: center,
-    $align-items: center,
-    $flex-direction: column
-  );
-
-  max-width: 35rem;
-  height: 100%;
-  @include margin-auto(x);
-}
-
-.person-photo-thumbnail {
-  @include image-cover($height: 4.5rem, $width: 4.5rem);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-}
-
-.person-name {
-  margin-top: $spacer-sm !important;
-  color: $color-accent;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 1px;
-  line-height: $lh-sm;
-}
-
-/* ====================   FAQ   ==================== */
-
-.faq {
-  max-width: 650px;
-  &__header {
-    @include spacer-bottom('margin', $spacer-lg);
-   
-    text-align: center;
   }
 }

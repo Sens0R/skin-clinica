@@ -1,0 +1,92 @@
+.testimonials-bg {
+  @include absolute(top 0 left 0);
+  @include image-cover();
+}
+
+.testimonials {
+  position: relative;
+  @include flex(
+    $justify-content: center,
+    $align-items: center,
+    $flex-direction: column
+  );
+
+  text-align: center;
+  user-select: none;
+
+  p {
+    margin: 0;
+  }
+
+  &__header {
+    z-index: 1;
+    @include spacer-bottom('margin', $spacer-lg);
+  }
+
+  &__body {
+    font-style: italic;
+    font-size: $fs-lg;
+    margin-bottom: auto;
+  }
+
+  &__person {
+    @include spacer-top('padding', $spacer);
+    @include spacer-bottom('padding', $spacer-lg);
+    @include flex(
+      $justify-content: center,
+      $align-items: center,
+      $flex-direction: column
+    );
+  }
+}
+
+.testimonials-content {
+  @include flex(
+    $justify-content: center,
+    $align-items: center,
+    $flex-direction: column
+  );
+
+  max-width: 35rem;
+  height: 100%;
+  @include margin-auto(x);
+}
+
+.person-photo-thumbnail {
+  @include image-cover($height: 4.5rem, $width: 4.5rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.person-name {
+  margin-top: $spacer-sm !important;
+  color: $color-accent;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  line-height: $lh-sm;
+}
+
+.swiper-btn--left-testimonials,
+.swiper-btn--right-testimonials {
+  svg {
+    transition: all 0.4s ease-in-out;
+  }
+
+  &:focus-visible {
+    svg {
+      fill: $color-light;
+      transition: none;
+    }
+
+    outline: none;
+    background-color: $color-accent-light;
+  }
+
+  @include hover {
+    svg {
+      scale: 1.35;
+      fill: $color-accent;
+    }
+  }
+}

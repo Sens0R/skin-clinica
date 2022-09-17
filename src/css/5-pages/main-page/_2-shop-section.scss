@@ -1,0 +1,34 @@
+.swiper-shop {
+  overflow-x: hidden;
+  @include spacer-vertical('margin', $spacer-lg);
+}
+
+.swiper-shop-nav {
+  @include flex($justify-content: space-between, $align-items: center);
+  @include spacer-top('margin', $spacer-lg);
+}
+
+.swiper-btn--left-shop,
+.swiper-btn--right-shop {
+  transition: 0.4s ease-in-out;
+
+  svg {
+    transition: 0.4s ease-in-out;
+  }
+
+  @include hover {
+    background: $color-accent;
+    svg {
+      fill: $color-light;
+    }
+  }
+
+  &:focus-visible {
+    svg {
+      fill: $color-light;
+    }
+
+    background: $color-accent;
+    outline: none;
+  }
+}

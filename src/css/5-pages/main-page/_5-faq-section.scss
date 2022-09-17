@@ -1,0 +1,7 @@
+.faq {
+  max-width: 650px;
+  &__header {
+    @include spacer-bottom('margin', $spacer-lg);
+    text-align: center;
+  }
+}
