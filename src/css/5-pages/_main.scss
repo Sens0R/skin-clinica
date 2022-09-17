@@ -243,7 +243,7 @@
   &__header {
     z-index: 1;
     @include spacer-bottom('margin', $spacer-lg);
-    color: $color-gray;
+    
   }
 
   &__body {
@@ -296,7 +296,7 @@
   max-width: 650px;
   &__header {
     @include spacer-bottom('margin', $spacer-lg);
-    color: $color-gray;
+   
     text-align: center;
   }
 }

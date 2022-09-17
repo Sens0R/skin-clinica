@@ -73,7 +73,9 @@
   width: 100%;
   max-width: 25rem;
   @include margin-auto(x);
-  transition: all 0.4s ease-in-out;
+  @include media-breakpoint-up(lg) {
+    transition: all 0.4s ease-in-out;
+  }
 
   &:focus-within:valid {
     .nav-search-buttons__search svg {
@@ -85,14 +87,21 @@
 .nav-search-input {
   width: 100%;
   height: 2.5rem;
-  padding: 0.25rem;
+  padding: 0.25rem 3.5rem;
   outline: 1px solid $color-primary;
   border-radius: $border-radius-pill;
-  padding-left: 3rem;
 
   &::placeholder {
     color: $color-secondary;
-    padding-left: 0.5em;
+    text-align: center;
+    font-size: $fs-base;
+    text-transform: uppercase;
+    transition: 0.4s ease-in-out;
+    letter-spacing: 1px;
+  }
+
+  &:focus-visible::placeholder {
+    color: transparent;
   }
 }
 
@@ -101,26 +110,31 @@
 }
 
 .nav-search-buttons {
-  &__search {
-    @include absolute(left 0 top 0);
-    padding: 0 1rem;
-    height: 100%;
-  }
-
   &__search-icon {
     @include box(1rem, 1rem);
     fill: $color-primary;
   }
 
+  &__search {
+    @include absolute(left 0 top 0);
+    padding: 0 0.75rem;
+    height: 100%;
+  }
+
   &__close {
-    @include link-space();
-    margin-left: 1rem;
+    @include absolute(right 0 top 0);
+    font-size: 0.75rem;
+    color: $color-light;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 100%;
+    background-color: $color-accent-light;
   }
 
   &__close-icon {
-    fill: $color-secondary;
-    @include rfs(2.5rem, height);
-    @include rfs(2.5rem, width);
+    fill: $color-light;
+    @include box(1rem, 1rem);
   }
 }
 
@@ -128,27 +142,51 @@
 
 @include media-breakpoint-down(lg) {
   .nav-search-form {
+  }
+
+  .nav-search-input {
+    border-radius: 0;
+    outline-color: $color-accent;
+    &::placeholder {
+      font-size: $fs-sm;
+      transition: none;
+    }
+  }
+
+  .nav-search-buttons {
+    &__search-icon {
+      fill: $color-light !important;
+      @include box(1rem, 1rem);
+    }
+
+    &__search {
+      background-color: $color-accent-light;
+    }
+  }
+
+  .nav-search-form {
     max-width: none;
   }
 
   .mobile-search {
     @include absolute(left 0);
     @include flex($justify-content: center, $align-items: center);
-    opacity: 0;
+
     visibility: hidden;
     background: $color-white;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+    translate: 0 -1rem;
+    scale: 0;
+
     @include z-index(nav-search);
 
     &.active {
       opacity: 1;
+      scale: 1;
+      translate: none;
       visibility: visible;
     }
-  }
-
-  .nav-search {
-    @include flex($justify-content: center, $align-items: center);
-    width: 100%;
   }
 }
 

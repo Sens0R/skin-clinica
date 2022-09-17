@@ -15,7 +15,7 @@ animateOnScroll();
 notification();
 
 fixedHeader(lg);
-//search()
+search()
 
 hamburger({
   notification: '[data-close-notification-btn]',

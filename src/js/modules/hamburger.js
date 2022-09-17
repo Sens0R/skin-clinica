@@ -50,7 +50,6 @@ export function hamburger(userOptions) {
   const content = wrapAll(mainElement);
   content.style.overflowY = 'auto';
 
-  //const content = document.querySelector('[data-nav-content]');
   mainElement.id = hamburgerId;
   toggler = document.querySelector(toggler);
   toggler.type = 'button';

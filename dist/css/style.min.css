@@ -14068,9 +14068,13 @@ input {
   max-width: 25rem;
   margin-left: auto;
   margin-right: auto;
-  -webkit-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+}
+@media (min-width: 992px) {
+  .nav-search-form {
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
 }
 .nav-search-form:focus-within:valid .nav-search-buttons__search svg {
   fill: #e5065f;
@@ -14079,82 +14083,146 @@ input {
 .nav-search-input {
   width: 100%;
   height: 2.5rem;
-  padding: 0.25rem;
+  padding: 0.25rem 3.5rem;
   outline: 1px solid hsl(336deg, 95%, 84%);
   border-radius: 50rem;
-  padding-left: 3rem;
 }
 .nav-search-input::-webkit-input-placeholder {
   color: hsl(0deg, 0%, 12%);
-  padding-left: 0.5em;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  letter-spacing: 1px;
 }
 .nav-search-input::-moz-placeholder {
   color: hsl(0deg, 0%, 12%);
-  padding-left: 0.5em;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  -moz-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  letter-spacing: 1px;
 }
 .nav-search-input:-ms-input-placeholder {
   color: hsl(0deg, 0%, 12%);
-  padding-left: 0.5em;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  -ms-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  letter-spacing: 1px;
 }
 .nav-search-input::-ms-input-placeholder {
   color: hsl(0deg, 0%, 12%);
-  padding-left: 0.5em;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  -ms-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  letter-spacing: 1px;
 }
 .nav-search-input::placeholder {
   color: hsl(0deg, 0%, 12%);
-  padding-left: 0.5em;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  -webkit-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  letter-spacing: 1px;
+}
+.nav-search-input:focus-visible::-webkit-input-placeholder {
+  color: transparent;
+}
+.nav-search-input:focus-visible::-moz-placeholder {
+  color: transparent;
+}
+.nav-search-input:focus-visible:-ms-input-placeholder {
+  color: transparent;
+}
+.nav-search-input:focus-visible::-ms-input-placeholder {
+  color: transparent;
+}
+.nav-search-input:focus-visible::placeholder {
+  color: transparent;
 }
 
 .nav-search-form:focus-within {
   max-width: 100%;
 }
 
-.nav-search-buttons__search {
-  top: 0;
-  left: 0;
-  position: absolute;
-  padding: 0 1rem;
-  height: 100%;
-}
 .nav-search-buttons__search-icon {
   width: 1rem;
   height: 1rem;
   fill: hsl(336deg, 95%, 84%);
 }
-.nav-search-buttons__close {
-  position: relative;
-  margin-left: 1rem;
-}
-.nav-search-buttons__close:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-width: 48px;
-  min-height: 48px;
+.nav-search-buttons__search {
+  top: 0;
+  left: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
+  padding: 0 0.75rem;
+  height: 100%;
+}
+.nav-search-buttons__close {
+  top: 0;
+  right: 0;
+  position: absolute;
+  font-size: 0.75rem;
+  color: hsl(0deg, 0%, 100%);
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 2.5rem;
+  height: 100%;
+  background-color: #fb5698;
 }
 .nav-search-buttons__close-icon {
-  fill: hsl(0deg, 0%, 12%);
-  height: calc(1.375rem + 1.5vw);
-  width: calc(1.375rem + 1.5vw);
-}
-@media (min-width: 1200px) {
-  .nav-search-buttons__close-icon {
-    height: 2.5rem;
-  }
-}
-@media (min-width: 1200px) {
-  .nav-search-buttons__close-icon {
-    width: 2.5rem;
-  }
+  fill: hsl(0deg, 0%, 100%);
+  width: 1rem;
+  height: 1rem;
 }
 
 /* ====================   MOBILE SEARCH   ==================== */
 @media (max-width: 991.98px) {
+  .nav-search-input {
+    border-radius: 0;
+    outline-color: #e5065f;
+  }
+  .nav-search-input::-webkit-input-placeholder {
+    font-size: 0.875rem;
+    -webkit-transition: none;
+    transition: none;
+  }
+  .nav-search-input::-moz-placeholder {
+    font-size: 0.875rem;
+    -moz-transition: none;
+    transition: none;
+  }
+  .nav-search-input:-ms-input-placeholder {
+    font-size: 0.875rem;
+    -ms-transition: none;
+    transition: none;
+  }
+  .nav-search-input::-ms-input-placeholder {
+    font-size: 0.875rem;
+    -ms-transition: none;
+    transition: none;
+  }
+  .nav-search-input::placeholder {
+    font-size: 0.875rem;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+  .nav-search-buttons__search-icon {
+    fill: hsl(0deg, 0%, 100%) !important;
+    width: 1rem;
+    height: 1rem;
+  }
+  .nav-search-buttons__search {
+    background-color: #fb5698;
+  }
   .nav-search-form {
     max-width: none;
   }
@@ -14170,29 +14238,21 @@ input {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    opacity: 0;
     visibility: hidden;
     background: hsl(0deg, 0%, 100%);
-    -webkit-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+    translate: 0 -1rem;
+    scale: 0;
     z-index: 50;
   }
   .mobile-search.active {
     opacity: 1;
+    scale: 1;
+    translate: none;
     visibility: visible;
-  }
-  .nav-search {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100%;
   }
 }
 /* ====================   TOOLS   ==================== */
@@ -16326,7 +16386,6 @@ input {
 .testimonials__header {
   z-index: 1;
   margin-bottom: calc(1.35rem + 1.2vw);
-  color: hsl(0deg, 0%, 40%);
 }
 @media (min-width: 1200px) {
   .testimonials__header {
@@ -16412,7 +16471,6 @@ input {
 }
 .faq__header {
   margin-bottom: calc(1.35rem + 1.2vw);
-  color: hsl(0deg, 0%, 40%);
   text-align: center;
 }
 @media (min-width: 1200px) {

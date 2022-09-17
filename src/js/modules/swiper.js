@@ -17,8 +17,7 @@ const swiperShop = new Swiper('.swiper.swiper-shop', {
   a11y: true,
 
   autoplay: {
-    delay: 4000,
-    pauseOnMouseEnter: true,
+    delay: 6000,
   },
 
   // Navigation arrows
@@ -72,8 +71,7 @@ const swiperTestimonials = new Swiper('.swiper.swiper-testimonials', {
   loop: true,
 
   autoplay: {
-    delay: 4000,
-    pauseOnMouseEnter: true,
+    delay: 6000,
   },
 
   // If we need pagination
