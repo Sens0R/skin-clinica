@@ -1,0 +1,21 @@
+.skip-link {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  z-index: 999;
+  background-color: $color-secondary;
+  font-weight: bold;
+  @include font-size(1.25rem);
+  text-transform: uppercase;
+  color: $color-light;
+  padding: 0.5rem;
+  translate: 0 -100%;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  &:focus-visible {
+    translate: none;
+  }
+}

@@ -14038,6 +14038,7 @@ input {
 }
 .nav-search-form:focus-within:valid .nav-search-buttons__search svg {
   fill: #e5065f;
+  scale: 1.15;
 }
 
 .nav-search-input {
@@ -14113,10 +14114,32 @@ input {
   max-width: 100%;
 }
 
-.nav-search-buttons__search-icon {
-  width: 1rem;
-  height: 1rem;
-  fill: hsl(336deg, 95%, 84%);
+.nav-search-buttons {
+  top: 0;
+  position: absolute;
+  height: 100%;
+  padding: 0 0.75rem;
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-search-buttons:hover svg {
+    scale: 1.15;
+    fill: #e5065f;
+  }
+}
+.nav-search-buttons:focus-visible {
+  outline: none;
+}
+.nav-search-buttons:focus-visible svg {
+  scale: 1.15;
+  fill: #e5065f;
+}
+.nav-search-buttons__search {
+  left: 0;
+}
+.nav-search-buttons__close {
+  right: 0;
+}
+.nav-search-buttons__icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14126,34 +14149,28 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.nav-search-buttons__search {
-  top: 0;
-  left: 0;
-  position: absolute;
-  padding: 0 0.75rem;
-  height: 100%;
-}
-.nav-search-buttons__close {
-  top: 0;
-  right: 0;
-  position: absolute;
-  font-size: 0.75rem;
-  color: hsl(0deg, 0%, 100%);
-  text-transform: uppercase;
-  font-weight: bold;
-  width: 2.5rem;
-  height: 100%;
-  background-color: #fb5698;
-}
-.nav-search-buttons__close-icon {
-  fill: hsl(0deg, 0%, 100%);
   width: 1rem;
   height: 1rem;
+  fill: hsl(336deg, 95%, 84%);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 /* ====================   MOBILE SEARCH   ==================== */
 @media (max-width: 991.98px) {
+  .nav-search-buttons {
+    background-color: #fb5698;
+  }
+  .nav-search-buttons:focus-visible {
+    background-color: #e5065f;
+  }
+  .nav-search-buttons__icon {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    fill: hsl(0deg, 0%, 100%) !important;
+  }
   .nav-search-input {
     border-radius: 0;
     outline-color: #e5065f;
@@ -14184,14 +14201,6 @@ input {
     -o-transition: none;
     transition: none;
   }
-  .nav-search-buttons__search-icon {
-    fill: hsl(0deg, 0%, 100%) !important;
-    width: 1rem;
-    height: 1rem;
-  }
-  .nav-search-buttons__search {
-    background-color: #fb5698;
-  }
   .nav-search-form {
     max-width: none;
   }
@@ -14207,9 +14216,9 @@ input {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    z-index: 50;
     visibility: hidden;
     background: hsl(0deg, 0%, 100%);
-    z-index: 50;
   }
   .mobile-search.active {
     visibility: visible;
@@ -15296,11 +15305,6 @@ input {
   }
 }
 
-.nav-toggler:focus-visible {
-  border-radius: inherit;
-  outline-offset: 2px;
-}
-
 @media (hover: hover) and (pointer: fine) {
   .nav-menu__item:hover .nav-menu__link {
     color: #e5065f;
@@ -15715,19 +15719,19 @@ input {
 
 @media (min-width: 992px) {
   [data-animate=blog-header-1] {
-    -webkit-transition-delay: 0.33s;
-         -o-transition-delay: 0.33s;
-            transition-delay: 0.33s;
+    -webkit-transition-delay: 0.25s;
+         -o-transition-delay: 0.25s;
+            transition-delay: 0.25s;
   }
   [data-animate=blog-header-2] {
-    -webkit-transition-delay: 0.66s;
-         -o-transition-delay: 0.66s;
-            transition-delay: 0.66s;
+    -webkit-transition-delay: 0.75s;
+         -o-transition-delay: 0.75s;
+            transition-delay: 0.75s;
   }
   [data-animate=blog-header-3] {
-    -webkit-transition-delay: 1s;
-         -o-transition-delay: 1s;
-            transition-delay: 1s;
+    -webkit-transition-delay: 1.25s;
+         -o-transition-delay: 1.25s;
+            transition-delay: 1.25s;
   }
 }
 [data-animate=blog-header-1].show,
@@ -15757,6 +15761,29 @@ input {
     rotate: 0deg;
   }
 }
+.skip-link {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  z-index: 999;
+  background-color: hsl(0deg, 0%, 12%);
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: hsl(0deg, 0%, 100%);
+  padding: 0.5rem;
+  translate: 0 -100%;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.skip-link:focus-visible {
+  translate: none;
+}
+
 .page-banner {
   position: relative;
 }

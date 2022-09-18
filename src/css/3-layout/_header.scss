@@ -63,6 +63,7 @@
   &:focus-within:valid {
     .nav-search-buttons__search svg {
       fill: $color-accent;
+      scale: 1.15;
     }
   }
 }
@@ -93,58 +94,65 @@
 }
 
 .nav-search-buttons {
-  &__search-icon {
-    @include box(1rem, 1rem);
-    fill: $color-primary;
-    @include flex($justify-content: center, $align-items: center);
+  @include absolute(top 0);
+  height: 100%;
+  padding: 0 0.75rem;
+
+  @include hover {
+    svg {
+      scale: 1.15;
+      fill: $color-accent;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    svg {
+      scale: 1.15;
+      fill: $color-accent;
+    }
   }
 
   &__search {
-    @include absolute(left 0 top 0);
-    padding: 0 0.75rem;
-    height: 100%;
+    left: 0;
   }
 
   &__close {
-    @include absolute(right 0 top 0);
-    font-size: 0.75rem;
-    color: $color-light;
-    text-transform: uppercase;
-    font-weight: bold;
-    width: 2.5rem;
-    height: 100%;
-    background-color: $color-accent-light;
+    right: 0;
   }
 
-  &__close-icon {
-    fill: $color-light;
+  &__icon {
+    @include flex($justify-content: center, $align-items: center);
     @include box(1rem, 1rem);
+
+    fill: $color-primary;
+    transition: all 0.3s ease-in-out;
   }
 }
 
 /* ====================   MOBILE SEARCH   ==================== */
 
 @include media-breakpoint-down(lg) {
-  .nav-search-form {
+  .nav-search-buttons {
+    background-color: $color-accent-light;
+
+    &:focus-visible {
+      background-color: $color-accent;
+    }
+
+    &__icon {
+      transition: none;
+      fill: $color-light !important;
+    }
   }
 
   .nav-search-input {
     border-radius: 0;
     outline-color: $color-accent;
+
     &::placeholder {
       font-size: $fs-sm;
       transition: none;
-    }
-  }
-
-  .nav-search-buttons {
-    &__search-icon {
-      fill: $color-light !important;
-      @include box(1rem, 1rem);
-    }
-
-    &__search {
-      background-color: $color-accent-light;
     }
   }
 
@@ -155,9 +163,9 @@
   .mobile-search {
     @include absolute(left 0);
     @include flex($justify-content: center, $align-items: center);
+    @include z-index(nav-search);
     visibility: hidden;
     background: $color-white;
-    @include z-index(nav-search);
 
     &.active {
       visibility: visible;

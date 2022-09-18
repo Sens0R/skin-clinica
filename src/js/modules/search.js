@@ -2,6 +2,7 @@ const defaultOptions = {
   mainElement: '[data-search]',
   openBtn: '[data-search-btn="open"]',
   closeBtn: '[data-search-btn="close"]',
+  inputId: '[data-search] input',
   searchId: 'nav-search',
   breakpoint: 992,
   stopTransition: false,
@@ -12,7 +13,7 @@ const defaultOptions = {
 export function search(userOptions) {
   let options = defaultOptions;
   let mainElement;
-  
+
   userOptions && 'mainElement' in userOptions
     ? (mainElement = document.querySelector(userOptions.mainElement))
     : (mainElement = document.querySelector(defaultOptions.mainElement));
@@ -23,14 +24,18 @@ export function search(userOptions) {
   let {
     openBtn,
     closeBtn,
+    submitBtn,
     breakpoint,
     stopTransition,
     searchId,
+    inputId,
   } = options;
-
 
   openBtn = document.querySelector(openBtn);
   closeBtn = document.querySelector(closeBtn);
+  submitBtn = document.querySelector(submitBtn);
+  const searchInput = document.getElementById(inputId);
+
   /*   mainElement.id = hamburgerId;
   
   toggler.type = 'button';
@@ -38,10 +43,6 @@ export function search(userOptions) {
   toggler.setAttribute('aria-hasPopup', 'true');
   toggler.setAttribute('aria-label', `Toggle ${hamburgerId}`);
   toggler.setAttribute('aria-controls', hamburgerId); */
-
-  const firstFocusableEl = mainElement.querySelectorAll(
-    'button, [href]:not(use), input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  )[0];
 
   let contentHasTransition = getComputedStyle(mainElement).getPropertyValue(
     'transition-duration'
@@ -55,7 +56,6 @@ export function search(userOptions) {
 
   openBtn.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
-  openBtn.addEventListener('keydown', keyboardNavigation);
 
   // close on resize
   if (breakpoint) {
@@ -68,14 +68,13 @@ export function search(userOptions) {
 
   function open() {
     mainElement.classList.add('active');
-   
-   
     if (stopTransition) mainElement.classList.remove('stop-transition');
+    focusInput();
   }
 
   function close() {
     mainElement.classList.remove('active');
-    
+
     if (stopTransition) {
       mainElement.addEventListener(
         'transitionend',
@@ -85,16 +84,12 @@ export function search(userOptions) {
     }
   }
 
-  function keyboardNavigation() {
-    if (!contentHasTransition) return firstFocusableEl.focus();
-
-    mainElement.addEventListener(
-      'transitionend',
-      () => firstFocusableEl.focus(),
-      {
+  function focusInput() {
+    if (!contentHasTransition) searchInput.focus();
+    if (contentHasTransition)
+      mainElement.addEventListener('transitionend', () => searchInput.focus(), {
         once: true,
-      }
-    );
+      });
 
     mainElement.addEventListener('focusout', focusOut);
   }
@@ -104,9 +99,8 @@ export function search(userOptions) {
       if (!mainElement.contains(document.activeElement)) {
         mainElement.removeEventListener('focusout', focusOut);
         close();
-        toggler.focus();
+        openBtn.focus();
       }
     }, 25);
   }
-  
 }

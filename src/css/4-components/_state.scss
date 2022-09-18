@@ -15,15 +15,13 @@
   }
 }
 
-.nav-toggler {
-  &:focus-visible {
-    outline-style: none;
-    .nav-toggler__open,
-    .nav-toggler__closed {
-      outline: 3px solid $color-accent;
-      outline-offset: 3px;
-      border-radius: $border-radius-sm;
-    }
+.nav-toggler:focus-visible {
+  outline-style: none;
+  .nav-toggler__open,
+  .nav-toggler__closed {
+    outline: 3px solid $color-accent;
+    outline-offset: 3px;
+    border-radius: $border-radius-sm;
   }
 }
 
@@ -35,7 +33,6 @@
       .nav-tools__name {
         text-decoration-color: $color-accent;
         text-decoration-thickness: 2px;
-        
       }
 
       svg {
@@ -48,7 +45,6 @@
     @include hover {
       .nav-tools__name {
         text-decoration-color: $color-accent;
-        
       }
 
       svg {
@@ -58,11 +54,6 @@
       }
     }
   }
-}
-
-.nav-toggler:focus-visible {
-  border-radius: inherit;
-  outline-offset: 2px;
 }
 
 .nav-menu__item {

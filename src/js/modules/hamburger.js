@@ -155,15 +155,16 @@ export function hamburger(userOptions) {
   }
 
   function keyboardNavigation() {
-    if (!contentHasTransition) return firstFocusableEl.focus();
+    if (!contentHasTransition) firstFocusableEl.focus();
 
-    mainElement.addEventListener(
-      'transitionend',
-      () => firstFocusableEl.focus(),
-      {
-        once: true,
-      }
-    );
+    if (contentHasTransition)
+      mainElement.addEventListener(
+        'transitionend',
+        () => firstFocusableEl.focus(),
+        {
+          once: true,
+        }
+      );
 
     mainElement.addEventListener('focusout', focusOut);
   }

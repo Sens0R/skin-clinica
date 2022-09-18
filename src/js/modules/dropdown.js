@@ -169,15 +169,16 @@ function renderDropdowns() {
         dropdown.querySelector('[aria-label="submenu"]')
       ).getPropertyValue('transition-duration');
 
-      if (contentHasTransition === '0s') return firstFocusableEl.focus();
+      if (contentHasTransition === '0s') firstFocusableEl.focus();
 
-      dropdownContent.addEventListener(
-        'transitionend',
-        () => firstFocusableEl.focus(),
-        {
-          once: true,
-        }
-      );
+      if (!contentHasTransition === '0s')
+        dropdownContent.addEventListener(
+          'transitionend',
+          () => firstFocusableEl.focus(),
+          {
+            once: true,
+          }
+        );
 
       dropdownContent.addEventListener('focusout', focusOut);
     }
