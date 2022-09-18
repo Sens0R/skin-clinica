@@ -3,7 +3,6 @@ const defaultOptions = {
   openBtn: '[data-search-btn="open"]',
   closeBtn: '[data-search-btn="close"]',
   inputId: '[data-search] input',
-  searchId: 'nav-search',
   breakpoint: 992,
   stopTransition: false,
 };
@@ -21,20 +20,13 @@ export function search(userOptions) {
   if (userOptions) options = { ...defaultOptions, ...userOptions };
 
   // destructor
-  let {
-    openBtn,
-    closeBtn,
-    submitBtn,
-    breakpoint,
-    stopTransition,
-    searchId,
-    inputId,
-  } = options;
+  let { openBtn, closeBtn, submitBtn, breakpoint, stopTransition, inputId } =
+    options;
 
   openBtn = document.querySelector(openBtn);
   closeBtn = document.querySelector(closeBtn);
   submitBtn = document.querySelector(submitBtn);
-  const searchInput = document.getElementById(inputId);
+  const searchInput = document.querySelector(inputId);
 
   /*   mainElement.id = hamburgerId;
   
@@ -55,6 +47,7 @@ export function search(userOptions) {
   // add error check here for missing elements - mainElement, openBtn, closeBtn, notification, content
 
   openBtn.addEventListener('click', open);
+  openBtn.addEventListener('keydown', keyboardNavigation);
   closeBtn.addEventListener('click', close);
 
   // close on resize
@@ -70,10 +63,12 @@ export function search(userOptions) {
     mainElement.classList.add('active');
     if (stopTransition) mainElement.classList.remove('stop-transition');
     focusInput();
+    
   }
 
   function close() {
     mainElement.classList.remove('active');
+    document.activeElement.blur();
 
     if (stopTransition) {
       mainElement.addEventListener(
@@ -90,7 +85,9 @@ export function search(userOptions) {
       mainElement.addEventListener('transitionend', () => searchInput.focus(), {
         once: true,
       });
+  }
 
+  function keyboardNavigation() {
     mainElement.addEventListener('focusout', focusOut);
   }
 

@@ -15,7 +15,7 @@ animateOnScroll();
 notification();
 
 fixedHeader(lg);
-search({inputId: 'nav-search-input'})
+search()
 
 hamburger({
   notification: '[data-notification] button',

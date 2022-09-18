@@ -50,14 +50,17 @@
 
 /* ====================   SEARCH   ==================== */
 
-.nav-search-form {
-  position: relative;
+.nav-search {
   @include flex($justify-content: center, $align-items: center);
+  position: relative;
   width: 100%;
-  max-width: 25rem;
-  @include margin-auto(x);
+  max-width: 30rem;
   @include media-breakpoint-up(lg) {
     transition: all 0.4s ease-in-out;
+  }
+
+  &:focus-within {
+    max-width: 100%;
   }
 
   &:focus-within:valid {
@@ -70,27 +73,23 @@
 
 .nav-search-input {
   width: 100%;
-  height: 2.5rem;
-  padding: 0.25rem 3.5rem;
+  height: 2.25rem;
+  padding: 0 3.5rem;
   outline: 1px solid $color-primary;
   border-radius: $border-radius-pill;
 
   &::placeholder {
-    color: $color-secondary;
     text-align: center;
     font-size: $fs-base;
+    color: $color-secondary;
     text-transform: uppercase;
-    transition: 0.4s ease-in-out;
     letter-spacing: 1px;
+    transition: 0.4s ease-in-out;
   }
 
   &:focus-visible::placeholder {
     color: transparent;
   }
-}
-
-.nav-search-form:focus-within {
-  max-width: 100%;
 }
 
 .nav-search-buttons {
@@ -133,6 +132,34 @@
 /* ====================   MOBILE SEARCH   ==================== */
 
 @include media-breakpoint-down(lg) {
+  .nav-search {
+    @include absolute(left 0);
+    @include z-index(nav-search);
+    visibility: hidden;
+    margin-left: 0.75rem;
+    width: calc(100% - 4.75rem);
+    @include media-xs() {
+      width: calc(100% - 4rem);
+    };
+    max-width: none;
+    background: $color-white;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  .nav-search-input {
+    border-radius: 0;
+    outline-color: $color-accent-light;
+    height: 2.5rem;
+
+    &::placeholder {
+      font-size: $fs-sm;
+      transition: none;
+    }
+  }
+
   .nav-search-buttons {
     background-color: $color-accent-light;
 
@@ -143,32 +170,6 @@
     &__icon {
       transition: none;
       fill: $color-light !important;
-    }
-  }
-
-  .nav-search-input {
-    border-radius: 0;
-    outline-color: $color-accent;
-
-    &::placeholder {
-      font-size: $fs-sm;
-      transition: none;
-    }
-  }
-
-  .nav-search-form {
-    max-width: none;
-  }
-
-  .mobile-search {
-    @include absolute(left 0);
-    @include flex($justify-content: center, $align-items: center);
-    @include z-index(nav-search);
-    visibility: hidden;
-    background: $color-white;
-
-    &.active {
-      visibility: visible;
     }
   }
 }
