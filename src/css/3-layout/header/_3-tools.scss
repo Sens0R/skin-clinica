@@ -1,0 +1,50 @@
+.tools {
+  justify-content: flex-end;
+/*   @include media-xs {
+    padding-right: 0;
+    padding-left: 0;
+  } */
+}
+
+.nav-tools {
+  @include flex($justify-content: center, $align-items: center);
+
+  > * {
+    margin-right: 0.75rem;
+  }
+
+  :last-child {
+    margin-right: 0 !important;
+  }
+
+  &__name {
+    margin: 0;
+    transition: all 0.4s ease-in-out;
+    text-decoration: underline 1px solid transparent;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .nav-tools__name {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .tools {
+    .rounded-icon {
+      padding: 0 !important;
+      background: none !important;
+      box-shadow: none !important;
+      margin-right: 1.25rem;
+      transition: none !important;
+    }
+
+    .icon-rounded {
+      transition: all 0.2s ease-in;
+      @include box(1rem, 1rem);
+      margin-right: 3px !important;
+      fill: $color-primary !important;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '1-nav-belt';
+@import '2-search';
+@import '3-tools';
+@import '4-nav-menu';
+
+.header._sticky-header {
+  @include fixed(top 0 left 0);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 1.5em 1.25em -1.5em;
+}
+
+.header {
+  @include z-index(header);
+  font-size: $fs-sm;
+  background-color: $color-light;
+  user-select: none;
+}
+

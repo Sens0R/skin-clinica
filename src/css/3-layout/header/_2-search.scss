@@ -1,0 +1,133 @@
+.nav-search {
+  @include absolute(left 0);
+  @include flex($justify-content: space-between, $align-items: center);
+  visibility: hidden;
+  max-width: 30rem;
+  border-radius: $border-radius-pill;
+  outline: 1px solid $color-primary;
+  background: $color-white;
+  width: calc(100% - 4.5rem);
+  margin-left: 0.75rem;
+  transition: max-width 0.4s ease-in-out;
+
+  &.active {
+    visibility: visible;
+    @include z-index(nav-search);
+  }
+
+  &:focus-within {
+    max-width: 100%;
+    outline: 1px solid $color-accent;
+  }
+
+  &:focus-within:valid {
+    .nav-search-buttons__icon {
+      fill: $color-accent;
+      scale: 1.15;
+    }
+    .nav-search-buttons__reset {
+      visibility: visible;
+    }
+  }
+}
+
+.nav-search-input {
+  width: 100%;
+  height: 2.5rem;
+  padding-right: 1rem;
+
+  &::placeholder {
+    color: $color-secondary;
+    font-size: $fs-sm;
+  }
+
+  &:focus-visible::placeholder {
+    color: transparent;
+  }
+}
+
+.nav-search-buttons {
+  @include link-space();
+  padding: 0 0.75rem;
+  height: 100%;
+
+  &__open {
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__close {
+    //display: none;
+    // right: 0;
+    position: absolute;
+  }
+
+  &__search {
+  }
+ 
+  &__icon {
+    @include flex($justify-content: center, $align-items: center);
+    @include box(0.75rem, 0.75rem);
+    fill: $color-primary;
+    // transition: all 0.3s ease-in-out;
+  }
+
+  @include hover {
+    svg {
+      //scale: 1.15;
+      //fill: $color-accent;
+    }
+  }
+
+  &:focus-visible {
+    // outline: none;
+    svg {
+      //scale: 1.15;
+      // fill: $color-accent;
+    }
+  }
+}
+
+/* ====================   DESKTOP   ==================== */
+
+@include media-breakpoint-up(md) {
+  .nav-search {
+    position: static;
+    visibility: visible;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .nav-search-input {
+    height: 2.25rem;
+
+    &::placeholder {
+      font-size: $fs-base;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .nav-search-buttons {
+    &__close {
+      display: none;
+    }
+
+    &__open {
+      display: none !important;
+    }
+ 
+    // background-color: $color-accent-light;
+
+    &:focus-visible {
+      //  background-color: $color-accent;
+    }
+
+    &__icon {
+      // transition: none;
+      // fill: $color-light !important;
+    }
+  }
+}

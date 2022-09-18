@@ -1,19 +1,6 @@
 /* ====================   HEADER   ==================== */
 
-.logo-header {
-  @include link-space();
-  &:focus-visible {
-    background-color: $color-primary;
-    outline: none;
-    border-radius: $border-radius-pill;
-  }
 
-  @include media-breakpoint-down(sm) {
-    &:focus-visible {
-      outline: 4px solid $color-accent;
-    }
-  }
-}
 
 .nav-toggler:focus-visible {
   outline-style: none;

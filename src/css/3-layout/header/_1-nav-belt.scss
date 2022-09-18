@@ -1,0 +1,45 @@
+.nav-belt > * {
+  @include flex($justify-content: center, $align-items: center);
+  @include spacer-vertical('margin', $spacer-sm);
+}
+
+.logo-header {
+  @include flex($justify-content: center, $align-items: center);
+  @include link-space();
+  border-radius: $border-radius-pill;
+
+  &:focus-visible {
+    background-color: $color-primary;
+    outline: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    &:focus-visible {
+      outline: 4px solid $color-accent;
+    }
+  }
+}
+
+.logo-text {
+  @include font-size(1.25rem);
+  text-transform: uppercase;
+  padding: 0.5rem;
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
+
+.logo-text-light {
+  @extend .logo-text;
+  color: $color-light;
+}
+
+.logo-header-icon {
+  @include box(2.5rem, 2.5rem);
+  border-radius: 100%;
+
+  @include media-breakpoint-up(lg) {
+    @include box(4rem, 4rem);
+  }
+}

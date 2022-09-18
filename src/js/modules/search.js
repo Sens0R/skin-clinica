@@ -1,3 +1,5 @@
+import { main } from '@popperjs/core';
+
 const defaultOptions = {
   mainElement: '[data-search]',
   openBtn: '[data-search-btn="open"]',
@@ -24,6 +26,8 @@ export function search(userOptions) {
     options;
 
   openBtn = document.querySelector(openBtn);
+  //openBtn.setAttribute('aria-hasPopup', 'true');
+
   closeBtn = document.querySelector(closeBtn);
   submitBtn = document.querySelector(submitBtn);
   const searchInput = document.querySelector(inputId);
@@ -32,7 +36,7 @@ export function search(userOptions) {
   
   toggler.type = 'button';
   toggler.setAttribute('aria-expanded', 'false');
-  toggler.setAttribute('aria-hasPopup', 'true');
+  
   toggler.setAttribute('aria-label', `Toggle ${hamburgerId}`);
   toggler.setAttribute('aria-controls', hamburgerId); */
 
@@ -61,9 +65,9 @@ export function search(userOptions) {
 
   function open() {
     mainElement.classList.add('active');
+    //mainElement.setAttribute('aria-expanded', 'true');
     if (stopTransition) mainElement.classList.remove('stop-transition');
     focusInput();
-    
   }
 
   function close() {

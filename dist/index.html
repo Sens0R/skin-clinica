@@ -39,107 +39,104 @@
         </button>
       </aside>
     </div>
-    <header class="header"><div class="container-fluid container-lg">
-  <div class="row nav-belt">
+    <header class="header container-fluid container-lg"><div class="row nav-belt">
 
-    <!-- ====================   LOGO   ==================== -->
+  <!-- ====================   LOGO   ==================== -->
 
-    <div class="logo col-auto justify-content-start">
-      <a class="logo-header" href="index.html" aria-label="Skin clinica home. Skin clinica logo.">
-        <svg aria-hidden="true" class="logo-header-icon hvr-icon">
-          <use href="images/icons/sprite-multi.svg#logo-header"></use>
+  <div class="logo col-auto justify-content-start">
+    <a class="logo-header" href="index.html" aria-label="Skin clinica home. Skin clinica logo.">
+      <svg aria-hidden="true" class="logo-header-icon hvr-icon">
+        <use href="images/icons/sprite-multi.svg#logo-header"></use>
+      </svg>
+      <span class="logo-text">skin clinica</span>
+    </a>
+  </div>
+
+  <!-- ====================   SEARCH   ==================== -->
+
+  <div class="gx-0 col search-col">
+
+    <button type="button" data-search-btn="open" class="rounded-icon nav-search-buttons__open" aria-label="Open search">
+      <svg aria-hidden="true" class="icon-rounded hvr-icon">
+        <use href="images/icons/sprite-mono.svg#search"></use>
+      </svg>
+    </button>
+
+    <form role="search" data-search class="nav-search">
+
+      <button type="submit" class="nav-search-buttons nav-search-buttons__search" aria-label="Submit search">
+        <svg aria-hidden="true" class="nav-search-buttons__icon hvr-icon">
+          <use href="images/icons/sprite-mono.svg#search"></use>
         </svg>
-        <div class="logo-text">skin clinica</div>
-      </a>
-    </div>
+      </button>
 
-    <!-- ====================   SEARCH   ==================== -->
+      <label for="nav-search-input" class="visually-hidden">
+        Search for products
+      </label>
 
-    <div class="gx-0 col search-col">
+      <input type="search" class="nav-search-input text-sm" placeholder="Search for products" id="nav-search-input"
+        autocomplete="off" required>
 
-      <form role="search" data-search class="nav-search">
+    </form>
 
-        <button type="submit" class="nav-search-buttons nav-search-buttons__search" aria-label="Submit search">
-          <svg aria-hidden="true" class="nav-search-buttons__icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#search"></use>
-          </svg>
-        </button>
-
-        <label for="nav-search-input" class="visually-hidden">
-          Search for products
-        </label>
-
-        <input type="text" class="nav-search-input text-sm" placeholder="Search for products" id="nav-search-input"
-          autocomplete="off" required>
-
-        <button type="button" data-search-btn="close" class="d-lg-none nav-search-buttons nav-search-buttons__close"
-          aria-label="Close search"><svg aria-hidden="true" class="nav-search-buttons__icon hvr-icon">
-            <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-          </svg>
-        </button>
-
-      </form>
-
-    </div>
-
-    <!-- ====================   TOOLS   ==================== -->
-
-    <div class="col-auto d-flex tools">
-      <div class="nav-tools">
-        <button type="button" data-search-btn="open" class="rounded-icon d-lg-none nav-search-buttons__open"
-          aria-label="Open search">
-          <svg aria-hidden="true" class="icon-rounded hvr-icon">
-            <use href="images/icons/sprite-mono.svg#search"></use>
-          </svg>
-        </button>
-
-        <a href="#" class="rounded-icon" aria-labelledby="tools-account">
-          <svg aria-hidden="true" class="icon-rounded hvr-icon">
-            <use href="images/icons/sprite-mono.svg#account"></use>
-          </svg>
-          <p id="tools-account" class="nav-tools__name">Account</p>
-        </a>
-
-        <a href="#" class="rounded-icon" aria-labelledby="tools-wishlist">
-          <svg aria-hidden="true" class="icon-rounded hvr-icon">
-            <use href="images/icons/sprite-mono.svg#wishlist"></use>
-          </svg>
-          <p id="tools-wishlist" class="nav-tools__name">Wishlist</p>
-        </a>
-
-        <a href="#" class="rounded-icon" aria-labelledby="tools-cart">
-          <svg aria-hidden="true" class="icon-rounded hvr-icon">
-            <use href="images/icons/sprite-mono.svg#cart"></use>
-          </svg>
-          <p id="tools-cart" class="nav-tools__name">Cart (0)</p>
-        </a>
-      </div>
-    </div>
-
-    <!-- ====================   NAV-TOGGLER   ==================== -->
-
-    <button type="button" data-hamburger-btn class="nav-toggler col-auto">
-      <span class="nav-toggler__open">
-        <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
-          <use href="images/icons/sprite-mono.svg#toggler-open"></use>
-        </svg>
-        <span class="nav-toggler__text">menu</span>
-      </span>
-
-      <span class="nav-toggler__close">
-        <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
-          <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
-        </svg>
-      </span>
+    <button type="button" data-search-btn="close" class="nav-search-buttons nav-search-buttons__close"
+      aria-label="Close search">close
     </button>
 
   </div>
 
-  <!-- ====================   NAVIGATION   ==================== -->
+  <!-- ====================   TOOLS   ==================== -->
 
-  <nav data-hamburger class="navigation" aria-label="Main">
+  <div class="col-auto tools pe-0">
+    <div class="nav-tools">
 
-    <div class="nav-body"><ul class="nav-menu nav-menu--main">
+      <a href="#" class="rounded-icon" aria-labelledby="tools-account">
+        <svg aria-hidden="true" class="icon-rounded hvr-icon">
+          <use href="images/icons/sprite-mono.svg#account"></use>
+        </svg>
+        <p id="tools-account" class="nav-tools__name">Account</p>
+      </a>
+
+      <a href="#" class="rounded-icon" aria-labelledby="tools-wishlist">
+        <svg aria-hidden="true" class="icon-rounded hvr-icon">
+          <use href="images/icons/sprite-mono.svg#wishlist"></use>
+        </svg>
+        <p id="tools-wishlist" class="nav-tools__name">Wishlist</p>
+      </a>
+
+      <a href="#" class="rounded-icon" aria-labelledby="tools-cart">
+        <svg aria-hidden="true" class="icon-rounded hvr-icon">
+          <use href="images/icons/sprite-mono.svg#cart"></use>
+        </svg>
+        <p id="tools-cart" class="nav-tools__name">Cart (0)</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ====================   NAV-TOGGLER   ==================== -->
+
+  <button type="button" data-hamburger-btn class="nav-toggler col-auto">
+    <span class="nav-toggler__open">
+      <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
+        <use href="images/icons/sprite-mono.svg#toggler-open"></use>
+      </svg>
+      <span class="nav-toggler__text">menu</span>
+    </span>
+
+    <span class="nav-toggler__close">
+      <svg aria-hidden="true" class="nav-toggler-icon hvr-icon">
+        <use href="images/icons/sprite-mono.svg#toggler-closed"></use>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- ====================   NAVIGATION   ==================== -->
+
+<nav data-hamburger class="navigation" aria-label="Main">
+
+  <div class="nav-body"><ul class="nav-menu nav-menu--main">
 
   <li data-dropdown data-nav-page class="nav-menu__item nav-menu-dropdown">
     <a href="shop.html" class="nav-menu__link nav-menu-dropdown__link">Shop</a>
@@ -457,7 +454,7 @@
 </ul>
 
 <hr class="d-lg-none my-lg"></div>
-    <div class="nav-mobile-socials"><ul class="social-icons">
+  <div class="nav-mobile-socials"><ul class="social-icons">
   <li class="social-icons__item">
     <a href="#" class="rounded-icon" aria-label="Facebook">
       <svg aria-hidden="true" class="icon-rounded hvr-icon">
@@ -502,7 +499,7 @@
   </li>
 </ul>
 </div>
-    <!--          <p style="background: red">
+  <!--          <p style="background: red">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsum
       quos laborum assumenda harum fugit inventore, error dicta sapiente
       iste. Necessitatibus fugiat recusandae, vel nesciunt perferendis sunt,
@@ -546,8 +543,7 @@
       <span style="color: white">END</span>
     </p>  -->
 
-  </nav>
-</div></header>
+</nav></header>
 
 <main id="main-content">
   <!--  ====================   HERO   ==================== -->
@@ -1843,7 +1839,7 @@
         <svg aria-hidden="true" class="logo-footer-icon hvr-icon">
           <use href="images/icons/sprite-multi.svg#logo-footer"></use>
         </svg>
-        <div class="logo-text-light">skin clinica</div>
+        <span class="logo-text-light">skin clinica</span>
       </a>
       <div class="footer-phone">
         <p class="footer-nav__header">Phone</p>
